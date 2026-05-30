@@ -1,5 +1,4 @@
-import { useRef } from 'react'
-import type { ElementType } from 'react'
+import { useRef, type CSSProperties, type ElementType } from 'react'
 
 export interface TabItem {
   key: string
@@ -16,7 +15,70 @@ interface TabBarProps {
   onSubTabChange: (sub: string) => void
 }
 
-export default function TabBar({ tabs, active, activeSubTab, onChange, onSubTabChange }: TabBarProps) {
+const hideScrollbar: CSSProperties = {
+  scrollbarWidth: 'none',
+  msOverflowStyle: 'none',
+}
+
+const activeGradient = 'linear-gradient(135deg, #34d979 0%, #167dff 100%)'
+
+function getMainTabStyle(isActive: boolean): CSSProperties {
+  return {
+    minHeight: 64,
+    minWidth: 96,
+    padding: '12px 16px 10px',
+    borderTopLeftRadius: isActive ? 40 : 20,
+    borderTopRightRadius: isActive ? 40 : 20,
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16,
+    WebkitTapHighlightColor: 'transparent',
+    background: isActive
+      ? activeGradient
+      : 'rgba(255, 255, 255, 0.06)',
+    border: 'none',
+    boxShadow: isActive
+      ? '0 0 24px rgba(52, 217, 121, 0.28), 0 12px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.18)'
+      : 'inset 0 2px 4px rgba(0, 0, 0, 0.18)',
+    transform: isActive ? 'translateY(-8px) scale(1.02)' : 'none',
+    opacity: isActive ? 1 : 0.78,
+    zIndex: isActive ? 20 : 10,
+    marginLeft: isActive ? -2 : 0,
+    marginRight: isActive ? -2 : 0,
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  }
+}
+
+function getSubTabStyle(isActive: boolean): CSSProperties {
+  return {
+    minHeight: 44,
+    padding: '10px 16px',
+    borderRadius: 16,
+    WebkitTapHighlightColor: 'transparent',
+    background: isActive ? activeGradient : 'rgba(255, 255, 255, 0.04)',
+    color: isActive ? '#ffffff' : 'rgba(255, 255, 255, 0.82)',
+    border: 'none',
+    boxShadow: isActive
+      ? '0 0 16px rgba(52, 217, 121, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12)'
+      : 'inset 0 1px 0 rgba(255, 255, 255, 0.04)',
+  }
+}
+
+function renderLabel(label: string) {
+  return label.split(' ').map((word, i) => (
+    <span key={i}>
+      {word}
+      {i < label.split(' ').length - 1 && <br />}
+    </span>
+  ))
+}
+
+export default function TabBar({
+  tabs,
+  active,
+  activeSubTab,
+  onChange,
+  onSubTabChange,
+}: TabBarProps) {
   const mainRef = useRef<HTMLDivElement>(null)
   const subRef = useRef<HTMLDivElement>(null)
 
@@ -36,63 +98,91 @@ export default function TabBar({ tabs, active, activeSubTab, onChange, onSubTabC
   }
 
   return (
-    <div className="shrink-0" style={{ background: '#0d1f3c' }}>
-      <div
-        ref={mainRef}
-        className="flex overflow-x-auto px-2 pt-2.5 pb-0 gap-1.5"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {tabs.map(({ key, label, Icon }) => {
-          const isActive = key === active
-          return (
-            <button
-              key={key}
-              onClick={e => handleMainClick(key, e.currentTarget)}
-              className="flex flex-col items-center gap-2 px-3.5 pt-3 pb-3.5 shrink-0 rounded-t-2xl min-w-[72px] relative transition-all"
-              style={
-                isActive
-                  ? { background: 'linear-gradient(135deg, #22c55e 0%, #0ea5e9 100%)' }
-                  : { background: 'rgba(255,255,255,0.06)' }
-              }
-            >
-              <Icon sx={{ fontSize: 22, color: 'white' }} />
-              <span className="text-[0.62rem] font-semibold text-white leading-tight text-center whitespace-pre-wrap max-w-[68px]">
-                {label.replace(' ', '\n')}
-              </span>
-              {isActive && (
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-[3px] bg-[#4ade80] rounded-t-full" />
-              )}
-            </button>
-          )
-        })}
-      </div>
-
-      {subTabs.length > 0 && (
+    <div
+      className="shrink-0"
+      style={{
+        background: '#0d1f3c',
+        boxShadow: 'inset 0 -1px 0 rgba(255, 255, 255, 0.04)',
+      }}
+    >
+      {/* Main Tabs - Swiggy-style curved header */}
+      <div className="relative">
         <div
-          ref={subRef}
-          className="flex overflow-x-auto px-2 py-2 gap-1.5"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', background: 'rgba(255,255,255,0.04)' }}
+          ref={mainRef}
+          className="flex gap-0.5 overflow-x-auto px-2 pt-4 pb-2 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+          style={hideScrollbar}
         >
-          {subTabs.map(sub => {
-            const isActive = sub === activeSubTab
+          {tabs.map(({ key, label, Icon }, index) => {
+            const isActive = key === active
             return (
               <button
-                key={sub}
-                onClick={e => handleSubClick(sub, e.currentTarget)}
-                className="flex items-center justify-center px-4 py-2 shrink-0 rounded-xl text-[0.72rem] font-semibold relative transition-all whitespace-nowrap"
-                style={
-                  isActive
-                    ? { background: 'linear-gradient(135deg, #22c55e 0%, #0ea5e9 100%)', color: 'white' }
-                    : { background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.75)' }
-                }
+                key={key}
+                type="button"
+                aria-current={isActive ? 'page' : undefined}
+                onClick={e => handleMainClick(key, e.currentTarget)}
+                className="snap-start relative overflow-hidden"
+                style={getMainTabStyle(isActive)}
               >
-                {sub}
+                {/* Glow effect for active tab */}
                 {isActive && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-[2.5px] bg-[#4ade80] rounded-t-full" />
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-[40px_40px_16px_16px]"
+                    style={{
+                      background: 'radial-gradient(circle at center top, rgba(52,217,121,0.3) 0%, transparent 70%)',
+                      transform: 'translateY(-10px)',
+                    }}
+                  />
                 )}
+
+                <div className="relative z-10 flex flex-col items-center gap-1.5">
+                  <Icon
+                    style={{
+                      fontSize: isActive ? 24 : 22,
+                      color: isActive ? '#ffffff' : 'rgba(255, 255, 255, 0.88)',
+                    }}
+                  />
+                  <span
+                    className={`text-center leading-[1.05rem] ${
+                      isActive
+                        ? 'text-[13px] font-bold text-white'
+                        : 'text-[12px] font-medium text-white/80'
+                    }`}
+                  >
+                    {renderLabel(label)}
+                  </span>
+                </div>
               </button>
             )
           })}
+        </div>
+      </div>
+
+      {/* Sub Tabs - Consistent but secondary */}
+      {subTabs.length > 0 && (
+        <div className="px-2 pb-2.5">
+          <div
+            ref={subRef}
+            className="flex gap-2 overflow-x-auto rounded-[20px] p-1 backdrop-blur-sm snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+            style={{
+              ...hideScrollbar,
+              background: 'rgba(255, 255, 255, 0.03)',
+            }}
+          >
+            {subTabs.map(sub => {
+              const isActive = sub === activeSubTab
+              return (
+                <button
+                  key={sub}
+                  type="button"
+                  onClick={e => handleSubClick(sub, e.currentTarget)}
+                  className="snap-start whitespace-nowrap text-[12px] font-semibold"
+                  style={getSubTabStyle(isActive)}
+                >
+                  {sub}
+                </button>
+              )
+            })}
+          </div>
         </div>
       )}
     </div>

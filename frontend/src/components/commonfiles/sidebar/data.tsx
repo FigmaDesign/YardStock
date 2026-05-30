@@ -33,20 +33,21 @@ export interface NavItem {
   label: string
   Icon: React.ElementType
   hasArrow?: boolean
+  subTabs?: string[]
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { key: 'dashboard',  label: 'Dashboard',      Icon: DashboardIcon },
-  { key: 'properties', label: 'Properties',      Icon: ApartmentIcon, hasArrow: true },
-  { key: 'customers',  label: 'Customers',       Icon: PeopleIcon, hasArrow: true },
-  { key: 'agents',     label: 'Agents',          Icon: PersonIcon },
-  { key: 'analytics',  label: 'Sales Analytics', Icon: BarChartIcon },
-  { key: 'revenue',    label: 'Revenue',         Icon: CurrencyRupeeIcon },
-  { key: 'payments',   label: 'Payments',        Icon: CreditCardIcon },
-  { key: 'bookings',   label: 'Bookings',        Icon: EventNoteIcon },
-  { key: 'sitevisits', label: 'Site Visits',     Icon: LocationOnIcon },
-  { key: 'crm',        label: 'CRM',             Icon: ConnectWithoutContactIcon },
-  { key: 'marketing',  label: 'Marketing',       Icon: CampaignIcon },
-  { key: 'reports',    label: 'Reports',         Icon: AssessmentIcon },
-  { key: 'settings',   label: 'Settings',        Icon: SettingsIcon, hasArrow: true },
+  { key: 'dashboard',  label: 'Dashboard',      Icon: DashboardIcon, subTabs: ['Overview', 'Insights', 'Trends'] },
+  { key: 'properties', label: 'Properties',      Icon: ApartmentIcon, hasArrow: true, subTabs: ['All Properties', 'Residential', 'Commercial', 'Villa', 'Plots'] },
+  { key: 'customers',  label: 'Customers',       Icon: PeopleIcon, hasArrow: true, subTabs: ['All Customers', 'Buyers', 'Sellers', 'Investors'] },
+  { key: 'agents',     label: 'Agents',          Icon: PersonIcon, subTabs: ['All Agents', 'Active', 'Pending'] },
+  { key: 'analytics',  label: 'Sales Analytics', Icon: BarChartIcon, subTabs: ['Performance', 'Funnel', 'Conversion', 'Revenue Split'] },
+  { key: 'revenue',    label: 'Revenue',         Icon: CurrencyRupeeIcon, subTabs: ['Summary', 'Monthly', 'Projections'] },
+  { key: 'payments',   label: 'Payments',        Icon: CreditCardIcon, subTabs: ['Received', 'Pending', 'Overdue'] },
+  { key: 'bookings',   label: 'Bookings',        Icon: EventNoteIcon, subTabs: ['Upcoming', 'Completed', 'Cancelled'] },
+  { key: 'sitevisits', label: 'Site Visits',     Icon: LocationOnIcon, subTabs: ['Scheduled', 'Completed', 'Missed'] },
+  { key: 'crm',        label: 'CRM',             Icon: ConnectWithoutContactIcon, subTabs: ['Pipeline', 'Follow-ups', 'Contacts'] },
+  { key: 'marketing',  label: 'Marketing',       Icon: CampaignIcon, subTabs: ['Campaigns', 'Leads', 'Social'] },
+  { key: 'reports',    label: 'Reports',         Icon: AssessmentIcon, subTabs: ['Weekly', 'Monthly', 'Custom'] },
+  { key: 'settings',   label: 'Settings',        Icon: SettingsIcon, hasArrow: true, subTabs: ['General', 'Security', 'Notifications', 'Billing'] },
 ]

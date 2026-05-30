@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import type { Page, ViewMode } from './components/Header/Header'
 import Login from './components/Login/Login'
 import CreateAccount from './components/CreateAccount/CreateAccount'
+import Dashboard from './components/Dashboard/Dashboard'
 import MobileViewport from './components/commonfiles/MobileViewport'
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
 
   const isMobile = isMobileScreen || viewMode === 'mobile'
 
-  const showViewControls = activePage === 'login' || activePage === 'createAccount'
+  const showViewControls = activePage === 'login' || activePage === 'createAccount' || activePage === 'dashboard'
 
   return (
     <div className="flex flex-col h-screen overflow-hidden font-['Outfit']">
@@ -64,14 +65,21 @@ export default function App() {
           )
         )}
 
-        {(activePage === 'dashboard' || activePage === 'forms') && (
+        {activePage === 'dashboard' && (
+          viewMode === 'mobile' ? (
+            <MobileViewport isMobile={isMobileScreen}>
+              <Dashboard viewMode="mobile" />
+            </MobileViewport>
+          ) : (
+            <Dashboard viewMode="desktop" />
+          )
+        )}
+
+        {activePage === 'forms' && (
           <div className="flex items-center justify-center h-full bg-[#f5f6f8]">
             <div className="text-center space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#9199a8]">Current Page</p>
-              <h1 className="text-4xl font-extrabold text-[#14532d] capitalize tracking-tight">{activePage}</h1>
-              <p className="text-sm text-[#6b7280]">
-                View mode: <span className="font-bold text-[#16a34a]">{isMobile ? 'mobile' : 'desktop'}</span>
-              </p>
+              <h1 className="text-4xl font-extrabold text-[#14532d] capitalize tracking-tight">Forms</h1>
             </div>
           </div>
         )}

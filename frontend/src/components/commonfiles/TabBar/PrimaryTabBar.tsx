@@ -56,7 +56,7 @@ function ActiveSwiggyCurve() {
       <path
         d="M 0 64 C 8 64 14 56 14 44 L 14 20 C 14 8 22 0 34 0 L 72 0 C 84 0 92 8 92 20 L 92 44 C 92 56 98 64 106 64"
         fill="url(#activeTabGrad)"
-        stroke="url(#activeTabGrad)" /* <-- CHANGED: Replaced white stroke with the gradient */
+        stroke="url(#activeTabGrad)" 
         strokeWidth="1.5"
       />
     </svg>
@@ -168,8 +168,8 @@ function Inner({ tabs, active, onTabClick, scrollRef }: InnerProps) {
           paddingRight: 28,
           gap: 2, 
           alignItems: 'flex-end',
-          borderBottom: '2px solid transparent', /* <-- CHANGED: Made transparent to support gradient */
-          borderImage: 'linear-gradient(to right, #10b981, #2563eb) 1', /* <-- CHANGED: Applied green/blue gradient */
+          borderBottom: '2px solid transparent', 
+          borderImage: 'linear-gradient(to right, #10b981, #2563eb) 1', 
         }}
       >
         {tabs.map(({ key, label, Icon }, idx) => {

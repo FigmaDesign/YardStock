@@ -1,4 +1,4 @@
-import { useRef, useState, type CSSProperties, type ElementType, type RefObject } from 'react'
+import { useRef, type ElementType, type RefObject } from 'react'
 
 export interface SubTabItem {
   label: string
@@ -19,73 +19,39 @@ interface ItemProps {
 }
 
 function SubTabItem({ item, isActive, isFirst, onClick }: ItemProps) {
-  const [hovered, setHovered] = useState(false)
   const { label, Icon } = item
 
   return (
     <button
       type="button"
       onClick={e => onClick(label, e.currentTarget)}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onTouchStart={() => setHovered(true)}
-      onTouchEnd={() => setHovered(false)}
-      style={{
-        flex: '1 0 auto',
-        minWidth: 64,
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 5,
-        padding: '0 6px 8px',
-        border: 'none',
-        background: hovered && !isActive ? 'rgba(15,30,61,0.03)' : 'transparent',
-        borderLeft: !isFirst ? '1px solid #f3f4f6' : 'none',
-        position: 'relative',
-        cursor: 'pointer',
-        WebkitTapHighlightColor: 'transparent',
-        transition: 'background 200ms',
-      } as CSSProperties}
+      className={`relative flex h-full min-w-[64px] flex-[1_0_auto] cursor-pointer flex-col items-center justify-center gap-[5px] border-none px-[6px] pb-2 transition-colors duration-200 [-webkit-tap-highlight-color:transparent] ${
+        !isFirst ? 'border-l border-solid border-gray-100' : ''
+      } ${!isActive ? 'hover:bg-[#0f1e3d]/[0.03]' : ''}`}
     >
       {Icon && (
         <Icon
           size={18}
           strokeWidth={1.5}
-          style={{
-            color: isActive ? '#0f1e3d' : '#6b7280',
-            transition: 'color 200ms',
-          }}
+          color={isActive ? 'url(#active-icon-gradient)' : 'currentColor'}
+          className={`transition-colors duration-200 ${
+            !isActive ? 'text-gray-500' : ''
+          }`}
         />
       )}
+      
       <span
-        style={{
-          fontSize: '0.6rem',
-          fontWeight: isActive ? 700 : 500,
-          color: isActive ? '#0f1e3d' : '#6b7280',
-          textAlign: 'center',
-          lineHeight: 1.1,
-          whiteSpace: 'nowrap',
-          transition: 'color 200ms',
-        }}
+        className={`whitespace-nowrap text-center text-[0.55rem] leading-[1.1] transition-all duration-200 ${
+          isActive 
+            ? 'font-bold bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent' 
+            : 'font-medium text-gray-500'
+        }`}
       >
         {label}
       </span>
 
       {isActive && (
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 4,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 24,
-            height: 3,
-            borderRadius: 999,
-            background: 'linear-gradient(90deg, #10b981, #3b82f6)',
-          }}
-        />
+        <div className="absolute bottom-[3px] left-1/2 h-[3px] w-5 -translate-x-1/2 rounded-[8px] bg-gradient-to-r from-emerald-500 to-blue-500" />
       )}
     </button>
   )
@@ -102,20 +68,10 @@ function Inner({ subTabs, active, onItemClick, scrollRef }: InnerProps) {
   if (subTabs.length === 0) return null
 
   return (
-    <div style={{ padding: '0 12px', marginTop: 12, paddingBottom: 8, flexShrink: 0 }}>
+    <div className=" shrink-0">
       <div
         ref={scrollRef}
-        style={{
-          display: 'flex',
-          overflowX: 'auto',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none' as CSSProperties['msOverflowStyle'],
-          background: '#ffffff',
-          borderRadius: 16,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
-          height: 56,
-          alignItems: 'stretch',
-        }}
+        className="flex h-[50px] items-stretch overflow-x-auto bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         {subTabs.map((item, idx) => (
           <SubTabItem
@@ -139,5 +95,23 @@ export default function SubTabBar({ subTabs, active, onChange }: SubTabBarProps)
     el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
   }
 
-  return <Inner subTabs={subTabs} active={active} onItemClick={handleClick} scrollRef={scrollRef} />
+  return (
+    <>
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <linearGradient id="active-icon-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop stopColor="#10b981" offset="0%" />
+            <stop stopColor="#3b82f6" offset="100%" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <Inner 
+        subTabs={subTabs} 
+        active={active} 
+        onItemClick={handleClick} 
+        scrollRef={scrollRef} 
+      />
+    </>
+  )
 }

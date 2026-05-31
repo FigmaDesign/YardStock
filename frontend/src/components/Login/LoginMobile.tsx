@@ -1,4 +1,6 @@
 import React from 'react'
+import mobileBg from '../commonfiles/Images/Login&create/mobile.png'
+import YardLogo from '../commonfiles/Images/YardStackLogowithouttext.png'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
@@ -31,7 +33,7 @@ export default function LoginMobile({
       <div
         className="relative shrink-0 pb-12"
         style={{
-          backgroundImage: "url('/src/components/commonfiles/Images/Login&create/mobile.png')",
+          backgroundImage: `url(${mobileBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center top',
         }}
@@ -40,7 +42,7 @@ export default function LoginMobile({
         
         <div className="relative z-10 px-5 pt-10">
           <div className="flex items-center gap-3 mb-6">
-            <img src="/src/components/commonfiles/Images/YardStackLogowithouttext.png" alt="Yard" className="w-10 h-10 object-contain drop-shadow-md" />
+            <img src={YardLogo} alt="Yard" className="w-10 h-10 object-contain drop-shadow-md" />
             <div>
               <p className="text-white font-extrabold text-[1.3rem] tracking-[0.15em] leading-none drop-shadow-sm">YARD</p>
               <p className="text-[#4ade80] font-semibold text-[0.55rem] tracking-[0.22em] uppercase mt-1 drop-shadow-sm">Real Estate Intelligence</p>

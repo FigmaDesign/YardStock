@@ -1,5 +1,6 @@
 import { ChevronRight, ChevronLeft, Award } from 'lucide-react'
 import { NAV_ITEMS, type NavKey } from './data'
+import YardLogo from '../Images/YardStackLogowithouttext.png'
 
 interface SidebarProps {
   active?: NavKey
@@ -11,7 +12,7 @@ export default function Sidebar({ active = 'dashboard', onNavigate }: SidebarPro
     <aside className="flex flex-col w-[195px] shrink-0 h-full bg-[#0d1f3c] text-white overflow-y-auto">
       <div className="flex flex-col items-center gap-1 pt-7 pb-5 px-4">
         <img
-          src="/src/components/commonfiles/Images/YardStackLogowithouttext.png"
+          src={YardLogo}
           alt="Yard logo"
           className="w-10 h-10 object-contain"
         />

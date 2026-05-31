@@ -1,4 +1,6 @@
 import React from 'react'
+import desktopBg from '../commonfiles/Images/Login&create/Desktop2.png'
+import topHeader from '../commonfiles/Images/Login&create/toploginheader.png'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
@@ -47,7 +49,7 @@ export default function LoginDesktop({
 
       <div
         className="flex-1 relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/src/components/commonfiles/Images/Login&create/Desktop2.png')" }}
+        style={{ backgroundImage: `url(${desktopBg})` }}
       >
         <div className="absolute inset-0 bg-linear-to-r from-[#050f20]/80 via-[#071428]/50 to-transparent" />
         <div className="relative z-10 flex flex-col justify-between h-full px-10 py-10 max-w-[500px]">
@@ -93,7 +95,7 @@ export default function LoginDesktop({
         <div className="flex-1 px-9 flex flex-col justify-center pb-2">
           <div className="mb-5 -mx-9 -mt-8">
             <img
-              src="/src/components/commonfiles/Images/Login&create/toploginheader.png"
+              src={topHeader}
               alt="Yard skyline"
               className="w-full h-28 object-cover border-b border-gray-100"
             />

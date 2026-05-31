@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import YardLogo from '../commonfiles/Images/YardStackLogowithouttext.png'
 import ApartmentIcon from '@mui/icons-material/Apartment'
 import PeopleIcon from '@mui/icons-material/People'
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee'
@@ -195,7 +196,7 @@ function MobileDashboard() {
     <div className="h-full flex flex-col overflow-hidden bg-[#f5f6f8]">
       <div className="shrink-0 bg-[#0d1f3c] px-4 pt-4 pb-3 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <img src="/src/components/commonfiles/Images/YardStackLogowithouttext.png" alt="Yard" className="w-8 h-8 object-contain" />
+          <img src={YardLogo} alt="Yard" className="w-8 h-8 object-contain" />
           <div>
             <p className="text-[0.85rem] font-extrabold text-white leading-none tracking-wide">YARD</p>
             <p className="text-[0.5rem] text-white/50 tracking-widest uppercase mt-0.5">Real Estate Intelligence</p>

@@ -149,7 +149,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           type="button" 
           onClick={() => setShowPwd(!showPwd)} 
           aria-label={showPwd ? "Hide password" : "Show password"}
-          aria-pressed={showPwd ? 'true' : 'false'}
+          aria-pressed={showPwd}
           className="text-gray-500 hover:text-[#15803d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[4px] p-0.5 transition-colors duration-300 motion-reduce:transition-none"
         >
           {showPwd ? (
@@ -179,7 +179,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           type="button" 
           onClick={() => setShowConfirm(!showConfirm)} 
           aria-label={showConfirm ? "Hide confirm password" : "Show confirm password"}
-          aria-pressed={showConfirm ? 'true' : 'false'}
+          aria-pressed={showConfirm}
           className="text-gray-500 hover:text-[#15803d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[4px] p-0.5 transition-colors duration-300 motion-reduce:transition-none"
         >
           {showConfirm ? (

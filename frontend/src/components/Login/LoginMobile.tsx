@@ -1,4 +1,4 @@
-import React, { useId } from 'react'
+import React, { useId, useState, useCallback } from 'react'
 import mobileBg from '../commonfiles/Images/Login&create/mobile.png'
 import YardLogo from '../commonfiles/Images/YardStockLogowithouttext.png'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
@@ -42,6 +42,26 @@ export default function LoginMobile({
   const rememberId = useId()
   const phoneId = useId()
   const otpId = useId()
+
+  const [errors, setErrors] = useState<{ email?: string; password?: string; phone?: string; otp?: string }>({})
+
+  const handleLocalSubmit = useCallback((e: React.FormEvent) => {
+    e.preventDefault()
+    const next: { email?: string; password?: string; phone?: string; otp?: string } = {}
+
+    if (loginMode === 'email') {
+      if (!email.trim()) next.email = 'Please enter your email address'
+      if (!password) next.password = 'Please enter your password'
+    } else {
+      if (!phone.trim() || phone.replace(/\D/g, '').length < 10) next.phone = 'Please enter a valid phone number'
+      if (!otp || otp.length !== 6) next.otp = 'Enter the 6-digit OTP'
+    }
+
+    setErrors(next)
+    if (Object.keys(next).length === 0) {
+      onSubmit(e)
+    }
+  }, [loginMode, email, password, phone, otp, onSubmit])
 
   return (
     <main className="h-dvh w-full bg-[#f4f6f9] flex flex-col font-['Outfit',sans-serif] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none">
@@ -119,7 +139,7 @@ export default function LoginMobile({
             </button>
           </div>
 
-          <form onSubmit={onSubmit} className="space-y-3.5" noValidate>
+          <form onSubmit={handleLocalSubmit} className="space-y-3.5" noValidate>
             {loginMode === 'email' ? (
               <>
                 <div className="group">
@@ -140,8 +160,9 @@ export default function LoginMobile({
                       placeholder="Enter your work email"
                       className="flex-1 px-2.5 py-2 text-[0.75rem] text-[#1a1a2e] placeholder-gray-500 bg-transparent outline-none w-full"
                     />
+                    </div>
+                    {errors.email && <p className="text-red-600 text-[0.72rem] mt-1">{errors.email}</p>}
                   </div>
-                </div>
 
                 <div className="group">
                   <label htmlFor={passwordId} className="block text-[0.7rem] font-semibold text-[#1a1a2e] mb-1 transition-colors duration-300 group-focus-within:text-[#15803d]">
@@ -161,16 +182,17 @@ export default function LoginMobile({
                       placeholder="Enter your password"
                       className="flex-1 px-2.5 py-2 text-[0.75rem] text-[#1a1a2e] placeholder-gray-500 bg-transparent outline-none w-full"
                     />
-                    <button
+                      <button
                       type="button"
                       onClick={() => setShowPwd(!showPwd)}
                       aria-label={showPwd ? 'Hide password' : 'Show password'}
-                      aria-pressed={showPwd ? 'true' : 'false'}
+                      aria-pressed={showPwd}
                       className="pr-3 text-gray-500 hover:text-[#15803d] shrink-0 focus-visible:outline-none focus-visible:text-[#15803d] transition-colors duration-300 motion-reduce:transition-none"
                     >
                       {showPwd ? <VisibilityOutlinedIcon sx={{ fontSize: 16 }} aria-hidden="true" /> : <VisibilityOffOutlinedIcon sx={{ fontSize: 16 }} aria-hidden="true" />}
                     </button>
                   </div>
+                  {errors.password && <p className="text-red-600 text-[0.72rem] mt-1">{errors.password}</p>}
                 </div>
               </>
             ) : (
@@ -201,12 +223,12 @@ export default function LoginMobile({
                       {otpSent ? 'Resend' : 'Send OTP'}
                     </button>
                   </div>
+                  {errors.phone && <p className="text-red-600 text-[0.72rem] mt-1">{errors.phone}</p>}
                 </div>
 
                 <div className="group">
                   <label htmlFor={otpId} className="block text-[0.7rem] font-semibold text-[#1a1a2e] mb-1 transition-colors duration-300 group-focus-within:text-[#15803d]">
                     OTP
-                    {otpSent && <span className="ml-1.5 text-[#16a34a] font-normal text-[0.65rem]">Sent to your number</span>}
                   </label>
                   <div className="flex items-center rounded-[8px] border border-[#e0e3eb] bg-white group-hover:border-gray-400 focus-within:border-[#16a34a]! focus-within:ring-1 focus-within:ring-[#16a34a]/20 transition-all duration-300 motion-reduce:transition-none">
                     <span aria-hidden="true" className="pl-3 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
@@ -224,6 +246,8 @@ export default function LoginMobile({
                       className="flex-1 px-2.5 py-2 text-[0.75rem] text-[#1a1a2e] placeholder-gray-500 bg-transparent outline-none w-full tracking-widest"
                     />
                   </div>
+                  {otpSent && <p className="text-[#16a34a] font-normal text-[0.65rem] mt-1">Sent to your number</p>}
+                  {errors.otp && <p className="text-red-600 text-[0.72rem] mt-1">{errors.otp}</p>}
                 </div>
               </>
             )}
@@ -242,7 +266,7 @@ export default function LoginMobile({
               </label>
               <button 
                 type="button" 
-                className="text-[0.72rem] font-semibold text-[#15803d] hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
+                className="text-[0.72rem] underline font-semibold text-[#15803d] hover:text-[#14532d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
               >
                 Forgot Password?
               </button>

@@ -242,7 +242,7 @@ export default function LoginDesktop({
                       type="button" 
                       onClick={() => setShowPwd(!showPwd)} 
                       aria-label={showPwd ? 'Hide password' : 'Show password'}
-                      aria-pressed={showPwd ? 'true' : 'false'}
+                      aria-pressed={showPwd}
                       className="mr-2 p-1.5 text-gray-500 hover:text-[#15803d] shrink-0 rounded-[8px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-colors duration-300 motion-reduce:transition-none"
                     >
                       {showPwd ? <VisibilityOutlinedIcon sx={{ fontSize: 17 }} aria-hidden="true" /> : <VisibilityOffOutlinedIcon sx={{ fontSize: 17 }} aria-hidden="true" />}
@@ -285,7 +285,6 @@ export default function LoginDesktop({
                 <div className="group">
                   <label htmlFor={otpId} className="block text-[0.78rem] font-semibold text-[#1a1a2e] mb-1.5 transition-colors duration-300 group-focus-within:text-[#15803d]">
                     OTP
-                    {otpSent && <span className="ml-1.5 text-[#16a34a] font-normal text-[0.72rem]">Sent to your number</span>}
                   </label>
                   <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.otp ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
                     <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
@@ -303,6 +302,7 @@ export default function LoginDesktop({
                       className="flex-1 px-3 py-2 text-[0.85rem] text-[#1a1a2e] placeholder-gray-500 bg-transparent outline-none w-full tracking-widest"
                     />
                     </div>
+                    {otpSent && <p className="text-[#16a34a] font-normal text-[0.72rem] mt-1">Sent to your number</p>}
                     {errors.otp && <p className="text-red-600 text-[0.75rem] mt-1">{errors.otp}</p>}
                 </div>
               </>
@@ -322,7 +322,7 @@ export default function LoginDesktop({
               </label>
               <button 
                 type="button" 
-                className="text-[0.8rem] font-semibold text-[#15803d] hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
+                className="text-[0.8rem] underline font-semibold text-[#15803d] hover:text-[#14532d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
               >
                 Forgot Password?
               </button>

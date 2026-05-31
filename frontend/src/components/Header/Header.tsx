@@ -89,7 +89,7 @@ export default function Header({
               >
                 <button
                   type="button"
-                  aria-pressed={viewMode === 'desktop' ? 'true' : 'false'}
+                  aria-pressed={viewMode === 'desktop'}
                   onClick={() => onViewModeChange('desktop')}
                   className={`flex items-center gap-2 px-5 py-[7px] rounded-[8px] text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0fdf4] motion-reduce:transition-none ${
                     viewMode === 'desktop'
@@ -102,7 +102,7 @@ export default function Header({
                 </button>
                 <button
                   type="button"
-                  aria-pressed={viewMode === 'mobile' ? 'true' : 'false'}
+                  aria-pressed={viewMode === 'mobile'}
                   onClick={() => onViewModeChange('mobile')}
                   className={`flex items-center gap-2 px-5 py-[7px] rounded-[8px] text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0fdf4] motion-reduce:transition-none ${
                     viewMode === 'mobile'
@@ -129,7 +129,7 @@ export default function Header({
                     key={v}
                     type="button"
                     aria-label={v === 'desktop' ? 'Desktop view' : 'Mobile view'}
-                    aria-pressed={viewMode === v ? 'true' : 'false'}
+                    aria-pressed={viewMode === v}
                     onClick={() => onViewModeChange(v)}
                     className={`w-8 h-8 flex items-center justify-center rounded-[8px] border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-1 motion-reduce:transition-none ${
                       viewMode === v

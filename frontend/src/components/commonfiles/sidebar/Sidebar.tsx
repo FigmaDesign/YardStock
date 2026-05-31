@@ -55,7 +55,7 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
       <div className="flex flex-col items-center p-2 overflow-hidden shrink-0">
         <img
           src={YardLogo}
-          alt="Yard Real Estate Intelligence"
+          alt="YardStockReal Estate Intelligence"
           className={`object-contain transition-all duration-500 ease-in-out motion-reduce:transition-none ${
             isCollapsed ? 'w-8 h-8' : 'w-11 h-11'
           }`}

@@ -66,7 +66,7 @@ const HeroSection = memo(function HeroSection({ onLoginClick }: { onLoginClick?:
           />
           <h1 className="text-white text-[2.1rem] font-extrabold leading-[1.15] tracking-tight drop-shadow-lg">
             Join India's Most Intelligent<br />
-            Real Estate Platform <span className="text-[#4ade80]">Yard</span>
+            Real Estate Platform <span className="text-[#4ade80]">YardStock</span>
           </h1>
           <p className="text-white/90 text-[0.9rem] mt-4 leading-relaxed drop-shadow-md">
             Get started and unlock the power of<br />data-driven real estate intelligence.

@@ -62,7 +62,7 @@ export default function LoginMobile({
         
         <div className="relative z-10 px-5 pt-10">
           <div className="flex items-center gap-3 mb-6">
-            <img src={YardLogo} alt="Yard Logo" aria-hidden="true" className="w-10 h-10 object-contain drop-shadow-md" />
+            <img src={YardLogo} alt="YardStockLogo" aria-hidden="true" className="w-10 h-10 object-contain drop-shadow-md" />
             <div>
               <p className="text-white font-extrabold text-[1.3rem] tracking-[0.15em] leading-none drop-shadow-sm">
                 YARDStock

@@ -34,7 +34,7 @@ const TAB_ITEMS = NAV_ITEMS.map(({ key, label, Icon, subTabs }) => ({
 function StatCards() {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
-      {STAT_CARDS.map((stat, idx) => (
+      {STAT_CARDS.map((_, idx) => (
         <div key={idx} className="bg-white rounded-xl p-3.5 lg:p-4 shadow-[0_1px_6px_rgba(0,0,0,0.04)] border border-[#eef0f3] flex items-center justify-center min-h-[5rem]">
         </div>
       ))}

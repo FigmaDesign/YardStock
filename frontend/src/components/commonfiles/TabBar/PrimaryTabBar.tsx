@@ -63,11 +63,10 @@ interface TabCardProps {
   label: string
   Icon: ElementType
   isActive: boolean
-  idx: number
   onClick: (key: string, el: HTMLButtonElement) => void
 }
 
-function TabCard({ tabKey, label, Icon, isActive, idx, onClick }: TabCardProps) {
+function TabCard({ tabKey, label, Icon, isActive, onClick }: TabCardProps) {
   const [hovered, setHovered] = useState(false)
 
   return (
@@ -148,14 +147,13 @@ function Inner({ tabs, active, onTabClick, scrollRef }: InnerProps) {
           borderImage: 'linear-gradient(to right, #10b981, #2563eb) 1',
         }}
       >
-        {tabs.map(({ key, label, Icon }, idx) => (
+        {tabs.map(({ key, label, Icon }) => (
           <TabCard
             key={key}
             tabKey={key}
             label={label}
             Icon={Icon}
             isActive={key === active}
-            idx={idx}
             onClick={onTabClick}
           />
         ))}

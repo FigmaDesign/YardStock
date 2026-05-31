@@ -28,7 +28,7 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
     <button
       type="button"
       role="tab"
-      aria-selected={isActive}
+      aria-selected={isActive ? 'true' : 'false'}
       id={`subtab-${label.toLowerCase().replace(/\s+/g, '-')}`}
       aria-controls={`subpanel-${label.toLowerCase().replace(/\s+/g, '-')}`}
       onClick={(e) => onClick(label, e.currentTarget)}

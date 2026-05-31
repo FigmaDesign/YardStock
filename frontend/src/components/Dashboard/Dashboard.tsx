@@ -50,7 +50,7 @@ const StatCards = memo(function StatCards() {
           <div 
             role="status"
             aria-label="Loading statistic card"
-            className="ys-skeleton rounded-xl min-h-20 border border-[#eef0f3] shadow-[0_1px_6px_rgba(0,0,0,0.04)]" 
+            className="ys-skeleton rounded-[8px] min-h-20 border border-[#eef0f3] shadow-[0_1px_6px_rgba(0,0,0,0.04)]" 
           />
         </div>
       ))}
@@ -64,7 +64,7 @@ const RecentProperties = memo(function RecentProperties() {
       <div 
         role="status"
         aria-label="Loading recent properties"
-        className="ys-skeleton rounded-2xl overflow-hidden h-64 border border-[#eef0f3] shadow-[0_1px_6px_rgba(0,0,0,0.06)]" 
+        className="ys-skeleton rounded-[8px] overflow-hidden h-64 border border-[#eef0f3] shadow-[0_1px_6px_rgba(0,0,0,0.06)]" 
       />
     </section>
   )
@@ -76,7 +76,7 @@ const ActivityFeed = memo(function ActivityFeed() {
       <div 
         role="status"
         aria-label="Loading activity feed"
-        className="ys-skeleton rounded-2xl h-64 border border-[#eef0f3] shadow-[0_1px_6px_rgba(0,0,0,0.06)]" 
+        className="ys-skeleton rounded-[8px] h-64 border border-[#eef0f3] shadow-[0_1px_6px_rgba(0,0,0,0.06)]" 
       />
     </section>
   )
@@ -99,7 +99,7 @@ function DesktopDashboard() {
           </div>
           
           <div className="flex items-center gap-3 shrink-0">
-            <div className="hidden sm:flex items-center gap-2 bg-[#f5f6f8] border border-[#eef0f3] rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-[#16a34a] focus-within:border-[#16a34a] transition-all duration-200">
+            <div className="hidden sm:flex items-center gap-2 bg-[#f5f6f8] border border-[#eef0f3] rounded-[8px] px-3 py-2 focus-within:ring-2 focus-within:ring-[#16a34a] focus-within:border-[#16a34a] transition-all duration-200">
               <SearchIcon sx={{ fontSize: 15, color: '#9199a8' }} aria-hidden="true" />
               <input 
                 type="search"
@@ -111,7 +111,7 @@ function DesktopDashboard() {
             
             <button 
               aria-label="Notifications, 1 unread"
-              className="relative w-9 h-9 shrink-0 rounded-lg border border-[#eef0f3] bg-white flex items-center justify-center hover:bg-[#f5f6f8] active:scale-[0.93] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-all duration-150 motion-reduce:transition-none motion-reduce:transform-none"
+              className="relative w-9 h-9 shrink-0 rounded-[8px] border border-[#eef0f3] bg-white flex items-center justify-center hover:bg-[#f5f6f8] active:scale-[0.93] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-all duration-150 motion-reduce:transition-none motion-reduce:transform-none"
             >
               <NotificationsOutlinedIcon sx={{ fontSize: 18, color: '#374151' }} aria-hidden="true" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#16a34a] rounded-full" aria-hidden="true" />
@@ -119,7 +119,7 @@ function DesktopDashboard() {
             
             <button 
               aria-label="User profile menu"
-              className="w-9 h-9 shrink-0 rounded-lg bg-linear-to-br from-[#16a34a] to-[#15803d] flex items-center justify-center text-white font-extrabold text-[0.85rem] shadow-sm select-none cursor-pointer hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f5f6f8] active:scale-95 transition-all duration-150 motion-reduce:transition-none motion-reduce:transform-none"
+              className="w-9 h-9 shrink-0 rounded-[8px] bg-linear-to-br from-[#16a34a] to-[#15803d] flex items-center justify-center text-white font-extrabold text-[0.85rem] shadow-sm select-none cursor-pointer hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f5f6f8] active:scale-95 transition-all duration-150 motion-reduce:transition-none motion-reduce:transform-none"
             >
               Y
             </button>
@@ -175,14 +175,14 @@ function MobileDashboard() {
         <div className="flex items-center gap-2 shrink-0">
           <button 
             aria-label="Notifications, 1 unread"
-            className="relative w-8 h-8 shrink-0 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ade80] transition-all duration-150 motion-reduce:transition-none motion-reduce:transform-none"
+            className="relative w-8 h-8 shrink-0 rounded-[8px] bg-white/10 flex items-center justify-center hover:bg-white/20 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ade80] transition-all duration-150 motion-reduce:transition-none motion-reduce:transform-none"
           >
             <NotificationsOutlinedIcon sx={{ fontSize: 17, color: 'white' }} aria-hidden="true" />
             <span className="absolute top-1 right-1 w-1.5 h-1.5 bg-[#4ade80] rounded-full" aria-hidden="true" />
           </button>
           <button 
             aria-label="User profile menu"
-            className="w-8 h-8 shrink-0 rounded-lg bg-linear-to-br from-[#22c55e] to-[#0ea5e9] flex items-center justify-center text-white font-extrabold text-[0.8rem] shadow-sm select-none active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ade80] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d1f3c] transition-transform duration-150 motion-reduce:transition-none motion-reduce:transform-none"
+            className="w-8 h-8 shrink-0 rounded-[8px] bg-linear-to-br from-[#22c55e] to-[#0ea5e9] flex items-center justify-center text-white font-extrabold text-[0.8rem] shadow-sm select-none active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ade80] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d1f3c] transition-transform duration-150 motion-reduce:transition-none motion-reduce:transform-none"
           >
             Y
           </button>

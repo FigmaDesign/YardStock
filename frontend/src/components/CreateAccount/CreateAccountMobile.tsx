@@ -49,7 +49,7 @@ export default function CreateAccountMobile(props: CreateAccountFormProps) {
         aria-labelledby="mobile-create-account-heading"
         className="relative z-20 -mt-6 pb-15 ys-scale-in motion-reduce:animate-none motion-reduce:transform-none motion-reduce:opacity-100 [animation-delay:80ms]" 
       >
-        <div className="bg-white rounded-lg p-5 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-100">
+        <div className="bg-white rounded-[8px] p-5 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-100">
           <h2 
             id="mobile-create-account-heading" 
             className="text-[#0f1e3d] text-[1.2rem] font-extrabold leading-none mb-1.5"

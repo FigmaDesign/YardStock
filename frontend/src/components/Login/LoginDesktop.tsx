@@ -115,11 +115,11 @@ export default function LoginDesktop({
           </div>
           
           <div 
-            className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl p-4 mb-20 flex items-start gap-3.5 max-w-97.5 shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:bg-white/15 hover:shadow-[0_8px_32px_rgba(0,0,0,0.25)] transition-all duration-500 group motion-reduce:transition-none"
+            className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-[8px] p-4 mb-20 flex items-start gap-3.5 max-w-97.5 shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:bg-white/15 hover:shadow-[0_8px_32px_rgba(0,0,0,0.25)] transition-all duration-500 group motion-reduce:transition-none"
             role="complementary"
             aria-label="Security Feature Highlight"
           >
-            <div aria-hidden="true" className="bg-[#16a34a] rounded-xl p-2.5 shrink-0 shadow-[0_4px_12px_rgba(22,163,74,0.4)] group-hover:scale-110 group-hover:bg-[#15803d] transition-all duration-300 motion-reduce:transform-none motion-reduce:transition-none">
+            <div aria-hidden="true" className="bg-[#16a34a] rounded-[8px] p-2.5 shrink-0 shadow-[0_4px_12px_rgba(22,163,74,0.4)] group-hover:scale-110 group-hover:bg-[#15803d] transition-all duration-300 motion-reduce:transform-none motion-reduce:transition-none">
               <SecurityIcon sx={{ fontSize: 24, color: 'white' }} />
             </div>
             <div>
@@ -165,13 +165,13 @@ export default function LoginDesktop({
             noValidate
           >
             {/* Login mode tabs */}
-            <div role="tablist" aria-label="Login method" className="flex rounded-lg bg-[#f4f6f9] p-1 mb-1 gap-1">
+            <div role="tablist" aria-label="Login method" className="flex rounded-[8px] bg-[#f4f6f9] p-1 mb-1 gap-1">
               <button
                 role="tab"
                 type="button"
-                aria-selected={loginMode === 'email'}
+                aria-selected={loginMode === 'email' ? 'true' : 'false'}
                 onClick={() => setLoginMode('email')}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-md text-[0.75rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] motion-reduce:transition-none ${
+                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-[8px] text-[0.75rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] motion-reduce:transition-none ${
                   loginMode === 'email'
                     ? 'bg-white text-transparent bg-clip-text bg-linear-to-r from-[#1d4ed8] via-[#1a7e5a] to-[#16a34a] shadow-sm'
                       : 'text-gray-500 hover:text-[#0f1e3d]'
@@ -183,9 +183,9 @@ export default function LoginDesktop({
               <button
                 role="tab"
                 type="button"
-                aria-selected={loginMode === 'phone'}
+                aria-selected={loginMode === 'phone' ? 'true' : 'false'}
                 onClick={() => setLoginMode('phone')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-md text-[0.75rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] motion-reduce:transition-none ${
+                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-[8px] text-[0.75rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] motion-reduce:transition-none ${
                   loginMode === 'phone'
                     ? 'bg-white text-transparent bg-clip-text bg-linear-to-r from-[#1d4ed8] via-[#1a7e5a] to-[#16a34a] shadow-sm'
                     : 'text-gray-500 hover:text-[#0f1e3d]'
@@ -202,7 +202,7 @@ export default function LoginDesktop({
                   <label htmlFor={emailId} className="block text-[0.78rem] font-semibold text-[#1a1a2e] mb-1.5 transition-colors duration-300 group-focus-within:text-[#15803d]">
                     Email Address
                   </label>
-                  <div className={`flex items-center rounded-[10px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.email ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
+                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.email ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
                     <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
                       <EmailOutlinedIcon sx={{ fontSize: 18 }} />
                     </span>
@@ -224,7 +224,7 @@ export default function LoginDesktop({
                   <label htmlFor={passwordId} className="block text-[0.78rem] font-semibold text-[#1a1a2e] mb-1.5 transition-colors duration-300 group-focus-within:text-[#15803d]">
                     Password
                   </label>
-                  <div className={`flex items-center rounded-[10px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.password ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
+                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.password ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
                     <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
                       <LockOutlinedIcon sx={{ fontSize: 18 }} />
                     </span>
@@ -243,7 +243,7 @@ export default function LoginDesktop({
                       onClick={() => setShowPwd(!showPwd)} 
                       aria-label={showPwd ? 'Hide password' : 'Show password'}
                       aria-pressed={showPwd ? 'true' : 'false'}
-                      className="mr-2 p-1.5 text-gray-500 hover:text-[#15803d] shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-colors duration-300 motion-reduce:transition-none"
+                      className="mr-2 p-1.5 text-gray-500 hover:text-[#15803d] shrink-0 rounded-[8px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-colors duration-300 motion-reduce:transition-none"
                     >
                       {showPwd ? <VisibilityOutlinedIcon sx={{ fontSize: 17 }} aria-hidden="true" /> : <VisibilityOffOutlinedIcon sx={{ fontSize: 17 }} aria-hidden="true" />}
                     </button>
@@ -257,7 +257,7 @@ export default function LoginDesktop({
                   <label htmlFor={phoneId} className="block text-[0.78rem] font-semibold text-[#1a1a2e] mb-1.5 transition-colors duration-300 group-focus-within:text-[#15803d]">
                     Mobile Number
                   </label>
-                  <div className={`flex items-center rounded-[10px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.phone ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
+                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.phone ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
                     <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
                       <PhoneOutlinedIcon sx={{ fontSize: 18 }} />
                     </span>
@@ -274,7 +274,7 @@ export default function LoginDesktop({
                       type="button"
                       onClick={onSendOtp}
                       disabled={phone.trim().length < 10}
-                      className="mr-2 px-3 py-1.5 rounded-md text-[0.72rem] font-bold bg-[#16a34a] text-white hover:bg-[#15803d] disabled:opacity-40 disabled:cursor-not-allowed transition-colors duration-200 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] motion-reduce:transition-none"
+                      className="mr-2 px-3 py-1.5 rounded-[8px] text-[0.72rem] font-bold bg-[#16a34a] text-white hover:bg-[#15803d] disabled:opacity-40 disabled:cursor-not-allowed transition-colors duration-200 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] motion-reduce:transition-none"
                     >
                       {otpSent ? 'Resend OTP' : 'Send OTP'}
                     </button>
@@ -287,7 +287,7 @@ export default function LoginDesktop({
                     OTP
                     {otpSent && <span className="ml-1.5 text-[#16a34a] font-normal text-[0.72rem]">Sent to your number</span>}
                   </label>
-                  <div className={`flex items-center rounded-[10px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.otp ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
+                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.otp ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
                     <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
                       <SmsOutlinedIcon sx={{ fontSize: 18 }} />
                     </span>
@@ -311,18 +311,18 @@ export default function LoginDesktop({
             {loginMode === 'email' && (
             <div className="flex items-center justify-between pt-1">
               <label htmlFor={rememberId} className="flex items-center gap-2 cursor-pointer text-[0.8rem] text-[#374151] group">
-                <input 
+                  <input 
                   id={rememberId}
                   type="checkbox" 
                   checked={remember} 
                   onChange={e => setRemember(e.target.checked)} 
-                  className="w-4 h-4 rounded-sm accent-[#16a34a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-1 transition-transform group-hover:scale-110 motion-reduce:transform-none" 
+                  className="w-4 h-4 rounded-[8px] accent-[#16a34a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-1 transition-transform group-hover:scale-110 motion-reduce:transform-none" 
                 />
                 Remember me
               </label>
               <button 
                 type="button" 
-                className="text-[0.8rem] font-semibold text-[#15803d] hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-xs transition-colors"
+                className="text-[0.8rem] font-semibold text-[#15803d] hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
               >
                 Forgot Password?
               </button>
@@ -331,7 +331,7 @@ export default function LoginDesktop({
 
             <button 
               type="submit" 
-              className="w-1/2 mx-auto flex items-center justify-center gap-2 px-5 py-2.5 mt-1 rounded-lg font-bold text-[0.95rem] text-white bg-linear-to-r from-[#1d4ed8] via-[#1a7e5a] to-[#16a34a] hover:-translate-y-0.5 active:scale-[0.97] active:opacity-90 shadow-[0_4px_14px_rgba(22,163,74,0.25)] hover:shadow-[0_6px_20px_rgba(22,163,74,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 transition-all duration-200 motion-reduce:transform-none motion-reduce:transition-none"
+              className="w-1/2 mx-auto flex items-center justify-center gap-2 px-5 py-2.5 mt-1 rounded-[8px] font-bold text-[0.95rem] text-white bg-linear-to-r from-[#1d4ed8] via-[#1a7e5a] to-[#16a34a] hover:-translate-y-0.5 active:scale-[0.97] active:opacity-90 shadow-[0_4px_14px_rgba(22,163,74,0.25)] hover:shadow-[0_6px_20px_rgba(22,163,74,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 transition-all duration-200 motion-reduce:transform-none motion-reduce:transition-none"
             >
               <span>{loginMode === 'phone' ? 'Verify & Login' : 'Login'}</span>
             </button>
@@ -350,7 +350,7 @@ export default function LoginDesktop({
                   key={label} 
                   type="button" 
                   aria-label={`Log in with ${label}`}
-                  className="flex items-center justify-center gap-2 py-2 border border-[#e0e3eb] rounded-xl text-[0.8rem] font-semibold text-[#374151] bg-white hover:bg-gray-50 hover:-translate-y-0.5 active:scale-[0.96] hover:border-gray-300 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-all duration-200 group motion-reduce:transform-none motion-reduce:transition-none"
+                  className="flex items-center justify-center gap-2 py-2 border border-[#e0e3eb] rounded-[8px] text-[0.8rem] font-semibold text-[#374151] bg-white hover:bg-gray-50 hover:-translate-y-0.5 active:scale-[0.96] hover:border-gray-300 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-all duration-200 group motion-reduce:transform-none motion-reduce:transition-none"
                 >
                   <img src={logo} alt="" aria-hidden="true" className="w-4 h-4 object-contain transition-transform duration-300 group-hover:scale-110 motion-reduce:transform-none" />
                   <span>{label}</span>
@@ -363,7 +363,7 @@ export default function LoginDesktop({
               <button 
                 type="button" 
                 onClick={onCreateAccountClick} 
-                className="text-[#15803d] underline font-bold hover:text-[#14532d] hover:underline inline-flex items-center gap-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-xs transition-all"
+                className="text-[#15803d] underline font-bold hover:text-[#14532d] hover:underline inline-flex items-center gap-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-all"
               >
                 Create Account
               </button>

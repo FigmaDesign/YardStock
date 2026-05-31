@@ -27,7 +27,7 @@ export default function MobileViewport({ children, isMobile = false }: MobileVie
       <div
         role="region"
         aria-label="Mobile Device Simulator"
-        className="relative shrink-0 overflow-hidden bg-white my-[2px] rounded-xl border-[1.5px] border-[#d1d5db] shadow-[0_4px_24px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.04)] aspect-[9/19.5] h-[min(92vh,900px)]"
+        className="relative shrink-0 overflow-hidden bg-white my-[2px] rounded-[8px] border-[1.5px] border-[#d1d5db] shadow-[0_4px_24px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.04)] aspect-[9/19.5] h-[min(92vh,900px)]"
       >
         <div className="h-full w-full overflow-hidden">
           {children}

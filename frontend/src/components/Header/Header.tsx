@@ -69,7 +69,7 @@ export default function Header({
           <div className="flex items-center gap-2 shrink-0" aria-label="YardStack Logo">
             <div 
               aria-hidden="true"
-              className="w-8 h-8 rounded-md flex items-center justify-center bg-gradient-to-br from-[#15803d] to-[#166534] text-white font-bold text-[1.1rem] leading-none shadow-sm select-none"
+              className="w-8 h-8 rounded-[8px] flex items-center justify-center bg-gradient-to-br from-[#15803d] to-[#166534] text-white font-bold text-[1.1rem] leading-none shadow-sm select-none"
             >
               Y
             </div>
@@ -85,13 +85,13 @@ export default function Header({
               <div 
                 role="group"
                 aria-label="Select view mode"
-                className="flex items-center bg-[#f0fdf4] border border-[#bbf7d0] rounded-xl p-1 gap-0.5"
+                className="flex items-center bg-[#f0fdf4] border border-[#bbf7d0] rounded-[8px] p-1 gap-0.5"
               >
                 <button
                   type="button"
-                  aria-pressed={viewMode === 'desktop'}
+                  aria-pressed={viewMode === 'desktop' ? 'true' : 'false'}
                   onClick={() => onViewModeChange('desktop')}
-                  className={`flex items-center gap-2 px-5 py-[7px] rounded-lg text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0fdf4] motion-reduce:transition-none ${
+                  className={`flex items-center gap-2 px-5 py-[7px] rounded-[8px] text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0fdf4] motion-reduce:transition-none ${
                     viewMode === 'desktop'
                       ? 'bg-gradient-to-br from-[#16a34a] to-[#15803d] text-white shadow-md'
                       : 'text-[#166534] bg-transparent hover:bg-white/80'
@@ -102,9 +102,9 @@ export default function Header({
                 </button>
                 <button
                   type="button"
-                  aria-pressed={viewMode === 'mobile'}
+                  aria-pressed={viewMode === 'mobile' ? 'true' : 'false'}
                   onClick={() => onViewModeChange('mobile')}
-                  className={`flex items-center gap-2 px-5 py-[7px] rounded-lg text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0fdf4] motion-reduce:transition-none ${
+                  className={`flex items-center gap-2 px-5 py-[7px] rounded-[8px] text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0fdf4] motion-reduce:transition-none ${
                     viewMode === 'mobile'
                       ? 'bg-gradient-to-br from-[#16a34a] to-[#15803d] text-white shadow-md'
                       : 'text-[#166534] bg-transparent hover:bg-white/80'
@@ -129,9 +129,9 @@ export default function Header({
                     key={v}
                     type="button"
                     aria-label={v === 'desktop' ? 'Desktop view' : 'Mobile view'}
-                    aria-pressed={viewMode === v}
+                    aria-pressed={viewMode === v ? 'true' : 'false'}
                     onClick={() => onViewModeChange(v)}
-                    className={`w-8 h-8 flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-1 motion-reduce:transition-none ${
+                    className={`w-8 h-8 flex items-center justify-center rounded-[8px] border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-1 motion-reduce:transition-none ${
                       viewMode === v
                         ? 'border-[#16a34a] bg-[#16a34a]/10 text-[#16a34a]'
                         : 'border-[#e4e7ec] bg-white text-[#9199a8] hover:bg-gray-50 hover:text-gray-700'
@@ -171,7 +171,7 @@ export default function Header({
                 aria-haspopup="menu"
                 aria-controls={`mobile-menu-${menuId}`}
                 onClick={() => setMobileMenuOpen((v) => !v)}
-                className="flex items-center gap-1 px-3 py-[7px] rounded-md border border-[#eef0f3] bg-white text-[0.78rem] font-semibold text-[#0f1f3d] shadow-sm hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:border-[#16a34a] transition-all duration-200"
+                className="flex items-center gap-1 px-3 py-[7px] rounded-[8px] border border-[#eef0f3] bg-white text-[0.78rem] font-semibold text-[#0f1f3d] shadow-sm hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:border-[#16a34a] transition-all duration-200"
               >
                 {PAGE_LABELS[activePage]}
                 <ChevronDown 
@@ -188,7 +188,7 @@ export default function Header({
                   id={`mobile-menu-${menuId}`}
                   role="menu"
                   aria-label="Navigation Menu"
-                  className="absolute right-0 mt-2 w-40 bg-white rounded-lg border border-[#eef0f3] shadow-lg overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200 ease-out"
+                  className="absolute right-0 mt-2 w-40 bg-white rounded-[8px] border border-[#eef0f3] shadow-lg overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200 ease-out"
                 >
                   {(Object.keys(PAGE_LABELS) as Page[]).map((p) => {
                     const isActive = activePage === p

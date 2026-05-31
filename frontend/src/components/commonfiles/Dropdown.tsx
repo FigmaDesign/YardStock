@@ -122,7 +122,7 @@ export default function Dropdown({
         aria-label={placeholder}
         onClick={() => setOpen((v) => !v)}
         onKeyDown={handleKeyDown}
-        className={`flex items-center gap-1.5 bg-white border rounded-lg cursor-pointer outline-none transition-all duration-200 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:border-[#16a34a] motion-reduce:transition-none ${
+        className={`flex items-center gap-1.5 bg-white border rounded-[8px] cursor-pointer outline-none transition-all duration-200 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:border-[#16a34a] motion-reduce:transition-none ${
           open ? 'border-[#16a34a] ring-2 ring-[#16a34a]/15' : 'border-[#e0e3eb] hover:border-[#16a34a]'
         } ${
           isSm ? 'px-2 py-[7px] text-[0.75rem]' : 'px-3 py-[8px] text-[0.8rem]'
@@ -154,7 +154,7 @@ export default function Dropdown({
           id={listId}
           role="listbox"
           aria-label={placeholder}
-          className="absolute z-50 mt-1.5 w-full min-w-[110px] bg-white border border-[#e0e3eb] rounded-xl shadow-lg overflow-y-auto max-h-72 py-1 origin-top animate-in fade-in zoom-in-95 duration-200 ease-out focus:outline-none [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-thumb]:rounded-full"
+          className="absolute z-50 mt-1.5 w-full min-w-[110px] bg-white border border-[#e0e3eb] rounded-[8px] shadow-lg overflow-y-auto max-h-72 py-1 origin-top animate-in fade-in zoom-in-95 duration-200 ease-out focus:outline-none [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-thumb]:rounded-full"
         >
           {options.map((opt, i) => {
             const isSelected = opt.value === value
@@ -165,7 +165,7 @@ export default function Dropdown({
                 key={opt.value}
                 id={`${listId}-option-${i}`}
                 role="option"
-                aria-selected={isSelected}
+                aria-selected={isSelected ? 'true' : 'false'}
                 onMouseDown={(e) => e.preventDefault()} 
                 onClick={() => {
                   onChange(opt.value)

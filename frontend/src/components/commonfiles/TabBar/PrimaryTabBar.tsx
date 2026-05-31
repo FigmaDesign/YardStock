@@ -67,14 +67,14 @@ const TabCard = memo(function TabCard({ tabKey, label, Icon, isActive, onClick }
     <button
       type="button"
       role="tab"
-      aria-selected={isActive}
+      aria-selected={isActive ? 'true' : 'false'}
       id={`tab-${tabKey}`}
       aria-controls={`panel-${tabKey}`}
       onClick={(e) => onClick(tabKey, e.currentTarget)}
       className={`relative flex flex-col items-center justify-center shrink-0 border-none outline-none cursor-pointer transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] [-webkit-tap-highlight-color:transparent] active:scale-[0.94] active:opacity-80 w-[64px] min-h-[66px] gap-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10b981] focus-visible:ring-inset motion-reduce:transition-none motion-reduce:transform-none ${
         isActive
-          ? 'bg-transparent hover:bg-transparent rounded-none z-50 pl-1 pr-1 pb-1.5'
-          : 'bg-[rgba(17,42,99,0.5)] hover:bg-[rgba(30,64,138,0.4)] rounded-t-2xl z-10 pl-2 pr-1'
+          ? 'bg-transparent hover:bg-transparent rounded-[8px] z-50 pl-1 pr-1 pb-1.5'
+          : 'bg-[rgba(17,42,99,0.5)] hover:bg-[rgba(30,64,138,0.4)] rounded-t-[8px] z-10 pl-2 pr-1'
       }`}
     >
       {isActive && <ActiveSwiggyCurve />}

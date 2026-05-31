@@ -78,11 +78,11 @@ const HeroSection = memo(function HeroSection({ onLoginClick }: { onLoginClick?:
               <div 
                 key={title} 
                 role="listitem"
-                className={`flex items-center gap-3 p-2.5 rounded-lg hover:bg-white/10 hover:-translate-y-0.5 border border-transparent hover:border-white/10 transition-all duration-300 cursor-default hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] group ys-fade-in-up motion-reduce:transform-none motion-reduce:transition-none motion-reduce:animate-none ${FEATURE_DELAYS[idx]}`}
+                className={`flex items-center gap-3 p-2.5 rounded-[8px] hover:bg-white/10 hover:-translate-y-0.5 border border-transparent hover:border-white/10 transition-all duration-300 cursor-default hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] group ys-fade-in-up motion-reduce:transform-none motion-reduce:transition-none motion-reduce:animate-none ${FEATURE_DELAYS[idx]}`}
               >
                 <div 
                   aria-hidden="true"
-                  className="bg-[#16a34a] rounded-lg p-2.5 shrink-0 shadow-[0_4px_12px_rgba(22,163,74,0.4)] group-hover:scale-110 group-hover:bg-[#15803d] transition-all duration-300 motion-reduce:transform-none motion-reduce:transition-none"
+                  className="bg-[#16a34a] rounded-[8px] p-2.5 shrink-0 shadow-[0_4px_12px_rgba(22,163,74,0.4)] group-hover:scale-110 group-hover:bg-[#15803d] transition-all duration-300 motion-reduce:transform-none motion-reduce:transition-none"
                 >
                   <Icon sx={{ fontSize: 18, color: 'white' }} />
                 </div>
@@ -99,7 +99,7 @@ const HeroSection = memo(function HeroSection({ onLoginClick }: { onLoginClick?:
           </div>
         </div>
 
-        <div className="bg-white/15 backdrop-blur-xl border border-white/20 rounded-lg p-2 mb-20 shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:bg-white/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.25)] transition-all duration-500 group motion-reduce:transition-none">
+        <div className="bg-white/15 backdrop-blur-xl border border-white/20 rounded-[8px] p-2 mb-20 shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:bg-white/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.25)] transition-all duration-500 group motion-reduce:transition-none">
           <div className="flex items-center divide-x divide-white/20 py-1" role="group" aria-label="Platform Statistics">
             {STATS_DESKTOP.map(({ value, label }) => (
               <div 
@@ -117,7 +117,7 @@ const HeroSection = memo(function HeroSection({ onLoginClick }: { onLoginClick?:
               type="button" 
               onClick={onLoginClick} 
               aria-label="Login to your existing account"
-              className="text-[#4ade80] font-bold hover:text-white hover:underline transition-all underline duration-300 rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ade80] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071428] motion-reduce:transition-none"
+              className="text-[#4ade80] font-bold hover:text-white hover:underline transition-all underline duration-300 rounded-[8px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ade80] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071428] motion-reduce:transition-none"
             >
               Login here
             </button>

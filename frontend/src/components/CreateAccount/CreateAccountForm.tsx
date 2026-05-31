@@ -149,7 +149,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           type="button" 
           onClick={() => setShowPwd(!showPwd)} 
           aria-label={showPwd ? "Hide password" : "Show password"}
-          aria-pressed={showPwd}
+          aria-pressed={showPwd ? 'true' : 'false'}
           className="text-gray-500 hover:text-[#15803d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[4px] p-0.5 transition-colors duration-300 motion-reduce:transition-none"
         >
           {showPwd ? (
@@ -179,7 +179,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           type="button" 
           onClick={() => setShowConfirm(!showConfirm)} 
           aria-label={showConfirm ? "Hide confirm password" : "Show confirm password"}
-          aria-pressed={showConfirm}
+          aria-pressed={showConfirm ? 'true' : 'false'}
           className="text-gray-500 hover:text-[#15803d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[4px] p-0.5 transition-colors duration-300 motion-reduce:transition-none"
         >
           {showConfirm ? (
@@ -298,20 +298,20 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           aria-invalid={!!errors.agreed}
           aria-describedby={errors.agreed ? `${formId}-agreed-error` : undefined}
           aria-required="true"
-          className={`mt-0.5 rounded-[4px] accent-[#16a34a] shrink-0 transition-transform group-hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:transform-none ${isMobile ? 'w-3.5 h-3.5' : 'w-4 h-4'}`}
+            className={`mt-0.5 rounded-[8px] accent-[#16a34a] shrink-0 transition-transform group-hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:transform-none ${isMobile ? 'w-3.5 h-3.5' : 'w-4 h-4'}`}
         />
         <span className={`text-[#374151] leading-relaxed ${isMobile ? 'text-[0.72rem]' : 'text-[0.75rem]'}`}>
           <label htmlFor={`${formId}-agreed`} className="cursor-pointer">I agree to the </label>
           <button 
             type="button" 
-            className="text-[#15803d] underline font-semibold hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[2px] transition-colors"
+            className="text-[#15803d] underline font-semibold hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
           >
             Terms of Service
           </button>
           {' '}and{' '}
           <button 
             type="button" 
-            className="text-[#15803d] underline font-semibold hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[2px] transition-colors"
+            className="text-[#15803d] underline font-semibold hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
           >
             Privacy Policy
           </button>
@@ -358,7 +358,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           <button 
             type="button" 
             onClick={onLoginClick} 
-            className="text-[#15803d] font-bold hover:text-[#14532d] hover:underline underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[2px] transition-all duration-200 motion-reduce:transition-none"
+            className="text-[#15803d] font-bold hover:text-[#14532d] hover:underline underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-all duration-200 motion-reduce:transition-none"
           >
             Login here
           </button>

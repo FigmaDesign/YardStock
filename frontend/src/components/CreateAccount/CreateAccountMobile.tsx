@@ -2,9 +2,6 @@ import React from 'react'
 import CreateAccountForm, { type CreateAccountFormProps } from './CreateAccountForm'
 import mobileBg from '../commonfiles/Images/Login&create/mobile.png'
 import YardLogo from '../commonfiles/Images/YardStackLogowithouttext.png'
-import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined'
-import ApartmentIcon from '@mui/icons-material/Apartment'
-import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined'
 
 export default function CreateAccountMobile(props: CreateAccountFormProps) {
   return (

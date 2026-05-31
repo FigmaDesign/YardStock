@@ -49,7 +49,7 @@ const STATUS_COLOR: Record<string, string> = {
   'Sold':         'bg-[#fee2e2] text-[#dc2626]',
 }
 
-const TAB_ITEMS = NAV_ITEMS.map(({ key, label, Icon, subTabs }) => ({ key, label, Icon, subTabs }))
+const TAB_ITEMS = NAV_ITEMS.map(({ key, label, Icon, subTabs }) => ({ key, label, Icon, subTabs: subTabs ?? [] }))
 
 function StatCards() {
   return (
@@ -223,7 +223,7 @@ function MobileDashboard() {
         onChange={key => {
           setActiveTab(key)
           const item = TAB_ITEMS.find(t => t.key === key)
-          if (item?.subTabs?.length) setActiveSubTab(item.subTabs[0])
+          if (item?.subTabs?.length) setActiveSubTab(item.subTabs[0].label)
         }}
         onSubTabChange={setActiveSubTab}
       />

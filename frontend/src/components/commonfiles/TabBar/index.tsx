@@ -1,5 +1,6 @@
-import PrimaryTabBar, { type PrimaryTabItem } from './TabBar/PrimaryTabBar'
-import SubTabBar, { type SubTabItem } from './TabBar/SubTabBar'
+import type React from 'react'
+import PrimaryTabBar, { type PrimaryTabItem } from './PrimaryTabBar'
+import SubTabBar, { type SubTabItem } from './SubTabBar'
 
 export type { PrimaryTabItem, SubTabItem }
 
@@ -17,8 +18,6 @@ interface TabBarProps {
   onChange: (key: string) => void
   onSubTabChange: (sub: string) => void
 }
-
-import type React from 'react'
 
 export default function TabBar({ tabs, active, activeSubTab, onChange, onSubTabChange }: TabBarProps) {
   const activeItem = tabs.find(t => t.key === active)
@@ -47,4 +46,3 @@ export default function TabBar({ tabs, active, activeSubTab, onChange, onSubTabC
     </div>
   )
 }
-

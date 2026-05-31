@@ -1,4 +1,4 @@
-import { useState, useEffect, MouseEvent, FocusEvent } from 'react'
+import { useState, useEffect, type MouseEvent, type FocusEvent } from 'react'
 import { createPortal } from 'react-dom'
 import { ChevronLeft, Crown } from 'lucide-react'
 import { NAV_ITEMS, type NavKey } from './data'

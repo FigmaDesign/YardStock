@@ -233,7 +233,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
       {showLoginLink && (
         <p className={`text-center text-[#6b7280] ${isMobile ? 'text-[0.75rem] pt-3' : 'text-[0.82rem] pt-2'}`}>
           Already have an account?{' '}
-          <button type="button" onClick={onLoginClick} className="text-[#16a34a] font-bold hover:underline transition-all">Login here</button>
+          <button type="button" onClick={onLoginClick} className="text-[#16a34a] font-bold hover:underline underline transition-all">Login here</button>
         </p>
       )}
     </form>

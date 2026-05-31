@@ -6,6 +6,7 @@ import Sidebar from '../commonfiles/sidebar/Sidebar'
 import Dropdown from '../commonfiles/Dropdown'
 import CreateAccountForm, { type CreateAccountFormProps } from './CreateAccountForm'
 import { STATS_DESKTOP } from './constants'
+import desktopBg from '../commonfiles/Images/Login&create/Desktop1.png'
 
 interface CreateAccountDesktopProps extends CreateAccountFormProps {
   language: string
@@ -31,7 +32,7 @@ export default function CreateAccountDesktop({ language, setLanguage, onLoginCli
 
       <div
         className="flex-1 relative bg-cover bg-center"
-        style={{ backgroundImage: "url('/src/components/commonfiles/Images/Login&create/Desktop1.png')" }}
+        style={{ backgroundImage: `url(${desktopBg})` }}
       >
         <div className="absolute inset-0 bg-linear-to-r from-[#050f20]/80 via-[#071428]/60 to-transparent" />
         <div className="relative z-10 flex flex-col justify-between h-full px-10 py-8 max-w-[520px]">
@@ -60,9 +61,9 @@ export default function CreateAccountDesktop({ language, setLanguage, onLoginCli
           </div>
 
           <div className="bg-white/15 backdrop-blur-xl border border-white/20 rounded-[8px] p-2 mb-20 shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:bg-white/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.25)] transition-all duration-500 group">
-            <div className="flex items-center divide-x divide-white/20 py-1.5">
+            <div className="flex items-center divide-x divide-white/20 py-1">
               {STATS_DESKTOP.map(({ value, label }) => (
-                <div key={label} className="flex-1 text-center px-2 first:pl-0 last:pr-0 transform transition-transform duration-300 group-hover:scale-[1.02]">
+                <div key={label} className="flex-1 text-center px-1 first:pl-0 last:pr-0 transform transition-transform duration-300 group-hover:scale-[1.02]">
                   <p className="text-white font-extrabold text-[1.15rem] drop-shadow-md">{value}</p>
                   <p className="text-white/70 text-[0.68rem] mt-0.5">{label}</p>
                 </div>
@@ -70,7 +71,7 @@ export default function CreateAccountDesktop({ language, setLanguage, onLoginCli
             </div>
             <p className="text-white/80 text-[0.8rem] text-center mt-2 border-t border-white/15 pt-2 pb-1">
               Already have an account?{' '}
-              <button type="button" onClick={onLoginClick} className="text-[#4ade80] font-bold hover:text-white hover:underline transition-all duration-300">Login here</button>
+              <button type="button" onClick={onLoginClick} className="text-[#4ade80] font-bold hover:text-white hover:underline transition-all underline duration-300">Login here</button>
             </p>
           </div>
         </div>

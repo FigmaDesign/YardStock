@@ -7,7 +7,7 @@ export default function CreateAccountMobile(props: CreateAccountFormProps) {
   return (
     <main className="h-dvh w-full bg-[#f4f6f9] flex flex-col font-['Outfit',sans-serif] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none">
       <header
-        className="relative shrink-0 pb-12 ys-fade-in-down motion-reduce:animate-none motion-reduce:transform-none motion-reduce:opacity-100 bg-cover bg-top bg-(image:--mobile-bg)"
+        className="relative shrink-0 pb-12 ys-fade-in-down motion-reduce:animate-none motion-reduce:transform-none motion-reduce:opacity-100 bg-no-repeat bg-[length:100%_100%] bg-center bg-(image:--mobile-bg)"
         style={{ '--mobile-bg': `url(${mobileBg})` } as React.CSSProperties}
       >
         <div 
@@ -16,8 +16,6 @@ export default function CreateAccountMobile(props: CreateAccountFormProps) {
         />
         
         <div className="relative z-10 px-5 pt-10">
-        
-
           <h1 className="text-white text-[1.6rem] font-extrabold leading-tight drop-shadow-lg mt-2">
             Welcome to <span className="text-[#4ade80]">YardStock</span>
           </h1>
@@ -29,13 +27,10 @@ export default function CreateAccountMobile(props: CreateAccountFormProps) {
 
       <section 
         aria-labelledby="mobile-create-account-heading"
-        className="relative z-20 -mt-6 pb-15 ys-scale-in motion-reduce:animate-none motion-reduce:transform-none motion-reduce:opacity-100 [animation-delay:80ms]" 
+        className="relative z-20 w-full mt-auto pb-15 ys-scale-in motion-reduce:animate-none motion-reduce:transform-none motion-reduce:opacity-100 [animation-delay:80ms]" 
       >
         <div className="bg-white rounded-[8px] p-5 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-100">
-          
-          
           <CreateAccountForm {...props} showLoginLink={true} isMobile={true} />
-
         </div>
       </section>
     </main>

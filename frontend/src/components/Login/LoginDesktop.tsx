@@ -12,7 +12,6 @@ import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined'
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined'
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined'
 import LanguageIcon from '@mui/icons-material/Language'
-import Sidebar from '../commonfiles/sidebar/Sidebar'
 import Dropdown from '../commonfiles/Dropdown'
 import type { DropdownOption } from '../commonfiles/Dropdown'
 import { SOCIAL } from './constants'
@@ -91,7 +90,6 @@ export default function LoginDesktop({
           </linearGradient>
         </defs>
       </svg>
-      <Sidebar active="announcements" />
 
       <section
         aria-label="Welcome Information"

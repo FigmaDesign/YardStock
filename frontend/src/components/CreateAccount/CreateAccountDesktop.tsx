@@ -6,7 +6,6 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined'
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined'
 import LanguageIcon from '@mui/icons-material/Language'
 import React from 'react'
-import Sidebar from '../commonfiles/sidebar/Sidebar'
 import Dropdown from '../commonfiles/Dropdown'
 import CreateAccountForm, { type CreateAccountFormProps } from './CreateAccountForm'
 import { STATS_DESKTOP } from './constants'
@@ -135,7 +134,6 @@ export default function CreateAccountDesktop({
 }: CreateAccountDesktopProps) {
   return (
     <main className="h-screen w-full flex overflow-hidden bg-[#050f20]">
-      <Sidebar active="announcements" />
 
       <HeroSection onLoginClick={onLoginClick} />
 

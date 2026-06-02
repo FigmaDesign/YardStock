@@ -16,22 +16,7 @@ export default function CreateAccountMobile(props: CreateAccountFormProps) {
         />
         
         <div className="relative z-10 px-5 pt-10">
-          <div className="flex items-center gap-3 mb-6">
-            <img 
-              src={YardLogo} 
-              alt="YardStockLogo" 
-              aria-hidden="true" 
-              className="w-10 h-10 object-contain drop-shadow-md" 
-            />
-            <div>
-              <p className="text-white font-extrabold text-[1.3rem] tracking-[0.15em] leading-none drop-shadow-sm">
-                YARDStock
-              </p>
-              <p className="text-[#4ade80] font-semibold text-[0.55rem] tracking-[0.22em] uppercase mt-1 drop-shadow-sm">
-                Real Estate Intelligence
-              </p>
-            </div>
-          </div>
+        
 
           <h1 className="text-white text-[1.6rem] font-extrabold leading-tight drop-shadow-lg mt-2">
             Welcome to <span className="text-[#4ade80]">YardStock</span>

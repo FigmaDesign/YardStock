@@ -67,7 +67,7 @@ export default function Announcements() {
     <div className="flex flex-col h-full overflow-hidden">
       <AnnouncementTabs active={activeTab} onChange={handleTabChange} />
 
-      <div className="flex-1 overflow-y-auto bg-slate-50/30 @md:bg-white scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-3 @md:p-0">
+      <div className="flex-1 overflow-y-auto bg-slate-50/30 @md:bg-white scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-1 @md:p-0">
         {displayPosts.length === 0 ? (
           <div className="flex items-center justify-center h-40 text-[0.82rem] text-slate-400 font-medium">
             No posts found in this category.

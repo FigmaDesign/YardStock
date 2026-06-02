@@ -35,44 +35,69 @@ const PostCard = memo(function PostCard({ post }: PostCardProps) {
   const cfg = TYPE_CONFIG[post.type]
 
   return (
-    <article className="relative flex flex-row items-stretch gap-3 @md:gap-4 p-3 @md:p-4 mb-3 border border-slate-200 rounded-xl bg-white hover:shadow-md transition-all duration-300 box-border w-full group overflow-hidden">
+    <article className="relative flex flex-col @md:flex-row items-stretch gap-1 @md:gap-4 p-3 @md:p-4 mb-3 border border-slate-200 rounded-lg bg-white hover:shadow-md transition-all duration-300 box-border w-full group overflow-hidden">
       
       <div 
         aria-hidden="true" 
         className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-[#183666] to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
       />
 
-      <div
-        className={`shrink-0 flex flex-col items-center justify-center rounded-lg w-18 h-21.5 @md:w-21 @md:h-24 gap-1.5 border ${cfg.badgeClass}`}
-        aria-hidden="true"
-      >
-        <span className={`text-[0.40rem] @md:text-[0.45rem] font-extrabold tracking-wide uppercase leading-tight text-center px-1 ${cfg.textClass}`}>
-          {cfg.label}
-        </span>
-        <cfg.Icon size={22} strokeWidth={1.8} className={cfg.iconClass} />
+      <div className="flex flex-row gap-3 items-center @md:items-start shrink-0">
+        
+        <div
+          className={`shrink-0 flex flex-col items-center justify-center rounded-lg w-16 h-18 @md:w-21 @md:h-24 gap-1.5 border ${cfg.badgeClass}`}
+          aria-hidden="true"
+        >
+          <span className={`text-[0.40rem] @md:text-[0.45rem] font-extrabold tracking-wide uppercase leading-tight text-center px-1 ${cfg.textClass}`}>
+            {cfg.label}
+          </span>
+          <cfg.Icon className={`w-5 h-5 @md:w-[22px] @md:h-[22px] ${cfg.iconClass}`} strokeWidth={1.8} />
+        </div>
+
+        <div className="flex flex-col justify-center @md:hidden flex-1 min-w-0 pr-8">
+          <h3 className="text-[0.85rem] font-bold text-slate-800 leading-snug wrap-break-word transition-colors duration-300 group-hover:text-[#183666]">
+            {post.title}
+          </h3>
+          <div className="flex items-center flex-wrap gap-1 mt-0.5">
+            <span className="text-[0.72rem] font-medium text-slate-600 wrap-break-word">
+              {post.company}
+            </span>
+            {post.verified && (
+              <BadgeCheck 
+                size={14} 
+                className="text-[#16a34a] shrink-0" 
+                fill="currentColor" 
+                color="white" 
+                aria-label="Verified" 
+              />
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="flex-1 min-w-0 flex flex-col justify-start py-0.5">
-        <h3 className="text-[0.85rem] @md:text-[0.95rem] font-bold text-slate-800 leading-snug wrap-break-word pr-2 transition-colors duration-300 group-hover:text-[#183666]">
-          {post.title}
-        </h3>
-
-        <div className="flex items-center flex-wrap gap-1 mt-0.5">
-          <span className="text-[0.72rem] @md:text-[0.75rem] font-medium text-slate-600 wrap-break-word">
-            {post.company}
-          </span>
-          {post.verified && (
-            <BadgeCheck 
-              size={14} 
-              className="text-[#16a34a] shrink-0" 
-              fill="currentColor" 
-              color="white" 
-              aria-label="Verified" 
-            />
-          )}
+        
+        <div className="hidden @md:flex flex-col mb-1.5 pr-10">
+          <h3 className="text-[0.95rem] font-bold text-slate-800 leading-snug wrap-break-word transition-colors duration-300 group-hover:text-[#183666]">
+            {post.title}
+          </h3>
+          <div className="flex items-center flex-wrap gap-1 mt-0.5">
+            <span className="text-[0.75rem] font-medium text-slate-600 wrap-break-word">
+              {post.company}
+            </span>
+            {post.verified && (
+              <BadgeCheck 
+                size={14} 
+                className="text-[#16a34a] shrink-0" 
+                fill="currentColor" 
+                color="white" 
+                aria-label="Verified" 
+              />
+            )}
+          </div>
         </div>
 
-        <p className="text-[0.72rem] @md:text-[0.75rem] text-slate-500 mt-1 leading-relaxed font-medium wrap-break-word">
+        <p className="text-[0.75rem] text-slate-500 leading-relaxed font-medium wrap-break-word">
           {post.description}
         </p>
 
@@ -94,16 +119,17 @@ const PostCard = memo(function PostCard({ post }: PostCardProps) {
         </div>
       </div>
 
-      <div className="shrink-0 flex flex-col items-end justify-between py-0.5 w-10.5 @md:w-auto">
+      <div className="shrink-0 flex flex-row @md:flex-col items-center @md:items-end justify-between py-0.5 w-full @md:w-auto pt-1 @md:pt-0 border-t border-slate-100 @md:border-none mt-1 @md:mt-0">
         <span className="text-[0.65rem] @md:text-[0.7rem] font-medium text-slate-500 whitespace-nowrap">
           {post.timeAgo}
         </span>
 
         <div className="flex items-center gap-2">
+          {/* Bookmark Button moved here and set to @md:static */}
           <button
             onClick={() => setSaved((s) => !s)}
             aria-label={saved ? 'Remove bookmark' : 'Bookmark this post'}
-            className="p-1 -mr-1 @md:mr-0 @md:w-8 @md:h-8 @md:border @md:border-slate-200 @md:rounded-full @md:bg-slate-50 rounded hover:bg-slate-100 transition-all duration-300 text-slate-400 hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 flex items-center justify-center"
+            className="absolute top-3 right-3 @md:static p-1.5 @md:w-8 @md:h-8 @md:border @md:border-slate-200 rounded-full @md:bg-slate-50 hover:bg-slate-100 transition-all duration-300 text-slate-400 hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 flex items-center justify-center z-10"
           >
             <Bookmark 
               size={17} 
@@ -115,10 +141,10 @@ const PostCard = memo(function PostCard({ post }: PostCardProps) {
 
           <button
             aria-label={`View details for ${post.title}`}
-            className="hidden @md:flex shrink-0 items-center gap-1.5 px-4 py-1.5 rounded-lg border border-transparent bg-[#183666] shadow-[0_2px_8px_rgba(24,54,102,0.2)] text-[0.72rem] font-bold text-white hover:bg-[#0d1e3a] hover:shadow-[0_4px_12px_rgba(24,54,102,0.3)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#183666]/50 group/btn"
+            className="flex shrink-0 items-center gap-1.5 px-3 py-1.5 @md:px-4 rounded-lg border border-transparent bg-[#183666] shadow-[0_2px_8px_rgba(24,54,102,0.2)] text-[0.72rem] font-bold text-white hover:bg-[#0d1e3a] hover:shadow-[0_4px_12px_rgba(24,54,102,0.3)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#183666]/50 group/btn"
           >
-            View Details
-            <ArrowRight size={12} aria-hidden="true" className="transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+            <span>View Details</span>
+            <ArrowRight size={14} aria-hidden="true" className="transition-transform duration-300 group-hover/btn:translate-x-0.5" />
           </button>
         </div>
       </div>

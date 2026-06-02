@@ -109,7 +109,7 @@ const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: An
             {isActive && (
               <div
                 aria-hidden="true"
-                className="absolute bottom-0.75 left-1/2 h-0.75 w-5 -translate-x-1/2 rounded-lg bg-linear-to-r from-emerald-500 to-blue-500"
+                className="absolute bottom-0.75 left-1/2 h-0.75 w-3/4 -translate-x-1/2 rounded-lg bg-linear-to-r from-emerald-500 to-blue-500"
               />
             )}
           </button>

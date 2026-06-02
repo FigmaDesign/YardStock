@@ -97,7 +97,7 @@ export default function App() {
       <main 
         id="main-content"
         aria-live="polite"
-        className="flex-1 overflow-hidden relative focus-visible:outline-none"
+        className="flex-1 overflow-hidden relative focus-visible:outline-none @container"
         tabIndex={-1}
       >
         <div 

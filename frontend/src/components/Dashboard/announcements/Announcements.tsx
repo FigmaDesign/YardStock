@@ -37,7 +37,7 @@ export default function Announcements() {
     <div className="flex flex-col h-full overflow-hidden">
       <AnnouncementTabs active={activeTab} onChange={handleTabChange} />
 
-      <div className="flex-1 overflow-y-auto bg-white divide-y divide-transparent">
+      <div className="flex-1 overflow-y-auto bg-white divide-y divide-transparent scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         {paginated.length === 0 ? (
           <div className="flex items-center justify-center h-40 text-[0.82rem] text-[#9199a8]">
             No posts found in this category.
@@ -67,10 +67,10 @@ export default function Announcements() {
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={safePage === 1}
             aria-label="Previous page"
-            className="min-w-7 min-h-7 p-1 flex flex-col md:flex-row items-center justify-center gap-1 rounded-md border border-[#eef0f3] text-[#6b7280] hover:bg-[#f5f6f8] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="min-w-7 min-h-7 p-1 flex flex-col @md:flex-row items-center justify-center gap-1 rounded-md border border-[#eef0f3] text-[#6b7280] hover:bg-[#f5f6f8] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             <ChevronLeft size={13} />
-            <span className="text-[10px] md:text-[0.75rem] leading-none">Prev</span>
+            <span className="text-[10px] @md:text-[0.75rem] leading-none">Prev</span>
           </button>
 
           {pageNumbers.map((item, i) =>
@@ -98,10 +98,10 @@ export default function Announcements() {
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={safePage === totalPages}
             aria-label="Next page"
-            className="min-w-7 min-h-7 p-1 flex flex-col md:flex-row items-center justify-center gap-1 rounded-md border border-[#eef0f3] text-[#6b7280] hover:bg-[#f5f6f8] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="min-w-7 min-h-7 p-1 flex flex-col @md:flex-row items-center justify-center gap-1 rounded-md border border-[#eef0f3] text-[#6b7280] hover:bg-[#f5f6f8] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             <ChevronRight size={13} />
-            <span className="text-[10px] md:text-[0.75rem] leading-none">Next</span>
+            <span className="text-[10px] @md:text-[0.75rem] leading-none">Next</span>
           </button>
         </nav>
 

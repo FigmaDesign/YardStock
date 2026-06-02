@@ -1,5 +1,5 @@
-import { memo, type ElementType } from 'react'
-import { Layers, HardHat, Briefcase, Handshake, Bell, ChevronRight } from 'lucide-react'
+import { memo, type ElementType, useRef, useState, useEffect, useCallback } from 'react'
+import { Layers, HardHat, Briefcase, Handshake, Bell, ChevronRight, ChevronLeft } from 'lucide-react'
 import type { AnnouncementTab } from './data'
 import { ANNOUNCEMENT_TABS } from './data'
 
@@ -17,11 +17,51 @@ interface AnnouncementTabsProps {
 }
 
 const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: AnnouncementTabsProps) {
+  const scrollContainerRef = useRef<HTMLElement>(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(false)
+
+  const checkScroll = useCallback(() => {
+    if (scrollContainerRef.current) {
+      const { scrollWidth, clientWidth, scrollLeft } = scrollContainerRef.current
+      setCanScrollLeft(Math.ceil(scrollLeft) > 1)
+      setCanScrollRight(Math.ceil(scrollLeft + clientWidth) + 2 < scrollWidth)
+    }
+  }, [])
+
+  useEffect(() => {
+    checkScroll()
+    
+    const currentRef = scrollContainerRef.current
+    if (!currentRef) return
+
+    const resizeObserver = new ResizeObserver(() => checkScroll())
+    resizeObserver.observe(currentRef)
+
+    return () => resizeObserver.disconnect()
+  }, [checkScroll])
+
   return (
     <nav
+      ref={scrollContainerRef}
+      onScroll={checkScroll}
       aria-label="Announcement categories"
       className="relative flex w-full items-stretch overflow-x-auto h-12.5 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden shrink-0"
     >
+      {canScrollLeft && (
+        <button
+          type="button"
+          aria-label="Scroll tabs left"
+          onClick={() => {
+            const nav = scrollContainerRef.current
+            if (nav) nav.scrollBy({ left: -150, behavior: 'smooth' })
+          }}
+          className="sticky left-0 flex h-full items-center justify-center bg-linear-to-r from-white via-white to-transparent pr-6 pl-1 @md:hidden z-10 text-gray-400 hover:text-gray-600"
+        >
+          <ChevronLeft size={18} />
+        </button>
+      )}
+
       {ANNOUNCEMENT_TABS.map((tab, idx) => {
         const Icon = TAB_ICONS[tab]
         const isActive = tab === active
@@ -32,7 +72,7 @@ const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: An
             aria-current={isActive ? 'page' : undefined}
             onClick={() => onChange(tab)}
             className={[
-              'relative flex flex-col md:flex-row items-center justify-center gap-1.5 md:gap-2 px-2 pb-2 h-full flex-[1_0_auto] min-w-20',
+              'relative flex flex-col @md:flex-row items-center justify-center gap-1.5 @md:gap-2 px-2 pb-2 h-full flex-[1_0_auto] min-w-20',
               'cursor-pointer bg-transparent border-none transition-all duration-200',
               '[-webkit-tap-highlight-color:transparent] active:scale-[0.95] active:opacity-80',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10b981] focus-visible:ring-inset',
@@ -51,7 +91,7 @@ const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: An
             />
 
             <span
-              className={`text-center text-[0.55rem] md:text-xs leading-[1.1] whitespace-normal break-words transition-all duration-200 motion-reduce:transition-none ${
+              className={`text-center text-[0.55rem] @md:text-xs leading-[1.1] whitespace-normal wrap-break-word transition-all duration-200 motion-reduce:transition-none ${
                 isActive ? 'font-bold text-[#0a2a6e]' : 'font-medium text-gray-500'
               }`}
             >
@@ -76,17 +116,19 @@ const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: An
         )
       })}
 
-      <button
-        type="button"
-        aria-label="Scroll tabs right"
-        onClick={(e) => {
-          const nav = e.currentTarget.parentElement
-          if (nav) nav.scrollBy({ left: 150, behavior: 'smooth' })
-        }}
-        className="sticky right-0 flex h-full items-center justify-center bg-linear-to-l from-white via-white to-transparent pl-8 pr-2 md:hidden z-10 text-gray-400 hover:text-gray-600"
-      >
-        <ChevronRight size={18} />
-      </button>
+      {canScrollRight && (
+        <button
+          type="button"
+          aria-label="Scroll tabs right"
+          onClick={() => {
+            const nav = scrollContainerRef.current
+            if (nav) nav.scrollBy({ left: 150, behavior: 'smooth' })
+          }}
+          className="sticky right-0 flex h-full items-center justify-center bg-linear-to-l from-white via-white to-transparent pl-6 pr-1 @md:hidden z-10 text-gray-400 hover:text-gray-600"
+        >
+          <ChevronRight size={18} />
+        </button>
+      )}
     </nav>
   )
 })

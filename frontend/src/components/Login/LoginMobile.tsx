@@ -75,7 +75,7 @@ export default function LoginMobile({
         </defs>
       </svg>
       <header
-        className="relative shrink-0 pb-20 ys-fade-in-down motion-reduce:animate-none motion-reduce:transform-none motion-reduce:opacity-100 bg-cover bg-top bg-(image:--mobile-bg)"
+        className="relative shrink-0 pb-20 ys-fade-in-down motion-reduce:animate-none motion-reduce:transform-none motion-reduce:opacity-100 bg-no-repeat bg-[length:100%_100%] bg-center bg-(image:--mobile-bg)"
         style={{ '--mobile-bg': `url(${mobileBg})` } as React.CSSProperties}
       >
         <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-[#050f20]/90 via-[#071428]/70 to-[#0d1a35]/95" />
@@ -94,10 +94,10 @@ export default function LoginMobile({
         </div>
       </header>
 
-            <section 
-              aria-label="Login Form Section"
-              className={`relative z-20 ${loginMode === 'email' ? '-mt-12 pb-14' : '-mt-5 pb-10'} ys-scale-in motion-reduce:animate-none motion-reduce:transform-none motion-reduce:opacity-100 [animation-delay:80ms]`} 
-            >
+      <section 
+        aria-label="Login Form Section"
+        className={`relative z-20 w-full mt-auto ${loginMode === 'email' ? 'pb-14' : 'pb-10'} ys-scale-in motion-reduce:animate-none motion-reduce:transform-none motion-reduce:opacity-100 [animation-delay:80ms]`} 
+      >
         <div className="bg-white rounded-[8px] p-5 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-100">
           
           <div role="tablist" aria-label="Login method" className="flex rounded-[8px] bg-[#f4f6f9] p-1 mb-4 gap-1">

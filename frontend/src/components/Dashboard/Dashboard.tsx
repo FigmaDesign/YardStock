@@ -9,6 +9,7 @@ import SubTabBar from '../commonfiles/TabBar/SubTabBar'
 import FooterNav from '../commonfiles/FooterNav'
 import { NAV_ITEMS, type NavKey } from '../commonfiles/sidebar/data'
 import Announcements from './announcements/Announcements'
+import Podcasts from './podcasts/Podcasts'
 import DashboardHeader from './DashboardHeader'
 
 interface DashboardProps {
@@ -86,7 +87,7 @@ const ActivityFeed = memo(function ActivityFeed() {
 })
 
 function DesktopDashboard() {
-  const [activeTab, setActiveTab] = useState<NavKey>('announcements')
+  const [activeTab, setActiveTab] = useState<NavKey>('podcasts')
   const [activeSubTab, setActiveSubTab] = useState(TAB_ITEMS[0]?.subTabs?.[0]?.label ?? '')
   const [activeFooterTab, setActiveFooterTab] = useState('home')
 
@@ -124,6 +125,8 @@ function DesktopDashboard() {
       <div className="flex-1 overflow-hidden flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#16a34a]" tabIndex={-1}>
         {activeTab === 'announcements' ? (
           <Announcements />
+        ) : activeTab === 'podcasts' ? (
+          <Podcasts activeSubTab={activeSubTab} />
         ) : (
           <div className="flex-1 overflow-y-auto px-6 py-6">
             <header className="mb-6">
@@ -153,7 +156,7 @@ function DesktopDashboard() {
 }
 
 function MobileDashboard() {
-  const [activeTab, setActiveTab] = useState('announcements')
+  const [activeTab, setActiveTab] = useState('podcasts')
   const [activeSubTab, setActiveSubTab] = useState('')
   const [activeFooterTab, setActiveFooterTab] = useState('home')
 
@@ -191,6 +194,8 @@ function MobileDashboard() {
       <div className="flex-1 overflow-hidden flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#16a34a]" tabIndex={-1}>
         {activeTab === 'announcements' ? (
           <Announcements />
+        ) : activeTab === 'podcasts' ? (
+          <Podcasts activeSubTab={activeSubTab} />
         ) : (
           <div className="flex-1 overflow-y-auto px-4 py-5">
             <header className="mb-5">

@@ -132,8 +132,8 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
+  { key: 'podcasts',      label: 'RED Expert Conversations', Icon: Mic2,         subTabs: PODCAST_SUBTABS },
   { key: 'announcements', label: 'Announcement Board', Icon: Megaphone },
-  { key: 'podcasts',      label: 'Podcasts',           Icon: Mic2,         subTabs: PODCAST_SUBTABS },
   { key: 'learn',         label: 'Learn',              Icon: BookOpen,     subTabs: LEARN_SUBTABS },
   { key: 'videoVault',    label: 'Video Vault',        Icon: Film,         subTabs: VIDEO_VAULT_SUBTABS },
   { key: 'cityInventory', label: 'City Inventory',     Icon: Landmark,     subTabs: CITY_INVENTORY_SUBTABS },

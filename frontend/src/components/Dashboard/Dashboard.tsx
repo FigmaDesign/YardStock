@@ -6,7 +6,8 @@ import EventNoteIcon from '@mui/icons-material/EventNote'
 
 import TabBar from '../commonfiles/TabBar'
 import SubTabBar from '../commonfiles/TabBar/SubTabBar'
-import { NAV_ITEMS, COMMON_SUBTABS, type SubTabItem, type NavKey } from '../commonfiles/sidebar/data'
+import FooterNav from '../commonfiles/FooterNav'
+import { NAV_ITEMS, type NavKey } from '../commonfiles/sidebar/data'
 import Announcements from './announcements/Announcements'
 import DashboardHeader from './DashboardHeader'
 
@@ -28,13 +29,11 @@ const STAGGER_DELAYS = [
   '[animation-delay:195ms]',
 ] as const
 
-const SUB_TABS: SubTabItem[] = COMMON_SUBTABS
-
 const TAB_ITEMS = NAV_ITEMS.map(({ key, label, Icon, subTabs }) => ({
   key,
   label,
   Icon,
-  subTabs: key === 'announcements' ? [] : (subTabs ?? []),
+  subTabs: subTabs ?? [],
 }))
 
 const StatCards = memo(function StatCards() {
@@ -88,9 +87,11 @@ const ActivityFeed = memo(function ActivityFeed() {
 
 function DesktopDashboard() {
   const [activeTab, setActiveTab] = useState<NavKey>('announcements')
-  const [activeSubTab, setActiveSubTab] = useState(SUB_TABS[0].label)
+  const [activeSubTab, setActiveSubTab] = useState(TAB_ITEMS[0]?.subTabs?.[0]?.label ?? '')
+  const [activeFooterTab, setActiveFooterTab] = useState('home')
 
   const activeItem = TAB_ITEMS.find(t => t.key === activeTab)
+  const currentSubTabs = activeItem?.subTabs ?? []
 
   const handleTabChange = useCallback((key: string) => {
     setActiveTab(key as NavKey)
@@ -114,9 +115,9 @@ function DesktopDashboard() {
         />
       </nav>
 
-      {activeTab !== 'announcements' && (
+      {currentSubTabs.length > 0 && (
         <nav aria-label="Secondary Navigation" className="shrink-0 border-b border-[#eef0f3] bg-white/60 backdrop-blur-md px-6 py-1">
-          <SubTabBar subTabs={SUB_TABS} active={activeSubTab} onChange={setActiveSubTab} variant="desktop" />
+          <SubTabBar subTabs={currentSubTabs} active={activeSubTab} onChange={setActiveSubTab} variant="desktop" />
         </nav>
       )}
 
@@ -145,15 +146,19 @@ function DesktopDashboard() {
           </div>
         )}
       </div>
+
+      <FooterNav active={activeFooterTab} onChange={setActiveFooterTab} />
     </main>
   )
 }
 
 function MobileDashboard() {
   const [activeTab, setActiveTab] = useState('announcements')
-  const [activeSubTab, setActiveSubTab] = useState('Home')
+  const [activeSubTab, setActiveSubTab] = useState('')
+  const [activeFooterTab, setActiveFooterTab] = useState('home')
 
   const activeItem = TAB_ITEMS.find(t => t.key === activeTab)
+  const currentSubTabs = activeItem?.subTabs ?? []
 
   const handleTabChange = useCallback((key: string) => {
     setActiveTab(key)
@@ -177,9 +182,9 @@ function MobileDashboard() {
         />
       </nav>
 
-      {activeTab !== 'announcements' && (
+      {currentSubTabs.length > 0 && (
         <nav aria-label="Secondary Navigation" className="shrink-0 border-b border-[#eef0f3] bg-white/60 backdrop-blur-md">
-          <SubTabBar subTabs={SUB_TABS} active={activeSubTab} onChange={setActiveSubTab} variant="mobile" />
+          <SubTabBar subTabs={currentSubTabs} active={activeSubTab} onChange={setActiveSubTab} variant="mobile" />
         </nav>
       )}
 
@@ -204,6 +209,8 @@ function MobileDashboard() {
           </div>
         )}
       </div>
+
+      <FooterNav active={activeFooterTab} onChange={setActiveFooterTab} />
     </main>
   )
 }

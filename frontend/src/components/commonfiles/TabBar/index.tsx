@@ -1,6 +1,6 @@
-import { useCallback, useMemo, type ElementType } from 'react'
+import { useCallback, type ElementType } from 'react'
 import PrimaryTabBar, { type PrimaryTabItem } from './PrimaryTabBar'
-import SubTabBar, { type SubTabItem } from './SubTabBar'
+import { type SubTabItem } from './SubTabBar'
 
 export type { PrimaryTabItem, SubTabItem }
 
@@ -22,13 +22,9 @@ interface TabBarProps {
 export default function TabBar({
   tabs,
   active,
-  activeSubTab,
   onChange,
   onSubTabChange,
 }: TabBarProps) {
-  const activeItem = useMemo(() => tabs.find((t) => t.key === active), [tabs, active])
-  const subTabs = useMemo(() => activeItem?.subTabs ?? [], [activeItem])
-
   const handleMainChange = useCallback(
     (key: string) => {
       onChange(key)
@@ -49,11 +45,6 @@ export default function TabBar({
         tabs={tabs}
         active={active}
         onChange={handleMainChange}
-      />
-      <SubTabBar
-        subTabs={subTabs}
-        active={activeSubTab}
-        onChange={onSubTabChange}
       />
     </nav>
   )

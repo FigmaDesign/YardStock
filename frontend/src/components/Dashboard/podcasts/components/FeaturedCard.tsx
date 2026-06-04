@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import React from 'react'
 import { Play, Star, TrendingUp } from 'lucide-react'
 
 interface FeaturedCardProps {
@@ -13,7 +13,7 @@ interface FeaturedCardProps {
   extraContent?: React.ReactNode
 }
 
-export default memo(function FeaturedCard({
+export default function FeaturedCard({
   badge,
   badgeVariant = 'star',
   title,
@@ -27,8 +27,11 @@ export default memo(function FeaturedCard({
   const BadgeIcon = badgeVariant === 'trending' ? TrendingUp : Star
 
   return (
-    <div className="relative w-full rounded-lg overflow-hidden min-h-[180px] sm:min-h-[220px]">
-      <div aria-hidden="true" className="absolute inset-0">
+    <div 
+      className="group relative w-full rounded-lg overflow-hidden min-h-[220px] sm:min-h-[260px] shadow-2xl shadow-black/40 outline outline-1 outline-white/10 hover:outline-white/20 transition-all duration-300 focus-within:ring-2 focus-within:ring-white/50 focus-within:outline-none cursor-pointer"
+      tabIndex={0}
+    >
+      <div aria-hidden="true" className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a1e42] via-[#0f2a52] to-[#1a3a6b]" />
         
         <div className="absolute inset-0 opacity-20">
@@ -54,54 +57,63 @@ export default memo(function FeaturedCard({
         </div>
         
         <div className="absolute -right-10 -top-10 w-60 h-60 rounded-full bg-blue-400/10 blur-3xl" />
+
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
       </div>
 
-      <div className="relative z-10 flex flex-col justify-between p-4 sm:p-5 h-full min-h-[180px] sm:min-h-[220px]">
+      <div className="relative z-10 flex flex-col justify-between p-2 sm:p-6 h-full min-h-[220px] sm:min-h-[260px]">
         <div className="flex">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[0.65rem] font-bold uppercase tracking-wider bg-emerald-500/90 text-white backdrop-blur-sm shadow-sm shadow-emerald-500/20">
-            <BadgeIcon size={12} strokeWidth={2.5} aria-hidden="true" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.7rem] font-bold uppercase tracking-widest bg-emerald-500/90 text-white backdrop-blur-md shadow-md shadow-emerald-500/30 outline outline-1 outline-emerald-400/50">
+            <BadgeIcon size={14} strokeWidth={2.5} aria-hidden="true" />
             {badge}
           </span>
         </div>
 
-        <div className="mt-auto space-y-2.5">
-          <div>
-            <h2 className="text-[1.25rem] sm:text-[1.4rem] font-extrabold text-white leading-tight tracking-tight">
+        <div className="mt-auto space-y-4">
+          <div className="space-y-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight tracking-tighter drop-shadow-md">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-[0.8rem] text-white/70 mt-1 leading-snug max-w-[320px]">
+              <p className="text-sm sm:text-base text-white/80 leading-snug max-w-[85%] font-medium drop-shadow-sm">
                 {subtitle}
               </p>
             )}
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-[0.6rem] font-bold text-white shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md outline outline-1 outline-white/20 flex items-center justify-center text-xs font-bold text-white shadow-inner">
               {speaker.split(' ').map(w => w[0]).join('')}
             </div>
-            <div>
-              <p className="text-[0.75rem] font-semibold text-white leading-none">{speaker}</p>
-              <p className="text-[0.65rem] text-white/60 mt-0.5">{role}</p>
+            <div className="flex flex-col">
+              <p className="text-sm font-bold text-white leading-tight tracking-wide drop-shadow-sm">{speaker}</p>
+              <p className="text-[0.7rem] font-medium text-white/60 mt-0.5">{role}</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-4 pt-1">
             <button
               type="button"
               aria-label="Play episode"
-              className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md shadow-black/20 hover:scale-105 active:scale-95 transition-transform"
+              className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-xl shadow-black/40 hover:scale-105 hover:bg-gray-50 active:scale-95 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white group/btn"
             >
-              <Play size={14} fill="#0f172a" stroke="#0f172a" className="ml-0.5" aria-hidden="true" />
+              <Play size={20} fill="#0f172a" stroke="#0f172a" className="ml-1 group-hover/btn:scale-105 transition-transform" aria-hidden="true" />
             </button>
-            <span className="text-[0.75rem] font-semibold text-white">{duration}</span>
-            <span className="text-white/40 text-[0.75rem]">•</span>
-            <span className="text-[0.75rem] font-medium text-white/70">{plays}</span>
+            
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-bold text-white tracking-wide">{duration}</span>
+              <span className="text-white/40 text-xs">•</span>
+              <span className="text-sm font-medium text-white/70">{plays}</span>
+            </div>
           </div>
 
-          {extraContent}
+          {extraContent && (
+            <div className="pt-2">
+              {extraContent}
+            </div>
+          )}
         </div>
       </div>
     </div>
   )
-})
+}

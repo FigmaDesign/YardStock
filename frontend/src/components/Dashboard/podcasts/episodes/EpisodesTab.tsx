@@ -1,16 +1,15 @@
 import { memo } from 'react'
-import PageHeader from './PageHeader'
-import FeaturedCard from './FeaturedCard'
-import SectionHeader from './SectionHeader'
-import EpisodeCard from './EpisodeCard'
-import { FEATURED_EPISODE, EPISODES } from './data'
+import PageHeader from '../PageHeader'
+import FeaturedCard from '../FeaturedCard'
+import SectionHeader from '../SectionHeader'
+import EpisodeCard from '../EpisodeCard'
+import { FEATURED_EPISODE, EPISODES } from '../data'
 
 export default memo(function EpisodesTab() {
   return (
     <div className="flex flex-col">
       <PageHeader
         title="Podcasts"
-        subtitle="Insights, conversations and ideas from real estate leaders."
       />
 
       {/* Featured Episode */}

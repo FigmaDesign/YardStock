@@ -1,7 +1,6 @@
 import React from 'react'
 import CreateAccountForm, { type CreateAccountFormProps } from './CreateAccountForm'
 import mobileBg from '../commonfiles/Images/Login&create/mobile.png'
-import YardLogo from '../commonfiles/Images/YardStockLogowithouttext.png'
 
 export default function CreateAccountMobile(props: CreateAccountFormProps) {
   return (

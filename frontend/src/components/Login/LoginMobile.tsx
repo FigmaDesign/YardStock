@@ -1,6 +1,5 @@
 import React, { useId, useState, useCallback } from 'react'
 import mobileBg from '../commonfiles/Images/Login&create/mobile.png'
-import YardLogo from '../commonfiles/Images/YardStockLogowithouttext.png'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'

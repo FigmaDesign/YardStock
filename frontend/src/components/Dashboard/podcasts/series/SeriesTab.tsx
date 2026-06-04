@@ -1,14 +1,14 @@
 import { memo } from 'react'
 import { Play, Clock, ChevronRight, Headphones } from 'lucide-react'
-import PageHeader from './PageHeader'
-import { SERIES_LIST } from './data'
+import PageHeader from '../PageHeader'
+import { SERIES_LIST } from '../data'
 
 export default memo(function SeriesTab() {
   return (
     <div className="flex flex-col">
       <PageHeader
         title="Series"
-        subtitle="Curated collections of episodes on focused topics."
+        
       />
 
       {/* Series Grid */}

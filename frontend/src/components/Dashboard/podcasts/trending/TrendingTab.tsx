@@ -1,16 +1,15 @@
 import { memo } from 'react'
-import PageHeader from './PageHeader'
-import FeaturedCard from './FeaturedCard'
-import SectionHeader from './SectionHeader'
-import EpisodeCard from './EpisodeCard'
-import { FEATURED_TRENDING, TRENDING_EPISODES, TRENDING_TOPICS } from './data'
+import PageHeader from '../PageHeader'
+import FeaturedCard from '../FeaturedCard'
+import SectionHeader from '../SectionHeader'
+import EpisodeCard from '../EpisodeCard'
+import { FEATURED_TRENDING, TRENDING_EPISODES, TRENDING_TOPICS } from '../data'
 
 export default memo(function TrendingTab() {
   return (
     <div className="flex flex-col">
       <PageHeader
         title="Trending"
-        subtitle="What's hot in real estate right now."
       />
 
       {/* Trending Now Hero */}

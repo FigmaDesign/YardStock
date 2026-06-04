@@ -1,17 +1,16 @@
 import { memo } from 'react'
 import { Play } from 'lucide-react'
-import PageHeader from './PageHeader'
-import FeaturedCard from './FeaturedCard'
-import SectionHeader from './SectionHeader'
+import PageHeader from '../PageHeader'
+import FeaturedCard from '../FeaturedCard'
+import SectionHeader from '../SectionHeader'
 import SpeakerCard from './SpeakerCard'
-import { FEATURED_SPEAKER, SPEAKERS } from './data'
+import { FEATURED_SPEAKER, SPEAKERS } from '../data'
 
 export default memo(function SpeakersTab() {
   return (
     <div className="flex flex-col">
       <PageHeader
         title="Speakers"
-        subtitle="Learn from industry experts and real estate leaders."
       />
 
       {/* Featured Speaker Hero */}

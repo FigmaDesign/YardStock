@@ -1,8 +1,8 @@
 import { memo } from 'react'
-import EpisodesTab from './EpisodesTab'
-import SeriesTab from './SeriesTab'
-import SpeakersTab from './SpeakersTab'
-import TrendingTab from './TrendingTab'
+import EpisodesTab from './episodes/EpisodesTab'
+import SeriesTab from './series/SeriesTab'
+import SpeakersTab from './speakers/SpeakersTab'
+import TrendingTab from './trending/TrendingTab'
 
 interface PodcastsProps {
   activeSubTab: string

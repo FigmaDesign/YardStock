@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { ChevronRight, Star } from 'lucide-react'
-import type { Speaker } from './data'
+import type { Speaker } from '../data'
 
 interface SpeakerCardProps {
   speaker: Speaker

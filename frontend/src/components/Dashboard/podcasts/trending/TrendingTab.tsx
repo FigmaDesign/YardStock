@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import StarIcon from '@mui/icons-material/Star'
+import { useState } from 'react'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import PauseIcon from '@mui/icons-material/Pause'

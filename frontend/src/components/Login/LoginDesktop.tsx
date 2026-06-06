@@ -80,13 +80,12 @@ export default function LoginDesktop({
   }, [loginMode, email, password, phone, otp, onSubmit])
 
   return (
-    <main className="h-screen w-full flex overflow-hidden bg-[#050f20]">
+    <main className="h-screen w-full flex overflow-hidden bg-[#1A1A2E]">
       <svg aria-hidden="true" className="sr-only" style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
           <linearGradient id="loginGradient" x1="0%" x2="100%" y1="0%" y2="0%">
-            <stop offset="0%" stopColor="#1d4ed8" />
-            <stop offset="50%" stopColor="#1a7e5a" />
-            <stop offset="100%" stopColor="#16a34a" />
+            <stop offset="0%" stopColor="#7C3AED" />
+            <stop offset="100%" stopColor="#D946EF" />
           </linearGradient>
         </defs>
       </svg>
@@ -96,14 +95,14 @@ export default function LoginDesktop({
         className="flex-1 relative bg-cover bg-center bg-no-repeat ys-slide-in-left motion-reduce:transform-none motion-reduce:transition-none motion-reduce:animate-none bg-(image:--desktop-bg)"
         style={{ '--desktop-bg': `url(${desktopBg})` } as React.CSSProperties}
       >
-        <div aria-hidden="true" className="absolute inset-0 bg-linear-to-r from-[#050f20]/90 via-[#071428]/60 to-transparent" />
+        <div aria-hidden="true" className="absolute inset-0 bg-linear-to-r from-[#1A1A2E]/90 via-[#16213E]/60 to-transparent" />
         
         <div className="relative z-10 flex flex-col justify-between h-full px-10 py-10 max-w-125">
           <div className="mt-2">
-            <p className="text-[#4ade80] text-[0.82rem] font-semibold tracking-wider uppercase drop-shadow-sm">
+            <p className="text-[#D946EF] text-[0.82rem] font-semibold tracking-wider uppercase drop-shadow-sm">
               Welcome Back
             </p>
-            <div aria-hidden="true" className="w-10 h-0.5 bg-[#4ade80] mt-2 mb-5 shadow-[0_2px_8px_rgba(74,222,128,0.5)]" />
+            <div aria-hidden="true" className="w-10 h-0.5 bg-[#D946EF] mt-2 mb-5 shadow-[0_2px_8px_rgba(217,70,239,0.5)]" />
             <h1 className="text-white text-[2.5rem] font-extrabold leading-[1.15] tracking-tight drop-shadow-lg">
               India's Most Intelligent<br />Real Estate Platform
             </h1>
@@ -117,11 +116,11 @@ export default function LoginDesktop({
             role="complementary"
             aria-label="Security Feature Highlight"
           >
-            <div aria-hidden="true" className="bg-[#16a34a] rounded-[8px] p-2.5 shrink-0 shadow-[0_4px_12px_rgba(22,163,74,0.4)] group-hover:scale-110 group-hover:bg-[#15803d] transition-all duration-300 motion-reduce:transform-none motion-reduce:transition-none">
+            <div aria-hidden="true" className="bg-[#6B21A8] rounded-[8px] p-2.5 shrink-0 shadow-[0_4px_12px_rgba(107,33,168,0.4)] group-hover:scale-110 group-hover:bg-[#5B21B6] transition-all duration-300 motion-reduce:transform-none motion-reduce:transition-none">
               <SecurityIcon sx={{ fontSize: 24, color: 'white' }} />
             </div>
             <div>
-              <p className="text-white font-bold text-[0.95rem] group-hover:text-[#4ade80] transition-colors duration-300 motion-reduce:transition-none">
+              <p className="text-white font-bold text-[0.95rem] group-hover:text-[#D946EF] transition-colors duration-300 motion-reduce:transition-none">
                 Enterprise Grade Security
               </p>
               <p className="text-white/80 text-[0.78rem] mt-0.5 leading-relaxed">
@@ -162,17 +161,16 @@ export default function LoginDesktop({
             className="space-y-3.5 ys-fade-in-up mt-5 motion-reduce:transform-none motion-reduce:animate-none motion-reduce:opacity-100 [animation-delay:80ms]" 
             noValidate
           >
-            {/* Login mode tabs */}
             <div role="tablist" aria-label="Login method" className="flex rounded-[8px] bg-[#f4f6f9] p-1 mb-1 gap-1">
               <button
                 role="tab"
                 type="button"
                 aria-selected={loginMode === 'email' ? 'true' : 'false'}
                 onClick={() => setLoginMode('email')}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-[8px] text-[0.75rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] motion-reduce:transition-none ${
+                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-[8px] text-[0.75rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] motion-reduce:transition-none ${
                   loginMode === 'email'
-                    ? 'bg-white text-transparent bg-clip-text bg-linear-to-r from-[#1d4ed8] via-[#1a7e5a] to-[#16a34a] shadow-sm'
-                      : 'text-gray-500 hover:text-[#0f1e3d]'
+                    ? 'bg-white text-transparent bg-clip-text bg-linear-to-r from-[#7C3AED] to-[#D946EF] shadow-sm'
+                      : 'text-gray-500 hover:text-[#1A1A2E]'
                 }`}
               >
                 <EmailOutlinedIcon sx={ loginMode === 'email' ? { fontSize: 15, fill: 'url(#loginGradient)' } : { fontSize: 15 } } className={loginMode === 'email' ? '' : 'text-gray-500'} aria-hidden="true" />
@@ -183,10 +181,10 @@ export default function LoginDesktop({
                 type="button"
                 aria-selected={loginMode === 'phone' ? 'true' : 'false'}
                 onClick={() => setLoginMode('phone')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-[8px] text-[0.75rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] motion-reduce:transition-none ${
+                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-[8px] text-[0.75rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] motion-reduce:transition-none ${
                   loginMode === 'phone'
-                    ? 'bg-white text-transparent bg-clip-text bg-linear-to-r from-[#1d4ed8] via-[#1a7e5a] to-[#16a34a] shadow-sm'
-                    : 'text-gray-500 hover:text-[#0f1e3d]'
+                    ? 'bg-white text-transparent bg-clip-text bg-linear-to-r from-[#7C3AED] to-[#D946EF] shadow-sm'
+                    : 'text-gray-500 hover:text-[#1A1A2E]'
                 }`}
               >
                 <PhoneOutlinedIcon sx={ loginMode === 'phone' ? { fontSize: 15, fill: 'url(#loginGradient)' } : { fontSize: 15 } } className={loginMode === 'phone' ? '' : 'text-gray-500'} aria-hidden="true" />
@@ -197,11 +195,11 @@ export default function LoginDesktop({
             {loginMode === 'email' ? (
               <>
                 <div className="group">
-                  <label htmlFor={emailId} className="block text-[0.78rem] font-semibold text-[#1a1a2e] mb-1.5 transition-colors duration-300 group-focus-within:text-[#15803d]">
+                  <label htmlFor={emailId} className="block text-[0.78rem] font-semibold text-[#1A1A2E] mb-1.5 transition-colors duration-300 group-focus-within:text-[#6B21A8]">
                     Email Address
                   </label>
-                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.email ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
-                    <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
+                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.email ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#7C3AED]! focus-within:ring-2 focus-within:ring-[#7C3AED]/12'}`}>
+                    <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#6B21A8] transition-colors duration-300">
                       <EmailOutlinedIcon sx={{ fontSize: 18 }} />
                     </span>
                     <input 
@@ -212,18 +210,18 @@ export default function LoginDesktop({
                       required
                       autoComplete="email"
                       placeholder="Enter your email address"
-                      className="flex-1 px-3 py-2 text-[0.85rem] text-[#1a1a2e] placeholder-gray-500 bg-transparent outline-none w-full" 
+                      className="flex-1 px-3 py-2 text-[0.85rem] text-[#1A1A2E] placeholder-gray-500 bg-transparent outline-none w-full" 
                     />
                     </div>
-                    {errors.email && <p className="text-red-600 text-[0.75rem] mt-1">{errors.email}</p>}
+                    {errors.email && <p className="text-[#B91C1C] text-[0.75rem] mt-1">{errors.email}</p>}
                 </div>
 
                 <div className="group">
-                  <label htmlFor={passwordId} className="block text-[0.78rem] font-semibold text-[#1a1a2e] mb-1.5 transition-colors duration-300 group-focus-within:text-[#15803d]">
+                  <label htmlFor={passwordId} className="block text-[0.78rem] font-semibold text-[#1A1A2E] mb-1.5 transition-colors duration-300 group-focus-within:text-[#6B21A8]">
                     Password
                   </label>
-                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.password ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
-                    <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
+                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.password ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#7C3AED]! focus-within:ring-2 focus-within:ring-[#7C3AED]/12'}`}>
+                    <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#6B21A8] transition-colors duration-300">
                       <LockOutlinedIcon sx={{ fontSize: 18 }} />
                     </span>
                     <input 
@@ -234,29 +232,29 @@ export default function LoginDesktop({
                       required
                       autoComplete="current-password"
                       placeholder="Enter your password"
-                      className="flex-1 px-3 py-2 text-[0.85rem] text-[#1a1a2e] placeholder-gray-500 bg-transparent outline-none w-full" 
+                      className="flex-1 px-3 py-2 text-[0.85rem] text-[#1A1A2E] placeholder-gray-500 bg-transparent outline-none w-full" 
                     />
                     <button 
                       type="button" 
                       onClick={() => setShowPwd(!showPwd)} 
                       aria-label={showPwd ? 'Hide password' : 'Show password'}
                       aria-pressed={showPwd}
-                      className="mr-2 p-1.5 text-gray-500 hover:text-[#15803d] shrink-0 rounded-[8px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-colors duration-300 motion-reduce:transition-none"
+                      className="mr-2 p-1.5 text-gray-500 hover:text-[#6B21A8] shrink-0 rounded-[8px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] transition-colors duration-300 motion-reduce:transition-none"
                     >
                       {showPwd ? <VisibilityOutlinedIcon sx={{ fontSize: 17 }} aria-hidden="true" /> : <VisibilityOffOutlinedIcon sx={{ fontSize: 17 }} aria-hidden="true" />}
                     </button>
                     </div>
-                    {errors.password && <p className="text-red-600 text-[0.75rem] mt-1">{errors.password}</p>}
+                    {errors.password && <p className="text-[#B91C1C] text-[0.75rem] mt-1">{errors.password}</p>}
                 </div>
               </>
             ) : (
               <>
                 <div className="group">
-                  <label htmlFor={phoneId} className="block text-[0.78rem] font-semibold text-[#1a1a2e] mb-1.5 transition-colors duration-300 group-focus-within:text-[#15803d]">
+                  <label htmlFor={phoneId} className="block text-[0.78rem] font-semibold text-[#1A1A2E] mb-1.5 transition-colors duration-300 group-focus-within:text-[#6B21A8]">
                     Mobile Number
                   </label>
-                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.phone ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
-                    <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
+                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.phone ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#7C3AED]! focus-within:ring-2 focus-within:ring-[#7C3AED]/12'}`}>
+                    <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#6B21A8] transition-colors duration-300">
                       <PhoneOutlinedIcon sx={{ fontSize: 18 }} />
                     </span>
                     <input
@@ -266,26 +264,26 @@ export default function LoginDesktop({
                       onChange={e => setPhone(e.target.value)}
                       autoComplete="tel"
                       placeholder="Enter your mobile number"
-                      className="flex-1 px-3 py-2 text-[0.85rem] text-[#1a1a2e] placeholder-gray-500 bg-transparent outline-none w-full"
+                      className="flex-1 px-3 py-2 text-[0.85rem] text-[#1A1A2E] placeholder-gray-500 bg-transparent outline-none w-full"
                     />
                     <button
                       type="button"
                       onClick={onSendOtp}
                       disabled={phone.trim().length < 10}
-                      className="mr-2 px-3 py-1.5 rounded-[8px] text-[0.72rem] font-bold bg-[#16a34a] text-white hover:bg-[#15803d] disabled:opacity-40 disabled:cursor-not-allowed transition-colors duration-200 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] motion-reduce:transition-none"
+                      className="mr-2 px-3 py-1.5 rounded-[8px] text-[0.72rem] font-bold bg-[#6B21A8] text-white hover:bg-[#5B21B6] disabled:opacity-40 disabled:cursor-not-allowed transition-colors duration-200 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] motion-reduce:transition-none"
                     >
                       {otpSent ? 'Resend OTP' : 'Send OTP'}
                     </button>
                     </div>
-                    {errors.phone && <p className="text-red-600 text-[0.75rem] mt-1">{errors.phone}</p>}
+                    {errors.phone && <p className="text-[#B91C1C] text-[0.75rem] mt-1">{errors.phone}</p>}
                 </div>
 
                 <div className="group">
-                  <label htmlFor={otpId} className="block text-[0.78rem] font-semibold text-[#1a1a2e] mb-1.5 transition-colors duration-300 group-focus-within:text-[#15803d]">
+                  <label htmlFor={otpId} className="block text-[0.78rem] font-semibold text-[#1A1A2E] mb-1.5 transition-colors duration-300 group-focus-within:text-[#6B21A8]">
                     OTP
                   </label>
-                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.otp ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#16a34a]! focus-within:ring-2 focus-within:ring-[#16a34a]/12'}`}>
-                    <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300">
+                  <div className={`flex items-center rounded-[8px] border bg-white group-hover:border-gray-400 transition-all duration-300 shadow-sm focus-within:shadow-md motion-reduce:transition-none ${errors.otp ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-200' : 'border-[#e0e3eb] focus-within:border-[#7C3AED]! focus-within:ring-2 focus-within:ring-[#7C3AED]/12'}`}>
+                    <span aria-hidden="true" className="pl-3.5 text-gray-500 shrink-0 group-focus-within:text-[#6B21A8] transition-colors duration-300">
                       <SmsOutlinedIcon sx={{ fontSize: 18 }} />
                     </span>
                     <input
@@ -297,11 +295,11 @@ export default function LoginDesktop({
                       onChange={e => setOtp(e.target.value.replace(/\D/g, ''))}
                       autoComplete="one-time-code"
                       placeholder="Enter 6-digit OTP"
-                      className="flex-1 px-3 py-2 text-[0.85rem] text-[#1a1a2e] placeholder-gray-500 bg-transparent outline-none w-full tracking-widest"
+                      className="flex-1 px-3 py-2 text-[0.85rem] text-[#1A1A2E] placeholder-gray-500 bg-transparent outline-none w-full tracking-widest"
                     />
                     </div>
-                    {otpSent && <p className="text-[#16a34a] font-normal text-[0.72rem] mt-1">Sent to your number</p>}
-                    {errors.otp && <p className="text-red-600 text-[0.75rem] mt-1">{errors.otp}</p>}
+                    {otpSent && <p className="text-[#6B21A8] font-normal text-[0.72rem] mt-1">Sent to your number</p>}
+                    {errors.otp && <p className="text-[#B91C1C] text-[0.75rem] mt-1">{errors.otp}</p>}
                 </div>
               </>
             )}
@@ -314,13 +312,13 @@ export default function LoginDesktop({
                   type="checkbox" 
                   checked={remember} 
                   onChange={e => setRemember(e.target.checked)} 
-                  className="w-4 h-4 rounded-[8px] accent-[#16a34a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-1 transition-transform group-hover:scale-110 motion-reduce:transform-none" 
+                  className="w-4 h-4 rounded-[8px] accent-[#6B21A8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] focus-visible:ring-offset-1 transition-transform group-hover:scale-110 motion-reduce:transform-none" 
                 />
                 Remember me
               </label>
               <button 
                 type="button" 
-                className="text-[0.8rem] underline font-semibold text-[#15803d] hover:text-[#14532d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
+                className="text-[0.8rem] underline font-semibold text-[#6B21A8] hover:text-[#5B21B6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] rounded-[8px] transition-colors"
               >
                 Forgot Password?
               </button>
@@ -329,7 +327,7 @@ export default function LoginDesktop({
 
             <button 
               type="submit" 
-              className="w-1/2 mx-auto flex items-center justify-center gap-2 px-5 py-2.5 mt-1 rounded-[8px] font-bold text-[0.95rem] text-white bg-linear-to-r from-[#1d4ed8] via-[#1a7e5a] to-[#16a34a] hover:-translate-y-0.5 active:scale-[0.97] active:opacity-90 shadow-[0_4px_14px_rgba(22,163,74,0.25)] hover:shadow-[0_6px_20px_rgba(22,163,74,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 transition-all duration-200 motion-reduce:transform-none motion-reduce:transition-none"
+              className="w-1/2 mx-auto flex items-center justify-center gap-2 px-5 py-2.5 mt-1 rounded-[8px] font-bold text-[0.95rem] text-white bg-linear-to-r from-[#7C3AED] to-[#D946EF] hover:-translate-y-0.5 active:scale-[0.97] active:opacity-90 shadow-[0_4px_14px_rgba(107,33,168,0.25)] hover:shadow-[0_6px_20px_rgba(107,33,168,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] focus-visible:ring-offset-2 transition-all duration-200 motion-reduce:transform-none motion-reduce:transition-none"
             >
               <span>{loginMode === 'phone' ? 'Verify & Login' : 'Login'}</span>
             </button>
@@ -348,7 +346,7 @@ export default function LoginDesktop({
                   key={label} 
                   type="button" 
                   aria-label={`Log in with ${label}`}
-                  className="flex items-center justify-center gap-2 py-2 border border-[#e0e3eb] rounded-[8px] text-[0.8rem] font-semibold text-[#374151] bg-white hover:bg-gray-50 hover:-translate-y-0.5 active:scale-[0.96] hover:border-gray-300 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-all duration-200 group motion-reduce:transform-none motion-reduce:transition-none"
+                  className="flex items-center justify-center gap-2 py-2 border border-[#e0e3eb] rounded-[8px] text-[0.8rem] font-semibold text-[#374151] bg-white hover:bg-gray-50 hover:-translate-y-0.5 active:scale-[0.96] hover:border-gray-300 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] transition-all duration-200 group motion-reduce:transform-none motion-reduce:transition-none"
                 >
                   <img src={logo} alt="" aria-hidden="true" className="w-4 h-4 object-contain transition-transform duration-300 group-hover:scale-110 motion-reduce:transform-none" />
                   <span>{label}</span>
@@ -361,7 +359,7 @@ export default function LoginDesktop({
               <button 
                 type="button" 
                 onClick={onCreateAccountClick} 
-                className="text-[#15803d] underline font-bold hover:text-[#14532d] hover:underline inline-flex items-center gap-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-all"
+                className="text-[#6B21A8] underline font-bold hover:text-[#5B21B6] hover:underline inline-flex items-center gap-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] rounded-[8px] transition-all"
               >
                 Create Account
               </button>
@@ -378,7 +376,7 @@ export default function LoginDesktop({
             <React.Fragment key={label}>
               {i > 0 && <div aria-hidden="true" className="w-px h-7 bg-[#e5e7eb]" />}
               <div className="flex flex-col items-center gap-1 text-center px-3 group">
-                <Icon sx={{ fontSize: 19 }} className="text-[#16a34a] transition-transform duration-300 group-hover:scale-110 group-hover:text-[#15803d] motion-reduce:transform-none motion-reduce:transition-none" aria-hidden="true" />
+                <Icon sx={{ fontSize: 19 }} className="text-[#6B21A8] transition-transform duration-300 group-hover:scale-110 group-hover:text-[#5B21B6] motion-reduce:transform-none motion-reduce:transition-none" aria-hidden="true" />
                 <p className="text-[0.57rem] text-gray-500 font-medium leading-tight whitespace-pre-line group-hover:text-gray-700 transition-colors">
                   {label}
                 </p>

@@ -33,8 +33,8 @@ const EXPERTISE_AREAS: ExpertiseType[] = [
     subtitle: 'Trends, forecasts & data insights',
     count: 6,
     icon: <TrendingUpIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-blue-600',
-    countColorClass: 'text-blue-600',
+    iconBgClass: 'bg-[#6B21A8]',
+    countColorClass: 'text-[#6B21A8]',
   },
   {
     id: 'ex-2',
@@ -42,8 +42,8 @@ const EXPERTISE_AREAS: ExpertiseType[] = [
     subtitle: 'RERA, laws & regulations',
     count: 4,
     icon: <GavelIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-purple-600',
-    countColorClass: 'text-purple-600',
+    iconBgClass: 'bg-[#5B21B6]',
+    countColorClass: 'text-[#5B21B6]',
   },
   {
     id: 'ex-3',
@@ -51,8 +51,8 @@ const EXPERTISE_AREAS: ExpertiseType[] = [
     subtitle: 'Building & development leaders',
     count: 5,
     icon: <ConstructionIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-orange-500',
-    countColorClass: 'text-orange-500',
+    iconBgClass: 'bg-[#B45309]',
+    countColorClass: 'text-[#B45309]',
   },
   {
     id: 'ex-4',
@@ -60,8 +60,8 @@ const EXPERTISE_AREAS: ExpertiseType[] = [
     subtitle: 'Urban planning & innovation',
     count: 3,
     icon: <LocationCityIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-teal-500',
-    countColorClass: 'text-teal-500',
+    iconBgClass: 'bg-[#D946EF]',
+    countColorClass: 'text-[#A8155F]',
   },
   {
     id: 'ex-5',
@@ -69,8 +69,8 @@ const EXPERTISE_AREAS: ExpertiseType[] = [
     subtitle: 'Funding strategies & ROI',
     count: 4,
     icon: <AccountBalanceIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-red-600',
-    countColorClass: 'text-red-600',
+    iconBgClass: 'bg-[#B91C1C]',
+    countColorClass: 'text-[#B91C1C]',
   },
 ]
 
@@ -83,8 +83,8 @@ function FeaturedSpeaker() {
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-linear-to-br from-slate-900/92 via-blue-900/85 to-slate-900/70" />
-      <div className="absolute right-0 top-0 w-1/2 h-full bg-linear-to-l from-blue-400/20 to-transparent mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-br from-[#1A1A2E]/95 via-[#6B21A8]/20 to-[#16213E]/90" />
+      <div className="absolute right-0 top-0 w-1/2 h-full bg-linear-to-l from-[#D946EF]/10 to-transparent mix-blend-overlay pointer-events-none" />
 
       <div className="absolute right-4 @sm:right-8 top-1/2 -translate-y-1/2 hidden @sm:block">
         <img
@@ -96,7 +96,7 @@ function FeaturedSpeaker() {
 
       <div className="relative z-10 flex flex-col justify-between p-4 @sm:p-8 h-full min-h-[160px] @sm:min-h-[320px]">
         <div className="flex">
-          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-emerald-500 text-white shadow-sm uppercase shrink-0">
+          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-[#6B21A8] text-white shadow-sm uppercase shrink-0">
             <StarIcon style={{ fontSize: 12 }} />
             {FEATURED_SPEAKER.badge}
           </span>
@@ -187,7 +187,7 @@ export default function SpeakersTab() {
             <section className="w-full">
               <div className="flex items-center justify-between mb-3 @sm:mb-5">
                 <h2 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">All Speakers</h2>
-                <button type="button" className="text-xs @sm:text-sm font-semibold text-emerald-500 hover:text-emerald-600">
+                <button type="button" className="text-xs @sm:text-sm font-semibold text-[#6B21A8] hover:text-[#5B21B6]">
                   View all
                 </button>
               </div>
@@ -211,8 +211,8 @@ export default function SpeakersTab() {
               </div>
             </section>
 
-            <div className="bg-emerald-50 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-emerald-100 w-full">
-              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-emerald-500 shadow-sm">
+            <div className="bg-[#7C3AED]/10 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-[#7C3AED]/20 w-full">
+              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-[#6B21A8] shadow-sm">
                 <PersonAddIcon />
               </div>
               <div className="flex-1 min-w-0">
@@ -221,7 +221,7 @@ export default function SpeakersTab() {
               </div>
               <button
                 type="button"
-                className="shrink-0 bg-emerald-500 text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded"
+                className="shrink-0 bg-gradient-to-r from-[#7C3AED] to-[#D946EF] hover:from-[#6B21A8] hover:to-[#E91E8C] text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded transition-all active:scale-95 duration-200"
               >
                 Follow
               </button>

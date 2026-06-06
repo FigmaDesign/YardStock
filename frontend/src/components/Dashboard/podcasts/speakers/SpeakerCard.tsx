@@ -51,7 +51,7 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
             <StarIcon className="shrink-0 text-amber-400" style={{ fontSize: 14 }} aria-hidden="true" />
           )}
         </div>
-        <p className="text-[11px] @sm:text-sm text-emerald-600 font-semibold mt-0.5 @sm:mt-1 truncate">
+        <p className="text-[11px] @sm:text-sm text-[#6B21A8] font-semibold mt-0.5 @sm:mt-1 truncate">
           {speaker.role}
         </p>
         <div className="flex items-center gap-1 mt-1 @sm:mt-1.5 flex-wrap">

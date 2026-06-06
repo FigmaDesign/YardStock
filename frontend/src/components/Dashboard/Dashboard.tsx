@@ -17,10 +17,10 @@ interface DashboardProps {
 }
 
 const STAT_CARDS = [
-  { Icon: ApartmentIcon, color: '#1d4ed8', bgGradient: 'from-blue-50/80 to-blue-100/40', border: 'border-blue-100/50' },
-  { Icon: PeopleIcon, color: '#16a34a', bgGradient: 'from-green-50/80 to-green-100/40', border: 'border-green-100/50' },
-  { Icon: CurrencyRupeeIcon, color: '#d97706', bgGradient: 'from-amber-50/80 to-amber-100/40', border: 'border-amber-100/50' },
-  { Icon: EventNoteIcon, color: '#dc2626', bgGradient: 'from-red-50/80 to-red-100/40', border: 'border-red-100/50' },
+  { Icon: ApartmentIcon, color: '#6B21A8', bgGradient: 'from-[#7C3AED]/10 to-[#7C3AED]/5', border: 'border-[#7C3AED]/15' },
+  { Icon: PeopleIcon, color: '#A8155F', bgGradient: 'from-[#E91E8C]/10 to-[#E91E8C]/5', border: 'border-[#E91E8C]/15' },
+  { Icon: CurrencyRupeeIcon, color: '#B45309', bgGradient: 'from-amber-50/80 to-amber-100/40', border: 'border-amber-100/50' },
+  { Icon: EventNoteIcon, color: '#6B21A8', bgGradient: 'from-[#D946EF]/10 to-[#D946EF]/5', border: 'border-[#D946EF]/15' },
 ]
 
 const STAGGER_DELAYS = [
@@ -121,7 +121,7 @@ function DesktopDashboard() {
         </nav>
       )}
 
-      <div className="flex-1 overflow-hidden flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#16a34a]" tabIndex={-1}>
+      <div className="flex-1 overflow-hidden flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#7C3AED]" tabIndex={-1}>
         {activeTab === 'announcements' ? (
           <Announcements />
         ) : activeTab === 'podcasts' ? (
@@ -132,7 +132,7 @@ function DesktopDashboard() {
               <p className="text-[0.7rem] font-semibold text-[#6b7280] uppercase tracking-widest truncate">
                 {activeItem?.label ?? 'Dashboard'}
               </p>
-              <h2 className="text-[1.5rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#0f1e3d] to-[#3b4c6b] mt-1 truncate">
+              <h2 className="text-[1.5rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6B21A8] to-[#D946EF] mt-1 truncate">
                 {activeSubTab}
               </h2>
             </header>
@@ -188,7 +188,7 @@ function MobileDashboard() {
         </nav>
       )}
 
-      <div className="flex-1 overflow-hidden flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#16a34a]" tabIndex={-1}>
+      <div className="flex-1 overflow-hidden flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#7C3AED]" tabIndex={-1}>
         {activeTab === 'announcements' ? (
           <Announcements />
         ) : activeTab === 'podcasts' ? (
@@ -199,7 +199,7 @@ function MobileDashboard() {
               <p className="text-[0.65rem] font-semibold text-[#6b7280] uppercase tracking-widest truncate">
                 {activeItem?.label ?? 'Dashboard'}
               </p>
-              <h2 className="text-[1.2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#0f1e3d] to-[#3b4c6b] mt-1 truncate">
+              <h2 className="text-[1.2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6B21A8] to-[#D946EF] mt-1 truncate">
                 {activeSubTab}
               </h2>
             </header>

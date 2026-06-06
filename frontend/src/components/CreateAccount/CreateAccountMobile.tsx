@@ -11,12 +11,12 @@ export default function CreateAccountMobile(props: CreateAccountFormProps) {
       >
         <div 
           aria-hidden="true"
-          className="absolute inset-0 bg-linear-to-b from-[#050f20]/90 via-[#071428]/70 to-[#0d1a35]/95" 
+          className="absolute inset-0 bg-linear-to-b from-[#1A1A2E]/90 via-[#16213E]/70 to-[#1A1A2E]/95" 
         />
         
         <div className="relative z-10 px-5 pt-10">
           <h1 className="text-white text-[1.6rem] font-extrabold leading-tight drop-shadow-lg mt-2">
-            Welcome to <span className="text-[#4ade80]">YardStock</span>
+            Welcome to <span className="text-[#D946EF]">YardStock</span>
           </h1>
           <p className="text-white/90 text-[0.75rem] mt-2 leading-relaxed max-w-70 drop-shadow-md">
             Create your account and unlock the power of intelligent real estate insights.

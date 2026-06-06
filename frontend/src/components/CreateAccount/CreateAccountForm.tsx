@@ -1,4 +1,4 @@
-﻿import React, { useId } from 'react'
+import React, { useId } from 'react'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
@@ -59,17 +59,17 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
     <div className="group">
       <label 
         htmlFor={`${formId}-phone`}
-        className={`block font-semibold text-[#1a1a2e] mb-1 transition-colors group-focus-within:text-[#15803d] ${isMobile ? 'text-[0.7rem]' : 'text-[0.78rem]'}`}
+        className={`block font-semibold text-[#1A1A2E] mb-1 transition-colors group-focus-within:text-[#6B21A8] ${isMobile ? 'text-[0.7rem]' : 'text-[0.78rem]'}`}
       >
-        Phone Number<span className="text-red-600 ml-0.5" aria-hidden="true">*</span>
+        Phone Number<span className="text-[#B91C1C] ml-0.5" aria-hidden="true">*</span>
         <span className="sr-only">Required</span>
       </label>
       <div 
-        className={`flex items-center bg-white border ${errors.phone ? 'border-red-500' : 'border-[#e0e3eb] group-hover:border-gray-400'} focus-within:!border-[#16a34a] focus-within:ring-1 focus-within:ring-[#16a34a]/20 transition-all duration-300 rounded-[8px] motion-reduce:transition-none`}
+        className={`flex items-center bg-white border ${errors.phone ? 'border-red-500' : 'border-[#e0e3eb] group-hover:border-gray-400'} focus-within:!border-[#7C3AED] focus-within:ring-1 focus-within:ring-[#7C3AED]/20 transition-all duration-300 rounded-[8px] motion-reduce:transition-none`}
       >
         <span 
           aria-hidden="true" 
-          className={`text-gray-500 shrink-0 group-focus-within:text-[#15803d] transition-colors duration-300 motion-reduce:transition-none ${isMobile ? 'pl-3' : 'pl-3.5'}`}
+          className={`text-gray-500 shrink-0 group-focus-within:text-[#6B21A8] transition-colors duration-300 motion-reduce:transition-none ${isMobile ? 'pl-3' : 'pl-3.5'}`}
         >
           <PhoneOutlinedIcon sx={{ fontSize: isMobile ? 16 : 18 }} />
         </span>
@@ -82,11 +82,11 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           aria-invalid={!!errors.phone}
           aria-describedby={errors.phone ? `${formId}-phone-error` : undefined}
           aria-required="true"
-          className={`flex-1 bg-transparent outline-none text-[#1a1a2e] placeholder-gray-500 ${isMobile ? 'px-2.5 py-2 text-[0.75rem]' : 'px-3 py-2 text-[0.85rem]'}`}
+          className={`flex-1 bg-transparent outline-none text-[#1A1A2E] placeholder-gray-500 ${isMobile ? 'px-2.5 py-2 text-[0.75rem]' : 'px-3 py-2 text-[0.85rem]'}`}
         />
       </div>
       {errors.phone && (
-        <p id={`${formId}-phone-error`} className="text-red-600 text-[0.72rem] mt-1 font-medium" role="alert">
+        <p id={`${formId}-phone-error`} className="text-[#B91C1C] text-[0.72rem] mt-1 font-medium" role="alert">
           {errors.phone}
         </p>
       )}
@@ -97,9 +97,9 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
     <div className="group">
       <label 
         id={`${formId}-role-label`}
-        className={`block font-semibold text-[#1a1a2e] mb-1 transition-colors group-focus-within:text-[#15803d] ${isMobile ? 'text-[0.7rem]' : 'text-[0.78rem]'}`}
+        className={`block font-semibold text-[#1A1A2E] mb-1 transition-colors group-focus-within:text-[#6B21A8] ${isMobile ? 'text-[0.7rem]' : 'text-[0.78rem]'}`}
       >
-        Role<span className="text-red-600 ml-0.5" aria-hidden="true">*</span>
+        Role<span className="text-[#B91C1C] ml-0.5" aria-hidden="true">*</span>
         <span className="sr-only">Required</span>
       </label>
       <div 
@@ -115,7 +115,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
         />
       </div>
       {errors.role && (
-        <p className="text-red-600 text-[0.72rem] mt-1 font-medium" role="alert">
+        <p className="text-[#B91C1C] text-[0.72rem] mt-1 font-medium" role="alert">
           {errors.role}
         </p>
       )}
@@ -150,7 +150,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           onClick={() => setShowPwd(!showPwd)} 
           aria-label={showPwd ? "Hide password" : "Show password"}
           aria-pressed={showPwd}
-          className="text-gray-500 hover:text-[#15803d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[4px] p-0.5 transition-colors duration-300 motion-reduce:transition-none"
+          className="text-gray-500 hover:text-[#6B21A8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] rounded-[4px] p-0.5 transition-colors duration-300 motion-reduce:transition-none"
         >
           {showPwd ? (
             <VisibilityOutlinedIcon sx={{ fontSize: isMobile ? 16 : 17 }} aria-hidden="true" />
@@ -180,7 +180,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           onClick={() => setShowConfirm(!showConfirm)} 
           aria-label={showConfirm ? "Hide confirm password" : "Show confirm password"}
           aria-pressed={showConfirm}
-          className="text-gray-500 hover:text-[#15803d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[4px] p-0.5 transition-colors duration-300 motion-reduce:transition-none"
+          className="text-gray-500 hover:text-[#6B21A8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] rounded-[4px] p-0.5 transition-colors duration-300 motion-reduce:transition-none"
         >
           {showConfirm ? (
             <VisibilityOutlinedIcon sx={{ fontSize: isMobile ? 16 : 17 }} aria-hidden="true" />
@@ -268,22 +268,22 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
 
       {!isMobile && (
         <div 
-          className="bg-[#f0fdf4] border border-[#bbf7d0] rounded-[8px] p-2.5 flex items-center justify-between gap-3 mt-2 shadow-[0_2px_10px_rgba(22,163,74,0.05)] hover:shadow-[0_4px_15px_rgba(22,163,74,0.1)] transition-all duration-300 motion-reduce:transition-none"
+          className="bg-[#7C3AED]/10 border border-[#7C3AED]/20 rounded-[8px] p-2.5 flex items-center justify-between gap-3 mt-2 shadow-[0_2px_10px_rgba(107,33,168,0.05)] hover:shadow-[0_4px_15px_rgba(107,33,168,0.1)] transition-all duration-300 motion-reduce:transition-none"
           role="status"
           aria-label="Security Information"
         >
           <div className="flex items-start gap-2.5">
-            <SecurityOutlinedIcon sx={{ fontSize: 18, color: '#16a34a', flexShrink: 0, marginTop: '1px' }} aria-hidden="true" />
+            <SecurityOutlinedIcon sx={{ fontSize: 18, color: '#6B21A8', flexShrink: 0, marginTop: '1px' }} aria-hidden="true" />
             <div>
-              <p className="text-[0.75rem] font-bold text-[#14532d]">Your security is our priority</p>
-              <p className="text-[0.72rem] text-[#166534] leading-relaxed mt-0.5">
+              <p className="text-[0.75rem] font-bold text-[#6B21A8]">Your security is our priority</p>
+              <p className="text-[0.72rem] text-[#5B21B6] leading-relaxed mt-0.5">
                 We use advanced encryption and security protocols to protect your data.
               </p>
             </div>
           </div>
           <TaskAltIcon 
             className="animate-[pulse_3s_ease-in-out_infinite] motion-reduce:animate-none" 
-            sx={{ fontSize: 26, color: '#16a34a', flexShrink: 0 }} 
+            sx={{ fontSize: 26, color: '#6B21A8', flexShrink: 0 }} 
             aria-hidden="true" 
           />
         </div>
@@ -298,34 +298,34 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           aria-invalid={!!errors.agreed}
           aria-describedby={errors.agreed ? `${formId}-agreed-error` : undefined}
           aria-required="true"
-            className={`mt-0.5 rounded-[8px] accent-[#16a34a] shrink-0 transition-transform group-hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:transform-none ${isMobile ? 'w-3.5 h-3.5' : 'w-4 h-4'}`}
+            className={`mt-0.5 rounded-[8px] accent-[#6B21A8] shrink-0 transition-transform group-hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:transform-none ${isMobile ? 'w-3.5 h-3.5' : 'w-4 h-4'}`}
         />
         <span className={`text-[#374151] leading-relaxed ${isMobile ? 'text-[0.72rem]' : 'text-[0.75rem]'}`}>
           <label htmlFor={`${formId}-agreed`} className="cursor-pointer">I agree to the </label>
           <button 
             type="button" 
-            className="text-[#15803d] underline font-semibold hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
+            className="text-[#6B21A8] underline font-semibold hover:text-[#5B21B6] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] rounded-[8px] transition-colors"
           >
             Terms of Service
           </button>
           {' '}and{' '}
           <button 
             type="button" 
-            className="text-[#15803d] underline font-semibold hover:text-[#14532d] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-colors"
+            className="text-[#6B21A8] underline font-semibold hover:text-[#5B21B6] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] rounded-[8px] transition-colors"
           >
             Privacy Policy
           </button>
         </span>
       </div>
       {errors.agreed && (
-        <p id={`${formId}-agreed-error`} className="text-red-600 font-medium text-[0.72rem] -mt-2" role="alert">
+        <p id={`${formId}-agreed-error`} className="text-[#B91C1C] font-medium text-[0.72rem] -mt-2" role="alert">
           {errors.agreed}
         </p>
       )}
 
       <button
         type="submit"
-        className={`relative ${isMobile ? 'w-full' : 'w-1/2 mx-auto'} flex items-center justify-center font-bold text-white bg-linear-to-r from-[#1d4ed8] via-[#1a7e5a] to-[#16a34a] hover:-translate-y-0.5 active:scale-[0.97] active:opacity-90 shadow-[0_4px_14px_rgba(22,163,74,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 transition-all duration-200 motion-reduce:transition-none motion-reduce:transform-none ${isMobile ? 'py-3 mt-4 text-[0.9rem] rounded-[8px]' : 'py-2.5 px-5 mt-2 text-[0.95rem] rounded-[8px]'}`}
+        className={`relative ${isMobile ? 'w-full' : 'w-1/2 mx-auto'} flex items-center justify-center font-bold text-white bg-linear-to-r from-[#7C3AED] to-[#D946EF] hover:-translate-y-0.5 active:scale-[0.97] active:opacity-90 shadow-[0_4px_14px_rgba(107,33,168,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] focus-visible:ring-offset-2 transition-all duration-200 motion-reduce:transition-none motion-reduce:transform-none ${isMobile ? 'py-3 mt-4 text-[0.9rem] rounded-[8px]' : 'py-2.5 px-5 mt-2 text-[0.95rem] rounded-[8px]'}`}
       >
         <span>Create Account</span>
       </button>
@@ -344,7 +344,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
             key={label} 
             type="button" 
             aria-label={`Sign up with ${label}`}
-            className={`flex items-center justify-center gap-2 border border-[#e0e3eb] font-semibold text-[#374151] bg-white hover:bg-gray-50 hover:-translate-y-0.5 active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] transition-all duration-200 motion-reduce:transition-none motion-reduce:transform-none ${isMobile ? 'py-2 rounded-[8px] text-[0.75rem]' : 'py-2 rounded-[8px] text-[0.8rem] shadow-sm'}`}
+            className={`flex items-center justify-center gap-2 border border-[#e0e3eb] font-semibold text-[#374151] bg-white hover:bg-gray-50 hover:-translate-y-0.5 active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] transition-all duration-200 motion-reduce:transition-none motion-reduce:transform-none ${isMobile ? 'py-2 rounded-[8px] text-[0.75rem]' : 'py-2 rounded-[8px] text-[0.8rem] shadow-sm'}`}
           >
             <img src={logo} alt="" aria-hidden="true" className={`object-contain ${isMobile ? 'w-3.5 h-3.5' : 'w-4 h-4'}`} />
             <span>{label}</span>
@@ -358,7 +358,7 @@ export default function CreateAccountForm(props: CreateAccountFormProps) {
           <button 
             type="button" 
             onClick={onLoginClick} 
-            className="text-[#15803d] font-bold hover:text-[#14532d] hover:underline underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] rounded-[8px] transition-all duration-200 motion-reduce:transition-none"
+            className="text-[#6B21A8] font-bold hover:text-[#5B21B6] hover:underline underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] rounded-[8px] transition-all duration-200 motion-reduce:transition-none"
           >
             Login here
           </button>

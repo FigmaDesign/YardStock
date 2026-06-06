@@ -122,11 +122,11 @@ export default function Dropdown({
         aria-label={placeholder}
         onClick={() => setOpen((v) => !v)}
         onKeyDown={handleKeyDown}
-        className={`flex items-center gap-1.5 bg-white border rounded-[8px] cursor-pointer outline-none transition-all duration-200 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:border-[#16a34a] motion-reduce:transition-none ${
-          open ? 'border-[#16a34a] ring-2 ring-[#16a34a]/15' : 'border-[#e0e3eb] hover:border-[#16a34a]'
+        className={`flex items-center gap-1.5 bg-white border rounded-[8px] cursor-pointer outline-none transition-all duration-200 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] focus-visible:border-[#7C3AED] motion-reduce:transition-none ${
+          open ? 'border-[#7C3AED] ring-2 ring-[#7C3AED]/15' : 'border-[#e0e3eb] hover:border-[#7C3AED]'
         } ${
           isSm ? 'px-2 py-[7px] text-[0.75rem]' : 'px-3 py-[8px] text-[0.8rem]'
-        } font-semibold text-[#1a1a2e]`}
+        } font-semibold text-[#1A1A2E]`}
       >
         {leftIcon && (
           <span aria-hidden="true" className="text-[#6b7280] shrink-0 transition-colors duration-200">
@@ -174,7 +174,7 @@ export default function Dropdown({
                 onMouseEnter={() => setFocusedIndex(i)}
                 className={`px-3 py-2 text-[0.8rem] cursor-pointer transition-colors duration-150 select-none motion-reduce:transition-none ${
                   isSelected
-                    ? 'bg-[#f0fdf4] text-[#15803d] font-semibold'
+                    ? 'bg-[#7C3AED]/10 text-[#6B21A8] font-semibold'
                     : 'text-[#374151]'
                 } ${isFocused && !isSelected ? 'bg-[#f9fafb]' : ''}`}
               >

@@ -122,7 +122,7 @@ export default function Announcements() {
               onClick={handleLoadMore}
               disabled={isLoadingMore}
               aria-label="Load more posts"
-              className="group flex items-center justify-center gap-2.5 px-6 py-3 rounded-lg text-white font-bold text-[0.85rem] bg-linear-to-r from-emerald-500 to-blue-600 shadow-[0_4px_16px_rgba(16,185,129,0.25)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.35)] hover:from-emerald-400 hover:to-blue-500 active:scale-[0.97] disabled:opacity-80 disabled:active:scale-100 disabled:cursor-wait transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+              className="group flex items-center justify-center gap-2.5 px-6 py-3 rounded-lg text-white font-bold text-[0.85rem] bg-linear-to-r from-[#7C3AED] to-[#D946EF] shadow-[0_4px_16px_rgba(124,58,237,0.3)] hover:shadow-[0_6px_20px_rgba(217,70,239,0.4)] hover:opacity-90 active:scale-[0.97] disabled:opacity-80 disabled:active:scale-100 disabled:cursor-wait transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/40"
             >
               {isLoadingMore ? (
                 <>
@@ -156,7 +156,7 @@ export default function Announcements() {
               aria-haspopup="listbox"
               aria-expanded={isDropdownOpen ? 'true' : 'false'}
               aria-controls="page-size-listbox"
-              className="flex items-center justify-between w-16 px-3 py-1.5 border border-slate-200 rounded-lg text-slate-700 bg-slate-50 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-semibold"
+              className="flex items-center justify-between w-16 px-3 py-1.5 border border-slate-200 rounded-lg text-slate-700 bg-slate-50 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED] transition-all font-semibold"
             >
               {pageSize}
               <ChevronRight 
@@ -182,7 +182,7 @@ export default function Announcements() {
                     onClick={() => handlePageSizeChange(n)}
                     className={`w-full text-left px-3 py-1.5 text-[0.75rem] font-semibold transition-colors ${
                       pageSize === n
-                        ? 'bg-blue-50 text-blue-600'
+                        ? 'bg-[#7C3AED]/10 text-[#6B21A8]'
                         : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                     }`}
                   >
@@ -220,7 +220,7 @@ export default function Announcements() {
                 className={[
                   'w-8 h-8 text-[0.78rem] font-bold rounded-lg transition-all duration-200',
                   item === safePage
-                    ? 'bg-linear-to-r from-emerald-500 to-blue-600 text-white shadow-md shadow-blue-500/20'
+                    ? 'bg-linear-to-r from-[#7C3AED] to-[#D946EF] text-white shadow-md shadow-[#7C3AED]/20'
                     : 'text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm',
                 ].join(' ')}
               >

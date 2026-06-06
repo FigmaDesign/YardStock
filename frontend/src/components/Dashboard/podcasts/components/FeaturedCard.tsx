@@ -39,7 +39,7 @@ export default function FeaturedCard({
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       />
       <div
-        className="absolute inset-0 bg-linear-to-br from-[#0a1e42]/92 via-[#0f2a52]/85 to-[#1a3a6b]/70"
+        className="absolute inset-0 bg-linear-to-br from-[#1A1A2E]/95 via-[#6B21A8]/20 to-[#16213E]/90"
         aria-hidden="true"
       />
       <div
@@ -49,7 +49,7 @@ export default function FeaturedCard({
 
       <div className="relative z-10 flex flex-col justify-between p-4 sm:p-6 h-full min-h-[220px] sm:min-h-[280px]">
         <div className="flex">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.7rem] font-bold uppercase tracking-widest bg-emerald-500/90 text-white backdrop-blur-md shadow-md shadow-emerald-500/30 outline outline-1 outline-emerald-400/50">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.7rem] font-bold uppercase tracking-widest bg-[#6B21A8]/90 text-white backdrop-blur-md shadow-md shadow-[#6B21A8]/30 outline outline-1 outline-[#7C3AED]/50">
             <BadgeIcon size={14} strokeWidth={2.5} aria-hidden="true" />
             {badge}
           </span>

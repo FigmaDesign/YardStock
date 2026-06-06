@@ -1,6 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+:root {
+  --color-brand-purple:        #6B21A8;
+  --color-brand-magenta:       #E91E8C;
+  --color-brand-purple-mid:    #7C3AED;
+  --color-brand-magenta-mid:   #D946EF;
+  --color-brand-gradient:      linear-gradient(90deg, #7C3AED, #D946EF);
+  --color-brand-violet:        #7B2FBE;
+  --color-brand-tagline:       #9333EA;
+
+  --color-accent-teal:         #0D9488;
+  --color-accent-lime:         #22C55E;
+
+  --color-bg-dark:             #1A1A2E;
+  --color-bg-dark-surface:     #16213E;
+  --color-bg-surface:          #FFFFFF;
+  --color-bg-muted:            #F3F4F6;
+
+  --color-text-primary:        #1A1A2E;
+  --color-text-secondary:      #4B5563;
+  --color-text-inverse:        #FFFFFF;
+  --color-text-brand:          #6B21A8;
+
+  --color-border-default:      #E5E7EB;
+  --color-border-brand:        #7B2FBE;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -13,7 +39,7 @@ html, body, #root {
 
 body {
   font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f6f8;
+  background: #F3F4F6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -130,7 +156,7 @@ body {
 }
 
 .ys-skeleton {
-  background: linear-gradient(90deg, #f0f2f5 25%, #e8ebee 50%, #f0f2f5 75%);
+  background: linear-gradient(90deg, #f0f0f5 25%, #e8e8ee 50%, #f0f0f5 75%);
   background-size: 400px 100%;
   animation: ys-shimmer 1.4s ease-in-out infinite;
   will-change: background-position;
@@ -151,7 +177,7 @@ body {
   
   .ys-skeleton { 
     animation: none !important; 
-    background: #f0f2f5 !important;
+    background: #f0f0f5 !important;
     background-image: none !important;
   }
 }

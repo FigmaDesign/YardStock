@@ -47,7 +47,7 @@ const LATEST_EPISODES: EpisodeType[] = [
     author: "Amit Verma",
     role: "Builder E.L.",
     duration: "32:45",
-    badge: { text: "REAL\nESTATE\nINSIGHTS", colorClass: "bg-blue-600" },
+    badge: { text: "REAL\nESTATE\nINSIGHTS", colorClass: "bg-[#6B21A8]" },
   },
   {
     id: "e2",
@@ -55,7 +55,7 @@ const LATEST_EPISODES: EpisodeType[] = [
     author: "Sandeep Kumar",
     role: "CEO, SmartBuild",
     duration: "28:30",
-    badge: { text: "BUILD\nSMART", colorClass: "bg-orange-500" },
+    badge: { text: "BUILD\nSMART", colorClass: "bg-[#B45309]" },
   },
   {
     id: "e3",
@@ -63,7 +63,7 @@ const LATEST_EPISODES: EpisodeType[] = [
     author: "Adv. Priya Nair",
     role: "Real Estate Legal",
     duration: "29:10",
-    badge: { text: "LEGAL\nPERSPECTIVE", colorClass: "bg-purple-600" },
+    badge: { text: "LEGAL\nPERSPECTIVE", colorClass: "bg-[#5B21B6]" },
   },
   {
     id: "e4",
@@ -71,7 +71,7 @@ const LATEST_EPISODES: EpisodeType[] = [
     author: "Vikram Patel",
     role: "Urban Planners Co.",
     duration: "35:20",
-    badge: { text: "SMART\nCITIES", colorClass: "bg-teal-500" },
+    badge: { text: "SMART\nCITIES", colorClass: "bg-[#0D9488]" },
   },
   {
     id: "e5",
@@ -79,7 +79,7 @@ const LATEST_EPISODES: EpisodeType[] = [
     author: "Neera Joshi",
     role: "Financial Advisor",
     duration: "31:05",
-    badge: { text: "FINANCE\nFOCUS", colorClass: "bg-red-600" },
+    badge: { text: "FINANCE\nFOCUS", colorClass: "bg-[#B91C1C]" },
   },
 ]
 
@@ -90,8 +90,8 @@ const EXPLORE_TOPICS: TopicType[] = [
     subtitle: "Market insights, trends & forecasts",
     count: 12,
     icon: <BusinessIcon className="w-4 h-4 @sm:w-5 @sm:h-5 text-white" />,
-    iconBgClass: "bg-blue-600",
-    countColorClass: "text-blue-600",
+    iconBgClass: "bg-[#6B21A8]",
+    countColorClass: "text-[#6B21A8]",
   },
   {
     id: "t2",
@@ -99,8 +99,8 @@ const EXPLORE_TOPICS: TopicType[] = [
     subtitle: "Conversations with industry leaders",
     count: 10,
     icon: <ConstructionIcon className="w-4 h-4 @sm:w-5 @sm:h-5 text-white" />,
-    iconBgClass: "bg-orange-500",
-    countColorClass: "text-orange-500",
+    iconBgClass: "bg-[#B45309]",
+    countColorClass: "text-[#B45309]",
   },
   {
     id: "t3",
@@ -108,8 +108,8 @@ const EXPLORE_TOPICS: TopicType[] = [
     subtitle: "Laws, regulations & compliance",
     count: 8,
     icon: <GavelIcon className="w-4 h-4 @sm:w-5 @sm:h-5 text-white" />,
-    iconBgClass: "bg-purple-600",
-    countColorClass: "text-purple-600",
+    iconBgClass: "bg-[#5B21B6]",
+    countColorClass: "text-[#5B21B6]",
   },
   {
     id: "t4",
@@ -117,8 +117,8 @@ const EXPLORE_TOPICS: TopicType[] = [
     subtitle: "Urban development & innovation",
     count: 9,
     icon: <LocationCityIcon className="w-4 h-4 @sm:w-5 @sm:h-5 text-white" />,
-    iconBgClass: "bg-teal-500",
-    countColorClass: "text-teal-500",
+    iconBgClass: "bg-[#D946EF]",
+    countColorClass: "text-[#A8155F]",
   },
   {
     id: "t5",
@@ -126,8 +126,8 @@ const EXPLORE_TOPICS: TopicType[] = [
     subtitle: "Investment, funding & strategies",
     count: 11,
     icon: <TrendingUpIcon className="w-4 h-4 @sm:w-5 @sm:h-5 text-white" />,
-    iconBgClass: "bg-red-600",
-    countColorClass: "text-red-600",
+    iconBgClass: "bg-[#B91C1C]",
+    countColorClass: "text-[#B91C1C]",
   },
 ]
 
@@ -142,17 +142,17 @@ const FEATURED_EPISODE_DATA: EpisodeType = {
 
 function FeaturedEpisode({ onPlay, isPlaying }: { onPlay: () => void, isPlaying: boolean }) {
   return (
-    <div className="relative w-full rounded-lg overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 min-h-[160px] @sm:min-h-[320px] shadow-md cursor-pointer" onClick={onPlay}>
+    <div className="relative w-full rounded-lg overflow-hidden bg-gradient-to-br from-slate-900 via-purple-950/80 to-slate-900 min-h-[160px] @sm:min-h-[320px] shadow-md cursor-pointer" onClick={onPlay}>
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100 100">
-          <path d="M0 100 L 20 60 L 40 80 L 60 40 L 80 50 L 100 20 L 100 100 Z" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-emerald-400" />
-          <path d="M0 100 L 25 70 L 45 90 L 65 50 L 85 60 L 100 30 L 100 100 Z" fill="none" stroke="currentColor" strokeWidth="1" className="text-emerald-500" />
+          <path d="M0 100 L 20 60 L 40 80 L 60 40 L 80 50 L 100 20 L 100 100 Z" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-[#D946EF]/50" />
+          <path d="M0 100 L 25 70 L 45 90 L 65 50 L 85 60 L 100 30 L 100 100 Z" fill="none" stroke="currentColor" strokeWidth="1" className="text-[#7C3AED]/50" />
         </svg>
       </div>
-      <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-blue-400/20 to-transparent pointer-events-none mix-blend-overlay" />
+      <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-[#D946EF]/10 to-transparent pointer-events-none mix-blend-overlay" />
       <div className="relative z-10 flex flex-col justify-between p-4 @sm:p-8 h-full min-h-[160px] @sm:min-h-[320px]">
         <div className="flex">
-          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-emerald-500 text-white shadow-sm uppercase shrink-0">
+          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-[#6B21A8] text-white shadow-sm uppercase shrink-0">
             <StarIcon className="w-3 h-3 @sm:w-4 @sm:h-4" />
             Featured
           </span>
@@ -197,7 +197,7 @@ function EpisodeListItem({ episode, onPlay, isPlaying }: { episode: EpisodeType,
         </div>
       </div>
       <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
-        <h3 className={`text-[14px] @sm:text-base font-bold leading-snug truncate ${isPlaying ? 'text-emerald-500' : 'text-slate-900'}`}>
+        <h3 className={`text-[14px] @sm:text-base font-bold leading-snug truncate ${isPlaying ? 'text-[#6B21A8]' : 'text-slate-900'}`}>
           {episode.title}
         </h3>
         <p className="text-[11px] @sm:text-sm text-slate-600 font-medium mt-0.5 @sm:mt-1 truncate">
@@ -253,7 +253,7 @@ function PlayerBar({ episode, isPlaying, onTogglePlay, onClose }: { episode: Epi
             <button className="text-slate-400 hover:text-white"><SkipNextIcon fontSize="small" /></button>
           </div>
           <div className="w-full h-1 bg-[#4d4d50] rounded-full mt-1 overflow-hidden">
-            <div className="h-full bg-emerald-500 w-1/3" />
+            <div className="h-full bg-gradient-to-r from-[#7C3AED] to-[#D946EF] w-1/3" />
           </div>
         </div>
         <button className="text-slate-400 hover:text-white" onClick={onClose}><CloseIcon fontSize="small" /></button>
@@ -283,7 +283,7 @@ export default function EpisodesTab() {
             <section className="w-full">
               <div className="flex items-center justify-between mb-3 @sm:mb-5">
                 <h2 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">Latest Episodes</h2>
-                <button className="text-xs @sm:text-sm font-semibold text-emerald-500 hover:text-emerald-600">View all</button>
+                <button className="text-xs @sm:text-sm font-semibold text-[#6B21A8] hover:text-[#5B21B6]">View all</button>
               </div>
               <div className="space-y-2 @sm:space-y-4 w-full">
                 {LATEST_EPISODES.map((episode) => (
@@ -301,15 +301,15 @@ export default function EpisodesTab() {
                 {EXPLORE_TOPICS.map((topic) => <TopicListItem key={topic.id} topic={topic} />)}
               </div>
             </section>
-            <div className="bg-emerald-50 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-emerald-100 w-full">
-              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-emerald-500 shadow-sm">
+            <div className="bg-[#7C3AED]/10 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-[#7C3AED]/20 w-full">
+              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-[#6B21A8] shadow-sm">
                 <HeadphonesIcon />
               </div>
               <div className="flex-1 min-w-0">
                 <h4 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">Love podcasts?</h4>
                 <p className="text-[11px] @sm:text-sm text-slate-600 mt-0.5 truncate">Subscribe to never miss an episode</p>
               </div>
-              <button className="shrink-0 bg-emerald-500 text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded">Subscribe</button>
+              <button className="shrink-0 bg-gradient-to-r from-[#7C3AED] to-[#D946EF] hover:from-[#6B21A8] hover:to-[#E91E8C] text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded transition-all active:scale-95 duration-200">Subscribe</button>
             </div>
           </div>
         </div>

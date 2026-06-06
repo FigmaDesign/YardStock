@@ -61,7 +61,7 @@ export default function DashboardHeader({
           <button
             type="button"
             onClick={onMenuClick}
-            className="flex items-center justify-center w-8 h-8 rounded-md text-[#374151] hover:text-[#16a34a] hover:bg-[#f4f6f9] transition-colors focus-visible:outline-none shrink-0"
+            className="flex items-center justify-center w-8 h-8 rounded-md text-[#374151] hover:text-[#6B21A8] hover:bg-[#7C3AED]/08 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] shrink-0"
           >
             <MenuIcon sx={{ fontSize: 22 }} />
           </button>
@@ -72,10 +72,10 @@ export default function DashboardHeader({
             <button
               type="button"
               onClick={() => { setCityOpen((v) => !v); setProfileOpen(false) }}
-              className="flex items-center gap-1.5 px-2 py-1 rounded-md text-[#374151] hover:bg-[#f4f6f9] hover:text-[#1a1a2e] transition-colors focus-visible:outline-none min-w-0"
+              className="flex items-center gap-1.5 px-2 py-1 rounded-md text-[#374151] hover:bg-[#7C3AED]/05 hover:text-[#1A1A2E] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] min-w-0"
             >
-              <LocationOnIcon sx={{ fontSize: 18 }} className="text-[#374151] shrink-0" />
-              <span className="text-[0.85rem] font-semibold text-[#1a1a2e] leading-none truncate pt-0.5">
+              <LocationOnIcon sx={{ fontSize: 18 }} className="text-[#6B21A8] shrink-0" />
+              <span className="text-[0.85rem] font-semibold text-[#1A1A2E] leading-none truncate pt-0.5">
                 {city}
               </span>
               <KeyboardArrowDownIcon
@@ -92,8 +92,8 @@ export default function DashboardHeader({
                     onClick={() => { setCity(opt); closeAll() }}
                     className={`px-3 py-2 text-[0.8rem] cursor-pointer transition-colors ${
                       opt === city
-                        ? 'bg-[#f8fafc] text-[#16a34a] font-semibold border-l-2 border-[#16a34a]'
-                        : 'text-[#374151] font-medium hover:bg-[#f8fafc] border-l-2 border-transparent'
+                        ? 'bg-[#7C3AED]/08 text-[#6B21A8] font-semibold border-l-2 border-[#7C3AED]'
+                        : 'text-[#374151] font-medium hover:bg-[#7C3AED]/05 border-l-2 border-transparent'
                     }`}
                   >
                     {opt}
@@ -109,7 +109,7 @@ export default function DashboardHeader({
             <button
               type="button"
               onClick={() => { setProfileOpen((v) => !v); setCityOpen(false) }}
-              className="flex items-center gap-1.5 p-1 pr-2 rounded-md hover:bg-[#f4f6f9] transition-colors focus-visible:outline-none"
+              className="flex items-center gap-1.5 p-1 pr-2 rounded-md hover:bg-[#7C3AED]/05 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8]"
             >
               {avatarUrl ? (
                 <img
@@ -137,7 +137,7 @@ export default function DashboardHeader({
                         onClick={() => { setRole(r); closeAll() }}
                         className={`text-left text-[0.8rem] px-2 py-1.5 rounded transition-colors ${
                           r === role
-                            ? 'bg-[#16a34a]/10 text-[#16a34a] font-semibold'
+                            ? 'bg-[#7C3AED]/10 text-[#6B21A8] font-semibold'
                             : 'text-[#374151] hover:bg-[#e2e8f0] font-medium'
                         }`}
                       >
@@ -152,7 +152,7 @@ export default function DashboardHeader({
                     <li
                       key={item}
                       onClick={closeAll}
-                      className="px-4 py-2 text-[0.8rem] font-medium text-[#374151] hover:bg-[#f8fafc] hover:text-[#0f172a] cursor-pointer transition-colors"
+                      className="px-4 py-2 text-[0.8rem] font-medium text-[#374151] hover:bg-[#7C3AED]/05 hover:text-[#1A1A2E] cursor-pointer transition-colors"
                     >
                       {item}
                     </li>

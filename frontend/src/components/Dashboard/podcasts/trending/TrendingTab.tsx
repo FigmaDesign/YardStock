@@ -28,12 +28,12 @@ function FeaturedTrending({ onPlay, isPlaying }: { onPlay: () => void; isPlaying
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-linear-to-br from-slate-900/92 via-blue-900/85 to-slate-900/70" />
-      <div className="absolute right-0 top-0 w-1/2 h-full bg-linear-to-l from-blue-400/20 to-transparent mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-br from-[#1A1A2E]/95 via-[#6B21A8]/20 to-[#16213E]/90" />
+      <div className="absolute right-0 top-0 w-1/2 h-full bg-linear-to-l from-[#D946EF]/10 to-transparent mix-blend-overlay pointer-events-none" />
 
       <div className="relative z-10 flex flex-col justify-between p-4 @sm:p-8 h-full min-h-[160px] @sm:min-h-[320px]">
         <div className="flex">
-          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-emerald-500 text-white shadow-sm uppercase shrink-0">
+          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-[#6B21A8] text-white shadow-sm uppercase shrink-0">
             <TrendingUpIcon style={{ fontSize: 12 }} />
             {FEATURED_TRENDING.badge}
           </span>
@@ -119,7 +119,7 @@ function TrendingEpisodeItem({
       </div>
 
       <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
-        <h3 className={`text-[14px] @sm:text-base font-bold leading-snug truncate ${isPlaying ? 'text-emerald-500' : 'text-slate-900'}`}>
+        <h3 className={`text-[14px] @sm:text-base font-bold leading-snug truncate ${isPlaying ? 'text-[#6B21A8]' : 'text-slate-900'}`}>
           {episode.title}
         </h3>
         <p className="text-[11px] @sm:text-sm text-slate-600 font-medium mt-0.5 @sm:mt-1 truncate">
@@ -212,7 +212,7 @@ function PlayerBar({
             </button>
           </div>
           <div className="w-full h-1 bg-[#4d4d50] rounded-full mt-1 overflow-hidden">
-            <div className="h-full bg-emerald-500 w-1/3" />
+            <div className="h-full bg-gradient-to-r from-[#7C3AED] to-[#D946EF] w-1/3" />
           </div>
         </div>
         <button type="button" aria-label="Close player" className="text-slate-400 hover:text-white" onClick={onClose}>
@@ -231,7 +231,7 @@ const FEATURED_TRENDING_EPISODE: TrendingEpisode = {
   duration: FEATURED_TRENDING.duration,
   plays: FEATURED_TRENDING.plays,
   timeAgo: '',
-  thumbnailColor: '#1d4ed8',
+  thumbnailColor: '#6B21A8',
   thumbnailLabel: 'TRENDING',
   thumbnailSubLabel: 'NOW',
 }
@@ -265,7 +265,7 @@ export default function TrendingTab() {
             <section className="w-full">
               <div className="flex items-center justify-between mb-3 @sm:mb-5">
                 <h2 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">Trending Episodes</h2>
-                <button type="button" className="text-xs @sm:text-sm font-semibold text-emerald-500 hover:text-emerald-600">
+                <button type="button" className="text-xs @sm:text-sm font-semibold text-[#6B21A8] hover:text-[#5B21B6]">
                   View all
                 </button>
               </div>
@@ -294,8 +294,8 @@ export default function TrendingTab() {
               </div>
             </section>
 
-            <div className="bg-emerald-50 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-emerald-100 w-full">
-              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-emerald-500 shadow-sm">
+            <div className="bg-[#7C3AED]/10 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-[#7C3AED]/20 w-full">
+              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-[#6B21A8] shadow-sm">
                 <WhatshotIcon />
               </div>
               <div className="flex-1 min-w-0">
@@ -304,7 +304,7 @@ export default function TrendingTab() {
               </div>
               <button
                 type="button"
-                className="shrink-0 bg-emerald-500 text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded"
+                className="shrink-0 bg-gradient-to-r from-[#7C3AED] to-[#D946EF] hover:from-[#6B21A8] hover:to-[#E91E8C] text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded transition-all active:scale-95 duration-200"
               >
                 Subscribe
               </button>

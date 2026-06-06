@@ -11,7 +11,7 @@ export default function MobileViewport({ children, isMobile = false }: MobileVie
       <div 
         role="main"
         aria-label="Mobile Viewport"
-        className="flex flex-col h-full w-full overflow-hidden bg-[#0d1117] @container" 
+        className="flex flex-col h-full w-full overflow-hidden bg-[#1A1A2E] @container" 
       >
         {children}
       </div>

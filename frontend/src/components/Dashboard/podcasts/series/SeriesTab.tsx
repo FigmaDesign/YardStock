@@ -29,8 +29,8 @@ const GENRES: GenreType[] = [
     subtitle: 'Beginner to expert in property',
     count: 3,
     icon: <LibraryBooksIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-blue-600',
-    countColorClass: 'text-blue-600',
+    iconBgClass: 'bg-[#6B21A8]',
+    countColorClass: 'text-[#6B21A8]',
   },
   {
     id: 'g-2',
@@ -38,8 +38,8 @@ const GENRES: GenreType[] = [
     subtitle: 'Scale your construction business',
     count: 2,
     icon: <HeadphonesIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-green-600',
-    countColorClass: 'text-green-600',
+    iconBgClass: 'bg-[#D946EF]',
+    countColorClass: 'text-[#A8155F]',
   },
   {
     id: 'g-3',
@@ -47,8 +47,8 @@ const GENRES: GenreType[] = [
     subtitle: 'RERA, laws & compliance',
     count: 2,
     icon: <LibraryBooksIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-purple-600',
-    countColorClass: 'text-purple-600',
+    iconBgClass: 'bg-[#5B21B6]',
+    countColorClass: 'text-[#5B21B6]',
   },
   {
     id: 'g-4',
@@ -56,8 +56,8 @@ const GENRES: GenreType[] = [
     subtitle: 'Weekly trends & price analysis',
     count: 4,
     icon: <LibraryBooksIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-amber-500',
-    countColorClass: 'text-amber-500',
+    iconBgClass: 'bg-[#B45309]',
+    countColorClass: 'text-[#B45309]',
   },
   {
     id: 'g-5',
@@ -65,8 +65,8 @@ const GENRES: GenreType[] = [
     subtitle: 'City-by-city real estate guide',
     count: 2,
     icon: <LibraryBooksIcon style={{ fontSize: 20 }} />,
-    iconBgClass: 'bg-cyan-600',
-    countColorClass: 'text-cyan-600',
+    iconBgClass: 'bg-[#0D9488]',
+    countColorClass: 'text-[#115E59]',
   },
 ]
 
@@ -166,7 +166,7 @@ export default function SeriesTab() {
             <section className="w-full">
               <div className="flex items-center justify-between mb-3 @sm:mb-5">
                 <h2 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">All Series</h2>
-                <button type="button" className="text-xs @sm:text-sm font-semibold text-emerald-500 hover:text-emerald-600">
+                <button type="button" className="text-xs @sm:text-sm font-semibold text-[#6B21A8] hover:text-[#5B21B6]">
                   View all
                 </button>
               </div>
@@ -190,8 +190,8 @@ export default function SeriesTab() {
               </div>
             </section>
 
-            <div className="bg-emerald-50 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-emerald-100 w-full">
-              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-emerald-500 shadow-sm">
+            <div className="bg-[#7C3AED]/10 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-[#7C3AED]/20 w-full">
+              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-[#6B21A8] shadow-sm">
                 <NotificationsActiveIcon />
               </div>
               <div className="flex-1 min-w-0">
@@ -200,7 +200,7 @@ export default function SeriesTab() {
               </div>
               <button
                 type="button"
-                className="shrink-0 bg-emerald-500 text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded"
+                className="shrink-0 bg-gradient-to-r from-[#7C3AED] to-[#D946EF] hover:from-[#6B21A8] hover:to-[#E91E8C] text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded transition-all active:scale-95 duration-200"
               >
                 Notify me
               </button>

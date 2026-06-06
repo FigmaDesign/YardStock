@@ -37,7 +37,7 @@ export default function App() {
             >
               Current Page
             </p>
-            <h1 className="text-4xl font-extrabold text-[#14532d] capitalize tracking-tight">
+            <h1 className="text-4xl font-extrabold text-[#6B21A8] capitalize tracking-tight">
               Forms
             </h1>
           </div>

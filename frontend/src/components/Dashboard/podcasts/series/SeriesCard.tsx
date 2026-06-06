@@ -11,7 +11,7 @@ interface SeriesCardProps {
 export default function SeriesCard({ series }: SeriesCardProps) {
   return (
     <div
-      className="group flex items-center p-2.5 @sm:p-4 gap-2.5 @sm:gap-4 hover:bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-sm transition-all duration-200 cursor-pointer w-full"
+      className="group flex items-center p-2.5 @sm:p-4 gap-2.5 @sm:gap-4 hover:bg-[var(--ys-surface-alt)] rounded-lg hover:border hover:border-[var(--ys-mute)] hover:shadow-sm transition-all duration-200 cursor-pointer w-full"
       tabIndex={0}
       role="article"
     >
@@ -23,10 +23,10 @@ export default function SeriesCard({ series }: SeriesCardProps) {
       </div>
 
       <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
-        <h3 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">
+        <h3 className="text-[14px] @sm:text-base font-bold text-[var(--ys-ink)] leading-snug truncate">
           {series.title}
         </h3>
-        <p className="text-[11px] @sm:text-sm text-slate-600 font-medium mt-0.5 @sm:mt-1 truncate">
+        <p className="text-[11px] @sm:text-sm text-[var(--ys-body)] font-medium mt-0.5 @sm:mt-1 truncate">
           {series.description}
         </p>
         <div className="flex items-center gap-2 mt-1 @sm:mt-1.5 flex-wrap">
@@ -37,8 +37,8 @@ export default function SeriesCard({ series }: SeriesCardProps) {
             <PlayArrowIcon style={{ fontSize: 12 }} aria-hidden="true" />
             {series.episodeCount} Episodes
           </span>
-          <span className="text-slate-300 text-[10px]">•</span>
-          <span className="inline-flex items-center gap-1 text-[10px] @sm:text-xs text-slate-500 font-medium">
+          <span className="text-[var(--ys-mute)] text-[10px]">•</span>
+          <span className="inline-flex items-center gap-1 text-[10px] @sm:text-xs text-[var(--ys-body-accent)] font-medium">
             <AccessTimeIcon style={{ fontSize: 12 }} aria-hidden="true" />
             {series.totalDuration}
           </span>
@@ -46,7 +46,7 @@ export default function SeriesCard({ series }: SeriesCardProps) {
       </div>
 
       <ChevronRightIcon
-        className="shrink-0 text-slate-400 group-hover:text-slate-600 transition-colors"
+        className="shrink-0 text-[var(--ys-body-accent)] group-hover:text-[var(--ys-body)] transition-colors"
         style={{ fontSize: 20 }}
         aria-hidden="true"
       />

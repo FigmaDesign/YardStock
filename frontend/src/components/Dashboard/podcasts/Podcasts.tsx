@@ -19,7 +19,7 @@ export default function Podcasts({ activeSubTab }: PodcastsProps) {
   const ActiveComponent = TAB_MAP[activeSubTab] ?? EpisodesTab
 
   return (
-    <div className="flex-1 w-full h-full overflow-y-auto scroll-smooth bg-white [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+    <div className="flex-1 w-full h-full overflow-y-auto scroll-smooth bg-[var(--ys-canvas)] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
       <div className="max-w-7xl mx-auto w-full">
         <ActiveComponent />
       </div>

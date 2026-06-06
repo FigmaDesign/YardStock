@@ -20,7 +20,7 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
 
   return (
     <div
-      className="group flex items-center p-2.5 @sm:p-4 gap-2.5 @sm:gap-4 hover:bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-sm transition-all duration-200 cursor-pointer w-full"
+      className="group flex items-center p-2.5 @sm:p-4 gap-2.5 @sm:gap-4 hover:bg-[var(--ys-surface-alt)] rounded-lg hover:border hover:border-[var(--ys-mute)] hover:shadow-sm transition-all duration-200 cursor-pointer w-full"
       tabIndex={0}
       role="article"
     >
@@ -44,22 +44,22 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
 
       <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
         <div className="flex items-center gap-1 min-w-0">
-          <h3 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">
+          <h3 className="text-[14px] @sm:text-base font-bold text-[var(--ys-ink)] leading-snug truncate">
             {speaker.name}
           </h3>
           {speaker.badge && (
             <StarIcon className="shrink-0 text-amber-400" style={{ fontSize: 14 }} aria-hidden="true" />
           )}
         </div>
-        <p className="text-[11px] @sm:text-sm text-emerald-600 font-semibold mt-0.5 @sm:mt-1 truncate">
+        <p className="text-[11px] @sm:text-sm text-[var(--ys-accent-orange)] font-semibold mt-0.5 @sm:mt-1 truncate">
           {speaker.role}
         </p>
         <div className="flex items-center gap-1 mt-1 @sm:mt-1.5 flex-wrap">
-          <MicIcon className="text-slate-400 shrink-0" style={{ fontSize: 12 }} aria-hidden="true" />
-          <span className="text-[10px] @sm:text-xs text-slate-500 font-medium">{speaker.sessions} Sessions</span>
+          <MicIcon className="text-[var(--ys-body-accent)] shrink-0" style={{ fontSize: 12 }} aria-hidden="true" />
+          <span className="text-[10px] @sm:text-xs text-[var(--ys-body)] font-medium">{speaker.sessions} Sessions</span>
           {speaker.badge && (
             <>
-              <span className="text-slate-300 text-[10px] @sm:text-xs mx-1">•</span>
+              <span className="text-[var(--ys-mute)] text-[10px] @sm:text-xs mx-1">•</span>
               <span className="text-[10px] @sm:text-xs text-amber-600 font-semibold">{speaker.badge}</span>
             </>
           )}
@@ -67,7 +67,7 @@ export default function SpeakerCard({ speaker }: SpeakerCardProps) {
       </div>
 
       <ChevronRightIcon
-        className="shrink-0 text-slate-400 group-hover:text-slate-600 transition-colors"
+        className="shrink-0 text-[var(--ys-body-accent)] group-hover:text-[var(--ys-body)] transition-colors"
         style={{ fontSize: 20 }}
         aria-hidden="true"
       />

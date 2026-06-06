@@ -83,8 +83,8 @@ function FeaturedSpeaker() {
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-linear-to-br from-slate-900/92 via-blue-900/85 to-slate-900/70" />
-      <div className="absolute right-0 top-0 w-1/2 h-full bg-linear-to-l from-blue-400/20 to-transparent mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-br from-[var(--ys-ink)]/92 via-[var(--ys-ink-soft)]/85 to-[var(--ys-ink)]/70" />
+      <div className="absolute right-0 top-0 w-1/2 h-full bg-linear-to-l from-[var(--ys-accent-orange)]/20 to-transparent mix-blend-overlay pointer-events-none" />
 
       <div className="absolute right-4 @sm:right-8 top-1/2 -translate-y-1/2 hidden @sm:block">
         <img
@@ -96,7 +96,7 @@ function FeaturedSpeaker() {
 
       <div className="relative z-10 flex flex-col justify-between p-4 @sm:p-8 h-full min-h-[160px] @sm:min-h-[320px]">
         <div className="flex">
-          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-emerald-500 text-white shadow-sm uppercase shrink-0">
+          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-[var(--ys-accent-orange)] text-white shadow-sm uppercase shrink-0">
             <StarIcon style={{ fontSize: 12 }} />
             {FEATURED_SPEAKER.badge}
           </span>
@@ -149,20 +149,20 @@ function ExpertiseListItem({ area }: { area: ExpertiseType }) {
   return (
     <button
       type="button"
-      className="flex items-center gap-2.5 @sm:gap-4 p-2.5 @sm:p-4 w-full text-left hover:bg-white hover:rounded-lg hover:border hover:border-slate-100 hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-slate-200 group"
+      className="flex items-center gap-2.5 @sm:gap-4 p-2.5 @sm:p-4 w-full text-left hover:bg-[var(--ys-surface-alt)] hover:rounded-lg hover:border hover:border-[var(--ys-mute)] hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-[var(--ys-mute)] group"
     >
       <div className={`shrink-0 w-10 h-10 @sm:w-12 @sm:h-12 rounded flex items-center justify-center ${area.iconBgClass}`}>
         <span className="text-white">{area.icon}</span>
       </div>
       <div className="flex-1 min-w-0 py-0.5">
-        <h4 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">{area.title}</h4>
-        <p className="text-[11px] @sm:text-sm text-slate-600 mt-0.5 @sm:mt-1 truncate">{area.subtitle}</p>
+        <h4 className="text-[14px] @sm:text-base font-bold text-[var(--ys-ink)] leading-snug truncate">{area.title}</h4>
+        <p className="text-[11px] @sm:text-sm text-[var(--ys-body)] mt-0.5 @sm:mt-1 truncate">{area.subtitle}</p>
         <p className={`text-[11px] @sm:text-xs font-bold mt-1 @sm:mt-1.5 ${area.countColorClass}`}>
           {area.count} Speakers
         </p>
       </div>
       <ChevronRightIcon
-        className="shrink-0 text-slate-400 group-hover:text-slate-600 transition-colors"
+        className="shrink-0 text-[var(--ys-body-accent)] group-hover:text-[var(--ys-body)] transition-colors"
         style={{ fontSize: 20 }}
       />
     </button>
@@ -172,12 +172,12 @@ function ExpertiseListItem({ area }: { area: ExpertiseType }) {
 export default function SpeakersTab() {
   return (
     <div
-      className="@container min-h-screen bg-slate-50 text-slate-900 pb-8 w-full overflow-x-hidden"
+      className="@container min-h-screen bg-[var(--ys-canvas)] text-[var(--ys-ink)] pb-8 w-full overflow-x-hidden"
       style={{ fontFamily: "'Outfit', sans-serif" }}
     >
       <div className="max-w-7xl mx-auto px-2 @sm:px-2 @lg:px-8 py-4 @sm:py-8 w-full">
         <header className="mb-4 @sm:mb-8">
-          <h1 className="text-2xl @sm:text-4xl font-extrabold text-slate-900 tracking-tight">Speakers</h1>
+          <h1 className="text-2xl @sm:text-4xl font-extrabold text-[var(--ys-ink)] tracking-tight">Speakers</h1>
         </header>
 
         <div className="grid grid-cols-1 @lg:grid-cols-12 gap-4 @sm:gap-8 w-full">
@@ -186,8 +186,8 @@ export default function SpeakersTab() {
 
             <section className="w-full">
               <div className="flex items-center justify-between mb-3 @sm:mb-5">
-                <h2 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">All Speakers</h2>
-                <button type="button" className="text-xs @sm:text-sm font-semibold text-emerald-500 hover:text-emerald-600">
+                <h2 className="text-xl @sm:text-2xl font-bold text-[var(--ys-ink)] tracking-tight">All Speakers</h2>
+                <button type="button" className="text-xs @sm:text-sm font-semibold text-[var(--ys-accent-orange)] hover:text-[var(--ys-accent-light)]">
                   View all
                 </button>
               </div>
@@ -202,7 +202,7 @@ export default function SpeakersTab() {
           <div className="@lg:col-span-4 w-full space-y-4 @sm:space-y-8">
             <section className="w-full">
               <div className="mb-3 @sm:mb-5">
-                <h3 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">Browse by Expertise</h3>
+                <h3 className="text-xl @sm:text-2xl font-bold text-[var(--ys-ink)] tracking-tight">Browse by Expertise</h3>
               </div>
               <div className="space-y-2 @sm:space-y-4 w-full">
                 {EXPERTISE_AREAS.map((area) => (
@@ -211,17 +211,17 @@ export default function SpeakersTab() {
               </div>
             </section>
 
-            <div className="bg-emerald-50 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-emerald-100 w-full">
-              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-emerald-500 shadow-sm">
+            <div className="bg-[var(--ys-accent-orange)]/10 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-[var(--ys-accent-orange)]/20 w-full">
+              <div className="shrink-0 w-10 h-10 rounded bg-[var(--ys-canvas)] flex items-center justify-center text-[var(--ys-accent-orange)] shadow-sm">
                 <PersonAddIcon />
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">Follow Speakers</h4>
-                <p className="text-[11px] @sm:text-sm text-slate-600 mt-0.5 truncate">Get notified for new sessions</p>
+                <h4 className="text-[14px] @sm:text-base font-bold text-[var(--ys-ink)] leading-snug truncate">Follow Speakers</h4>
+                <p className="text-[11px] @sm:text-sm text-[var(--ys-body)] mt-0.5 truncate">Get notified for new sessions</p>
               </div>
               <button
                 type="button"
-                className="shrink-0 bg-emerald-500 text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded"
+                className="shrink-0 bg-linear-to-r from-[var(--ys-accent-orange)] to-[var(--ys-accent-light)] text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded"
               >
                 Follow
               </button>

@@ -28,12 +28,12 @@ function FeaturedTrending({ onPlay, isPlaying }: { onPlay: () => void; isPlaying
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-linear-to-br from-slate-900/92 via-blue-900/85 to-slate-900/70" />
-      <div className="absolute right-0 top-0 w-1/2 h-full bg-linear-to-l from-blue-400/20 to-transparent mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-br from-[var(--ys-ink)]/92 via-[var(--ys-ink-soft)]/85 to-[var(--ys-ink)]/70" />
+      <div className="absolute right-0 top-0 w-1/2 h-full bg-linear-to-l from-[var(--ys-accent-orange)]/20 to-transparent mix-blend-overlay pointer-events-none" />
 
       <div className="relative z-10 flex flex-col justify-between p-4 @sm:p-8 h-full min-h-[160px] @sm:min-h-[320px]">
         <div className="flex">
-          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-emerald-500 text-white shadow-sm uppercase shrink-0">
+          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-[var(--ys-accent-orange)] text-white shadow-sm uppercase shrink-0">
             <TrendingUpIcon style={{ fontSize: 12 }} />
             {FEATURED_TRENDING.badge}
           </span>
@@ -96,7 +96,7 @@ function TrendingEpisodeItem({
 }) {
   return (
     <div
-      className="group flex items-center p-2.5 @sm:p-4 gap-2.5 @sm:gap-4 hover:bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-sm transition-all duration-200 cursor-pointer w-full"
+      className="group flex items-center p-2.5 @sm:p-4 gap-2.5 @sm:gap-4 hover:bg-[var(--ys-surface-alt)] rounded-lg hover:border hover:border-[var(--ys-mute)] hover:shadow-sm transition-all duration-200 cursor-pointer w-full"
       onClick={onPlay}
     >
       <div
@@ -119,24 +119,24 @@ function TrendingEpisodeItem({
       </div>
 
       <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
-        <h3 className={`text-[14px] @sm:text-base font-bold leading-snug truncate ${isPlaying ? 'text-emerald-500' : 'text-slate-900'}`}>
+        <h3 className={`text-[14px] @sm:text-base font-bold leading-snug truncate ${isPlaying ? 'text-[var(--ys-accent-orange)]' : 'text-[var(--ys-ink)]'}`}>
           {episode.title}
         </h3>
-        <p className="text-[11px] @sm:text-sm text-slate-600 font-medium mt-0.5 @sm:mt-1 truncate">
+        <p className="text-[11px] @sm:text-sm text-[var(--ys-body)] font-medium mt-0.5 @sm:mt-1 truncate">
           {episode.speaker}
-          <span className="mx-1 @sm:mx-1.5 text-slate-300">•</span>
+          <span className="mx-1 @sm:mx-1.5 text-[var(--ys-mute)]">•</span>
           {episode.role}
         </p>
       </div>
 
       <div className="flex items-center gap-2 @sm:gap-4 shrink-0 pl-1 @sm:pl-2">
-        <span className="hidden @sm:block text-[11px] @sm:text-sm font-medium text-slate-400 tabular-nums shrink-0">
+        <span className="hidden @sm:block text-[11px] @sm:text-sm font-medium text-[var(--ys-body-accent)] tabular-nums shrink-0">
           {episode.duration}
         </span>
         <button
           type="button"
           aria-label="More options"
-          className="shrink-0 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-200 rounded p-1 @sm:p-1.5"
+          className="shrink-0 text-[var(--ys-body-accent)] hover:text-[var(--ys-body)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--ys-mute)] rounded p-1 @sm:p-1.5"
           onClick={(e) => e.stopPropagation()}
         >
           <MoreVertIcon style={{ fontSize: 18 }} />
@@ -150,7 +150,7 @@ function TopicListItem({ topic }: { topic: TrendingTopic }) {
   return (
     <button
       type="button"
-      className="flex items-center gap-2.5 @sm:gap-4 p-2.5 @sm:p-4 w-full text-left hover:bg-white hover:rounded-lg hover:border hover:border-slate-100 hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-slate-200 group"
+      className="flex items-center gap-2.5 @sm:gap-4 p-2.5 @sm:p-4 w-full text-left hover:bg-[var(--ys-surface-alt)] hover:rounded-lg hover:border hover:border-[var(--ys-mute)] hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-[var(--ys-mute)] group"
     >
       <div
         className="shrink-0 w-10 h-10 @sm:w-12 @sm:h-12 rounded flex items-center justify-center text-xl"
@@ -159,13 +159,13 @@ function TopicListItem({ topic }: { topic: TrendingTopic }) {
         <span role="img" aria-hidden="true">{topic.icon}</span>
       </div>
       <div className="flex-1 min-w-0 py-0.5">
-        <h4 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">{topic.label}</h4>
+        <h4 className="text-[14px] @sm:text-base font-bold text-[var(--ys-ink)] leading-snug truncate">{topic.label}</h4>
         <p className="text-[11px] @sm:text-xs font-bold mt-1 @sm:mt-1.5" style={{ color: topic.color }}>
           Trending
         </p>
       </div>
       <ChevronRightIcon
-        className="shrink-0 text-slate-400 group-hover:text-slate-600 transition-colors"
+        className="shrink-0 text-[var(--ys-body-accent)] group-hover:text-[var(--ys-body)] transition-colors"
         style={{ fontSize: 20 }}
       />
     </button>
@@ -247,12 +247,12 @@ export default function TrendingTab() {
 
   return (
     <div
-      className={`@container min-h-screen bg-slate-50 text-slate-900 ${playingEpisode ? 'pb-[132px]' : 'pb-8'} w-full overflow-x-hidden`}
+      className={`@container min-h-screen bg-[var(--ys-canvas)] text-[var(--ys-ink)] ${playingEpisode ? 'pb-[132px]' : 'pb-8'} w-full overflow-x-hidden`}
       style={{ fontFamily: "'Outfit', sans-serif" }}
     >
       <div className="max-w-7xl mx-auto px-2 @sm:px-2 @lg:px-8 py-4 @sm:py-8 w-full">
         <header className="mb-4 @sm:mb-8">
-          <h1 className="text-2xl @sm:text-4xl font-extrabold text-slate-900 tracking-tight">Trending</h1>
+          <h1 className="text-2xl @sm:text-4xl font-extrabold text-[var(--ys-ink)] tracking-tight">Trending</h1>
         </header>
 
         <div className="grid grid-cols-1 @lg:grid-cols-12 gap-4 @sm:gap-8 w-full">
@@ -264,8 +264,8 @@ export default function TrendingTab() {
 
             <section className="w-full">
               <div className="flex items-center justify-between mb-3 @sm:mb-5">
-                <h2 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">Trending Episodes</h2>
-                <button type="button" className="text-xs @sm:text-sm font-semibold text-emerald-500 hover:text-emerald-600">
+                <h2 className="text-xl @sm:text-2xl font-bold text-[var(--ys-ink)] tracking-tight">Trending Episodes</h2>
+                <button type="button" className="text-xs @sm:text-sm font-semibold text-[var(--ys-accent-orange)] hover:text-[var(--ys-accent-light)]">
                   View all
                 </button>
               </div>
@@ -285,7 +285,7 @@ export default function TrendingTab() {
           <div className="@lg:col-span-4 w-full space-y-4 @sm:space-y-8">
             <section className="w-full">
               <div className="mb-3 @sm:mb-5">
-                <h3 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">Trending Topics</h3>
+                <h3 className="text-xl @sm:text-2xl font-bold text-[var(--ys-ink)] tracking-tight">Trending Topics</h3>
               </div>
               <div className="space-y-2 @sm:space-y-4 w-full">
                 {TRENDING_TOPICS.map((topic) => (
@@ -294,17 +294,17 @@ export default function TrendingTab() {
               </div>
             </section>
 
-            <div className="bg-emerald-50 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-emerald-100 w-full">
-              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-emerald-500 shadow-sm">
+            <div className="bg-[var(--ys-accent-orange)]/10 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-[var(--ys-accent-orange)]/20 w-full">
+              <div className="shrink-0 w-10 h-10 rounded bg-[var(--ys-canvas)] flex items-center justify-center text-[var(--ys-accent-orange)] shadow-sm">
                 <WhatshotIcon />
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">Stay on trend</h4>
-                <p className="text-[11px] @sm:text-sm text-slate-600 mt-0.5 truncate">Subscribe for weekly trending picks</p>
+                <h4 className="text-[14px] @sm:text-base font-bold text-[var(--ys-ink)] leading-snug truncate">Stay on trend</h4>
+                <p className="text-[11px] @sm:text-sm text-[var(--ys-body)] mt-0.5 truncate">Subscribe for weekly trending picks</p>
               </div>
               <button
                 type="button"
-                className="shrink-0 bg-emerald-500 text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded"
+                className="shrink-0 bg-linear-to-r from-[var(--ys-accent-orange)] to-[var(--ys-accent-light)] text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded"
               >
                 Subscribe
               </button>

@@ -46,7 +46,7 @@ const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: An
       ref={scrollContainerRef}
       onScroll={checkScroll}
       aria-label="Announcement categories"
-      className="relative flex w-full items-stretch overflow-x-auto h-12.5 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden shrink-0"
+      className="relative flex w-full items-stretch overflow-x-auto h-[52px] bg-[#ffffff] border-b border-[#cfcfdb] shadow-[0_2px_10px_rgba(31,22,51,0.02)] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden shrink-0 font-['Outfit',sans-serif]"
     >
       {canScrollLeft && (
         <button
@@ -56,7 +56,7 @@ const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: An
             const nav = scrollContainerRef.current
             if (nav) nav.scrollBy({ left: -150, behavior: 'smooth' })
           }}
-          className="sticky left-0 flex h-full items-center justify-center bg-linear-to-r from-white via-white to-transparent pr-6 pl-1 @md:hidden z-10 text-gray-400 hover:text-[#6B21A8]"
+          className="sticky left-0 flex h-full items-center justify-center bg-gradient-to-r from-[#ffffff] via-[#ffffff] to-transparent pr-6 pl-1 @md:hidden z-10 text-[#79628c] hover:text-[#422082] transition-colors"
         >
           <ChevronLeft size={18} />
         </button>
@@ -72,27 +72,27 @@ const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: An
             aria-current={isActive ? 'page' : undefined}
             onClick={() => onChange(tab)}
             className={[
-              'relative flex flex-col @md:flex-row items-center justify-center gap-1.5 @md:gap-2 px-2 pb-2 h-full flex-[1_0_auto] min-w-20',
+              'relative flex flex-col @md:flex-row items-center justify-center gap-1.5 @md:gap-2 px-3 pb-2 pt-1 h-full flex-[1_0_auto] min-w-[84px]',
               'cursor-pointer bg-transparent border-none transition-all duration-200',
-              '[-webkit-tap-highlight-color:transparent] active:scale-[0.95] active:opacity-80',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:ring-inset',
+              '[-webkit-tap-highlight-color:transparent] active:scale-[0.96]',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6a5fc1]/50 focus-visible:ring-inset',
               'motion-reduce:transition-none motion-reduce:transform-none',
-              idx !== 0 ? 'border-l border-solid border-gray-100' : '',
-              !isActive ? 'hover:bg-[#7C3AED]/[0.03]' : '',
+              idx !== 0 ? 'border-l border-solid border-[#cfcfdb]/50' : '',
+              !isActive ? 'hover:bg-[#f9fafb]' : '',
             ].join(' ')}
           >
             <Icon
               size={18}
-              strokeWidth={1.5}
+              strokeWidth={isActive ? 2 : 1.5}
               aria-hidden="true"
               className={`transition-colors duration-200 motion-reduce:transition-none ${
-                isActive ? 'text-[#7C3AED]' : 'text-gray-400'
+                isActive ? 'text-[#6a5fc1]' : 'text-[#79628c]'
               }`}
             />
 
             <span
-              className={`text-center text-[0.55rem] @md:text-xs leading-[1.1] whitespace-normal wrap-break-word transition-all duration-200 motion-reduce:transition-none ${
-                isActive ? 'font-bold text-[#6B21A8]' : 'font-medium text-gray-500'
+              className={`text-center text-[9px] @md:text-[11px] uppercase tracking-[0.2px] leading-[1.1] whitespace-normal wrap-break-word transition-all duration-200 motion-reduce:transition-none ${
+                isActive ? 'font-bold text-[#1f1633]' : 'font-medium text-[#79628c]'
               }`}
             >
               {tab === 'Builder Requirements' || tab === 'Vendor Requirements' ? (
@@ -109,7 +109,7 @@ const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: An
             {isActive && (
               <div
                 aria-hidden="true"
-                className="absolute bottom-0.75 left-1/2 h-0.75 w-3/4 -translate-x-1/2 rounded-lg bg-linear-to-r from-[#7C3AED] to-[#D946EF]"
+                className="absolute bottom-0 left-0 right-0 h-[3px] rounded-t-[4px] bg-gradient-to-r from-[#422082] via-[#6a5fc1] to-[#422082] shadow-[0_-2px_8px_rgba(106,95,193,0.4)] animate-[fadeScale_0.2s_ease-out]"
               />
             )}
           </button>
@@ -124,7 +124,7 @@ const AnnouncementTabs = memo(function AnnouncementTabs({ active, onChange }: An
             const nav = scrollContainerRef.current
             if (nav) nav.scrollBy({ left: 150, behavior: 'smooth' })
           }}
-          className="sticky right-0 flex h-full items-center justify-center bg-linear-to-l from-white via-white to-transparent pl-6 pr-1 @md:hidden z-10 text-gray-400 hover:text-[#6B21A8]"
+          className="sticky right-0 flex h-full items-center justify-center bg-gradient-to-l from-[#ffffff] via-[#ffffff] to-transparent pl-6 pr-1 @md:hidden z-10 text-[#79628c] hover:text-[#422082] transition-colors"
         >
           <ChevronRight size={18} />
         </button>

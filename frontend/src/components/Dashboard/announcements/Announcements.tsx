@@ -64,12 +64,12 @@ export default function Announcements() {
   const pageNumbers = buildPageNumbers(safePage, totalPages)
 
   return (
-    <div className="flex flex-col h-full overflow-hidden">
+    <div className="flex flex-col h-full overflow-hidden font-['Outfit',sans-serif] bg-[#ffffff]">
       <AnnouncementTabs active={activeTab} onChange={handleTabChange} />
 
-      <div className="flex-1 overflow-y-auto bg-slate-50/30 @md:bg-white scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-1 @md:p-0">
+      <div className="flex-1 overflow-y-auto bg-gradient-to-b from-[#f9fafb] to-[#ffffff] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden p-1 @md:p-0">
         {displayPosts.length === 0 ? (
-          <div className="flex items-center justify-center h-40 text-[0.82rem] text-slate-400 font-medium">
+          <div className="flex items-center justify-center h-40 text-[13px] text-[#79628c] font-medium">
             No posts found in this category.
           </div>
         ) : (
@@ -91,7 +91,13 @@ export default function Announcements() {
 
               return (
                 <div key={post.id} className={visibilityClass}>
-                  <PostCard post={post} />
+                  <PostCard 
+                    post={post} 
+                    onView={() => console.log('View', post.id)}
+                    onContact={() => console.log('Contact', post.id)}
+                    onSave={() => console.log('Save', post.id)}
+                    onNotInterested={() => console.log('Not Interested', post.id)}
+                  />
                 </div>
               )
             })}
@@ -99,13 +105,13 @@ export default function Announcements() {
             {isLoadingMore && (
               <div className="@md:hidden flex flex-col gap-3 pt-2">
                 {Array.from({ length: Math.min(3, filtered.length - mobileVisibleCount) }).map((_, i) => (
-                  <div key={`skeleton-${i}`} className="flex p-4 gap-4 bg-white/80 rounded-2xl border border-slate-100/60 shadow-[0_2px_12px_rgba(0,0,0,0.02)] animate-pulse">
-                    <div className="w-12 h-12 rounded-xl bg-slate-200/80 shrink-0"></div>
+                  <div key={`skeleton-${i}`} className="flex p-4 gap-4 bg-[#ffffff] rounded-[12px] border border-[#cfcfdb] shadow-sm animate-pulse">
+                    <div className="w-12 h-12 rounded-[8px] bg-[#f0f0f0] shrink-0" />
                     <div className="flex-1 space-y-3 py-1.5">
-                      <div className="h-3.5 bg-slate-200/80 rounded-md w-2/3"></div>
+                      <div className="h-3.5 bg-[#f0f0f0] rounded-[4px] w-2/3" />
                       <div className="space-y-2">
-                        <div className="h-2.5 bg-slate-200/80 rounded-md w-full"></div>
-                        <div className="h-2.5 bg-slate-200/80 rounded-md w-4/5"></div>
+                        <div className="h-2.5 bg-[#f0f0f0] rounded-[4px] w-full" />
+                        <div className="h-2.5 bg-[#f0f0f0] rounded-[4px] w-4/5" />
                       </div>
                     </div>
                   </div>
@@ -122,7 +128,7 @@ export default function Announcements() {
               onClick={handleLoadMore}
               disabled={isLoadingMore}
               aria-label="Load more posts"
-              className="group flex items-center justify-center gap-2.5 px-6 py-3 rounded-lg text-white font-bold text-[0.85rem] bg-linear-to-r from-[#7C3AED] to-[#D946EF] shadow-[0_4px_16px_rgba(124,58,237,0.3)] hover:shadow-[0_6px_20px_rgba(217,70,239,0.4)] hover:opacity-90 active:scale-[0.97] disabled:opacity-80 disabled:active:scale-100 disabled:cursor-wait transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/40"
+              className="group flex items-center justify-center gap-2.5 px-6 py-3 rounded-[8px] text-white font-bold text-[14px] uppercase tracking-[0.2px] bg-gradient-to-r from-[#422082] to-[#6a5fc1] hover:from-[#6a5fc1] hover:to-[#422082] shadow-[0_4px_16px_rgba(66,32,130,0.3)] hover:shadow-[0_6px_20px_rgba(106,95,193,0.4)] active:scale-[0.97] disabled:opacity-80 disabled:active:scale-100 disabled:cursor-wait transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#6a5fc1]/50"
             >
               {isLoadingMore ? (
                 <>
@@ -144,8 +150,8 @@ export default function Announcements() {
         )}
       </div>
 
-      <footer className="hidden @md:flex shrink-0 items-center justify-between px-6 py-4 border-t border-slate-100 bg-white gap-4 flex-wrap shadow-[0_-4px_20px_rgba(0,0,0,0.02)] z-10">
-        <div className="flex items-center gap-3 text-[0.75rem] font-medium text-slate-500">
+      <footer className="hidden @md:flex shrink-0 items-center justify-between px-6 py-4 border-t border-[#cfcfdb] bg-[#ffffff] gap-4 flex-wrap z-10">
+        <div className="flex items-center gap-3 text-[13px] font-medium text-[#79628c]">
           <span>Show</span>
           
           <div className="relative" ref={dropdownRef}>
@@ -156,13 +162,13 @@ export default function Announcements() {
               aria-haspopup="listbox"
               aria-expanded={isDropdownOpen ? 'true' : 'false'}
               aria-controls="page-size-listbox"
-              className="flex items-center justify-between w-16 px-3 py-1.5 border border-slate-200 rounded-lg text-slate-700 bg-slate-50 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED] transition-all font-semibold"
+              className="flex items-center justify-between w-16 px-3 py-1.5 border border-[#cfcfdb] rounded-[6px] text-[#1f1633] bg-[#ffffff] hover:bg-[#f9fafb] hover:border-[#79628c] focus:outline-none focus:ring-2 focus:ring-[#6a5fc1]/20 focus:border-[#6a5fc1] transition-all font-semibold"
             >
               {pageSize}
               <ChevronRight 
                 size={12} 
                 aria-hidden="true"
-                className={`text-slate-400 transition-transform duration-200 ${isDropdownOpen ? '-rotate-90' : 'rotate-90'}`} 
+                className={`text-[#79628c] transition-transform duration-200 ${isDropdownOpen ? '-rotate-90' : 'rotate-90'}`} 
               />
             </button>
 
@@ -171,7 +177,7 @@ export default function Announcements() {
                 id="page-size-listbox"
                 role="listbox"
                 aria-labelledby="page-size-menu-button"
-                className="absolute bottom-full mb-2 left-0 w-full bg-white border border-slate-100 rounded-lg shadow-lg overflow-hidden z-20 py-1"
+                className="absolute bottom-full mb-2 left-0 w-full bg-[#ffffff] border border-[#cfcfdb] rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.1)] overflow-hidden z-20 py-1"
               >
                 {PAGE_SIZE_OPTIONS.map((n) => (
                   <button
@@ -180,10 +186,10 @@ export default function Announcements() {
                     role="option"
                     aria-selected={pageSize === n ? 'true' : 'false'}
                     onClick={() => handlePageSizeChange(n)}
-                    className={`w-full text-left px-3 py-1.5 text-[0.75rem] font-semibold transition-colors ${
+                    className={`w-full text-left px-3 py-1.5 text-[13px] font-semibold transition-colors ${
                       pageSize === n
-                        ? 'bg-[#7C3AED]/10 text-[#6B21A8]'
-                        : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                        ? 'bg-[#422082] text-white'
+                        : 'text-[#1f1633] hover:bg-[#f0f0f0]'
                     }`}
                   >
                     {n}
@@ -196,20 +202,20 @@ export default function Announcements() {
           <span>per page</span>
         </div>
 
-        <nav aria-label="Pagination" className="flex items-center gap-1 p-1 bg-slate-50/80 border border-slate-200/80 rounded-xl">
+        <nav aria-label="Pagination" className="flex items-center gap-1 p-1 bg-[#f9fafb] border border-[#cfcfdb] rounded-[8px]">
           <button
             type="button"
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={safePage === 1}
             aria-label="Previous page"
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-slate-500 hover:text-slate-800 hover:bg-white hover:shadow-sm disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:shadow-none disabled:cursor-not-allowed transition-all"
+            className="w-8 h-8 flex items-center justify-center rounded-[6px] text-[#79628c] hover:text-[#1f1633] hover:bg-[#ffffff] hover:shadow-sm disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:shadow-none disabled:cursor-not-allowed transition-all"
           >
             <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
           </button>
 
           {pageNumbers.map((item, i) =>
             item === '...' ? (
-              <span key={`ellipsis-${i}`} aria-hidden="true" className="w-5 text-center text-[0.8rem] font-bold text-slate-400 tracking-widest">…</span>
+              <span key={`ellipsis-${i}`} aria-hidden="true" className="w-5 text-center text-[13px] font-bold text-[#79628c] tracking-widest">…</span>
             ) : (
               <button
                 type="button"
@@ -218,10 +224,10 @@ export default function Announcements() {
                 aria-label={`Page ${item}`}
                 aria-current={item === safePage ? 'page' : undefined}
                 className={[
-                  'w-8 h-8 text-[0.78rem] font-bold rounded-lg transition-all duration-200',
+                  'w-8 h-8 text-[13px] font-bold rounded-[6px] transition-all duration-200',
                   item === safePage
-                    ? 'bg-linear-to-r from-[#7C3AED] to-[#D946EF] text-white shadow-md shadow-[#7C3AED]/20'
-                    : 'text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm',
+                    ? 'bg-gradient-to-r from-[#422082] to-[#6a5fc1] text-white shadow-sm'
+                    : 'text-[#79628c] hover:bg-[#ffffff] hover:text-[#1f1633] hover:shadow-sm',
                 ].join(' ')}
               >
                 {item}
@@ -234,18 +240,18 @@ export default function Announcements() {
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={safePage === totalPages}
             aria-label="Next page"
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-slate-500 hover:text-slate-800 hover:bg-white hover:shadow-sm disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:shadow-none disabled:cursor-not-allowed transition-all"
+            className="w-8 h-8 flex items-center justify-center rounded-[6px] text-[#79628c] hover:text-[#1f1633] hover:bg-[#ffffff] hover:shadow-sm disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:shadow-none disabled:cursor-not-allowed transition-all"
           >
             <ChevronRight size={16} strokeWidth={2.5} aria-hidden="true" />
           </button>
         </nav>
 
-        <span aria-live="polite" className="text-[0.72rem] font-semibold text-slate-400 whitespace-nowrap bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100">
-          <span className="text-slate-600">{filtered.length === 0 ? 0 : (safePage - 1) * pageSize + 1}</span>
+        <span aria-live="polite" className="text-[12px] font-semibold text-[#79628c] whitespace-nowrap bg-[#ffffff] px-3 py-1.5 rounded-[6px] border border-[#cfcfdb]">
+          <span className="text-[#1f1633]">{filtered.length === 0 ? 0 : (safePage - 1) * pageSize + 1}</span>
           {' '}-{' '}
-          <span className="text-slate-600">{Math.min(safePage * pageSize, filtered.length)}</span>
+          <span className="text-[#1f1633]">{Math.min(safePage * pageSize, filtered.length)}</span>
           {' '}of{' '}
-          <span className="text-slate-600">{filtered.length}</span>
+          <span className="text-[#1f1633]">{filtered.length}</span>
         </span>
       </footer>
     </div>

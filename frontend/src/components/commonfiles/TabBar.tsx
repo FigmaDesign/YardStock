@@ -22,6 +22,7 @@ interface TabBarProps {
 export default function TabBar({
   tabs,
   active,
+  activeSubTab,
   onChange,
   onSubTabChange,
 }: TabBarProps) {
@@ -39,7 +40,7 @@ export default function TabBar({
   return (
     <nav 
       aria-label="Section Navigation" 
-      className="flex flex-col w-full shrink-0 bg-[#1A1A2E]"
+      className="flex flex-col w-full shrink-0 bg-[#1f1633] font-['Outfit',sans-serif]"
     >
       <PrimaryTabBar
         tabs={tabs}
@@ -48,4 +49,4 @@ export default function TabBar({
       />
     </nav>
   )
-}
+}

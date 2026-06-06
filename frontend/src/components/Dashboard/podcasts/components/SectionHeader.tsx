@@ -1,4 +1,3 @@
-import React from 'react'
 import { ChevronRight } from 'lucide-react'
 
 interface SectionHeaderProps {
@@ -8,8 +7,8 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ title, onViewAll }: SectionHeaderProps) {
   return (
-    <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5">
-      <h3 className="text-xl sm:text-2xl font-extrabold text-[#0f172a] tracking-tight drop-shadow-sm">
+    <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 font-['Outfit',sans-serif]">
+      <h3 className="text-[18px] sm:text-[22px] font-bold text-[#1f1633] tracking-tight drop-shadow-sm">
         {title}
       </h3>
       
@@ -18,13 +17,13 @@ export default function SectionHeader({ title, onViewAll }: SectionHeaderProps) 
           type="button"
           onClick={onViewAll}
           aria-label={`View all ${title}`}
-          className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold text-[#6B21A8] hover:text-[#5B21B6] hover:bg-[#7C3AED]/10 active:scale-95 transition-all duration-300 outline outline-1 outline-transparent hover:outline-[#7C3AED]/30 focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none cursor-pointer group"
+          className="group flex items-center gap-1 px-3 py-1.5 rounded-[6px] text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.2px] text-[#6a5fc1] hover:text-[#422082] hover:bg-[#6a5fc1]/10 active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6a5fc1]/50 cursor-pointer"
         >
           View all
           <ChevronRight 
             size={16} 
             strokeWidth={2.5} 
-            className="group-hover:translate-x-1 transition-transform duration-300" 
+            className="group-hover:translate-x-1 transition-transform duration-200" 
             aria-hidden="true" 
           />
         </button>

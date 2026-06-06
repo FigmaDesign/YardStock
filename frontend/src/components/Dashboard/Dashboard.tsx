@@ -17,10 +17,10 @@ interface DashboardProps {
 }
 
 const STAT_CARDS = [
-  { Icon: ApartmentIcon, color: 'var(--ys-ink)', bgGradient: 'from-[var(--ys-canvas-soft)] to-[var(--ys-canvas)]', border: 'border-[var(--ys-mute)]' },
-  { Icon: PeopleIcon, color: 'var(--ys-primary)', bgGradient: 'from-[var(--ys-canvas-soft)] to-[var(--ys-canvas)]', border: 'border-[var(--ys-mute)]' },
-  { Icon: CurrencyRupeeIcon, color: 'var(--ys-ink-mid)', bgGradient: 'from-[var(--ys-canvas-soft)] to-[var(--ys-canvas)]', border: 'border-[var(--ys-mute)]' },
-  { Icon: EventNoteIcon, color: 'var(--ys-ink-soft)', bgGradient: 'from-[var(--ys-canvas-soft)] to-[var(--ys-canvas)]', border: 'border-[var(--ys-mute)]' },
+  { Icon: ApartmentIcon, color: '#1d4ed8', bgGradient: 'from-blue-50/80 to-blue-100/40', border: 'border-blue-100/50' },
+  { Icon: PeopleIcon, color: '#16a34a', bgGradient: 'from-green-50/80 to-green-100/40', border: 'border-green-100/50' },
+  { Icon: CurrencyRupeeIcon, color: '#d97706', bgGradient: 'from-amber-50/80 to-amber-100/40', border: 'border-amber-100/50' },
+  { Icon: EventNoteIcon, color: '#dc2626', bgGradient: 'from-red-50/80 to-red-100/40', border: 'border-red-100/50' },
 ]
 
 const STAGGER_DELAYS = [
@@ -48,7 +48,7 @@ const StatCards = memo(function StatCards() {
           <div
             role="status"
             aria-label="Loading statistic card"
-            className={`ys-skeleton rounded-[8px] min-h-[5.5rem] border ${card.border} bg-gradient-to-br ${card.bgGradient} shadow-sm backdrop-blur-sm relative overflow-hidden flex items-center p-4`}
+            className={`ys-skeleton rounded-xl min-h-[5.5rem] border ${card.border} bg-gradient-to-br ${card.bgGradient} shadow-sm backdrop-blur-sm relative overflow-hidden flex items-center p-4`}
           >
             <card.Icon 
               className="absolute -right-2 -bottom-2 opacity-[0.07]" 
@@ -68,7 +68,7 @@ const RecentProperties = memo(function RecentProperties() {
       <div
         role="status"
         aria-label="Loading recent properties"
-        className="ys-skeleton rounded-[8px] overflow-hidden h-64 border border-[var(--ys-mute)] bg-gradient-to-br from-[var(--ys-canvas)] to-[var(--ys-canvas-soft)] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
+        className="ys-skeleton rounded-xl overflow-hidden h-64 border border-[#eef0f3] bg-gradient-to-br from-white to-[#f8f9fa] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
       />
     </section>
   )
@@ -80,7 +80,7 @@ const ActivityFeed = memo(function ActivityFeed() {
       <div
         role="status"
         aria-label="Loading activity feed"
-        className="ys-skeleton rounded-[8px] h-64 border border-[var(--ys-mute)] bg-gradient-to-br from-[var(--ys-canvas)] to-[var(--ys-canvas-soft)] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
+        className="ys-skeleton rounded-xl h-64 border border-[#eef0f3] bg-gradient-to-br from-white to-[#f8f9fa] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
       />
     </section>
   )
@@ -102,10 +102,10 @@ function DesktopDashboard() {
   }, [])
 
   return (
-    <main className="flex flex-col h-full overflow-hidden bg-gradient-to-br from-[var(--ys-canvas)] to-[var(--ys-canvas-soft)]">
+    <main className="flex flex-col h-full overflow-hidden bg-gradient-to-br from-[#f8f9fa] to-[#eef0f3]">
       <DashboardHeader />
 
-      <nav aria-label="Main Navigation" className="shrink-0 bg-[var(--ys-canvas)] border-b border-[var(--ys-mute)] shadow-sm z-10">
+      <nav aria-label="Main Navigation" className="shrink-0 bg-white border-b border-[#eef0f3] shadow-sm z-10">
         <TabBar
           tabs={TAB_ITEMS}
           active={activeTab}
@@ -116,12 +116,12 @@ function DesktopDashboard() {
       </nav>
 
       {currentSubTabs.length > 0 && (
-        <nav aria-label="Secondary Navigation" className="shrink-0 border-b border-[var(--ys-mute)] bg-[var(--ys-canvas)]/60 backdrop-blur-md px-6 py-1">
+        <nav aria-label="Secondary Navigation" className="shrink-0 border-b border-[#eef0f3] bg-white/60 backdrop-blur-md px-6 py-1">
           <SubTabBar subTabs={currentSubTabs} active={activeSubTab} onChange={setActiveSubTab} variant="desktop" />
         </nav>
       )}
 
-      <div className="flex-1 overflow-hidden flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ys-primary)]" tabIndex={-1}>
+      <div className="flex-1 overflow-hidden flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#16a34a]" tabIndex={-1}>
         {activeTab === 'announcements' ? (
           <Announcements />
         ) : activeTab === 'podcasts' ? (
@@ -129,10 +129,10 @@ function DesktopDashboard() {
         ) : (
           <div className="flex-1 overflow-y-auto px-6 py-6">
             <header className="mb-6">
-              <p className="text-[0.7rem] font-semibold text-[var(--ys-body-mid)] uppercase tracking-widest truncate">
+              <p className="text-[0.7rem] font-semibold text-[#6b7280] uppercase tracking-widest truncate">
                 {activeItem?.label ?? 'Dashboard'}
               </p>
-              <h2 className="text-[1.5rem] font-extrabold text-[var(--ys-ink)] mt-1 truncate">
+              <h2 className="text-[1.5rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#0f1e3d] to-[#3b4c6b] mt-1 truncate">
                 {activeSubTab}
               </h2>
             </header>
@@ -169,10 +169,10 @@ function MobileDashboard() {
   }, [])
 
   return (
-    <main className="h-full flex flex-col overflow-hidden bg-gradient-to-br from-[var(--ys-canvas)] to-[var(--ys-canvas-soft)]">
+    <main className="h-full flex flex-col overflow-hidden bg-gradient-to-br from-[#f8f9fa] to-[#eef0f3]">
       <DashboardHeader />
 
-      <nav aria-label="Main Navigation" className="shrink-0 bg-[var(--ys-canvas)] shadow-sm z-10">
+      <nav aria-label="Main Navigation" className="shrink-0 bg-white shadow-sm z-10">
         <TabBar
           tabs={TAB_ITEMS}
           active={activeTab}
@@ -183,12 +183,12 @@ function MobileDashboard() {
       </nav>
 
       {currentSubTabs.length > 0 && (
-        <nav aria-label="Secondary Navigation" className="shrink-0 border-b border-[var(--ys-mute)] bg-[var(--ys-canvas)]/60 backdrop-blur-md">
+        <nav aria-label="Secondary Navigation" className="shrink-0 border-b border-[#eef0f3] bg-white/60 backdrop-blur-md">
           <SubTabBar subTabs={currentSubTabs} active={activeSubTab} onChange={setActiveSubTab} variant="mobile" />
         </nav>
       )}
 
-      <div className="flex-1 overflow-hidden flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ys-primary)]" tabIndex={-1}>
+      <div className="flex-1 overflow-hidden flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#16a34a]" tabIndex={-1}>
         {activeTab === 'announcements' ? (
           <Announcements />
         ) : activeTab === 'podcasts' ? (
@@ -196,10 +196,10 @@ function MobileDashboard() {
         ) : (
           <div className="flex-1 overflow-y-auto px-4 py-5">
             <header className="mb-5">
-              <p className="text-[0.65rem] font-semibold text-[var(--ys-body-mid)] uppercase tracking-widest truncate">
+              <p className="text-[0.65rem] font-semibold text-[#6b7280] uppercase tracking-widest truncate">
                 {activeItem?.label ?? 'Dashboard'}
               </p>
-              <h2 className="text-[1.2rem] font-extrabold text-[var(--ys-ink)] mt-1 truncate">
+              <h2 className="text-[1.2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#0f1e3d] to-[#3b4c6b] mt-1 truncate">
                 {activeSubTab}
               </h2>
             </header>

@@ -1,153 +1,326 @@
-import { memo, useMemo } from 'react'
-import { TrendingUp, ArrowUpRight, PlayCircle, Headphones, Clock, Star, Flame, Trophy } from 'lucide-react'
-import SectionHeader from '../components/SectionHeader'
-import { EPISODES, SERIES, SPEAKERS } from '../data'
+import React, { useState } from 'react'
+import StarIcon from '@mui/icons-material/Star'
+import TrendingUpIcon from '@mui/icons-material/TrendingUp'
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import PauseIcon from '@mui/icons-material/Pause'
+import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import MoreVertIcon from '@mui/icons-material/MoreVert'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import WhatshotIcon from '@mui/icons-material/Whatshot'
+import SkipNextIcon from '@mui/icons-material/SkipNext'
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious'
+import CloseIcon from '@mui/icons-material/Close'
+import { FEATURED_TRENDING, TRENDING_EPISODES, TRENDING_TOPICS } from '../data'
+import podcastBg from '../Images/Podcast_bg.png'
 
-export default function TrendingTab() {
-  const trendingEpisodes = useMemo(() => EPISODES.filter(e => e.trending).slice(0, 5), [])
-  const trendingSeries = useMemo(() => SERIES.filter(s => s.trending).slice(0, 3), [])
-  const topSpeakers = useMemo(() => [...SPEAKERS].sort((a, b) => b.rating - a.rating).slice(0, 4), [])
+type TrendingEpisode = (typeof TRENDING_EPISODES)[number]
+type TrendingTopic = (typeof TRENDING_TOPICS)[number]
 
+function FeaturedTrending({ onPlay, isPlaying }: { onPlay: () => void; isPlaying: boolean }) {
   return (
-    <div className="flex flex-col gap-8 pb-8 pt-2">
-      
-      <section aria-labelledby="trending-overview-heading" className="ys-fade-in-up motion-reduce:animate-none">
-        <h2 id="trending-overview-heading" className="sr-only">Trending Overview</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-gradient-to-br from-[var(--ys-ink)] to-[var(--ys-ink-soft)] rounded-2xl p-6 text-white relative overflow-hidden group">
-            <div className="absolute -right-6 -top-6 text-white/5 group-hover:scale-110 transition-transform duration-500">
-              <Headphones className="w-32 h-32" />
-            </div>
-            <div className="relative z-10">
-              <div className="flex items-center gap-2 text-[var(--ys-primary)] font-bold text-sm mb-2">
-                <TrendingUp className="w-4 h-4" /> TOTAL STREAMS THIS WEEK
-              </div>
-              <div className="text-4xl font-black mb-1">124.5K</div>
-              <div className="text-white/80 text-sm flex items-center gap-1">
-                <ArrowUpRight className="w-4 h-4 text-emerald-400" /> +12.4% vs last week
-              </div>
-            </div>
-          </div>
+    <div
+      className="relative w-full rounded-lg overflow-hidden min-h-[160px] @sm:min-h-[320px] shadow-md cursor-pointer"
+      onClick={onPlay}
+    >
+      <img
+        src={podcastBg}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-linear-to-br from-slate-900/92 via-blue-900/85 to-slate-900/70" />
+      <div className="absolute right-0 top-0 w-1/2 h-full bg-linear-to-l from-blue-400/20 to-transparent mix-blend-overlay pointer-events-none" />
 
-          <div className="bg-gradient-to-br from-[var(--ys-primary)] to-[var(--ys-ink-mid)] rounded-2xl p-6 text-white relative overflow-hidden group">
-            <div className="absolute -right-6 -top-6 text-white/10 group-hover:scale-110 transition-transform duration-500">
-              <Flame className="w-32 h-32" />
-            </div>
-            <div className="relative z-10">
-              <div className="flex items-center gap-2 text-white/80 font-bold text-sm mb-2">
-                <Flame className="w-4 h-4" /> HOTTEST CATEGORY
-              </div>
-              <div className="text-2xl font-black mb-1">Commercial Real Estate</div>
-              <div className="text-white/80 text-sm">45K streams this week</div>
-            </div>
-          </div>
-
-          <div className="bg-[var(--ys-canvas)] border border-[var(--ys-mute)] rounded-2xl p-6 relative overflow-hidden group hover:shadow-md transition-shadow">
-            <div className="absolute -right-6 -top-6 text-[var(--ys-mute)]/30 group-hover:scale-110 transition-transform duration-500">
-              <Trophy className="w-32 h-32" />
-            </div>
-            <div className="relative z-10">
-              <div className="flex items-center gap-2 text-[var(--ys-body-mid)] font-bold text-sm mb-2 uppercase">
-                Top Speaker
-              </div>
-              <div className="flex items-center gap-3 mt-3">
-                <img src={topSpeakers[0]?.avatarUrl} className="w-12 h-12 rounded-full border-2 border-[var(--ys-primary)] object-cover" alt="" />
-                <div>
-                  <div className="font-bold text-[var(--ys-ink)] text-lg">{topSpeakers[0]?.name}</div>
-                  <div className="text-[var(--ys-primary)] text-sm font-semibold">{topSpeakers[0]?.rating} Rating</div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="relative z-10 flex flex-col justify-between p-4 @sm:p-8 h-full min-h-[160px] @sm:min-h-[320px]">
+        <div className="flex">
+          <span className="inline-flex items-center gap-1 @sm:gap-1.5 px-2 @sm:px-3 py-1 @sm:py-1.5 rounded text-[10px] @sm:text-xs font-bold tracking-widest bg-emerald-500 text-white shadow-sm uppercase shrink-0">
+            <TrendingUpIcon style={{ fontSize: 12 }} />
+            {FEATURED_TRENDING.badge}
+          </span>
         </div>
-      </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        
-        <section aria-labelledby="top-episodes-heading" className="ys-fade-in-up motion-reduce:animate-none [animation-delay:100ms] flex flex-col">
-          <div className="flex items-center justify-between mb-5">
-            <SectionHeader title="Top 5 Episodes" subtitle="Global ranking this week" />
+        <div className="mt-4 @sm:mt-8 space-y-3 @sm:space-y-6 max-w-lg">
+          <div>
+            <h2 className="text-xl @sm:text-4xl font-bold text-white leading-tight tracking-tight drop-shadow-sm">
+              {FEATURED_TRENDING.title}
+            </h2>
+            <p className="text-sm @sm:text-base text-white/70 mt-1 @sm:mt-2 leading-snug max-w-sm line-clamp-2">
+              {FEATURED_TRENDING.description}
+            </p>
           </div>
-          
-          <div className="flex flex-col gap-3 flex-1">
-            {trendingEpisodes.map((episode, idx) => (
-              <div key={episode.id} className="group flex items-center gap-3 sm:gap-4 p-3 bg-[var(--ys-canvas)] rounded-xl border border-[var(--ys-mute)] hover:border-[var(--ys-ink-mid)] hover:shadow-md transition-all duration-300">
-                <div className={`text-xl font-black w-6 text-center ${idx < 3 ? 'text-[var(--ys-primary)]' : 'text-[var(--ys-mute)]'} group-hover:scale-110 transition-transform`}>
-                  {idx + 1}
-                </div>
-                <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 rounded-lg overflow-hidden border border-[var(--ys-mute)]">
-                  <img src={episode.imageUrl} alt="" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                    <PlayCircle className="w-6 h-6 sm:w-8 sm:h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-[var(--ys-ink)] text-sm sm:text-base truncate group-hover:text-[var(--ys-primary)] transition-colors">
-                    {episode.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[var(--ys-body)] truncate mt-0.5">
-                    {episode.speakerName}
-                  </p>
-                  <div className="flex items-center gap-3 text-[10px] sm:text-xs font-semibold text-[var(--ys-body-mid)] mt-1.5">
-                    <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-[var(--ys-primary)]" /> {episode.duration}</span>
-                    <span className="flex items-center gap-1"><Headphones className="w-3 h-3 text-[var(--ys-primary)]" /> {episode.listenCount}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+
+          <div className="flex items-center gap-2 @sm:gap-3">
+            <img
+              src="https://i.pravatar.cc/150?img=12"
+              alt={FEATURED_TRENDING.speaker}
+              className="w-8 h-8 @sm:w-12 @sm:h-12 rounded border @sm:border-2 border-white/20 object-cover shrink-0"
+            />
+            <div className="flex flex-col min-w-0">
+              <p className="text-sm @sm:text-lg font-semibold text-white leading-tight truncate">{FEATURED_TRENDING.speaker}</p>
+              <p className="text-[11px] @sm:text-sm font-medium text-slate-300 mt-0.5 @sm:mt-1 truncate">{FEATURED_TRENDING.role}</p>
+            </div>
           </div>
-        </section>
 
-        <div className="flex flex-col gap-8 ys-fade-in-up motion-reduce:animate-none [animation-delay:200ms]">
-          
-          <section aria-labelledby="trending-series-heading">
-            <SectionHeader title="Trending Series" subtitle="Most binge-watched collections" />
-            <div className="flex flex-col gap-3 mt-5">
-              {trendingSeries.map((series, idx) => (
-                <div key={series.id} className="group relative rounded-xl overflow-hidden h-28 sm:h-32 border border-[var(--ys-mute)]">
-                  <img src={series.coverUrl} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[var(--ys-ink)]/90 to-transparent" />
-                  
-                  <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-center">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="bg-[var(--ys-primary)] text-white text-[10px] font-bold px-2 py-0.5 rounded-sm uppercase tracking-wider">
-                        #{idx + 1}
-                      </span>
-                      <span className="text-white/80 text-xs font-medium">{series.category}</span>
-                    </div>
-                    <h3 className="text-white font-bold text-lg sm:text-xl drop-shadow-sm group-hover:text-[var(--ys-primary)] transition-colors truncate w-3/4">
-                      {series.title}
-                    </h3>
-                    <p className="text-white/70 text-xs mt-1 truncate w-2/3">
-                      {series.episodeCount} Episodes • {series.totalDuration}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          <div className="flex items-center gap-3 @sm:gap-4 pt-1 @sm:pt-2">
+            <button
+              type="button"
+              aria-label={isPlaying ? 'Pause episode' : 'Play episode'}
+              className="w-8 h-8 @sm:w-12 @sm:h-12 rounded bg-white flex items-center justify-center shadow-lg hover:bg-gray-50 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-white shrink-0"
+              onClick={(e) => { e.stopPropagation(); onPlay() }}
+            >
+              {isPlaying
+                ? <PauseIcon className="text-slate-900" style={{ fontSize: 20 }} />
+                : <PlayArrowIcon className="text-slate-900" style={{ fontSize: 20 }} />}
+            </button>
+            <div className="flex items-center gap-1.5 @sm:gap-2 text-slate-200 min-w-0">
+              <AccessTimeIcon style={{ fontSize: 16 }} className="shrink-0" />
+              <span className="text-xs @sm:text-sm font-semibold tracking-wide shrink-0">{FEATURED_TRENDING.duration}</span>
+              <span className="text-[10px] @sm:text-xs text-slate-400 shrink-0">•</span>
+              <span className="text-xs @sm:text-sm font-medium truncate">{FEATURED_TRENDING.plays}</span>
             </div>
-          </section>
-
-          <section aria-labelledby="rising-speakers-heading">
-            <SectionHeader title="Top Rated Speakers" subtitle="Highest listener satisfaction" />
-            <div className="grid grid-cols-2 gap-3 mt-5">
-              {topSpeakers.slice(0, 4).map((speaker) => (
-                <div key={speaker.id} className="flex items-center gap-3 bg-[var(--ys-canvas)] border border-[var(--ys-mute)] rounded-xl p-3 hover:shadow-md transition-shadow group">
-                  <img src={speaker.avatarUrl} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-transparent group-hover:border-[var(--ys-primary)] transition-colors" alt="" />
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-bold text-[var(--ys-ink)] text-sm truncate group-hover:text-[var(--ys-primary)] transition-colors">{speaker.name}</h4>
-                    <div className="flex items-center gap-1 mt-0.5">
-                      <Star className="w-3 h-3 text-[var(--ys-primary)] fill-current" />
-                      <span className="text-xs font-bold text-[var(--ys-body)]">{speaker.rating}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
+          </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+function TrendingEpisodeItem({
+  episode,
+  onPlay,
+  isPlaying,
+}: {
+  episode: TrendingEpisode
+  onPlay: () => void
+  isPlaying: boolean
+}) {
+  return (
+    <div
+      className="group flex items-center p-2.5 @sm:p-4 gap-2.5 @sm:gap-4 hover:bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-sm transition-all duration-200 cursor-pointer w-full"
+      onClick={onPlay}
+    >
+      <div
+        className="relative overflow-hidden shrink-0 w-12 h-12 @sm:w-16 @sm:h-16 rounded flex items-center justify-center p-1 @sm:p-1.5"
+        style={{ backgroundColor: episode.thumbnailColor }}
+      >
+        <span
+          className={`text-[8px] @sm:text-[10px] font-bold text-white leading-tight text-center whitespace-pre-wrap uppercase tracking-wider transition-opacity duration-200 ${isPlaying ? 'opacity-0' : 'group-hover:opacity-0'}`}
+        >
+          {episode.thumbnailLabel}
+          {episode.thumbnailSubLabel ? `\n${episode.thumbnailSubLabel}` : ''}
+        </span>
+        <div
+          className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-200 ${isPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+        >
+          {isPlaying
+            ? <PauseIcon className="text-white" style={{ fontSize: 24 }} />
+            : <PlayArrowIcon className="text-white" style={{ fontSize: 24 }} />}
+        </div>
+      </div>
+
+      <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
+        <h3 className={`text-[14px] @sm:text-base font-bold leading-snug truncate ${isPlaying ? 'text-emerald-500' : 'text-slate-900'}`}>
+          {episode.title}
+        </h3>
+        <p className="text-[11px] @sm:text-sm text-slate-600 font-medium mt-0.5 @sm:mt-1 truncate">
+          {episode.speaker}
+          <span className="mx-1 @sm:mx-1.5 text-slate-300">•</span>
+          {episode.role}
+        </p>
+      </div>
+
+      <div className="flex items-center gap-2 @sm:gap-4 shrink-0 pl-1 @sm:pl-2">
+        <span className="hidden @sm:block text-[11px] @sm:text-sm font-medium text-slate-400 tabular-nums shrink-0">
+          {episode.duration}
+        </span>
+        <button
+          type="button"
+          aria-label="More options"
+          className="shrink-0 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-200 rounded p-1 @sm:p-1.5"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <MoreVertIcon style={{ fontSize: 18 }} />
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function TopicListItem({ topic }: { topic: TrendingTopic }) {
+  return (
+    <button
+      type="button"
+      className="flex items-center gap-2.5 @sm:gap-4 p-2.5 @sm:p-4 w-full text-left hover:bg-white hover:rounded-lg hover:border hover:border-slate-100 hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-slate-200 group"
+    >
+      <div
+        className="shrink-0 w-10 h-10 @sm:w-12 @sm:h-12 rounded flex items-center justify-center text-xl"
+        style={{ backgroundColor: topic.bgColor }}
+      >
+        <span role="img" aria-hidden="true">{topic.icon}</span>
+      </div>
+      <div className="flex-1 min-w-0 py-0.5">
+        <h4 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">{topic.label}</h4>
+        <p className="text-[11px] @sm:text-xs font-bold mt-1 @sm:mt-1.5" style={{ color: topic.color }}>
+          Trending
+        </p>
+      </div>
+      <ChevronRightIcon
+        className="shrink-0 text-slate-400 group-hover:text-slate-600 transition-colors"
+        style={{ fontSize: 20 }}
+      />
+    </button>
+  )
+}
+
+function PlayerBar({
+  episode,
+  isPlaying,
+  onTogglePlay,
+  onClose,
+}: {
+  episode: TrendingEpisode
+  isPlaying: boolean
+  onTogglePlay: () => void
+  onClose: () => void
+}) {
+  return (
+    <div className="fixed bottom-[60px] left-0 right-0 bg-[#18181b] border-t border-[#27272a] shadow-[0_-8px_24px_rgba(0,0,0,0.3)] z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-3 @sm:px-6 h-[72px] gap-2 @sm:gap-6">
+        <div className="flex items-center gap-2 flex-1 min-w-0">
+          <div className="flex flex-col min-w-0">
+            <p className="text-[13px] font-bold text-white truncate">{episode.title}</p>
+            <p className="text-[10px] text-slate-400 truncate mt-0.5">{episode.speaker}</p>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center flex-[2] w-full max-w-[400px]">
+          <div className="flex items-center gap-3">
+            <button type="button" aria-label="Previous" className="text-slate-400 hover:text-white">
+              <SkipPreviousIcon fontSize="small" />
+            </button>
+            <button
+              type="button"
+              aria-label={isPlaying ? 'Pause' : 'Play'}
+              className="w-8 h-8 rounded bg-white flex items-center justify-center"
+              onClick={onTogglePlay}
+            >
+              {isPlaying
+                ? <PauseIcon className="text-[#18181b]" />
+                : <PlayArrowIcon className="text-[#18181b]" />}
+            </button>
+            <button type="button" aria-label="Next" className="text-slate-400 hover:text-white">
+              <SkipNextIcon fontSize="small" />
+            </button>
+          </div>
+          <div className="w-full h-1 bg-[#4d4d50] rounded-full mt-1 overflow-hidden">
+            <div className="h-full bg-emerald-500 w-1/3" />
+          </div>
+        </div>
+        <button type="button" aria-label="Close player" className="text-slate-400 hover:text-white" onClick={onClose}>
+          <CloseIcon fontSize="small" />
+        </button>
+      </div>
+    </div>
+  )
+}
+
+const FEATURED_TRENDING_EPISODE: TrendingEpisode = {
+  id: 'tr-featured',
+  title: FEATURED_TRENDING.title,
+  speaker: FEATURED_TRENDING.speaker,
+  role: FEATURED_TRENDING.role,
+  duration: FEATURED_TRENDING.duration,
+  plays: FEATURED_TRENDING.plays,
+  timeAgo: '',
+  thumbnailColor: '#1d4ed8',
+  thumbnailLabel: 'TRENDING',
+  thumbnailSubLabel: 'NOW',
+}
+
+export default function TrendingTab() {
+  const [playingEpisode, setPlayingEpisode] = useState<TrendingEpisode | null>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const handlePlay = (episode: TrendingEpisode) => {
+    if (playingEpisode?.id === episode.id) setIsPlaying(!isPlaying)
+    else { setPlayingEpisode(episode); setIsPlaying(true) }
+  }
+
+  return (
+    <div
+      className={`@container min-h-screen bg-slate-50 text-slate-900 ${playingEpisode ? 'pb-[132px]' : 'pb-8'} w-full overflow-x-hidden`}
+      style={{ fontFamily: "'Outfit', sans-serif" }}
+    >
+      <div className="max-w-7xl mx-auto px-2 @sm:px-2 @lg:px-8 py-4 @sm:py-8 w-full">
+        <header className="mb-4 @sm:mb-8">
+          <h1 className="text-2xl @sm:text-4xl font-extrabold text-slate-900 tracking-tight">Trending</h1>
+        </header>
+
+        <div className="grid grid-cols-1 @lg:grid-cols-12 gap-4 @sm:gap-8 w-full">
+          <div className="@lg:col-span-8 w-full space-y-4 @sm:space-y-8">
+            <FeaturedTrending
+              onPlay={() => handlePlay(FEATURED_TRENDING_EPISODE)}
+              isPlaying={playingEpisode?.id === FEATURED_TRENDING_EPISODE.id && isPlaying}
+            />
+
+            <section className="w-full">
+              <div className="flex items-center justify-between mb-3 @sm:mb-5">
+                <h2 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">Trending Episodes</h2>
+                <button type="button" className="text-xs @sm:text-sm font-semibold text-emerald-500 hover:text-emerald-600">
+                  View all
+                </button>
+              </div>
+              <div className="space-y-2 @sm:space-y-4 w-full">
+                {TRENDING_EPISODES.map((episode) => (
+                  <TrendingEpisodeItem
+                    key={episode.id}
+                    episode={episode}
+                    onPlay={() => handlePlay(episode)}
+                    isPlaying={playingEpisode?.id === episode.id && isPlaying}
+                  />
+                ))}
+              </div>
+            </section>
+          </div>
+
+          <div className="@lg:col-span-4 w-full space-y-4 @sm:space-y-8">
+            <section className="w-full">
+              <div className="mb-3 @sm:mb-5">
+                <h3 className="text-xl @sm:text-2xl font-bold text-slate-900 tracking-tight">Trending Topics</h3>
+              </div>
+              <div className="space-y-2 @sm:space-y-4 w-full">
+                {TRENDING_TOPICS.map((topic) => (
+                  <TopicListItem key={topic.id} topic={topic} />
+                ))}
+              </div>
+            </section>
+
+            <div className="bg-emerald-50 rounded-lg p-3 @sm:p-5 flex items-center gap-3 @sm:gap-4 border border-emerald-100 w-full">
+              <div className="shrink-0 w-10 h-10 rounded bg-white flex items-center justify-center text-emerald-500 shadow-sm">
+                <WhatshotIcon />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">Stay on trend</h4>
+                <p className="text-[11px] @sm:text-sm text-slate-600 mt-0.5 truncate">Subscribe for weekly trending picks</p>
+              </div>
+              <button
+                type="button"
+                className="shrink-0 bg-emerald-500 text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {playingEpisode && (
+        <PlayerBar
+          episode={playingEpisode}
+          isPlaying={isPlaying}
+          onTogglePlay={() => setIsPlaying(!isPlaying)}
+          onClose={() => setPlayingEpisode(null)}
+        />
+      )}
     </div>
   )
 }

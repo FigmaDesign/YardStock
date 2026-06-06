@@ -1,55 +1,76 @@
-import React from 'react'
-import { ChevronRight, Star } from 'lucide-react'
+import StarIcon from '@mui/icons-material/Star'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import MicIcon from '@mui/icons-material/Mic'
 import type { Speaker } from '../data'
+
+const SPEAKER_IMAGES: Record<string, string> = {
+  'sp-1': 'https://i.pravatar.cc/80?img=47',
+  'sp-2': 'https://i.pravatar.cc/80?img=68',
+  'sp-3': 'https://i.pravatar.cc/80?img=48',
+  'sp-4': 'https://i.pravatar.cc/80?img=52',
+  'sp-5': 'https://i.pravatar.cc/80?img=12',
+}
 
 interface SpeakerCardProps {
   speaker: Speaker
 }
 
 export default function SpeakerCard({ speaker }: SpeakerCardProps) {
+  const avatarSrc = SPEAKER_IMAGES[speaker.id]
+
   return (
-    <article 
-      className="flex items-center gap-4 sm:gap-5 px-1 sm:px-5 py-2 sm:py-5 rounded-xl hover:bg-slate-50 transition-all duration-300 group cursor-pointer outline outline-1 outline-transparent hover:outline-slate-200 focus-visible:ring-2 focus-visible:ring-emerald-500/30 focus-visible:outline-none"
+    <div
+      className="group flex items-center p-2.5 @sm:p-4 gap-2.5 @sm:gap-4 hover:bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-sm transition-all duration-200 cursor-pointer w-full"
       tabIndex={0}
+      role="article"
     >
+      <img
+        src={avatarSrc}
+        alt={speaker.name}
+        className="shrink-0 w-12 h-12 @sm:w-16 @sm:h-16 rounded-lg object-cover shadow-sm"
+        onError={(e) => {
+          const img = e.currentTarget
+          img.style.display = 'none'
+          const fallback = img.nextElementSibling as HTMLElement | null
+          if (fallback) fallback.style.display = 'flex'
+        }}
+      />
       <div
-        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full shrink-0 flex items-center justify-center text-white font-bold text-xl sm:text-2xl shadow-md outline outline-1 outline-black/5 group-hover:scale-105 transition-transform duration-300"
-        style={{ backgroundColor: speaker.avatarColor }}
+        className="shrink-0 w-12 h-12 @sm:w-16 @sm:h-16 rounded-lg items-center justify-center text-white font-bold text-lg @sm:text-xl shadow-sm"
+        style={{ backgroundColor: speaker.avatarColor, display: 'none' }}
       >
         {speaker.avatarInitials}
       </div>
 
-      <div className="flex-1 min-w-0 space-y-0.5">
-        <h3 className="text-base sm:text-lg font-bold text-[#0f172a] leading-tight tracking-tight">
-          {speaker.name}
-        </h3>
-        <p className="text-sm font-bold text-emerald-600">
+      <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
+        <div className="flex items-center gap-1 min-w-0">
+          <h3 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">
+            {speaker.name}
+          </h3>
+          {speaker.badge && (
+            <StarIcon className="shrink-0 text-amber-400" style={{ fontSize: 14 }} aria-hidden="true" />
+          )}
+        </div>
+        <p className="text-[11px] @sm:text-sm text-emerald-600 font-semibold mt-0.5 @sm:mt-1 truncate">
           {speaker.role}
         </p>
-        <p className="text-xs sm:text-sm text-slate-500 mt-1.5 leading-relaxed line-clamp-2 font-medium">
-          {speaker.bio}
-        </p>
-        <div className="flex items-center gap-2 sm:gap-3 mt-2.5 flex-wrap">
+        <div className="flex items-center gap-1 mt-1 @sm:mt-1.5 flex-wrap">
+          <MicIcon className="text-slate-400 shrink-0" style={{ fontSize: 12 }} aria-hidden="true" />
+          <span className="text-[10px] @sm:text-xs text-slate-500 font-medium">{speaker.sessions} Sessions</span>
           {speaker.badge && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 outline outline-1 outline-amber-200 text-[0.65rem] sm:text-xs font-bold text-amber-700 shadow-sm">
-              <Star size={10} fill="currentColor" aria-hidden="true" className="sm:w-3 sm:h-3" />
-              {speaker.badge}
-            </span>
+            <>
+              <span className="text-slate-300 text-[10px] @sm:text-xs mx-1">•</span>
+              <span className="text-[10px] @sm:text-xs text-amber-600 font-semibold">{speaker.badge}</span>
+            </>
           )}
-          {speaker.badge && (
-            <span className="text-slate-300" aria-hidden="true">•</span>
-          )}
-          <span className="text-xs font-semibold text-slate-500 tracking-wide">
-            {speaker.sessions} Sessions
-          </span>
         </div>
       </div>
 
-      <div className="shrink-0 pl-2">
-        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full outline outline-1 outline-slate-200 bg-white flex items-center justify-center text-slate-400 group-hover:outline-emerald-200 group-hover:bg-emerald-50 group-hover:text-emerald-600 shadow-sm group-hover:shadow-md transition-all duration-300">
-          <ChevronRight size={20} strokeWidth={2.5} className="group-hover:translate-x-0.5 transition-transform duration-300" aria-hidden="true" />
-        </div>
-      </div>
-    </article>
+      <ChevronRightIcon
+        className="shrink-0 text-slate-400 group-hover:text-slate-600 transition-colors"
+        style={{ fontSize: 20 }}
+        aria-hidden="true"
+      />
+    </div>
   )
 }

@@ -89,7 +89,6 @@ const ActivityFeed = memo(function ActivityFeed() {
 function DesktopDashboard() {
   const [activeTab, setActiveTab] = useState<NavKey>('podcasts')
   const [activeSubTab, setActiveSubTab] = useState(TAB_ITEMS[0]?.subTabs?.[0]?.label ?? '')
-  const [activeFooterTab, setActiveFooterTab] = useState('home')
 
   const activeItem = TAB_ITEMS.find(t => t.key === activeTab)
   const currentSubTabs = activeItem?.subTabs ?? []
@@ -149,8 +148,6 @@ function DesktopDashboard() {
           </div>
         )}
       </div>
-
-      <FooterNav active={activeFooterTab} onChange={setActiveFooterTab} />
     </main>
   )
 }

@@ -1,289 +1,211 @@
+export type PodcastCategory = 'Market Analysis' | 'Development' | 'Investment' | 'Policy' | 'PropTech'
+
 export interface Episode {
   id: string
   title: string
-  speaker: string
-  role: string
+  speakerName: string
+  company: string
   duration: string
-  plays: string
-  timeAgo: string
-  thumbnailColor: string
-  thumbnailLabel: string
-  thumbnailSubLabel?: string
+  listenCount: string
+  date: string
+  imageUrl: string
+  category: PodcastCategory
+  featured?: boolean
+  trending?: boolean
+  description: string
+}
+
+export interface Series {
+  id: string
+  title: string
+  description: string
+  episodeCount: number
+  totalDuration: string
+  coverUrl: string
+  category: PodcastCategory
+  featured?: boolean
+  trending?: boolean
 }
 
 export interface Speaker {
   id: string
   name: string
   role: string
-  bio: string
-  sessions: number
-  badge?: string
-  avatarInitials: string
-  avatarColor: string
-}
-
-export interface TrendingTopic {
-  id: string
-  label: string
-  icon: string
-  color: string
-  bgColor: string
-}
-
-export interface Series {
-  id: string
-  title: string
-  episodeCount: number
-  totalDuration: string
-  description: string
-  color: string
-  bgGradient: string
-}
-
-export const FEATURED_EPISODE = {
-  title: 'Future of Real Estate in India 2025',
-  speaker: 'Rajesh Sharma',
-  role: 'Founder, Finwise Solutions',
-  duration: '34:15',
-  plays: '2.3K Plays',
-  badge: 'Featured Episode',
-}
-
-export const FEATURED_TRENDING = {
-  title: 'Top Real Estate Trends in India 2025',
-  description: 'Market shifts, investment hotspots and opportunities you shouldn\'t miss.',
-  speaker: 'Rajesh Sharma',
-  role: 'Founder, Prime Builders',
-  duration: '28:45',
-  plays: '2.6K Plays',
-  badge: 'Trending Now',
-}
-
-export const FEATURED_SPEAKER = {
-  name: 'Rajesh Sharma',
-  role: 'Founder, Prime Builders',
-  bio: 'Visionary leader with 25+ years of experience in real estate development.',
-  sessionLabel: 'Keynote Session',
-  duration: '45:30',
-  totalSpeakers: '22+ Top Speakers',
-  badge: 'Featured Speaker',
+  company: string
+  location: string
+  totalListens: string
+  rating: number
+  avatarUrl: string
 }
 
 export const EPISODES: Episode[] = [
   {
-    id: 'ep-1',
-    title: 'How Builders Can Scale Their Business in Tier 2 Cities',
-    speaker: 'Ankit Verma',
-    role: 'Builder & Investor',
-    duration: '28:47',
-    plays: '1.8K Plays',
-    timeAgo: '2 hours ago',
-    thumbnailColor: '#1d4ed8',
-    thumbnailLabel: 'REAL ESTATE',
-    thumbnailSubLabel: 'INSIGHTS',
+    id: 'e1',
+    title: 'The Future of Luxury Real Estate in Tier 1 Cities',
+    speakerName: 'Sarah Jenkins',
+    company: 'Prime Developers',
+    duration: '45:20',
+    listenCount: '12.5k',
+    date: '2 days ago',
+    imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1600',
+    category: 'Market Analysis',
+    featured: true,
+    description: 'An in-depth look at how changing demographics and new wealth creation are reshaping the luxury real estate market across major metropolitan areas.',
   },
   {
-    id: 'ep-3',
-    title: 'Challenges & Opportunities for Builders in 2025',
-    speaker: 'Sandeep Kumar',
-    role: 'CEO, Sri Builders',
-    duration: '31:05',
-    plays: '980 Plays',
-    timeAgo: '2 days ago',
-    thumbnailColor: '#d97706',
-    thumbnailLabel: 'BUILD',
-    thumbnailSubLabel: 'SMART',
+    id: 'e2',
+    title: 'Sustainable Building Materials: ROI vs Cost',
+    speakerName: 'Michael Chen',
+    company: 'EcoBuild Architecture',
+    duration: '32:15',
+    listenCount: '8.2k',
+    date: '5 days ago',
+    imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800',
+    category: 'Development',
+    trending: true,
+    description: 'Analyzing the long-term financial benefits of sustainable construction versus the immediate capital expenditure.',
   },
   {
-    id: 'ep-4',
-    title: 'Legal Aspects Every Builder Must Know',
-    speaker: 'Adv. Priya Nair',
-    role: 'Real Estate Lawyer',
-    duration: '22:30',
-    plays: '760 Plays',
-    timeAgo: '3 days ago',
-    thumbnailColor: '#7c3aed',
-    thumbnailLabel: 'LEGAL',
-    thumbnailSubLabel: 'PERSPECTIVE',
+    id: 'e3',
+    title: 'Navigating RERA Updates 2024',
+    speakerName: 'Adv. Rajesh Kumar',
+    company: 'Legal Edge Partners',
+    duration: '55:10',
+    listenCount: '15.1k',
+    date: '1 week ago',
+    imageUrl: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800',
+    category: 'Policy',
+    trending: true,
+    description: 'A comprehensive breakdown of the latest RERA amendments and their implications for builders and buyers.',
   },
   {
-    id: 'ep-5',
-    title: 'Smart City Projects: What Builders Need to Know',
-    speaker: 'Vikram Patel',
-    role: 'Urban Planner',
-    duration: '25:10',
-    plays: '620 Plays',
-    timeAgo: '4 days ago',
-    thumbnailColor: '#0891b2',
-    thumbnailLabel: 'SMART',
-    thumbnailSubLabel: 'CITIES',
+    id: 'e4',
+    title: 'AI in Property Valuation Models',
+    speakerName: 'Dr. Emily AI',
+    company: 'PropTech Innovations',
+    duration: '28:45',
+    listenCount: '5.4k',
+    date: '1 week ago',
+    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
+    category: 'PropTech',
+    description: 'How machine learning algorithms are outperforming traditional comparative market analysis in predicting property values.',
   },
   {
-    id: 'ep-6',
-    title: 'Financing Strategies for New Real Estate Developers',
-    speaker: 'Meera Joshi',
-    role: 'Financial Advisor',
-    duration: '33:20',
-    plays: '540 Plays',
-    timeAgo: '5 days ago',
-    thumbnailColor: '#dc2626',
-    thumbnailLabel: 'FINANCE',
-    thumbnailSubLabel: 'FOCUS',
+    id: 'e5',
+    title: 'Commercial Real Estate Post-Pandemic',
+    speakerName: 'David Thompson',
+    company: 'Global CRE',
+    duration: '41:30',
+    listenCount: '10.2k',
+    date: '2 weeks ago',
+    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
+    category: 'Market Analysis',
+    trending: true,
+    description: 'The surprising resilience of office spaces and the boom in logistics warehousing.',
   },
 ]
 
-export const TRENDING_EPISODES: Episode[] = [
+export const SERIES: Series[] = [
   {
-    id: 'tr-1',
-    title: 'Real Estate Market Outlook – H2 2025',
-    speaker: 'Neha Reddy',
-    role: 'Market Analyst',
-    duration: '26:18',
-    plays: '1.7K Plays',
-    timeAgo: '1 day ago',
-    thumbnailColor: '#1d4ed8',
-    thumbnailLabel: 'MARKET',
-    thumbnailSubLabel: 'OUTLOOK',
+    id: 'ser1',
+    title: 'The Master Builder Chronicles',
+    description: 'Join industry titans as they share their journey from small-time contractors to real estate magnates. Learn the hard-fought lessons of scaling construction businesses, managing massive projects, and surviving market crashes.',
+    episodeCount: 12,
+    totalDuration: '10h 45m',
+    coverUrl: 'https://images.unsplash.com/photo-1541888087513-56db1ea1d07c?auto=format&fit=crop&q=80&w=1600',
+    category: 'Development',
+    featured: true,
   },
   {
-    id: 'tr-2',
-    title: 'Top 10 Investment Hotspots in India',
-    speaker: 'Ankit Verma',
-    role: 'Builder & Investor',
-    duration: '22:34',
-    plays: '1.5K Plays',
-    timeAgo: '2 days ago',
-    thumbnailColor: '#16a34a',
-    thumbnailLabel: 'INVEST',
-    thumbnailSubLabel: 'HOTSPOTS',
+    id: 'ser2',
+    title: 'PropTech Revolution 2024',
+    description: 'A deep dive into the technologies disrupting how we buy, sell, and manage real estate.',
+    episodeCount: 8,
+    totalDuration: '6h 20m',
+    coverUrl: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
+    category: 'PropTech',
+    trending: true,
   },
   {
-    id: 'tr-3',
-    title: 'Interest Rates & Real Estate – What It Means for You',
-    speaker: 'Sandeep Kumar',
-    role: 'CEO, Sri Builders',
-    duration: '30:12',
-    plays: '980 Plays',
-    timeAgo: '3 days ago',
-    thumbnailColor: '#d97706',
-    thumbnailLabel: 'INTEREST',
-    thumbnailSubLabel: 'RATES',
+    id: 'ser3',
+    title: 'Smart Investment Strategies',
+    description: 'Expert advice on building a robust real estate portfolio in volatile markets.',
+    episodeCount: 15,
+    totalDuration: '12h 30m',
+    coverUrl: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800',
+    category: 'Investment',
+    trending: true,
   },
   {
-    id: 'tr-4',
-    title: 'New RERA Updates Every Buyer Should Know',
-    speaker: 'Adv. Priya Nair',
-    role: 'Real Estate Lawyer',
-    duration: '19:45',
-    plays: '760 Plays',
-    timeAgo: '4 days ago',
-    thumbnailColor: '#7c3aed',
-    thumbnailLabel: 'RERA',
-    thumbnailSubLabel: 'UPDATES',
+    id: 'ser4',
+    title: 'Legal Landscapes',
+    description: 'Understanding property laws, zoning regulations, and compliance requirements.',
+    episodeCount: 6,
+    totalDuration: '5h 15m',
+    coverUrl: 'https://images.unsplash.com/photo-1505664173622-df756b149b5c?auto=format&fit=crop&q=80&w=800',
+    category: 'Policy',
   },
 ]
 
 export const SPEAKERS: Speaker[] = [
   {
-    id: 'sp-1',
-    name: 'Neha Reddy',
-    role: 'Market Analyst',
-    bio: 'Expert in real estate market trends and data-driven insights.',
-    sessions: 28,
-    badge: 'Top Rated Speaker',
-    avatarInitials: 'NR',
-    avatarColor: '#1d4ed8',
+    id: 's1',
+    name: 'Sarah Jenkins',
+    role: 'Managing Director',
+    company: 'Prime Developers',
+    location: 'Mumbai, India',
+    totalListens: '145k',
+    rating: 4.9,
+    avatarUrl: 'https://i.pravatar.cc/150?u=sarah',
   },
   {
-    id: 'sp-2',
-    name: 'Sandeep Kumar',
-    role: 'CEO, Sri Builders',
-    bio: 'Real estate entrepreneur and strategist with a focus on sustainable growth.',
-    sessions: 22,
-    avatarInitials: 'SK',
-    avatarColor: '#16a34a',
+    id: 's2',
+    name: 'Michael Chen',
+    role: 'Chief Architect',
+    company: 'EcoBuild Architecture',
+    location: 'Bengaluru, India',
+    totalListens: '89k',
+    rating: 4.8,
+    avatarUrl: 'https://i.pravatar.cc/150?u=michael',
   },
   {
-    id: 'sp-3',
-    name: 'Adv. Priya Nair',
-    role: 'Real Estate Lawyer',
-    bio: 'Specializes in real estate laws, compliance and dispute resolution.',
-    sessions: 18,
-    avatarInitials: 'PN',
-    avatarColor: '#7c3aed',
+    id: 's3',
+    name: 'Vikram Mehta',
+    role: 'CEO',
+    company: 'Mehta Realty Group',
+    location: 'Delhi NCR, India',
+    totalListens: '210k',
+    rating: 5.0,
+    avatarUrl: 'https://i.pravatar.cc/150?u=vikram',
   },
   {
-    id: 'sp-4',
-    name: 'Ankit Verma',
-    role: 'Builder & Investor',
-    bio: 'Investor and mentor helping businesses scale in the real estate sector.',
-    sessions: 16,
-    avatarInitials: 'AV',
-    avatarColor: '#d97706',
+    id: 's4',
+    name: 'Adv. Rajesh Kumar',
+    role: 'Senior Partner',
+    company: 'Legal Edge Partners',
+    location: 'Pune, India',
+    totalListens: '112k',
+    rating: 4.7,
+    avatarUrl: 'https://i.pravatar.cc/150?u=rajesh',
   },
   {
-    id: 'sp-5',
-    name: 'Rajesh Sharma',
-    role: 'Founder, Prime Builders',
-    bio: 'Visionary leader with 25+ years of experience in real estate development.',
-    sessions: 14,
-    avatarInitials: 'RS',
-    avatarColor: '#0f172a',
-  },
-]
-
-export const TRENDING_TOPICS: TrendingTopic[] = [
-  { id: 'tt-1', label: 'Market Trends',    icon: '📈', color: '#16a34a', bgColor: '#f0fdf4' },
-  { id: 'tt-2', label: 'Investment',        icon: '🏗️', color: '#1d4ed8', bgColor: '#eff6ff' },
-  { id: 'tt-3', label: 'Construction',      icon: '🏗️', color: '#d97706', bgColor: '#fffbeb' },
-  { id: 'tt-4', label: 'Legal & Policy',    icon: '⚖️', color: '#7c3aed', bgColor: '#f5f3ff' },
-  { id: 'tt-5', label: 'Finance',           icon: '💰', color: '#dc2626', bgColor: '#fef2f2' },
-]
-
-export const SERIES_LIST: Series[] = [
-  {
-    id: 'sr-1',
-    title: 'Real Estate Masterclass',
-    episodeCount: 12,
-    totalDuration: '6h 45m',
-    description: 'A complete guide to understanding the Indian real estate market from experts.',
-    color: '#1d4ed8',
-    bgGradient: 'from-blue-500/10 to-blue-600/5',
+    id: 's5',
+    name: 'Dr. Emily AI',
+    role: 'Head of Data Science',
+    company: 'PropTech Innovations',
+    location: 'Hyderabad, India',
+    totalListens: '65k',
+    rating: 4.6,
+    avatarUrl: 'https://i.pravatar.cc/150?u=emily',
   },
   {
-    id: 'sr-2',
-    title: 'Builder\'s Blueprint',
-    episodeCount: 8,
-    totalDuration: '4h 20m',
-    description: 'Strategies and insights for scaling your construction business effectively.',
-    color: '#16a34a',
-    bgGradient: 'from-green-500/10 to-green-600/5',
-  },
-  {
-    id: 'sr-3',
-    title: 'Legal Corner',
-    episodeCount: 10,
-    totalDuration: '5h 15m',
-    description: 'Navigate RERA, property laws, and legal compliance with expert guidance.',
-    color: '#7c3aed',
-    bgGradient: 'from-violet-500/10 to-violet-600/5',
-  },
-  {
-    id: 'sr-4',
-    title: 'Market Pulse Weekly',
-    episodeCount: 24,
-    totalDuration: '10h 30m',
-    description: 'Weekly analysis of market trends, price movements, and investment opportunities.',
-    color: '#d97706',
-    bgGradient: 'from-amber-500/10 to-amber-600/5',
-  },
-  {
-    id: 'sr-5',
-    title: 'City Spotlight',
-    episodeCount: 6,
-    totalDuration: '3h 10m',
-    description: 'Deep dives into specific Indian cities and their real estate potential.',
-    color: '#0891b2',
-    bgGradient: 'from-cyan-500/10 to-cyan-600/5',
+    id: 's6',
+    name: 'David Thompson',
+    role: 'Global Head of CRE',
+    company: 'Global CRE',
+    location: 'Chennai, India',
+    totalListens: '178k',
+    rating: 4.9,
+    avatarUrl: 'https://i.pravatar.cc/150?u=david',
   },
 ]

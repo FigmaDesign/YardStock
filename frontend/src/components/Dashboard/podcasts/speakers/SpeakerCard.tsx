@@ -1,76 +1,67 @@
-import StarIcon from '@mui/icons-material/Star'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'
-import MicIcon from '@mui/icons-material/Mic'
+import { memo } from 'react'
+import { MapPin, Building2, Headphones, Star, ArrowRight } from 'lucide-react'
 import type { Speaker } from '../data'
-
-const SPEAKER_IMAGES: Record<string, string> = {
-  'sp-1': 'https://i.pravatar.cc/80?img=47',
-  'sp-2': 'https://i.pravatar.cc/80?img=68',
-  'sp-3': 'https://i.pravatar.cc/80?img=48',
-  'sp-4': 'https://i.pravatar.cc/80?img=52',
-  'sp-5': 'https://i.pravatar.cc/80?img=12',
-}
 
 interface SpeakerCardProps {
   speaker: Speaker
 }
 
-export default function SpeakerCard({ speaker }: SpeakerCardProps) {
-  const avatarSrc = SPEAKER_IMAGES[speaker.id]
-
+const SpeakerCard = memo(function SpeakerCard({ speaker }: SpeakerCardProps) {
   return (
-    <div
-      className="group flex items-center p-2.5 @sm:p-4 gap-2.5 @sm:gap-4 hover:bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-sm transition-all duration-200 cursor-pointer w-full"
-      tabIndex={0}
-      role="article"
-    >
-      <img
-        src={avatarSrc}
-        alt={speaker.name}
-        className="shrink-0 w-12 h-12 @sm:w-16 @sm:h-16 rounded-lg object-cover shadow-sm"
-        onError={(e) => {
-          const img = e.currentTarget
-          img.style.display = 'none'
-          const fallback = img.nextElementSibling as HTMLElement | null
-          if (fallback) fallback.style.display = 'flex'
-        }}
-      />
-      <div
-        className="shrink-0 w-12 h-12 @sm:w-16 @sm:h-16 rounded-lg items-center justify-center text-white font-bold text-lg @sm:text-xl shadow-sm"
-        style={{ backgroundColor: speaker.avatarColor, display: 'none' }}
-      >
-        {speaker.avatarInitials}
+    <article className="group relative flex flex-col bg-[var(--ys-canvas)] border border-[var(--ys-mute)] rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
+      
+      <div className="h-24 bg-gradient-to-r from-[var(--ys-ink-soft)] to-[var(--ys-ink)] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,var(--ys-primary)_0%,transparent_60%)]" />
       </div>
 
-      <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
-        <div className="flex items-center gap-1 min-w-0">
-          <h3 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">
-            {speaker.name}
-          </h3>
-          {speaker.badge && (
-            <StarIcon className="shrink-0 text-amber-400" style={{ fontSize: 14 }} aria-hidden="true" />
-          )}
+      <div className="px-5 pb-5 flex-1 flex flex-col items-center text-center -mt-12 relative z-10">
+        <div className="w-24 h-24 rounded-full border-4 border-[var(--ys-canvas)] overflow-hidden bg-[var(--ys-canvas-soft)] shadow-md mb-3 group-hover:scale-105 transition-transform duration-500">
+          <img 
+            src={speaker.avatarUrl} 
+            alt={speaker.name}
+            className="w-full h-full object-cover"
+          />
         </div>
-        <p className="text-[11px] @sm:text-sm text-emerald-600 font-semibold mt-0.5 @sm:mt-1 truncate">
+
+        <div className="flex items-center gap-1 bg-[var(--ys-canvas-soft)] border border-[var(--ys-mute)] px-2.5 py-0.5 rounded-full text-xs font-bold text-[var(--ys-ink)] mb-2 shadow-sm">
+          <Star className="w-3 h-3 text-[var(--ys-primary)] fill-current" />
+          {speaker.rating}
+        </div>
+
+        <h3 className="text-lg font-bold text-[var(--ys-ink)] group-hover:text-[var(--ys-primary)] transition-colors leading-tight mb-1">
+          {speaker.name}
+        </h3>
+        
+        <p className="text-xs font-bold text-[var(--ys-primary)] uppercase tracking-wider mb-2">
           {speaker.role}
         </p>
-        <div className="flex items-center gap-1 mt-1 @sm:mt-1.5 flex-wrap">
-          <MicIcon className="text-slate-400 shrink-0" style={{ fontSize: 12 }} aria-hidden="true" />
-          <span className="text-[10px] @sm:text-xs text-slate-500 font-medium">{speaker.sessions} Sessions</span>
-          {speaker.badge && (
-            <>
-              <span className="text-slate-300 text-[10px] @sm:text-xs mx-1">•</span>
-              <span className="text-[10px] @sm:text-xs text-amber-600 font-semibold">{speaker.badge}</span>
-            </>
-          )}
+
+        <p className="text-sm font-medium text-[var(--ys-body)] flex items-center justify-center gap-1.5 mb-4 w-full truncate">
+          <Building2 className="w-4 h-4 text-[var(--ys-mute)] shrink-0" />
+          <span className="truncate">{speaker.company}</span>
+        </p>
+
+        <div className="mt-auto w-full grid grid-cols-2 gap-2 text-xs font-medium text-[var(--ys-body-mid)] bg-[var(--ys-canvas-soft)] rounded-xl p-3 border border-[var(--ys-mute)]/50">
+          <div className="flex flex-col items-center gap-1 border-r border-[var(--ys-mute)]/50">
+            <MapPin className="w-4 h-4 text-[var(--ys-ink-soft)]" />
+            <span className="truncate w-full text-center">{speaker.location}</span>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <Headphones className="w-4 h-4 text-[var(--ys-ink-soft)]" />
+            <span className="truncate w-full text-center">{speaker.totalListens}</span>
+          </div>
         </div>
       </div>
 
-      <ChevronRightIcon
-        className="shrink-0 text-slate-400 group-hover:text-slate-600 transition-colors"
-        style={{ fontSize: 20 }}
-        aria-hidden="true"
-      />
-    </div>
+      <div className="p-3 border-t border-[var(--ys-mute)] bg-[var(--ys-canvas-soft)]/50">
+        <button className="w-full flex items-center justify-center gap-2 py-2 text-sm font-bold text-[var(--ys-ink)] hover:text-[var(--ys-primary)] bg-[var(--ys-canvas)] hover:bg-white rounded-lg border border-[var(--ys-mute)] shadow-sm hover:shadow transition-all group/btn">
+          View Episodes
+          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+        </button>
+      </div>
+
+    </article>
   )
-}
+})
+
+export default SpeakerCard

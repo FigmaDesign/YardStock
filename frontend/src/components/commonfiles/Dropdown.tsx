@@ -122,14 +122,14 @@ export default function Dropdown({
         aria-label={placeholder}
         onClick={() => setOpen((v) => !v)}
         onKeyDown={handleKeyDown}
-        className={`flex items-center gap-1.5 bg-white border rounded-[8px] cursor-pointer outline-none transition-all duration-200 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:border-[#16a34a] motion-reduce:transition-none ${
-          open ? 'border-[#16a34a] ring-2 ring-[#16a34a]/15' : 'border-[#e0e3eb] hover:border-[#16a34a]'
+        className={`flex items-center gap-1.5 bg-[var(--ys-canvas)] border rounded-[8px] cursor-pointer outline-none transition-all duration-200 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-ink)] focus-visible:border-[var(--ys-ink)] motion-reduce:transition-none ${
+          open ? 'border-[var(--ys-ink)] ring-2 ring-[var(--ys-ink)]/15' : 'border-[var(--ys-mute)] hover:border-[var(--ys-ink)]'
         } ${
           isSm ? 'px-2 py-[7px] text-[0.75rem]' : 'px-3 py-[8px] text-[0.8rem]'
-        } font-semibold text-[#1a1a2e]`}
+        } font-semibold text-[var(--ys-ink)]`}
       >
         {leftIcon && (
-          <span aria-hidden="true" className="text-[#6b7280] shrink-0 transition-colors duration-200">
+          <span aria-hidden="true" className="text-[var(--ys-body-mid)] shrink-0 transition-colors duration-200">
             {leftIcon}
           </span>
         )}
@@ -137,13 +137,13 @@ export default function Dropdown({
           {selected ? (
             selected.label
           ) : (
-            <span className="text-[#6b7280] font-normal">{placeholder}</span>
+            <span className="text-[var(--ys-body-mid)] font-normal">{placeholder}</span>
           )}
         </span>
         <ExpandMoreIcon
           aria-hidden="true"
           sx={{ fontSize: isSm ? 14 : 16 }}
-          className={`text-[#6b7280] shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
+          className={`text-[var(--ys-body-mid)] shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
             open ? 'rotate-180' : ''
           }`}
         />
@@ -154,7 +154,7 @@ export default function Dropdown({
           id={listId}
           role="listbox"
           aria-label={placeholder}
-          className="absolute z-50 mt-1.5 w-full min-w-[110px] bg-white border border-[#e0e3eb] rounded-[8px] shadow-lg overflow-y-auto max-h-72 py-1 origin-top animate-in fade-in zoom-in-95 duration-200 ease-out focus:outline-none [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-thumb]:rounded-full"
+          className="absolute z-50 mt-1.5 w-full min-w-[110px] bg-[var(--ys-canvas)] border border-[var(--ys-mute)] rounded-[8px] shadow-lg overflow-y-auto max-h-72 py-1 origin-top animate-in fade-in zoom-in-95 duration-200 ease-out focus:outline-none [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[var(--ys-mute)] [&::-webkit-scrollbar-thumb]:rounded-full"
         >
           {options.map((opt, i) => {
             const isSelected = opt.value === value
@@ -174,9 +174,9 @@ export default function Dropdown({
                 onMouseEnter={() => setFocusedIndex(i)}
                 className={`px-3 py-2 text-[0.8rem] cursor-pointer transition-colors duration-150 select-none motion-reduce:transition-none ${
                   isSelected
-                    ? 'bg-[#f0fdf4] text-[#15803d] font-semibold'
-                    : 'text-[#374151]'
-                } ${isFocused && !isSelected ? 'bg-[#f9fafb]' : ''}`}
+                    ? 'bg-[var(--ys-canvas-soft)] text-[var(--ys-ink)] font-semibold'
+                    : 'text-[var(--ys-body)]'
+                } ${isFocused && !isSelected ? 'bg-[var(--ys-canvas-soft)]/60' : ''}`}
               >
                 {opt.label}
               </li>

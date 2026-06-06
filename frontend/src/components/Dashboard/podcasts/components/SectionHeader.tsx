@@ -1,34 +1,24 @@
-import React from 'react'
-import { ChevronRight } from 'lucide-react'
+import { memo } from 'react'
 
 interface SectionHeaderProps {
   title: string
-  onViewAll?: () => void
+  subtitle?: string
 }
 
-export default function SectionHeader({ title, onViewAll }: SectionHeaderProps) {
+const SectionHeader = memo(function SectionHeader({ title, subtitle }: SectionHeaderProps) {
   return (
-    <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5">
-      <h3 className="text-xl sm:text-2xl font-extrabold text-[#0f172a] tracking-tight drop-shadow-sm">
+    <div className="flex flex-col">
+      <h3 className="text-xl md:text-2xl font-extrabold text-[var(--ys-ink)] flex items-center gap-2">
         {title}
+        <span className="w-2 h-2 rounded-full bg-[var(--ys-primary)] inline-block ml-1" />
       </h3>
-      
-      {onViewAll && (
-        <button
-          type="button"
-          onClick={onViewAll}
-          aria-label={`View all ${title}`}
-          className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 active:scale-95 transition-all duration-300 outline outline-1 outline-transparent hover:outline-emerald-200 focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none cursor-pointer group"
-        >
-          View all
-          <ChevronRight 
-            size={16} 
-            strokeWidth={2.5} 
-            className="group-hover:translate-x-1 transition-transform duration-300" 
-            aria-hidden="true" 
-          />
-        </button>
+      {subtitle && (
+        <p className="text-[var(--ys-body-mid)] text-sm font-medium mt-1">
+          {subtitle}
+        </p>
       )}
     </div>
   )
-}
+})
+
+export default SectionHeader

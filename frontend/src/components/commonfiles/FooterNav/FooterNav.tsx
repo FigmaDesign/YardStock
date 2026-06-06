@@ -36,7 +36,7 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
         border-none outline-none cursor-pointer bg-transparent
         transition-all duration-300 ease-out
         active:scale-[0.92] active:opacity-80
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10b981]/50 focus-visible:ring-inset
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-primary)]/50 focus-visible:ring-inset
         motion-reduce:transition-none motion-reduce:transform-none
         [-webkit-tap-highlight-color:transparent]
         group
@@ -45,7 +45,7 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
       {isActive && (
         <div
           aria-hidden="true"
-          className="absolute inset-x-2 inset-y-1 rounded-lg bg-gradient-to-b from-white/10 to-white/[0.02] border border-white/10 shadow-[0_0_15px_rgba(16,185,129,0.1),inset_0_1px_0_rgba(255,255,255,0.15)] animate-[fadeScale_0.3s_ease-out]"
+          className="absolute inset-x-2 inset-y-1 rounded-[8px] bg-gradient-to-b from-white/10 to-white/[0.02] border border-white/10 shadow-[0_0_15px_rgba(232,89,12,0.1),inset_0_1px_0_rgba(255,255,255,0.15)] animate-[fadeScale_0.3s_ease-out]"
         />
       )}
 
@@ -56,7 +56,7 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
           aria-hidden="true"
           className={`transition-all duration-300 motion-reduce:transition-none ${
             isActive
-              ? 'text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.4)] -translate-y-0.5'
+              ? 'text-[var(--ys-primary)] drop-shadow-[0_0_8px_rgba(232,89,12,0.4)] -translate-y-0.5'
               : 'text-[#8b95a5] group-hover:text-[#c0c8d4] translate-y-0'
           }`}
         />
@@ -75,7 +75,7 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
       {isActive && (
         <div
           aria-hidden="true"
-          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[#10b981] shadow-[0_0_6px_rgba(16,185,129,0.6)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
+          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[var(--ys-primary)] shadow-[0_0_6px_rgba(232,89,12,0.6)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
         />
       )}
     </button>
@@ -102,13 +102,13 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
       <div className="absolute top-[-16px] left-1/2 -translate-x-1/2 z-20">
         <div className={`
           relative flex items-center justify-center
-          w-11 h-11 sm:w-12 sm:h-12 rounded-lg
-          bg-gradient-to-tr from-[#10b981] to-[#34d399]
-          shadow-[0_4px_16px_rgba(16,185,129,0.3)]
+          w-11 h-11 sm:w-12 sm:h-12 rounded-[8px]
+          bg-gradient-to-tr from-[var(--ys-primary)] to-[var(--ys-ink-mid)]
+          shadow-[0_4px_16px_rgba(232,89,12,0.3)]
           transition-all duration-300 ease-out
           border border-white/20
           group-active:scale-90
-          ${isActive ? 'shadow-[0_0_20px_rgba(16,185,129,0.5)] translate-y-0.5' : 'hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(16,185,129,0.4)]'}
+          ${isActive ? 'shadow-[0_0_20px_rgba(232,89,12,0.5)] translate-y-0.5' : 'hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(232,89,12,0.4)]'}
         `}>
           <Icon
             size={22}
@@ -119,7 +119,7 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
               ${isActive ? 'rotate-[135deg] scale-110' : 'rotate-0 scale-100 group-hover:rotate-90'}
             `}
           />
-          <div className="absolute inset-0 rounded-lg bg-gradient-to-b from-white/30 to-transparent opacity-40 pointer-events-none" />
+          <div className="absolute inset-0 rounded-[8px] bg-gradient-to-b from-white/30 to-transparent opacity-40 pointer-events-none" />
         </div>
       </div>
 
@@ -136,7 +136,7 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
       {isActive && (
         <div
           aria-hidden="true"
-          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[#10b981] shadow-[0_0_6px_rgba(16,185,129,0.6)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
+          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[var(--ys-primary)] shadow-[0_0_6px_rgba(232,89,12,0.6)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
         />
       )}
     </button>
@@ -159,13 +159,13 @@ export default memo(function FooterNav({ active, onChange }: FooterNavProps) {
   return (
     <nav
       aria-label="Footer Navigation"
-      className="shrink-0 relative z-40 bg-[#060c17]/90 backdrop-blur-2xl backdrop-saturate-150 border-t border-white/[0.08]"
+      className="shrink-0 relative z-40 bg-[var(--ys-ink)]/90 backdrop-blur-2xl backdrop-saturate-150 border-t border-white/[0.08]"
     >
       <div 
         aria-hidden="true" 
         className="absolute inset-0 pointer-events-none"
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020611]/80 via-[#0a1628]/40 to-[#0e1f38]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--ys-ink)]/80 via-[var(--ys-ink-soft)]/40 to-[var(--ys-ink-mid)]/20" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
         <div className="absolute top-0 left-[15%] right-[15%] h-8 bg-gradient-to-b from-white/[0.03] to-transparent" />
       </div>

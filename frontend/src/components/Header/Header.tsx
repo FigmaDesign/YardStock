@@ -63,19 +63,19 @@ export default function Header({
   }, [mobileMenuOpen, closeMenu])
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-[#e4e7ec] shadow-[0px_1px_8px_rgba(15,31,61,0.06)]">
+    <header className="sticky top-0 z-50 bg-[var(--ys-canvas)] backdrop-blur-xl border-b border-[var(--ys-mute)] shadow-[0px_1px_8px_rgba(92,26,16,0.06)]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 gap-3">
           <div className="flex items-center gap-2 shrink-0" aria-label="YardStock Logo">
             <div 
               aria-hidden="true"
-              className="w-8 h-8 rounded-[8px] flex items-center justify-center bg-gradient-to-br from-[#15803d] to-[#166534] text-white font-bold text-[1.1rem] leading-none shadow-sm select-none"
+              className="w-8 h-8 rounded-[8px] flex items-center justify-center bg-gradient-to-br from-[var(--ys-ink)] to-[var(--ys-ink-soft)] text-white font-bold text-[1.1rem] leading-none shadow-sm select-none"
             >
               Y
             </div>
             <div className="hidden sm:block leading-none">
-              <p className="text-[0.88rem] font-extrabold text-[#14532d] tracking-[-0.03em] m-0">
-                Yard<span className="text-[#16a34a]">Stock</span>
+              <p className="text-[0.88rem] font-extrabold text-[var(--ys-ink)] tracking-[-0.03em] m-0">
+                Yard<span className="text-[var(--ys-primary)]">Stock</span>
               </p>
             </div>
           </div>
@@ -85,16 +85,16 @@ export default function Header({
               <div 
                 role="group"
                 aria-label="Select view mode"
-                className="flex items-center bg-[#f0fdf4] border border-[#bbf7d0] rounded-[8px] p-1 gap-0.5"
+                className="flex items-center bg-[var(--ys-canvas-soft)] border border-[var(--ys-mute)] rounded-[8px] p-1 gap-0.5"
               >
                 <button
                   type="button"
                   aria-pressed={viewMode === 'desktop'}
                   onClick={() => onViewModeChange('desktop')}
-                  className={`flex items-center gap-2 px-5 py-[7px] rounded-[8px] text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0fdf4] motion-reduce:transition-none ${
+                  className={`flex items-center gap-2 px-5 py-[7px] rounded-[8px] text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ys-canvas-soft)] motion-reduce:transition-none ${
                     viewMode === 'desktop'
-                      ? 'bg-gradient-to-br from-[#16a34a] to-[#15803d] text-white shadow-md'
-                      : 'text-[#166534] bg-transparent hover:bg-white/80'
+                      ? 'bg-gradient-to-br from-[var(--ys-ink)] to-[var(--ys-ink-soft)] text-white shadow-md'
+                      : 'text-[var(--ys-ink)] bg-transparent hover:bg-white/80'
                   }`}
                 >
                   <Monitor size={15} strokeWidth={viewMode === 'desktop' ? 2.5 : 2} aria-hidden="true" />
@@ -104,10 +104,10 @@ export default function Header({
                   type="button"
                   aria-pressed={viewMode === 'mobile'}
                   onClick={() => onViewModeChange('mobile')}
-                  className={`flex items-center gap-2 px-5 py-[7px] rounded-[8px] text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0fdf4] motion-reduce:transition-none ${
+                  className={`flex items-center gap-2 px-5 py-[7px] rounded-[8px] text-[0.76rem] font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ys-canvas-soft)] motion-reduce:transition-none ${
                     viewMode === 'mobile'
-                      ? 'bg-gradient-to-br from-[#16a34a] to-[#15803d] text-white shadow-md'
-                      : 'text-[#166534] bg-transparent hover:bg-white/80'
+                      ? 'bg-gradient-to-br from-[var(--ys-ink)] to-[var(--ys-ink-soft)] text-white shadow-md'
+                      : 'text-[var(--ys-ink)] bg-transparent hover:bg-white/80'
                   }`}
                 >
                   <Smartphone size={15} strokeWidth={viewMode === 'mobile' ? 2.5 : 2} aria-hidden="true" />
@@ -131,10 +131,10 @@ export default function Header({
                     aria-label={v === 'desktop' ? 'Desktop view' : 'Mobile view'}
                     aria-pressed={viewMode === v}
                     onClick={() => onViewModeChange(v)}
-                    className={`w-8 h-8 flex items-center justify-center rounded-[8px] border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:ring-offset-1 motion-reduce:transition-none ${
+                    className={`w-8 h-8 flex items-center justify-center rounded-[8px] border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-primary)] focus-visible:ring-offset-1 motion-reduce:transition-none ${
                       viewMode === v
-                        ? 'border-[#16a34a] bg-[#16a34a]/10 text-[#16a34a]'
-                        : 'border-[#e4e7ec] bg-white text-[#9199a8] hover:bg-gray-50 hover:text-gray-700'
+                        ? 'border-[var(--ys-primary)] bg-[var(--ys-primary)]/10 text-[var(--ys-primary)]'
+                        : 'border-[var(--ys-mute)] bg-[var(--ys-canvas)] text-[var(--ys-body-mid)] hover:bg-[var(--ys-canvas-soft)] hover:text-[var(--ys-ink)]'
                     }`}
                   >
                     {v === 'desktop' ? (
@@ -150,7 +150,7 @@ export default function Header({
             <div className="hidden sm:flex items-center gap-2">
               <label 
                 htmlFor="desktop-page-selector" 
-                className="text-[0.68rem] font-semibold text-[#9199a8] tracking-[0.08em] uppercase select-none whitespace-nowrap"
+                className="text-[0.68rem] font-semibold text-[var(--ys-body-mid)] tracking-[0.08em] uppercase select-none whitespace-nowrap"
               >
                 Current View
               </label>
@@ -171,13 +171,13 @@ export default function Header({
                 aria-haspopup="menu"
                 aria-controls={`mobile-menu-${menuId}`}
                 onClick={() => setMobileMenuOpen((v) => !v)}
-                className="flex items-center gap-1 px-3 py-[7px] rounded-[8px] border border-[#eef0f3] bg-white text-[0.78rem] font-semibold text-[#0f1f3d] shadow-sm hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16a34a] focus-visible:border-[#16a34a] transition-all duration-200"
+                className="flex items-center gap-1 px-3 py-[7px] rounded-[8px] border border-[var(--ys-mute)] bg-[var(--ys-canvas)] text-[0.78rem] font-semibold text-[var(--ys-ink)] shadow-sm hover:bg-[var(--ys-canvas-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-primary)] focus-visible:border-[var(--ys-primary)] transition-all duration-200"
               >
                 {PAGE_LABELS[activePage]}
                 <ChevronDown 
                   size={13} 
                   aria-hidden="true"
-                  className={`text-[#9199a8] transition-transform duration-200 motion-reduce:transition-none ${
+                  className={`text-[var(--ys-body-mid)] transition-transform duration-200 motion-reduce:transition-none ${
                     mobileMenuOpen ? 'rotate-180' : ''
                   }`} 
                 />
@@ -188,7 +188,7 @@ export default function Header({
                   id={`mobile-menu-${menuId}`}
                   role="menu"
                   aria-label="Navigation Menu"
-                  className="absolute right-0 mt-2 w-40 bg-white rounded-[8px] border border-[#eef0f3] shadow-lg overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200 ease-out"
+                  className="absolute right-0 mt-2 w-40 bg-[var(--ys-canvas)] rounded-[8px] border border-[var(--ys-mute)] shadow-lg overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200 ease-out"
                 >
                   {(Object.keys(PAGE_LABELS) as Page[]).map((p) => {
                     const isActive = activePage === p
@@ -202,10 +202,10 @@ export default function Header({
                           onNavigate(p)
                           closeMenu()
                         }}
-                        className={`w-full text-left px-4 py-2.5 text-[0.82rem] font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:bg-[#f0fdf4] focus-visible:text-[#15803d] motion-reduce:transition-none ${
+                        className={`w-full text-left px-4 py-2.5 text-[0.82rem] font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:bg-[var(--ys-canvas-soft)] focus-visible:text-[var(--ys-ink)] motion-reduce:transition-none ${
                           isActive 
-                            ? 'bg-[#16a34a]/10 text-[#15803d]' 
-                            : 'text-[#14532d] hover:bg-[#f0fdf4]'
+                            ? 'bg-[var(--ys-primary)]/10 text-[var(--ys-ink)]' 
+                            : 'text-[var(--ys-ink)] hover:bg-[var(--ys-canvas-soft)]'
                         }`}
                       >
                         {PAGE_LABELS[p]}

@@ -32,12 +32,12 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
       id={`subtab-${label.toLowerCase().replace(/\s+/g, '-')}`}
       aria-controls={`subpanel-${label.toLowerCase().replace(/\s+/g, '-')}`}
       onClick={(e) => onClick(label, e.currentTarget)}
-      className={`relative flex cursor-pointer bg-transparent border-none transition-all duration-200 [-webkit-tap-highlight-color:transparent] active:scale-[0.95] active:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10b981] focus-visible:ring-inset motion-reduce:transition-none motion-reduce:transform-none ${
+      className={`relative flex cursor-pointer bg-transparent border-none transition-all duration-200 [-webkit-tap-highlight-color:transparent] active:scale-[0.95] active:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-primary)] focus-visible:ring-inset motion-reduce:transition-none motion-reduce:transform-none ${
         isDesktop
           ? 'h-full min-w-[120px] flex-row items-center px-4 py-3 gap-2'
           : 'h-full min-w-[64px] flex-[1_0_auto] flex-col items-center justify-center gap-[5px] pb-2'
-      } ${!isFirst ? 'border-l border-solid border-gray-100' : ''} ${
-        !isActive ? 'hover:bg-[#0f1e3d]/[0.03]' : ''
+      } ${!isFirst ? 'border-l border-solid border-[var(--ys-mute)]/50' : ''} ${
+        !isActive ? 'hover:bg-[var(--ys-ink)]/[0.03]' : ''
       }`}
     >
       {Icon && (
@@ -46,7 +46,7 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
           strokeWidth={1.5}
           aria-hidden="true"
           className={`transition-colors duration-200 motion-reduce:transition-none ${
-            isActive ? 'text-emerald-500' : 'text-gray-400'
+            isActive ? 'text-[var(--ys-primary)]' : 'text-[var(--ys-body-mid)]'
           } ${isDesktop ? 'inline-block' : ''}`}
         />
       )}
@@ -58,8 +58,8 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
             : 'text-center text-[0.55rem] leading-[1.1]'
         } ${
           isActive 
-            ? 'text-[#0a2a6e] font-bold' 
-            : 'font-medium text-gray-500'
+            ? 'text-[var(--ys-ink)] font-bold' 
+            : 'font-medium text-[var(--ys-body-mid)]'
         }`}
       >
         {label}
@@ -68,7 +68,7 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
       {isActive && (
         <div 
           aria-hidden="true"
-          className="absolute bottom-[3px] left-1/2 h-[3px] w-5 -translate-x-1/2 rounded-[8px] bg-gradient-to-r from-emerald-500 to-blue-500" 
+          className="absolute bottom-[3px] left-1/2 h-[3px] w-5 -translate-x-1/2 rounded-[8px] bg-gradient-to-r from-[var(--ys-primary)] to-[var(--ys-ink-mid)]" 
         />
       )}
     </button>
@@ -92,7 +92,7 @@ const Inner = memo(function Inner({ subTabs, active, onItemClick, scrollRef, var
         ref={scrollRef}
         role="tablist"
         aria-orientation="horizontal"
-        className={`flex w-full items-stretch overflow-x-auto bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${
+        className={`flex w-full items-stretch overflow-x-auto bg-[var(--ys-canvas)] shadow-[0_2px_10px_rgba(0,0,0,0.05)] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${
           variant === 'desktop' ? 'h-[60px]' : 'h-[50px]'
         }`}
       >

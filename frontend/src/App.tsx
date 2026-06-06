@@ -28,16 +28,16 @@ export default function App() {
       return (
         <section 
           aria-label="Forms Placeholder"
-          className="flex items-center justify-center h-full bg-[#f5f6f8]"
+          className="flex items-center justify-center h-full bg-[var(--ys-canvas)]"
         >
           <div className="text-center space-y-3">
             <p 
               aria-hidden="true" 
-              className="text-xs font-semibold uppercase tracking-[0.12em] text-[#9199a8]"
+              className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--ys-body-mid)]"
             >
               Current Page
             </p>
-            <h1 className="text-4xl font-extrabold text-[#14532d] capitalize tracking-tight">
+            <h1 className="text-4xl font-extrabold text-[var(--ys-ink)] capitalize tracking-tight">
               Forms
             </h1>
           </div>

@@ -48,7 +48,7 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
   return (
     <aside
       aria-label="Main Navigation Sidebar"
-      className={`flex flex-col shrink-0 h-full text-white transition-all duration-500 ease-in-out relative z-9999 shadow-[4px_0_32px_rgba(0,0,0,0.4)] bg-[linear-gradient(175deg,#1a3a6b_0%,#0f2550_30%,#0a1e42_60%,#071a38_80%,#051530_100%)] motion-reduce:transition-none ${
+      className={`flex flex-col shrink-0 h-full text-white transition-all duration-500 ease-in-out relative z-9999 shadow-[4px_0_32px_rgba(0,0,0,0.4)] bg-gradient-to-b from-[var(--ys-ink)] via-[var(--ys-ink-soft)] to-[var(--ys-ink)] motion-reduce:transition-none ${
         isCollapsed ? 'w-18' : 'w-60'
       }`}
     >
@@ -97,7 +97,7 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
                   onBlur={hideTooltip}
                   aria-label={label}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`w-full flex items-center py-2.5 rounded-[8px] text-[0.85rem] transition-all duration-200 bg-transparent border-none cursor-pointer active:scale-[0.97] active:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2dd4a0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1e42] motion-reduce:transition-none motion-reduce:transform-none ${
+                  className={`w-full flex items-center py-2.5 rounded-[8px] text-[0.85rem] transition-all duration-200 bg-transparent border-none cursor-pointer active:scale-[0.97] active:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ys-ink)] motion-reduce:transition-none motion-reduce:transform-none ${
                     isCollapsed ? 'justify-center px-0' : 'justify-start px-3'
                   } ${
                     isActive
@@ -133,7 +133,7 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
           tabIndex={0}
           role="group"
           aria-label="Premium Platform Information"
-          className={`relative mx-2 mt-2 mb-4 rounded-[14px] transition-all duration-300 overflow-visible flex flex-col items-center justify-center border border-[#2dd4a0]/35 bg-[linear-gradient(160deg,#0c2248_0%,#071630_60%,#040f22_100%)] shadow-[inset_0_0_24px_rgba(45,212,160,0.1),0_4px_20px_rgba(0,0,0,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2dd4a0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071a38] motion-reduce:transition-none ${
+          className={`relative mx-2 mt-2 mb-4 rounded-[14px] transition-all duration-300 overflow-visible flex flex-col items-center justify-center border border-[var(--ys-primary)]/35 bg-gradient-to-br from-[var(--ys-ink)] to-[var(--ys-ink-mid)] shadow-[inset_0_0_24px_rgba(232,89,12,0.15),0_4px_20px_rgba(0,0,0,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ys-ink)] motion-reduce:transition-none ${
             isCollapsed ? 'p-2.5 cursor-pointer hover:scale-[1.02]' : 'px-4 pt-5 pb-4 cursor-default'
           }`}
         >
@@ -141,17 +141,17 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
             <svg viewBox="0 0 100 40" preserveAspectRatio="none" className="w-full h-full">
               <defs>
                 <linearGradient id="wave-grad2" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#2dd4a0" stopOpacity="0.55" />
-                  <stop offset="100%" stopColor="#0a8f6a" stopOpacity="0.15" />
+                  <stop offset="0%" stopColor="var(--ys-primary)" stopOpacity="0.55" />
+                  <stop offset="100%" stopColor="var(--ys-ink-mid)" stopOpacity="0.15" />
                 </linearGradient>
                 <linearGradient id="wave-grad3" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#1ab88a" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#0a7a5c" stopOpacity="0.05" />
+                  <stop offset="0%" stopColor="var(--ys-primary)" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="var(--ys-ink-soft)" stopOpacity="0.05" />
                 </linearGradient>
               </defs>
               <path d="M0 20 Q 20 8, 40 18 T 80 16 T 100 20 L 100 40 L 0 40 Z" fill="url(#wave-grad2)" />
               <path d="M0 28 Q 25 14, 50 24 T 100 26 L 100 40 L 0 40 Z" fill="url(#wave-grad3)" />
-              <path d="M0 34 Q 30 24, 60 32 T 100 32 L 100 40 L 0 40 Z" fill="rgba(45,212,160,0.18)" />
+              <path d="M0 34 Q 30 24, 60 32 T 100 32 L 100 40 L 0 40 Z" fill="rgba(232,89,12,0.18)" />
             </svg>
           </div>
 
@@ -163,7 +163,7 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
             <Crown
               size={isCollapsed ? 20 : 30}
               aria-hidden="true"
-              className="text-[#4ade80] stroke-[1.6] drop-shadow-[0_0_12px_rgba(74,222,128,0.35)]"
+              className="text-[var(--ys-primary)] stroke-[1.6] drop-shadow-[0_0_12px_rgba(232,89,12,0.35)]"
             />
           </div>
 
@@ -173,7 +173,7 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
               isCollapsed ? 'h-0 opacity-0 overflow-hidden' : 'h-auto opacity-100 mt-1'
             }`}
           >
-            <p className="text-[0.66rem] font-extrabold tracking-[0.12em] uppercase w-full px-2 whitespace-nowrap overflow-visible text-[#4ade80] drop-shadow-[0_0_10px_rgba(74,222,128,0.35)] m-0">
+            <p className="text-[0.66rem] font-extrabold tracking-[0.12em] uppercase w-full px-2 whitespace-nowrap overflow-visible text-[var(--ys-primary)] drop-shadow-[0_0_10px_rgba(232,89,12,0.35)] m-0">
               Premium Platform
             </p>
             <p className="text-[0.72rem] mt-2 leading-tight font-medium w-full max-w-60 px-2 text-white/90 mb-0">
@@ -188,7 +188,7 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
         aria-expanded={!isCollapsed ? "true" : "false"}
         aria-label={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
         title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
-        className={`flex items-center py-4 text-[0.8rem] font-medium transition-colors duration-300 shrink-0 border-none border-t border-t-white/10 bg-[#050f23]/55 text-white/60 hover:text-white/90 hover:bg-[#050f23]/80 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2dd4a0] focus-visible:ring-inset motion-reduce:transition-none ${
+        className={`flex items-center py-4 text-[0.8rem] font-medium transition-colors duration-300 shrink-0 border-none border-t border-t-white/10 bg-[var(--ys-ink-soft)]/55 text-white/60 hover:text-white/90 hover:bg-[var(--ys-ink-soft)]/80 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ys-primary)] focus-visible:ring-inset motion-reduce:transition-none ${
           isCollapsed ? 'justify-center px-0' : 'justify-start gap-3 px-6'
         }`}
       >
@@ -214,13 +214,13 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
           <div
             role="tooltip"
             style={{ '--tw-tip-x': `${tooltip.x}px`, '--tw-tip-y': `${tooltip.y}px` } as CSSProperties}
-            className="fixed -translate-y-1/2 z-10000 pointer-events-none flex items-center gap-0 animate-in fade-in duration-200 left-(--tw-tip-x) top-(--tw-tip-y)"
+            className="fixed -translate-y-1/2 z-[10000] pointer-events-none flex items-center gap-0 animate-in fade-in duration-200 left-[var(--tw-tip-x)] top-[var(--tw-tip-y)]"
           >
             <div
-              className="w-0 h-0 shrink-0 border-y-[6px] border-y-transparent border-r-[7px] border-r-[#1a3a6b]"
+              className="w-0 h-0 shrink-0 border-y-[6px] border-y-transparent border-r-[7px] border-r-[var(--ys-ink)]"
               aria-hidden="true"
             />
-            <div className="bg-[linear-gradient(135deg,#1a3a6b_0%,#0f2550_100%)] border border-white/15 rounded-[8px] px-3.5 py-1.5 text-white/90 text-[13px] font-semibold whitespace-nowrap shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
+            <div className="bg-gradient-to-br from-[var(--ys-ink)] to-[var(--ys-ink-soft)] border border-white/15 rounded-[8px] px-3.5 py-1.5 text-white/90 text-[13px] font-semibold whitespace-nowrap shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
               {tooltip.label}
             </div>
           </div>,
@@ -233,16 +233,16 @@ export default function Sidebar({ active = 'announcements', onNavigate }: Sideba
           <div
             role="tooltip"
             style={{ '--tw-tip-x': `${tooltip.x}px`, '--tw-tip-y': `${tooltip.y}px` } as CSSProperties}
-            className="fixed -translate-y-1/2 z-10000 pointer-events-none flex items-center gap-0 animate-in fade-in duration-200 left-(--tw-tip-x) top-(--tw-tip-y)"
+            className="fixed -translate-y-1/2 z-[10000] pointer-events-none flex items-center gap-0 animate-in fade-in duration-200 left-[var(--tw-tip-x)] top-[var(--tw-tip-y)]"
           >
             <div
-              className="w-0 h-0 shrink-0 border-y-[7px] border-y-transparent border-r-8 border-r-[#0c2248]"
+              className="w-0 h-0 shrink-0 border-y-[7px] border-y-transparent border-r-8 border-r-[var(--ys-ink)]"
               aria-hidden="true"
             />
-            <div className="bg-[linear-gradient(160deg,#0c2248_0%,#051a30_100%)] border border-[#4ade80]/30 rounded-[8px] px-4 py-3 min-w-45 shadow-[0_8px_28px_rgba(0,0,0,0.6),0_0_16px_rgba(74,222,128,0.1)]">
+            <div className="bg-gradient-to-br from-[var(--ys-ink)] to-[var(--ys-ink-soft)] border border-[var(--ys-primary)]/30 rounded-[8px] px-4 py-3 min-w-45 shadow-[0_8px_28px_rgba(0,0,0,0.6),0_0_16px_rgba(232,89,12,0.1)]">
               <div className="flex items-center gap-2 mb-2">
-                <Crown size={16} aria-hidden="true" className="text-[#4ade80] stroke-[1.8] shrink-0" />
-                <span className="text-[#4ade80] text-[11px] font-extrabold tracking-[0.18em] uppercase drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">
+                <Crown size={16} aria-hidden="true" className="text-[var(--ys-primary)] stroke-[1.8] shrink-0" />
+                <span className="text-[var(--ys-primary)] text-[11px] font-extrabold tracking-[0.18em] uppercase drop-shadow-[0_0_8px_rgba(232,89,12,0.4)]">
                   Premium Platform
                 </span>
               </div>

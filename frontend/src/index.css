@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+/* ── YardStack Design Tokens ── */
+:root {
+  --ys-primary:     #E8590C;
+  --ys-on-primary:  #FFFFFF;
+  --ys-ink:         #5C1A10;
+  --ys-ink-soft:    #6B2016;
+  --ys-ink-mid:     #8B3020;
+  --ys-body:        #57534E;
+  --ys-body-mid:    #78716C;
+  --ys-mute:        #D6D3D1;
+  --ys-canvas:      #FFF8F5;
+  --ys-canvas-soft: #F5F0EE;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -13,7 +27,7 @@ html, body, #root {
 
 body {
   font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f6f8;
+  background: var(--ys-canvas);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -130,7 +144,7 @@ body {
 }
 
 .ys-skeleton {
-  background: linear-gradient(90deg, #f0f2f5 25%, #e8ebee 50%, #f0f2f5 75%);
+  background: linear-gradient(90deg, var(--ys-canvas-soft) 25%, var(--ys-mute) 50%, var(--ys-canvas-soft) 75%);
   background-size: 400px 100%;
   animation: ys-shimmer 1.4s ease-in-out infinite;
   will-change: background-position;
@@ -151,7 +165,7 @@ body {
   
   .ys-skeleton { 
     animation: none !important; 
-    background: #f0f2f5 !important;
+    background: var(--ys-canvas-soft) !important;
     background-image: none !important;
   }
 }

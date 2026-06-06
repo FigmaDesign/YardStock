@@ -32,12 +32,12 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
       id={`subtab-${label.toLowerCase().replace(/\s+/g, '-')}`}
       aria-controls={`subpanel-${label.toLowerCase().replace(/\s+/g, '-')}`}
       onClick={(e) => onClick(label, e.currentTarget)}
-      className={`relative flex cursor-pointer bg-transparent border-none transition-all duration-200 [-webkit-tap-highlight-color:transparent] active:scale-[0.95] active:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:ring-inset motion-reduce:transition-none motion-reduce:transform-none ${
+      className={`relative flex cursor-pointer bg-transparent border-none transition-all duration-200 [-webkit-tap-highlight-color:transparent] active:scale-[0.95] active:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6a5fc1]/50 focus-visible:ring-inset motion-reduce:transition-none motion-reduce:transform-none ${
         isDesktop
           ? 'h-full min-w-[120px] flex-row items-center px-4 py-3 gap-2'
           : 'h-full min-w-[64px] flex-[1_0_auto] flex-col items-center justify-center gap-[5px] pb-2'
-      } ${!isFirst ? 'border-l border-solid border-gray-100' : ''} ${
-        !isActive ? 'hover:bg-[#7C3AED]/[0.03]' : ''
+      } ${!isFirst ? 'border-l border-solid border-[#cfcfdb]' : ''} ${
+        !isActive ? 'hover:bg-[#6a5fc1]/10' : ''
       }`}
     >
       {Icon && (
@@ -46,7 +46,7 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
           strokeWidth={1.5}
           aria-hidden="true"
           className={`transition-colors duration-200 motion-reduce:transition-none ${
-            isActive ? 'text-[#7C3AED]' : 'text-gray-400'
+            isActive ? 'text-[#6a5fc1]' : 'text-[#79628c]'
           } ${isDesktop ? 'inline-block' : ''}`}
         />
       )}
@@ -58,8 +58,8 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
             : 'text-center text-[0.55rem] leading-[1.1]'
         } ${
           isActive 
-            ? 'text-[#6B21A8] font-bold' 
-            : 'font-medium text-gray-500'
+            ? 'text-[#422082] font-bold' 
+            : 'font-medium text-[#79628c]'
         }`}
       >
         {label}
@@ -68,7 +68,7 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
       {isActive && (
         <div 
           aria-hidden="true"
-          className="absolute bottom-[3px] left-1/2 h-[3px] w-5 -translate-x-1/2 rounded-[8px] bg-gradient-to-r from-[#7C3AED] to-[#D946EF]" 
+          className="absolute bottom-[3px] left-1/2 h-[3px] w-5 -translate-x-1/2 rounded-[8px] bg-gradient-to-r from-[#422082] to-[#6a5fc1]" 
         />
       )}
     </button>

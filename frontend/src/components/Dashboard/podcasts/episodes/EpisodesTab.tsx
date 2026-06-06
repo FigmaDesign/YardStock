@@ -309,7 +309,7 @@ export default function EpisodesTab() {
                 <h4 className="text-[14px] @sm:text-base font-bold text-slate-900 leading-snug truncate">Love podcasts?</h4>
                 <p className="text-[11px] @sm:text-sm text-slate-600 mt-0.5 truncate">Subscribe to never miss an episode</p>
               </div>
-              <button className="shrink-0 bg-gradient-to-r from-[#7C3AED] to-[#D946EF] hover:from-[#6B21A8] hover:to-[#E91E8C] text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded transition-all active:scale-95 duration-200">Subscribe</button>
+              <button className="shrink-0 bg-linear-to-r from-[#7C3AED] to-[#D946EF] hover:from-[#6B21A8] hover:to-[#E91E8C] text-white text-xs @sm:text-sm font-bold px-3 py-2 rounded transition-all active:scale-95 duration-200">Subscribe</button>
             </div>
           </div>
         </div>

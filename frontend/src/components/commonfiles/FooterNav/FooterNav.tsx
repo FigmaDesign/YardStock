@@ -31,12 +31,12 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
       aria-label={label}
       aria-selected={isActive}
       onClick={() => onClick(key)}
-      className="group relative flex flex-1 flex-col items-center justify-center gap-1.5 min-w-0 py-2 sm:py-2.5 px-1 border-none outline-none cursor-pointer bg-transparent transition-all duration-300 ease-out active:scale-[0.92] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c2ef4e]/50 focus-visible:ring-inset motion-reduce:transition-none motion-reduce:transform-none [-webkit-tap-highlight-color:transparent]"
+      className="group relative flex flex-1 flex-col items-center justify-center gap-1.5 min-w-0 py-2 sm:py-2.5 px-1 border-none outline-none cursor-pointer bg-transparent transition-all duration-300 ease-out active:scale-[0.92] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED]/50 focus-visible:ring-inset motion-reduce:transition-none motion-reduce:transform-none [-webkit-tap-highlight-color:transparent]"
     >
       {isActive && (
         <div
           aria-hidden="true"
-          className="absolute inset-x-2 inset-y-1 rounded-lg bg-white/5 border border-white/5 shadow-[0_0_15px_rgba(194,239,78,0.05),inset_0_1px_0_rgba(255,255,255,0.1)] animate-[fadeScale_0.3s_ease-out]"
+          className="absolute inset-x-2 inset-y-1 rounded-lg bg-[#7C3AED]/5 border border-[#7C3AED]/10 shadow-[0_0_10px_rgba(124,58,237,0.03)] animate-[fadeScale_0.3s_ease-out]"
         />
       )}
 
@@ -47,8 +47,8 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
           aria-hidden="true"
           className={`transition-all duration-300 motion-reduce:transition-none ${
             isActive
-              ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] -translate-y-0.5'
-              : 'text-[#bdb8c0] group-hover:text-white translate-y-0'
+              ? 'text-[#7C3AED] drop-shadow-[0_2px_4px_rgba(124,58,237,0.2)] -translate-y-0.5'
+              : 'text-[#4B5563] group-hover:text-[#6B21A8] translate-y-0'
           }`}
         />
       </div>
@@ -56,8 +56,8 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
       <span
         className={`relative z-10 font-['Outfit',sans-serif] text-[10px] uppercase tracking-[0.2px] leading-none transition-all duration-300 motion-reduce:transition-none ${
           isActive
-            ? 'font-bold text-white -translate-y-0.5'
-            : 'font-semibold text-[#bdb8c0] group-hover:text-white translate-y-0'
+            ? 'font-bold text-[#7C3AED] -translate-y-0.5'
+            : 'font-semibold text-[#4B5563] group-hover:text-[#6B21A8] translate-y-0'
         }`}
       >
         {label}
@@ -66,7 +66,7 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
       {isActive && (
         <div
           aria-hidden="true"
-          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[#c2ef4e] shadow-[0_0_8px_rgba(194,239,78,0.6)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
+          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[#D946EF] shadow-[0_0_8px_rgba(217,70,239,0.5)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
         />
       )}
     </button>
@@ -87,10 +87,10 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
     >
       <div className="absolute top-[-18px] left-1/2 -translate-x-1/2 z-20">
         <div
-          className={`relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-tr from-[#422082] to-[#6a5fc1] transition-all duration-300 ease-out border border-[#79628c]/30 group-active:scale-90 ${
+          className={`relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#D946EF] transition-all duration-300 ease-out border border-white/20 group-active:scale-90 ${
             isActive 
-              ? 'shadow-[0_0_20px_rgba(106,95,193,0.5)] translate-y-0.5' 
-              : 'shadow-[0_4px_16px_rgba(21,15,35,0.6)] hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(106,95,193,0.4)]'
+              ? 'shadow-[0_0_15px_rgba(217,70,239,0.4)] translate-y-0.5' 
+              : 'shadow-[0_4px_12px_rgba(124,58,237,0.25)] hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(217,70,239,0.35)]'
           }`}
         >
           <Icon
@@ -100,15 +100,15 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
               isActive ? 'rotate-[135deg] scale-110' : 'rotate-0 scale-100 group-hover:rotate-90'
             }`}
           />
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/20 to-transparent opacity-40 pointer-events-none" />
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/30 to-transparent opacity-50 pointer-events-none" />
         </div>
       </div>
 
       <span
         className={`relative z-10 font-['Outfit',sans-serif] text-[10px] uppercase tracking-[0.2px] leading-none transition-all duration-300 mt-[26px] ${
           isActive
-            ? 'font-bold text-white'
-            : 'font-semibold text-[#bdb8c0] group-hover:text-white'
+            ? 'font-bold text-[#7C3AED]'
+            : 'font-semibold text-[#4B5563] group-hover:text-[#6B21A8]'
         }`}
       >
         {label}
@@ -117,7 +117,7 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
       {isActive && (
         <div
           aria-hidden="true"
-          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[#c2ef4e] shadow-[0_0_8px_rgba(194,239,78,0.6)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
+          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[#D946EF] shadow-[0_0_8px_rgba(217,70,239,0.5)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
         />
       )}
     </button>
@@ -135,11 +135,10 @@ export default memo(function FooterNav({ active, onChange }: FooterNavProps) {
   return (
     <nav
       aria-label="Footer Navigation"
-      className="shrink-0 relative z-40 bg-[#150f23]/95 backdrop-blur-2xl backdrop-saturate-150 border-t border-[#362d59]"
+      className="shrink-0 relative z-40 bg-[#FFFFFF]/95 backdrop-blur-2xl backdrop-saturate-150 border-t border-[#E5E7EB]"
     >
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#150f23] via-[#1f1633]/60 to-transparent" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#79628c]/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#F3F4F6]/60 to-transparent" />
       </div>
 
       <div

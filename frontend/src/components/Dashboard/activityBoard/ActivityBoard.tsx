@@ -19,40 +19,49 @@ const ActivityCard = memo(function ActivityCard({ item }: ActivityCardProps) {
 
   return (
     <div className="relative mb-3 mx-2">
-      {/* Primary Card Box */}
       <div 
-        className="relative flex flex-col p-3 rounded-xl shadow-sm border border-[#E5E7EB] z-10 transition-colors"
+        className="relative flex flex-col p-3 rounded-xl shadow-sm border border-[#E5E7EB] z-10 transition-colors min-h-[5rem]"
         style={{ backgroundColor: item.cardBg || '#FFFFFF' }}
       >
-        {/* Top Right More Menu */}
-        <div className="absolute top-2.5 right-2 z-20">
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            onBlur={() => setTimeout(() => setIsMenuOpen(false), 200)}
-            className="p-1 text-[var(--color-text-secondary)] hover:bg-black/5 rounded-full focus:outline-none transition-colors"
-          >
-            <MoreVertIcon sx={{ fontSize: 18 }} className="rotate-90" />
-          </button>
+        <div className="absolute top-2.5 right-2 bottom-3 z-20 flex flex-col items-end justify-between pointer-events-none">
+          <div className="relative flex flex-col items-end pointer-events-auto">
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onBlur={() => setTimeout(() => setIsMenuOpen(false), 200)}
+              className="p-1 text-[var(--color-text-secondary)] hover:bg-black/5 rounded-full focus:outline-none transition-colors"
+            >
+              <MoreVertIcon sx={{ fontSize: 18 }} className="rotate-90" />
+            </button>
 
-          {/* Dropdown Options */}
-          <div 
-            className={`absolute right-0 top-full mt-1 w-36 bg-white rounded-lg shadow-lg border border-[#E5E7EB] py-1 flex flex-col z-50 overflow-hidden transition-all origin-top-right ${
-              isMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
-            }`}
-          >
-            <button className="flex items-center gap-2 px-3 py-2 text-[11px] font-semibold text-[var(--color-text-primary)] hover:bg-gray-50 transition-colors w-full text-left">
-              <BookmarkBorderIcon sx={{ fontSize: 14 }} className="text-[var(--color-brand-purple)]" />
-              Save
-            </button>
-            <button className="flex items-center gap-2 px-3 py-2 text-[11px] font-semibold text-red-600 hover:bg-red-50 transition-colors w-full text-left">
-              <CloseIcon sx={{ fontSize: 14 }} />
-              Not Interested
-            </button>
+            <div 
+              className={`absolute right-0 top-full mt-1 w-36 bg-white rounded-lg shadow-lg border border-[#E5E7EB] py-1 flex flex-col z-50 overflow-hidden transition-all origin-top-right ${
+                isMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+              }`}
+            >
+              <button className="flex items-center gap-2 px-3 py-2 text-[11px] font-semibold text-[var(--color-text-primary)] hover:bg-gray-50 transition-colors w-full text-left">
+                <BookmarkBorderIcon sx={{ fontSize: 14 }} className="text-[var(--color-brand-purple)]" />
+                Save
+              </button>
+              <button className="flex items-center gap-2 px-3 py-2 text-[11px] font-semibold text-red-600 hover:bg-red-50 transition-colors w-full text-left">
+                <CloseIcon sx={{ fontSize: 14 }} />
+                Not Interested
+              </button>
+            </div>
           </div>
+
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="flex items-center gap-0.5 px-2 py-1 bg-white/50 hover:bg-white rounded border border-[var(--color-brand-magenta)]/20 text-[var(--color-brand-magenta)] font-bold text-[10px] transition-all active:scale-95 focus:outline-none shadow-sm pointer-events-auto"
+          >
+            {isExpanded ? 'Hide' : 'View'} 
+            <KeyboardArrowDownIcon 
+              sx={{ fontSize: 14 }} 
+              className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+            />
+          </button>
         </div>
 
-        {/* Card Content Area */}
-        <div className="flex items-start gap-2.5 w-full overflow-hidden pr-6">
+        <div className="flex items-start gap-2.5 w-full overflow-hidden pr-16">
           {item.logoImg ? (
             <img 
               src={item.logoImg} 
@@ -81,40 +90,25 @@ const ActivityCard = memo(function ActivityCard({ item }: ActivityCardProps) {
               {item.verified && <VerifiedIcon sx={{ fontSize: 12 }} className="text-[#3B82F6] shrink-0" />}
             </div>
             
-            <h3 className="text-[13px] font-extrabold text-[var(--color-text-primary)] mt-0.5 leading-snug truncate pr-2">
+            <h3 className="text-[13px] font-extrabold text-[var(--color-text-primary)] mt-0.5 leading-snug truncate">
               {item.title}
             </h3>
             
-            {/* Tags and View Control Container */}
-            <div className="flex items-end justify-between w-full mt-2 gap-2">
-              <div className="flex items-center gap-1.5 min-w-0 pb-0.5">
-                <span 
-                  className="px-1.5 py-0.5 rounded text-[9px] font-bold tracking-wide uppercase shrink-0"
-                  style={{ backgroundColor: item.tagBg, color: item.tagColor }}
-                >
-                  {item.tag}
-                </span>
-                <span className="text-[10px] font-medium text-[var(--color-text-secondary)] truncate">
-                  {item.detail}
-                </span>
-              </div>
-              
-              <button 
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-0.5 px-2 py-1 bg-white/50 hover:bg-white rounded border border-[var(--color-brand-magenta)]/20 text-[var(--color-brand-magenta)] font-bold text-[10px] transition-all active:scale-95 focus:outline-none shrink-0 shadow-sm"
+            <div className="flex items-center w-full mt-3 gap-1.5 min-w-0">
+              <span 
+                className="px-1.5 py-0.5 rounded text-[9px] font-bold tracking-wide uppercase shrink-0"
+                style={{ backgroundColor: item.tagBg, color: item.tagColor }}
               >
-                {isExpanded ? 'Hide' : 'View'} 
-                <KeyboardArrowDownIcon 
-                  sx={{ fontSize: 14 }} 
-                  className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
-                />
-              </button>
+                {item.tag}
+              </span>
+              <span className="text-[10px] font-medium text-[var(--color-text-secondary)] truncate">
+                {item.detail}
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Expanded Content Area */}
       <div 
         className={`transition-all duration-300 ease-in-out overflow-hidden transform origin-top ${
           isExpanded ? 'max-h-48 opacity-100 scale-y-100' : 'max-h-0 opacity-0 scale-y-95'
@@ -155,7 +149,7 @@ export default function ActivityBoard() {
 
   return (
     <div className="flex-1 w-full h-full overflow-y-auto bg-[#F3F4F6] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-      <div className="sticky top-0 z-30 bg-[#F3F4F6]/95 backdrop-blur-md ">
+      <div className="sticky top-0 z-30 bg-[#F3F4F6]/95 backdrop-blur-md">
         <ActivityTabs active={activeFilter} onChange={handleFilterChange} />
       </div>
       <div className="w-full pt-1 pb-8">

@@ -87,7 +87,7 @@ const SpotlightTabs = memo(function SpotlightTabs({ active, onChange }: Spotligh
       <div 
         ref={scrollRef}
         onScroll={checkScroll}
-        className="flex items-center gap-2 px-3 py-3 overflow-x-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth relative z-10"
+        className="flex items-center gap-2 px-2 py-2 overflow-x-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth relative z-10"
       >
         {FILTER_TABS.map((tab) => {
           const isActive = active === tab.key

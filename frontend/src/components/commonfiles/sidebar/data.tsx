@@ -41,6 +41,7 @@ import {
   Bell,
   Shield,
   User,
+  PlaySquare,
 } from 'lucide-react'
 
 export const COMMON_SUBTABS = [
@@ -65,12 +66,7 @@ const LEARN_SUBTABS = [
   { label: 'Saved',       Icon: Bookmark },
 ]
 
-const VIDEO_VAULT_SUBTABS = [
-  { label: 'All Videos',  Icon: Play },
-  { label: 'Reels',       Icon: Clapperboard },
-  { label: 'Favourites',  Icon: Heart },
-  { label: 'Trending',    Icon: TrendingUp },
-]
+
 
 const CITY_INVENTORY_SUBTABS = [
   { label: 'Localities',  Icon: MapPin },
@@ -108,10 +104,10 @@ const SETTINGS_SUBTABS = [
 ]
 
 export type NavKey =
-  | 'announcements'
+  | 'activityBoard'
   | 'podcasts'
   | 'learn'
-  | 'videoVault'
+  | 'spotlight'
   | 'cityInventory'
   | 'showcase'
   | 'events'
@@ -133,9 +129,9 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { key: 'podcasts',      label: 'RED Expert Conversations', Icon: Mic2,         subTabs: PODCAST_SUBTABS },
-  { key: 'announcements', label: 'Announcement Board', Icon: Megaphone },
+  { key: 'activityBoard', label: 'Activity Board', Icon: Megaphone },
   { key: 'learn',         label: 'Learn',              Icon: BookOpen,     subTabs: LEARN_SUBTABS },
-  { key: 'videoVault',    label: 'Video Vault',        Icon: Film,         subTabs: VIDEO_VAULT_SUBTABS },
+  { key: 'spotlight',     label: 'Spotlight',          Icon: PlaySquare },
   { key: 'cityInventory', label: 'City Inventory',     Icon: Landmark,     subTabs: CITY_INVENTORY_SUBTABS },
   { key: 'showcase',      label: 'Showcase',           Icon: LayoutGrid,   subTabs: SHOWCASE_SUBTABS },
   { key: 'events',        label: 'Events',             Icon: CalendarDays, subTabs: EVENTS_SUBTABS },

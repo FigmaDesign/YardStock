@@ -23,7 +23,7 @@ function getPos(el: HTMLElement) {
   return { x: r.right + 8, y: r.top + r.height / 2 }
 }
 
-export default function Sidebar({ active = 'announcements', onNavigate }: SidebarProps) {
+export default function Sidebar({ active = 'activityBoard', onNavigate }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [tooltip, setTooltip] = useState<TooltipState>(HIDDEN)
   const [mounted] = useState(typeof document !== 'undefined')

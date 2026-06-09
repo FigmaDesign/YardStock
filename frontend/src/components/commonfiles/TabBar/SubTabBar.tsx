@@ -42,7 +42,6 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
           : 'bg-transparent hover:bg-[#6a5fc1]/[0.04]'
       }`}
     >
-      {/* Sleek gradient separator instead of a harsh solid border */}
       {!isFirst && (
         <div 
           aria-hidden="true" 
@@ -79,7 +78,6 @@ const SubTabItemComponent = memo(function SubTabItemComponent({ item, isActive, 
         {label}
       </span>
 
-      {/* Glowing bottom indicator */}
       {isActive && (
         <div 
           aria-hidden="true"

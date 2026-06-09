@@ -3,6 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import CheckIcon from '@mui/icons-material/Check'
 
 interface DashboardHeaderProps {
   onMenuClick?: () => void
@@ -54,25 +55,25 @@ export default function DashboardHeader({
   }, [closeAll])
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-[#e0e3eb] shadow-sm font-['Outfit',sans-serif]">
+    <header className="sticky top-0 z-50 bg-[#FFFFFF] border-b border-[#E5E7EB] shadow-sm font-['Outfit',sans-serif]">
       <div className="flex items-center justify-between h-12 sm:h-14 px-3 sm:px-2 w-full">
         
         <div className="flex items-center gap-2 sm:gap-1 min-w-0">
           <button
             type="button"
             onClick={onMenuClick}
-            className="flex items-center justify-center w-8 h-8 rounded-md text-[#374151] hover:text-[#6B21A8] hover:bg-[#7C3AED]/08 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] shrink-0"
+            className="flex items-center justify-center w-8 h-8 rounded-md text-[#4B5563] hover:text-[#6B21A8] hover:bg-[#7C3AED]/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] shrink-0"
           >
             <MenuIcon sx={{ fontSize: 22 }} />
           </button>
 
-          <div className="w-px h-5 bg-[#e0e3eb] shrink-0" />
+          <div className="w-px h-5 bg-[#E5E7EB] shrink-0" />
 
           <div ref={cityRef} className="relative min-w-0 shrink">
             <button
               type="button"
               onClick={() => { setCityOpen((v) => !v); setProfileOpen(false) }}
-              className="flex items-center gap-1.5 px-2 py-1 rounded-md text-[#374151] hover:bg-[#7C3AED]/05 hover:text-[#1A1A2E] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] min-w-0"
+              className="flex items-center gap-1.5 px-2 py-1 rounded-md text-[#4B5563] hover:bg-[#7C3AED]/5 hover:text-[#1A1A2E] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8] min-w-0"
             >
               <LocationOnIcon sx={{ fontSize: 18 }} className="text-[#6B21A8] shrink-0" />
               <span className="text-[0.85rem] font-semibold text-[#1A1A2E] leading-none truncate pt-0.5">
@@ -80,20 +81,20 @@ export default function DashboardHeader({
               </span>
               <KeyboardArrowDownIcon
                 sx={{ fontSize: 18 }}
-                className={`text-[#374151] shrink-0 transition-transform duration-200 ${cityOpen ? 'rotate-180' : ''}`}
+                className={`text-[#4B5563] shrink-0 transition-transform duration-200 ${cityOpen ? 'rotate-180' : ''}`}
               />
             </button>
             
             {cityOpen && (
-              <ul className="absolute left-0 top-full mt-2 w-36 bg-white rounded-md shadow-lg border border-[#e0e3eb] z-50 py-1 overflow-hidden">
+              <ul className="absolute left-0 top-full mt-2 w-36 bg-[#FFFFFF] rounded-md shadow-lg border border-[#E5E7EB] z-50 py-1 overflow-hidden">
                 {CITY_OPTIONS.map((opt) => (
                   <li
                     key={opt}
                     onClick={() => { setCity(opt); closeAll() }}
                     className={`px-3 py-2 text-[0.8rem] cursor-pointer transition-colors ${
                       opt === city
-                        ? 'bg-[#7C3AED]/08 text-[#6B21A8] font-semibold border-l-2 border-[#7C3AED]'
-                        : 'text-[#374151] font-medium hover:bg-[#7C3AED]/05 border-l-2 border-transparent'
+                        ? 'bg-[#7C3AED]/10 text-[#6B21A8] font-semibold border-l-2 border-[#7C3AED]'
+                        : 'text-[#4B5563] font-medium hover:bg-[#7C3AED]/5 border-l-2 border-transparent'
                     }`}
                   >
                     {opt}
@@ -109,39 +110,42 @@ export default function DashboardHeader({
             <button
               type="button"
               onClick={() => { setProfileOpen((v) => !v); setCityOpen(false) }}
-              className="flex items-center gap-1.5 p-1 pr-2 rounded-md hover:bg-[#7C3AED]/05 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8]"
+              className="flex items-center gap-1.5 p-1 pr-2 rounded-md hover:bg-[#7C3AED]/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B21A8]"
             >
               {avatarUrl ? (
                 <img
                   src={avatarUrl}
                   alt={userName}
-                  className="w-8 h-8 rounded-full object-cover border border-[#e0e3eb]"
+                  className="w-8 h-8 rounded-full object-cover border border-[#E5E7EB]"
                 />
               ) : (
-                <AccountCircleIcon sx={{ fontSize: 32 }} className="text-[#94a3b8]" />
+                <AccountCircleIcon sx={{ fontSize: 32 }} className="text-[#9CA3AF]" />
               )}
               <KeyboardArrowDownIcon
                 sx={{ fontSize: 18 }}
-                className={`text-[#64748b] transition-transform duration-200 ${profileOpen ? 'rotate-180' : ''}`}
+                className={`text-[#64748B] transition-transform duration-200 ${profileOpen ? 'rotate-180' : ''}`}
               />
             </button>
 
             {profileOpen && (
-              <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-md shadow-lg border border-[#e0e3eb] z-50 overflow-hidden">
-                <div className="px-3 py-2.5 border-b border-[#e0e3eb] bg-[#f8fafc]">
-                  <p className="text-[0.65rem] font-bold text-[#64748b] uppercase tracking-wider mb-1.5">Role</p>
+              <div className="absolute right-0 top-full mt-2 w-48 bg-[#FFFFFF] rounded-md shadow-lg border border-[#E5E7EB] z-50 overflow-hidden">
+                <div className="px-3 py-2.5 border-b border-[#E5E7EB] bg-[#F3F4F6]">
+                  <p className="text-[0.65rem] font-bold text-[#64748B] uppercase tracking-wider mb-1.5">Role</p>
                   <div className="flex flex-col gap-1">
                     {ROLE_OPTIONS.map((r) => (
                       <button
                         key={r}
                         onClick={() => { setRole(r); closeAll() }}
-                        className={`text-left text-[0.8rem] px-2 py-1.5 rounded transition-colors ${
+                        className={`flex items-center justify-between w-full text-left text-[0.8rem] px-2 py-1.5 rounded transition-colors ${
                           r === role
                             ? 'bg-[#7C3AED]/10 text-[#6B21A8] font-semibold'
-                            : 'text-[#374151] hover:bg-[#e2e8f0] font-medium'
+                            : 'text-[#4B5563] hover:bg-[#E5E7EB] font-medium'
                         }`}
                       >
-                        {r}
+                        <span>{r}</span>
+                        {r === role && (
+                          <CheckIcon sx={{ fontSize: 16 }} className="text-[#6B21A8]" />
+                        )}
                       </button>
                     ))}
                   </div>
@@ -152,7 +156,7 @@ export default function DashboardHeader({
                     <li
                       key={item}
                       onClick={closeAll}
-                      className="px-4 py-2 text-[0.8rem] font-medium text-[#374151] hover:bg-[#7C3AED]/05 hover:text-[#1A1A2E] cursor-pointer transition-colors"
+                      className="px-4 py-2 text-[0.8rem] font-medium text-[#4B5563] hover:bg-[#7C3AED]/5 hover:text-[#1A1A2E] cursor-pointer transition-colors"
                     >
                       {item}
                     </li>

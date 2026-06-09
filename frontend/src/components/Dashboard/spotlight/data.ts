@@ -1,4 +1,12 @@
-export const FILTER_TABS = [
+export interface SpotlightFilterTab {
+  key: string
+  label: string
+  color?: string
+  count?: number
+  emoji?: string
+}
+
+export const FILTER_TABS: SpotlightFilterTab[] = [
   { key: 'forYou', label: 'For You' },
   { key: 'trending', label: 'Trending' },
   { key: 'projects', label: 'Projects' },

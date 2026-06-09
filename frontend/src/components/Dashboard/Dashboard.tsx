@@ -110,7 +110,6 @@ function DesktopDashboard() {
         <TabBar
           tabs={TAB_ITEMS}
           active={activeTab}
-          activeSubTab={activeSubTab}
           onChange={handleTabChange}
           onSubTabChange={setActiveSubTab}
         />
@@ -179,7 +178,6 @@ function MobileDashboard() {
         <TabBar
           tabs={TAB_ITEMS}
           active={activeTab}
-          activeSubTab={activeSubTab}
           onChange={handleTabChange}
           onSubTabChange={setActiveSubTab}
         />

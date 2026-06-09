@@ -5,7 +5,13 @@ import thumb4 from './podcasts/thumb_4.png'
 import thumb5 from './podcasts/thumb_5.png'
 import thumb6 from './podcasts/thumb_6.png'
 
-export const FILTER_TABS = [
+export interface FilterTab {
+  key: string
+  label: string
+  color?: string
+}
+
+export const FILTER_TABS: FilterTab[] = [
   { key: 'all', label: 'All' },
   { key: 'realestate', label: 'Real Estate' },
   { key: 'marketing', label: 'Marketing' },

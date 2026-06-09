@@ -14,7 +14,6 @@ export interface TabItem {
 interface TabBarProps {
   tabs: TabItem[]
   active: string
-  activeSubTab: string
   onChange: (key: string) => void
   onSubTabChange: (sub: string) => void
 }
@@ -22,7 +21,6 @@ interface TabBarProps {
 export default function TabBar({
   tabs,
   active,
-  activeSubTab,
   onChange,
   onSubTabChange,
 }: TabBarProps) {

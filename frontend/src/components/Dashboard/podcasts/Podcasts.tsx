@@ -57,7 +57,7 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
     setSwipeOffset((prev) => (prev > maxSwipe / 2 ? maxSwipe : 0))
   }
 
-  const handleMenuAction = (e: React.MouseEvent, action: string) => {
+  const handleMenuAction = (e: React.MouseEvent) => {
     e.stopPropagation()
     setMoreOpen(false)
   }
@@ -166,7 +166,7 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
                 >
                   <button 
                     type="button"
-                    onClick={(e) => handleMenuAction(e, 'share')}
+                    onClick={handleMenuAction}
                     className="w-full flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] transition-colors border-none bg-transparent cursor-pointer text-left"
                     role="menuitem"
                   >
@@ -175,7 +175,7 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
                   </button>
                   <button 
                     type="button"
-                    onClick={(e) => handleMenuAction(e, 'save')}
+                    onClick={handleMenuAction}
                     className="w-full flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] transition-colors border-none bg-transparent cursor-pointer text-left"
                     role="menuitem"
                   >
@@ -187,7 +187,7 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
                   
                   <button 
                     type="button"
-                    onClick={(e) => handleMenuAction(e, 'remove')}
+                    onClick={handleMenuAction}
                     className="w-full flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] transition-colors border-none bg-transparent cursor-pointer text-left"
                     role="menuitem"
                   >
@@ -196,7 +196,7 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
                   </button>
                   <button 
                     type="button"
-                    onClick={(e) => handleMenuAction(e, 'report')}
+                    onClick={handleMenuAction}
                     className="w-full flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-red-500 hover:bg-red-50 transition-colors border-none bg-transparent cursor-pointer text-left"
                     role="menuitem"
                   >

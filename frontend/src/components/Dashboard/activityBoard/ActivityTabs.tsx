@@ -68,7 +68,7 @@ const ActivityTabs = memo(function ActivityTabs({ active, onChange }: ActivityTa
       <div 
         ref={scrollRef}
         onScroll={checkScroll}
-        className="flex items-center gap-2 px-3 py-3 overflow-x-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth relative z-10"
+        className="flex items-center gap-1 px-2 py-2 overflow-x-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth relative z-10"
       >
         {FILTER_TABS.map((tab) => {
           const isActive = active === tab.key
@@ -78,7 +78,7 @@ const ActivityTabs = memo(function ActivityTabs({ active, onChange }: ActivityTa
               type="button"
               data-active={isActive}
               onClick={() => onChange(tab.key)}
-              className={`group shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-[8px] text-[11px] md:text-xs font-semibold transition-all duration-300 ease-out active:scale-95 border ${
+              className={`group shrink-0 flex items-center justify-center px-2 py-1 rounded-[8px] text-[11px] md:text-xs font-semibold transition-all duration-300 ease-out active:scale-95 border ${
                 isActive
                   ? 'bg-[var(--color-brand-purple)] text-white border-[var(--color-brand-purple)] shadow-[0_4px_12px_rgba(107,33,168,0.35)] hover:shadow-[0_6px_16px_rgba(107,33,168,0.45)] hover:-translate-y-[1px]'
                   : 'hover:shadow-sm hover:-translate-y-[1px]'
@@ -89,25 +89,7 @@ const ActivityTabs = memo(function ActivityTabs({ active, onChange }: ActivityTa
                 borderColor: `${tab.color}40`,
               } : undefined}
             >
-              <tab.Icon 
-                sx={{ fontSize: 16 }} 
-                className={`transition-transform duration-300 ease-out group-hover:scale-110 ${isActive ? 'text-white' : ''}`} 
-                style={!isActive ? { color: tab.color } : undefined} 
-              />
               <span>{tab.label}</span>
-              
-              <span className={`px-1.5 py-0.5 rounded-[6px] text-[9px] transition-colors duration-300 ${
-                isActive 
-                  ? 'bg-white/20 text-white' 
-                  : ''
-              }`}
-              style={!isActive && tab.color ? {
-                backgroundColor: `${tab.color}25`, 
-                color: tab.color
-              } : undefined}
-              >
-                {tab.count}
-              </span>
             </button>
           )
         })}

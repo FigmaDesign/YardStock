@@ -2,12 +2,12 @@ import type React from 'react'
 import {
   Megaphone,
   Mic2,
-  BookOpen,
+  /* BookOpen,
   Landmark,
   LayoutGrid,
   CalendarDays,
   BarChart3,
-  Settings,
+  Settings, */
   Home,
   Users,
   PlusSquare,
@@ -17,7 +17,7 @@ import {
   Library,
   UserCircle,
   TrendingUp,
-  GraduationCap,
+  /* GraduationCap,
   FileText,
   Award,
   MapPin,
@@ -36,7 +36,7 @@ import {
   Wrench,
   Bell,
   Shield,
-  User,
+  User, */
   PlaySquare,
 } from 'lucide-react'
 
@@ -55,7 +55,7 @@ const PODCAST_SUBTABS = [
   { label: 'Trending',  Icon: TrendingUp },
 ]
 
-const LEARN_SUBTABS = [
+/* const LEARN_SUBTABS = [
   { label: 'Courses',     Icon: GraduationCap },
   { label: 'Articles',    Icon: FileText },
   { label: 'Certifications', Icon: Award },
@@ -98,7 +98,7 @@ const SETTINGS_SUBTABS = [
   { label: 'Privacy',       Icon: Shield },
   { label: 'Account',       Icon: User },
 ]
-
+ */
 export type NavKey =
   | 'activityBoard'
   | 'podcasts'

@@ -46,15 +46,15 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
     const diff = e.touches[0].clientX - startX.current
     let nextOffset = initialOffset.current + diff
     
-    if (nextOffset < 0) nextOffset = 0
-    if (nextOffset > maxSwipe) nextOffset = maxSwipe
+    if (nextOffset > 0) nextOffset = 0
+    if (nextOffset < -maxSwipe) nextOffset = -maxSwipe
     
     setSwipeOffset(nextOffset)
   }
 
   const handleTouchEnd = () => {
     setIsSwiping(false)
-    setSwipeOffset((prev) => (prev > maxSwipe / 2 ? maxSwipe : 0))
+    setSwipeOffset((prev) => (prev < -maxSwipe / 2 ? -maxSwipe : 0))
   }
 
   const handleMenuAction = (e: React.MouseEvent) => {
@@ -62,16 +62,18 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
     setMoreOpen(false)
   }
 
+  const speakerInitial = episode.speaker ? episode.speaker.charAt(0).toUpperCase() : '?'
+
   return (
     <div className={`relative ${moreOpen ? 'z-50' : 'z-0'}`}>
-      <div className="absolute inset-y-0 left-0 w-[80px] bg-red-500 flex flex-col items-center justify-center text-white md:hidden">
+      <div className="absolute inset-y-0 right-0 w-[80px] bg-red-500 flex flex-col items-center justify-center text-white md:hidden">
         <button 
           type="button"
           className="flex flex-col items-center justify-center w-full h-full active:bg-red-600 transition-colors border-none outline-none cursor-pointer bg-transparent"
           onClick={() => console.log('Delete episode', episode.id)}
         >
           <DeleteIcon sx={{ fontSize: 24 }} />
-          <span className="text-[10px] font-semibold mt-1">Delete</span>
+          <span className="text-[10px] font-semibold mt-0.5">Delete</span>
         </button>
       </div>
 
@@ -83,7 +85,7 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
           transform: `translateX(${swipeOffset}px)`,
           transitionDuration: isSwiping ? '0ms' : '200ms',
         }}
-        className={`flex items-start gap-2 px-2 py-2 bg-[var(--color-bg-surface)] hover:bg-[var(--color-bg-muted)] transition-colors cursor-pointer group relative w-full ease-out ${moreOpen ? 'z-50' : 'z-10'}`}
+        className={`flex items-start gap-2 px-2 py-1.5 bg-[var(--color-bg-surface)] hover:bg-[var(--color-bg-muted)] transition-colors cursor-pointer group relative w-full ease-out border-b border-[var(--color-border-default)] last:border-b-0 ${moreOpen ? 'z-50' : 'z-10'}`}
       >
         <div 
           className="relative shrink-0 w-[120px] h-[86px] rounded-xl overflow-hidden shadow-sm flex items-center justify-center"
@@ -103,49 +105,41 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
             </div>
           </div>
 
-          <div className="absolute bottom-1.5 left-1.5 z-20 flex items-center gap-1 bg-black/70 text-white text-[10px] font-semibold px-1.5 py-0.5 rounded pointer-events-none group-hover:opacity-0 transition-opacity duration-200">
+          <div className="absolute bottom-1 left-1 z-20 flex items-center gap-1 bg-black/70 text-white text-[10px] font-semibold px-1 py-0.5 rounded pointer-events-none group-hover:opacity-0 transition-opacity duration-200">
             <GraphicEqIcon sx={{ fontSize: 12 }} />
             {episode.duration}
           </div>
         </div>
         
         <div className="flex-1 min-w-0 pt-0.5 relative">
-          <div className="flex items-start justify-between gap-2">
+          <div className="flex items-start justify-between gap-1.5">
             <div className="min-w-0 flex-1">
-              <h3 className="text-[16px] md:text-[12px] font-bold text-[var(--color-text-primary)] leading-snug line-clamp-2">
+              <h3 className="text-[16px] md:text-[14px] font-bold text-[var(--color-text-primary)] leading-snug line-clamp-2">
                 {episode.title}
               </h3>
               
-              <div className="flex items-center gap-1.5 mt-1.5">
-                <div className="w-[18px] h-[18px] rounded-full overflow-hidden shrink-0 shadow-sm flex items-center justify-center border border-[var(--color-border-default)]">
-                  <svg viewBox="0 0 100 100" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#7C3AED" />
-                        <stop offset="100%" stopColor="#D946EF" />
-                      </linearGradient>
-                    </defs>
-                    <circle cx="50" cy="50" r="50" fill="url(#avatarGrad)" />
-                    <circle cx="50" cy="38" r="18" fill="#FFFFFF" />
-                    <path d="M 20 100 Q 50 60 80 100 Z" fill="#FFFFFF" />
-                  </svg>
+              <div className="flex items-center gap-1.5 mt-1">
+                <div className="w-[22px] h-[22px] rounded-full overflow-hidden shrink-0 shadow-sm flex items-center justify-center bg-gradient-to-br from-violet-500 to-fuchsia-500 border border-[var(--color-bg-surface)] ring-1 ring-black/10">
+                  <span className="text-[11px] font-bold text-white drop-shadow-sm select-none">
+                    {speakerInitial}
+                  </span>
                 </div>
                 
-                <span className="text-[13px] font-semibold text-[var(--color-text-primary)]">
+                <span className="text-[12px] font-medium text-[var(--color-text-primary)] truncate">
                   {episode.speaker}
                 </span>
                 
                 {episode.verified && (
-                  <VerifiedIcon sx={{ fontSize: 14 }} className="text-[var(--color-brand-purple-mid)]" />
+                  <VerifiedIcon sx={{ fontSize: 14 }} className="text-blue-500 shrink-0" />
                 )}
               </div>
               
-              <p className="text-[12px] text-[var(--color-text-secondary)] mt-0.5">
+              <p className="text-[12px] text-[var(--color-text-secondary)] mt-0.5 line-clamp-1">
                 {episode.role}
               </p>
             </div>
             
-            <div className="flex items-center gap-1 shrink-0 pt-1 relative" ref={moreMenuRef}>
+            <div className="flex items-center gap-0.5 shrink-0 pt-0.5 relative" ref={moreMenuRef}>
               <button
                 type="button"
                 onClick={(e) => { e.stopPropagation(); setMoreOpen(!moreOpen) }}
@@ -161,13 +155,13 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
 
               {moreOpen && (
                 <div 
-                  className="absolute right-0 top-[110%] w-48 bg-[var(--color-bg-surface)] rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] border border-[var(--color-border-default)] z-[60] py-1.5 origin-top-right animate-[fadeScale_0.2s_ease-out]"
+                  className="absolute right-0 top-[110%] w-48 bg-[var(--color-bg-surface)] rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] border border-[var(--color-border-default)] z-[60] py-1 origin-top-right animate-[fadeScale_0.2s_ease-out]"
                   role="menu"
                 >
                   <button 
                     type="button"
                     onClick={handleMenuAction}
-                    className="w-full flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] transition-colors border-none bg-transparent cursor-pointer text-left"
+                    className="w-full flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] transition-colors border-none bg-transparent cursor-pointer text-left"
                     role="menuitem"
                   >
                     <ShareIcon sx={{ fontSize: 18 }} />
@@ -176,19 +170,19 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
                   <button 
                     type="button"
                     onClick={handleMenuAction}
-                    className="w-full flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] transition-colors border-none bg-transparent cursor-pointer text-left"
+                    className="w-full flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] transition-colors border-none bg-transparent cursor-pointer text-left"
                     role="menuitem"
                   >
                     <BookmarkBorderIcon sx={{ fontSize: 18 }} />
                     Save to playlist
                   </button>
                   
-                  <div className="h-px bg-[var(--color-border-default)] my-1.5 w-full" />
+                  <div className="h-px bg-[var(--color-border-default)] my-1 w-full" />
                   
                   <button 
                     type="button"
                     onClick={handleMenuAction}
-                    className="w-full flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] transition-colors border-none bg-transparent cursor-pointer text-left"
+                    className="w-full flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] transition-colors border-none bg-transparent cursor-pointer text-left"
                     role="menuitem"
                   >
                     <VisibilityOffIcon sx={{ fontSize: 18 }} />
@@ -197,7 +191,7 @@ const EpisodeCard = memo(function EpisodeCard({ episode }: EpisodeCardProps) {
                   <button 
                     type="button"
                     onClick={handleMenuAction}
-                    className="w-full flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-red-500 hover:bg-red-50 transition-colors border-none bg-transparent cursor-pointer text-left"
+                    className="w-full flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium text-red-500 hover:bg-red-50 transition-colors border-none bg-transparent cursor-pointer text-left"
                     role="menuitem"
                   >
                     <FlagOutlinedIcon sx={{ fontSize: 18 }} />
@@ -234,9 +228,9 @@ export default function Podcasts() {
           <EpisodeCard key={episode.id} episode={episode} />
         ))}
         {filteredEpisodes.length === 0 && (
-          <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
+          <div className="flex flex-col items-center justify-center py-12 px-3 text-center">
             <p className="text-lg font-semibold text-[var(--color-text-secondary)]">No episodes found</p>
-            <p className="text-sm text-[var(--color-text-secondary)] mt-1">Try selecting a different category</p>
+            <p className="text-sm text-[var(--color-text-secondary)] mt-0.5">Try selecting a different category</p>
           </div>
         )}
       </div>

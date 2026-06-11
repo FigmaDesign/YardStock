@@ -124,14 +124,14 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { key: 'podcasts',      label: 'RED Expert Conversations', Icon: Mic2,         subTabs: PODCAST_SUBTABS },
+  { key: 'podcasts',      label: 'RED Expert', Icon: Mic2,         subTabs: PODCAST_SUBTABS },
   { key: 'activityBoard', label: 'Activity Board', Icon: Megaphone },
-  { key: 'learn',         label: 'Learn',              Icon: BookOpen,     subTabs: LEARN_SUBTABS },
+/*   { key: 'learn',         label: 'Learn',              Icon: BookOpen,     subTabs: LEARN_SUBTABS }, */
   { key: 'spotlight',     label: 'Spotlight',          Icon: PlaySquare },
-  { key: 'cityInventory', label: 'City Inventory',     Icon: Landmark,     subTabs: CITY_INVENTORY_SUBTABS },
+/*   { key: 'cityInventory', label: 'City Inventory',     Icon: Landmark,     subTabs: CITY_INVENTORY_SUBTABS },
   { key: 'showcase',      label: 'Showcase',           Icon: LayoutGrid,   subTabs: SHOWCASE_SUBTABS },
   { key: 'events',        label: 'Events',             Icon: CalendarDays, subTabs: EVENTS_SUBTABS },
   { key: 'analytics',     label: 'Analytics',          Icon: BarChart3,    subTabs: ANALYTICS_SUBTABS },
-  { key: 'settings',      label: 'Settings',           Icon: Settings,     hasArrow: true, subTabs: SETTINGS_SUBTABS },
+  { key: 'settings',      label: 'Settings',           Icon: Settings,     hasArrow: true, subTabs: SETTINGS_SUBTABS }, */
 ]
 

@@ -7,7 +7,7 @@ export interface FooterNavItem {
   Icon: ElementType
 }
 
-export const FOOTER_NAV_ITEMS: FooterNavItem[] = [
+const FOOTER_NAV_ITEMS: FooterNavItem[] = [
   { key: 'home',   label: 'Home',   Icon: Home },
   { key: 'leads',  label: 'Leads',  Icon: Users },
   { key: 'post',   label: 'Post',   Icon: Plus },
@@ -27,16 +27,15 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
   return (
     <button
       type="button"
-      role="tab"
-      aria-label={label}
-      aria-selected={isActive}
+      aria-current={isActive ? 'page' : undefined}
       onClick={() => onClick(key)}
-      className="group relative flex flex-1 flex-col items-center justify-center gap-1.5 min-w-0 py-2 sm:py-2.5 px-1 border-none outline-none cursor-pointer bg-transparent transition-all duration-300 ease-out active:scale-[0.92] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED]/50 focus-visible:ring-inset motion-reduce:transition-none motion-reduce:transform-none [-webkit-tap-highlight-color:transparent]"
+      className="group relative flex w-full flex-col items-center justify-center gap-1.5 min-w-0 py-2 sm:py-2.5 px-1 border-none outline-none cursor-pointer bg-transparent transition-all duration-300 ease-out active:scale-[0.92] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED]/50 focus-visible:ring-inset motion-reduce:transition-none motion-reduce:transform-none tap-highlight-transparent"
     >
       <div className="relative z-10">
         <Icon
           size={20}
           strokeWidth={isActive ? 2.2 : 1.8}
+          fill={isActive ? 'currentColor' : 'none'}
           aria-hidden="true"
           className={`transition-all duration-300 motion-reduce:transition-none ${
             isActive
@@ -72,11 +71,9 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
   return (
     <button
       type="button"
-      role="tab"
-      aria-label={label}
-      aria-selected={isActive}
+      aria-current={isActive ? 'page' : undefined}
       onClick={() => onClick(key)}
-      className="group relative flex flex-1 flex-col items-center justify-end min-w-0 py-2 sm:py-2.5 px-1 border-none outline-none cursor-pointer bg-transparent focus-visible:outline-none [-webkit-tap-highlight-color:transparent]"
+      className="group relative flex w-full flex-col items-center justify-end min-w-0 py-2 sm:py-2.5 px-1 border-none outline-none cursor-pointer bg-transparent focus-visible:outline-none tap-highlight-transparent"
     >
       <div className="absolute -top-4.5 left-1/2 -translate-x-1/2 z-20">
         <div
@@ -89,8 +86,12 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
           <Icon
             size={24}
             strokeWidth={2.5}
+            fill={isActive ? 'currentColor' : 'none'}
+            aria-hidden="true"
             className={`text-white transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-              isActive ? 'rotate-135 scale-110' : 'rotate-0 scale-100 group-hover:rotate-90'
+              isActive 
+                ? 'rotate-135 scale-110' 
+                : 'rotate-0 scale-100 group-hover:rotate-90'
             }`}
           />
           <div className="absolute inset-0 rounded-xl bg-linear-to-b from-white/30 to-transparent opacity-50 pointer-events-none" />
@@ -127,42 +128,36 @@ export default memo(function FooterNav({ active, onChange }: FooterNavProps) {
 
   return (
     <nav
-      aria-label="Footer Navigation"
+      aria-label="Bottom Navigation"
       className="shrink-0 relative z-40 bg-[#FFFFFF]/95 backdrop-blur-2xl backdrop-saturate-150 border-t border-[#E5E7EB]"
     >
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-linear-to-t from-[#F3F4F6]/60 to-transparent" />
       </div>
 
-      <div 
-        role="tablist"
-        aria-orientation="horizontal"
-        className="relative z-10 flex items-stretch w-full max-w-lg mx-auto pb-[env(safe-area-inset-bottom)]"
-      >
+      <ul className="relative z-10 flex items-stretch w-full max-w-lg mx-auto pb-[env(safe-area-inset-bottom)] list-none m-0 p-0">
         {FOOTER_NAV_ITEMS.map((item) => {
           const isActive = item.key === active
           
-          if (item.key === 'post') {
-            return (
-              <PostNavButton
-                key={item.key}
-                item={item}
-                isActive={isActive}
-                onClick={handleClick}
-              />
-            )
-          }
-
           return (
-            <StandardNavButton
-              key={item.key}
-              item={item}
-              isActive={isActive}
-              onClick={handleClick}
-            />
+            <li key={item.key} className="flex flex-1">
+              {item.key === 'post' ? (
+                <PostNavButton
+                  item={item}
+                  isActive={isActive}
+                  onClick={handleClick}
+                />
+              ) : (
+                <StandardNavButton
+                  item={item}
+                  isActive={isActive}
+                  onClick={handleClick}
+                />
+              )}
+            </li>
           )
         })}
-      </div>
+      </ul>
     </nav>
   )
 })

@@ -78,7 +78,7 @@ export const PrimaryTabBar = memo(function PrimaryTabBar({ tabs, active, onChang
         ref={scrollRef}
         role="tablist"
         aria-orientation="horizontal"
-        className="relative z-10 flex items-center gap-1 overflow-x-auto px-2 py-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="relative z-10 flex items-center gap-1 overflow-x-auto px-1 py-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
         {tabs.map(({ key, label, Icon, badge }) => (
           <TabCard

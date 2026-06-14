@@ -197,7 +197,7 @@ function MobileDashboard() {
         ) : activeTab === 'spotlight' ? (
           <Spotlight />
         ) : (
-          <div className="flex-1 overflow-y-auto px-4 py-5">
+          <div className="flex-1 overflow-y-auto px-2 py-2 bg-white">
             <header className="mb-5">
               <p className="text-[0.65rem] font-semibold text-[#6b7280] uppercase tracking-widest truncate">
                 {activeItem?.label ?? 'Dashboard'}

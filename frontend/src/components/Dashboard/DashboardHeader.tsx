@@ -55,7 +55,7 @@ export default function DashboardHeader({
   }, [closeAll])
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FFFFFF] border-b border-[#E5E7EB] shadow-sm font-['Outfit',sans-serif]">
+    <header className="sticky top-0 z-50 bg-white  shadow-sm font-['Outfit',sans-serif]">
       <div className="flex items-center justify-between h-12 sm:h-14 px-3 sm:px-2 w-full">
         
         <div className="flex items-center gap-2 sm:gap-1 min-w-0">

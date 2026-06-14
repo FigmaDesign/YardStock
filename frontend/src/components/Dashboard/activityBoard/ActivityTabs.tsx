@@ -68,7 +68,7 @@ const ActivityTabs = memo(function ActivityTabs({ active, onChange }: ActivityTa
       <div 
         ref={scrollRef}
         onScroll={checkScroll}
-        className="flex items-center gap-1 px-2 py-2 overflow-x-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth relative z-10"
+        className="flex items-center bg-white gap-1 px-2 py-2 overflow-x-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth relative z-10"
       >
         {FILTER_TABS.map((tab) => {
           const isActive = active === tab.key

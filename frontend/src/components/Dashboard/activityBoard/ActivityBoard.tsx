@@ -114,7 +114,7 @@ const ActivityCard = memo(function ActivityCard({ item, index }: ActivityCardPro
                 </button>
                 
                 <span 
-                  className={`absolute right-0 px-2.5 py-1.5 bg-gray-900 text-white text-[10px] font-semibold rounded shadow-md opacity-0 group-hover/save:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-[100] ${
+                  className={`absolute right-0 px-2.5 py-1.5 bg-gray-900 text-white text-[10px] font-semibold rounded shadow-md opacity-0 group-hover/save:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-100 ${
                     tooltipPos === 'top' ? 'bottom-full mb-2' : 'top-full mt-2'
                   }`}
                 >
@@ -194,7 +194,7 @@ const ActivityCard = memo(function ActivityCard({ item, index }: ActivityCardPro
           isExpanded ? 'max-h-56 opacity-100 scale-y-100' : 'max-h-0 opacity-0 scale-y-95'
         }`}
       >
-        <div className="mx-2 p-2.5 pt-4 -mt-2 bg-gradient-to-b from-white to-gray-50 rounded-b-xl border border-t-0 border-[#E5E7EB] shadow-sm flex flex-col relative z-0">
+        <div className="mx-2 p-2.5 pt-4 -mt-2 bg-linear-to-b from-white to-gray-50 rounded-b-xl border border-t-0 border-[#E5E7EB] shadow-sm flex flex-col relative z-0">
           <div className="flex items-start gap-2 text-[10px] text-[var(--color-text-secondary)] leading-relaxed">
             <BusinessCenterIcon sx={{ fontSize: 14 }} className="text-[#6B21A8] shrink-0 mt-0.5" />
             <div>

@@ -55,7 +55,7 @@ const ActiveVideoPlayer = memo(function ActiveVideoPlayer({ video, onClose }: { 
 
   return (
     <div className="relative w-full h-full bg-black flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-      <div className={`absolute inset-0 bg-gradient-to-b ${video.gradient} opacity-90`} />
+      <div className={`absolute inset-0 bg-linear-to-b ${video.gradient} opacity-90`} />
       
       <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-30">
         <button 

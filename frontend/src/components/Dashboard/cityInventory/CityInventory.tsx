@@ -38,7 +38,7 @@ function FilterDropdown({ filter, selected, onToggle, onClear, onClose }: Filter
   return (
     <div
       ref={dropdownRef}
-      className="absolute top-full left-0 mt-1.5 w-56 bg-white rounded-xl border border-gray-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.12)] z-[100] overflow-hidden animate-[filterSlideIn_200ms_ease-out]"
+      className="absolute top-full left-0 mt-1.5 w-56 bg-white rounded-xl border border-gray-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.12)] z-100 overflow-hidden animate-[filterSlideIn_200ms_ease-out]"
     >
       {/* Header */}
       <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100">
@@ -157,14 +157,14 @@ export default function CityInventory() {
       `}</style>
 
       {/* Header: Filters */}
-      <div className="sticky top-0 bg-[#F3F4F6]/95 backdrop-blur-md z-[60] shrink-0">
+      <div className="sticky top-0 bg-[#F3F4F6]/95 backdrop-blur-md z-60 shrink-0">
         <div className="bg-white px-2.5 py-2 flex items-center gap-1.5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] relative">
           {FILTERS.map((filter) => {
             const isOpen = openFilter === filter.key
             const selectedCount = selections[filter.key]?.length ?? 0
             const hasSelections = selectedCount > 0
             return (
-              <div key={filter.key} className="relative shrink-0 z-[70]">
+              <div key={filter.key} className="relative shrink-0 z-70">
                 <button
                   data-filter-btn
                   onClick={() => setOpenFilter(isOpen ? null : filter.key)}
@@ -226,7 +226,7 @@ export default function CityInventory() {
         <div className="flex-1 relative bg-[#e8ecee] overflow-hidden flex items-center justify-center">
           {/* Fake Map Grid lines */}
           <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(#cbd5e1 1px, transparent 1px), linear-gradient(90deg, #cbd5e1 1px, transparent 1px)', backgroundSize: '32px 32px', opacity: 0.25 }} />
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/20" />
+          <div className="absolute inset-0 bg-linear-to-br from-transparent via-transparent to-white/20" />
           
           {/* Map Controls */}
           <div className="absolute right-2.5 top-2.5 flex flex-col gap-1.5 z-10">

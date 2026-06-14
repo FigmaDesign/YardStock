@@ -53,11 +53,11 @@ const ActivityTabs = memo(function ActivityTabs({ active, onChange }: ActivityTa
   return (
     <div className="relative flex items-center w-full group/container">
       {canScrollLeft && (
-        <div className="absolute left-0 z-20 flex items-center h-full pl-1 pr-2 bg-gradient-to-r from-[#F3F4F6] from-60% to-transparent pointer-events-none">
+        <div className="absolute left-0 z-20 flex items-center h-full pl-1 pr-2 bg-linear-to-r from-[#F3F4F6] from-60% to-transparent pointer-events-none">
           <button
             type="button"
             onClick={() => scroll('left')}
-            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-[var(--color-text-secondary)] hover:text-[var(--color-brand-purple)] hover:scale-110 active:scale-95 transition-all pointer-events-auto"
+            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-(--color-text-secondary) hover:text-(--color-brand-purple) hover:scale-110 active:scale-95 transition-all pointer-events-auto"
             aria-label="Scroll left"
           >
             <ChevronLeftIcon sx={{ fontSize: 18 }} />
@@ -78,10 +78,10 @@ const ActivityTabs = memo(function ActivityTabs({ active, onChange }: ActivityTa
               type="button"
               data-active={isActive}
               onClick={() => onChange(tab.key)}
-              className={`group shrink-0 flex items-center justify-center px-2 py-1 rounded-[8px] text-[11px] md:text-xs font-semibold transition-all duration-300 ease-out active:scale-95 border ${
+              className={`group shrink-0 flex items-center justify-center px-2 py-1 rounded-lg text-[11px] md:text-xs font-semibold transition-all duration-300 ease-out active:scale-95 border ${
                 isActive
-                  ? 'bg-[var(--color-brand-purple)] text-white border-[var(--color-brand-purple)] shadow-[0_4px_12px_rgba(107,33,168,0.35)] hover:shadow-[0_6px_16px_rgba(107,33,168,0.45)] hover:-translate-y-[1px]'
-                  : 'hover:shadow-sm hover:-translate-y-[1px]'
+                  ? 'bg-(--color-brand-purple) text-white border-(--color-brand-purple) shadow-[0_4px_12px_rgba(107,33,168,0.35)] hover:shadow-[0_6px_16px_rgba(107,33,168,0.45)] hover:-translate-y-[1px]'
+                  : 'hover:shadow-sm hover:-translate-y-px'
               }`}
               style={!isActive && tab.color ? {
                 backgroundColor: `${tab.color}15`,
@@ -110,7 +110,7 @@ const ActivityTabs = memo(function ActivityTabs({ active, onChange }: ActivityTa
       </div>
 
       {canScrollRight && (
-        <div className="absolute right-0 z-20 flex items-center h-full pr-1 pl-4 bg-gradient-to-l from-[#F3F4F6] from-60% to-transparent pointer-events-none">
+        <div className="absolute right-0 z-20 flex items-center h-full pr-1 pl-4 bg-linear-to-l from-[#F3F4F6] from-60% to-transparent pointer-events-none">
           <button
             type="button"
             onClick={() => scroll('right')}

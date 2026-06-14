@@ -72,7 +72,7 @@ const SpotlightTabs = memo(function SpotlightTabs({ active, onChange }: Spotligh
   return (
     <div className="relative flex items-center w-full group/container">
       {canScrollLeft && (
-        <div className="absolute left-0 z-20 flex items-center h-full pl-1 pr-2 bg-gradient-to-r from-[#F3F4F6] from-60% to-transparent pointer-events-none">
+        <div className="absolute left-0 z-20 flex items-center h-full pl-1 pr-2 bg-linear-to-r from-[#F3F4F6] from-60% to-transparent pointer-events-none">
           <button
             type="button"
             onClick={() => scroll('left')}

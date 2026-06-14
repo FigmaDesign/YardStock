@@ -53,7 +53,7 @@ const LearnTabs = memo(function LearnTabs({ active, onChange }: LearnTabsProps) 
   return (
     <div className="relative flex items-center w-full group/container">
       {canScrollLeft && (
-        <div className="absolute left-0 z-20 flex items-center h-full pl-1 pr-2 bg-gradient-to-r from-[#F3F4F6] from-60% to-transparent pointer-events-none">
+        <div className="absolute left-0 z-20 flex items-center h-full pl-1 pr-2 bg-linear-to-r from-[#F3F4F6] from-60% to-transparent pointer-events-none">
           <button
             type="button"
             onClick={() => scroll('left')}
@@ -110,7 +110,7 @@ const LearnTabs = memo(function LearnTabs({ active, onChange }: LearnTabsProps) 
       </div>
 
       {canScrollRight && (
-        <div className="absolute right-0 z-20 flex items-center h-full pr-1 pl-4 bg-gradient-to-l from-[#F3F4F6] from-60% to-transparent pointer-events-none">
+        <div className="absolute right-0 z-20 flex items-center h-full pr-1 pl-4 bg-linear-to-l from-[#F3F4F6] from-60% to-transparent pointer-events-none">
           <button
             type="button"
             onClick={() => scroll('right')}

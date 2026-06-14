@@ -52,7 +52,7 @@ const StatCards = memo(function StatCards() {
           <div
             role="status"
             aria-label="Loading statistic card"
-            className={`ys-skeleton rounded-xl min-h-[5.5rem] border ${card.border} bg-gradient-to-br ${card.bgGradient} shadow-sm backdrop-blur-sm relative overflow-hidden flex items-center p-4`}
+            className={`ys-skeleton rounded-xl min-h-22 border ${card.border} bg-linear-to-br ${card.bgGradient} shadow-sm backdrop-blur-sm relative overflow-hidden flex items-center p-4`}
           >
             <card.Icon
               className="absolute -right-2 -bottom-2 opacity-[0.07]"
@@ -72,7 +72,7 @@ const RecentProperties = memo(function RecentProperties() {
       <div
         role="status"
         aria-label="Loading recent properties"
-        className="ys-skeleton rounded-xl overflow-hidden h-64 border border-[#eef0f3] bg-gradient-to-br from-white to-[#f8f9fa] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
+        className="ys-skeleton rounded-xl overflow-hidden h-64 border border-[#eef0f3] bg-linear-to-br from-white to-[#f8f9fa] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
       />
     </section>
   )
@@ -84,7 +84,7 @@ const ActivityFeed = memo(function ActivityFeed() {
       <div
         role="status"
         aria-label="Loading activity feed"
-        className="ys-skeleton rounded-xl h-64 border border-[#eef0f3] bg-gradient-to-br from-white to-[#f8f9fa] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
+        className="ys-skeleton rounded-xl h-64 border border-[#eef0f3] bg-linear-to-br from-white to-[#f8f9fa] shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
       />
     </section>
   )
@@ -106,7 +106,7 @@ function DesktopDashboard() {
   }, [])
 
   return (
-    <main className="flex flex-col h-full overflow-hidden bg-gradient-to-br from-[#f8f9fa] to-[#eef0f3]">
+    <main className="flex flex-col h-full overflow-hidden bg-linear-to-br from-[#f8f9fa] to-[#eef0f3]">
       <DashboardHeader />
 
       <nav aria-label="Main Navigation" className="shrink-0 bg-white border-b border-[#eef0f3] shadow-sm z-10">
@@ -143,7 +143,7 @@ function DesktopDashboard() {
               <p className="text-[0.7rem] font-semibold text-[#6b7280] uppercase tracking-widest truncate">
                 {activeItem?.label ?? 'Dashboard'}
               </p>
-              <h2 className="text-[1.5rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6B21A8] to-[#D946EF] mt-1 truncate">
+              <h2 className="text-[1.5rem] font-extrabold text-transparent bg-clip-text bg-linear-to-r from-[#6B21A8] to-[#D946EF] mt-1 truncate">
                 {activeSubTab}
               </h2>
             </header>

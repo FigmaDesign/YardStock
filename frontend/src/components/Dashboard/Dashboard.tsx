@@ -11,6 +11,9 @@ import { NAV_ITEMS, type NavKey } from '../commonfiles/sidebar/data'
 import ActivityBoard from './activityBoard/ActivityBoard'
 import Podcasts from './podcasts/Podcasts'
 import Spotlight from './spotlight/Spotlight'
+import Learn from './learn/Learn'
+import Directory from './directory/Directory'
+import CityInventory from './cityInventory/CityInventory'
 import DashboardHeader from './DashboardHeader'
 
 interface DashboardProps {
@@ -128,6 +131,12 @@ function DesktopDashboard() {
           <Podcasts />
         ) : activeTab === 'spotlight' ? (
           <Spotlight />
+        ) : activeTab === 'learn' ? (
+          <Learn />
+        ) : activeTab === 'directory' ? (
+          <Directory />
+        ) : activeTab === 'cityInventory' ? (
+          <CityInventory />
         ) : (
           <div className="flex-1 overflow-y-auto px-6 py-6">
             <header className="mb-6">
@@ -196,6 +205,12 @@ function MobileDashboard() {
           <Podcasts />
         ) : activeTab === 'spotlight' ? (
           <Spotlight />
+        ) : activeTab === 'learn' ? (
+          <Learn />
+        ) : activeTab === 'directory' ? (
+          <Directory />
+        ) : activeTab === 'cityInventory' ? (
+          <CityInventory />
         ) : (
           <div className="flex-1 overflow-y-auto px-2 py-2 bg-white">
             <header className="mb-5">

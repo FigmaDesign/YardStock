@@ -28,8 +28,8 @@ export const NAV_ITEMS: NavItem[] = [
   { key: 'spotlight',     label: 'Spotlight',      Icon: '▶️' },
   { key: 'directory',     label: 'Directory',      Icon: '📇' },
   { key: 'cityInventory', label: 'City Inventory', Icon: '🏛️' },
-  { key: 'showcase',      label: 'Showcase',       Icon: '🗂️' },
+/*   { key: 'showcase',      label: 'Showcase',       Icon: '🗂️' },
   { key: 'events',        label: 'Events',         Icon: '📅' },
   { key: 'analytics',     label: 'Analytics',      Icon: '📈' },
-  { key: 'settings',      label: 'Settings',       Icon: '⚙️', hasArrow: true },
+  { key: 'settings',      label: 'Settings',       Icon: '⚙️', hasArrow: true }, */
 ]

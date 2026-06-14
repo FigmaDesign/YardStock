@@ -27,14 +27,14 @@ const TabCard = memo(({ tabKey, label, Icon, badge, isActive, onClick }: TabCard
     id={`tab-${tabKey}`}
     aria-controls={`panel-${tabKey}`}
     onClick={(e) => onClick(tabKey, e.currentTarget)}
-    className={`relative shrink-0 flex flex-col items-center justify-center gap-[2px] transition-all duration-300 outline-none cursor-pointer w-[76px] h-[72px] px-1 py-1 rounded-[18px] ${
+    className={`relative shrink-0 flex flex-col items-center justify-center gap-0.5 transition-all duration-300 outline-none cursor-pointer w-18 h-18 px-1 py-1 rounded-[18px] ${
       isActive
-        ? 'bg-gradient-to-b from-[#FAF7FF] to-[#F2EAFF] shadow-[0_4px_16px_rgba(124,58,237,0.18)] border border-[#C4B5FD] -py-2'
+        ? 'bg-linear-to-b from-[#FAF7FF] to-[#F2EAFF] shadow-[0_4px_16px_rgba(124,58,237,0.18)] border border-[#C4B5FD] -py-2'
         : 'bg-transparent border border-gray-200'
     }`}
   >
     {badge && (
-      <span className="absolute -top-1 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] font-semibold px-1.5 py-[2px] rounded-full bg-[#7C3AED] text-white leading-none z-10">
+      <span className="absolute -top-1 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-[#7C3AED] text-white leading-none z-10">
         {badge}
       </span>
     )}
@@ -42,11 +42,9 @@ const TabCard = memo(({ tabKey, label, Icon, badge, isActive, onClick }: TabCard
     <span className={`transition-all duration-300 ${isActive ? 'text-[22px]' : 'text-[20px]'}`}>
       {Icon}
     </span>
-
-    {/* 2. Added w-full, line-clamp-2, and break-words for text wrapping */}
     <span
       title={label}
-      className={`w-full px-0.5 text-[10px] leading-[1.2] text-center line-clamp-2 break-words transition-all duration-300 ${
+      className={`w-full px-0.5 text-[10px] leading-[1.2] text-center line-clamp-2 wrap-break-word transition-all duration-300 ${
         isActive ? 'font-semibold text-[#7C3AED]' : 'font-medium text-[#374151]'
       }`}
     >

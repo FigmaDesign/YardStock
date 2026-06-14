@@ -59,7 +59,7 @@ const StandardNavButton = memo(function StandardNavButton({ item, isActive, onCl
       {isActive && (
         <div
           aria-hidden="true"
-          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[#D946EF] shadow-[0_0_8px_rgba(217,70,239,0.5)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
+          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-0.75 rounded-sm bg-[#D946EF] shadow-[0_0_8px_rgba(217,70,239,0.5)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
         />
       )}
     </button>
@@ -78,9 +78,9 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
       onClick={() => onClick(key)}
       className="group relative flex flex-1 flex-col items-center justify-end min-w-0 py-2 sm:py-2.5 px-1 border-none outline-none cursor-pointer bg-transparent focus-visible:outline-none [-webkit-tap-highlight-color:transparent]"
     >
-      <div className="absolute top-[-18px] left-1/2 -translate-x-1/2 z-20">
+      <div className="absolute -top-4.5 left-1/2 -translate-x-1/2 z-20">
         <div
-          className={`relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#D946EF] transition-all duration-300 ease-out border border-white/20 group-active:scale-90 ${
+          className={`relative flex items-center justify-center w-12 h-12 rounded-xl bg-linear-to-tr from-[#7C3AED] to-[#D946EF] transition-all duration-300 ease-out border border-white/20 group-active:scale-90 ${
             isActive 
               ? 'shadow-[0_0_15px_rgba(217,70,239,0.4)] translate-y-0.5' 
               : 'shadow-[0_4px_12px_rgba(124,58,237,0.25)] hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(217,70,239,0.35)]'
@@ -90,15 +90,15 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
             size={24}
             strokeWidth={2.5}
             className={`text-white transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-              isActive ? 'rotate-[135deg] scale-110' : 'rotate-0 scale-100 group-hover:rotate-90'
+              isActive ? 'rotate-135 scale-110' : 'rotate-0 scale-100 group-hover:rotate-90'
             }`}
           />
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/30 to-transparent opacity-50 pointer-events-none" />
+          <div className="absolute inset-0 rounded-xl bg-linear-to-b from-white/30 to-transparent opacity-50 pointer-events-none" />
         </div>
       </div>
 
       <span
-        className={`relative z-10 font-['Outfit',sans-serif] text-[10px] uppercase tracking-[0.2px] leading-none transition-all duration-300 mt-[26px] ${
+        className={`relative z-10 font-['Outfit',sans-serif] text-[10px] uppercase tracking-[0.2px] leading-none transition-all duration-300 mt-6.5 ${
           isActive
             ? 'font-bold text-[#7C3AED]'
             : 'font-semibold text-[#4B5563] group-hover:text-[#6B21A8]'
@@ -110,7 +110,7 @@ const PostNavButton = memo(function PostNavButton({ item, isActive, onClick }: F
       {isActive && (
         <div
           aria-hidden="true"
-          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-[3px] rounded-sm bg-[#D946EF] shadow-[0_0_8px_rgba(217,70,239,0.5)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
+          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-0.75 rounded-sm bg-[#D946EF] shadow-[0_0_8px_rgba(217,70,239,0.5)] animate-[fadeScale_0.3s_ease-out_0.1s_both]"
         />
       )}
     </button>
@@ -131,10 +131,10 @@ export default memo(function FooterNav({ active, onChange }: FooterNavProps) {
       className="shrink-0 relative z-40 bg-[#FFFFFF]/95 backdrop-blur-2xl backdrop-saturate-150 border-t border-[#E5E7EB]"
     >
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#F3F4F6]/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#F3F4F6]/60 to-transparent" />
       </div>
 
-      <div
+      <div 
         role="tablist"
         aria-orientation="horizontal"
         className="relative z-10 flex items-stretch w-full max-w-lg mx-auto pb-[env(safe-area-inset-bottom)]"

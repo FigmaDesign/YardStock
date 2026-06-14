@@ -57,7 +57,7 @@ const LearnTabs = memo(function LearnTabs({ active, onChange }: LearnTabsProps) 
           <button
             type="button"
             onClick={() => scroll('left')}
-            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-[var(--color-text-secondary)] hover:text-[var(--color-brand-purple)] hover:scale-110 active:scale-95 transition-all pointer-events-auto"
+            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-(--color-text-secondary) hover:text-(--color-brand-purple) hover:scale-110 active:scale-95 transition-all pointer-events-auto"
             aria-label="Scroll left"
           >
             <ChevronLeftIcon sx={{ fontSize: 18 }} />
@@ -68,7 +68,7 @@ const LearnTabs = memo(function LearnTabs({ active, onChange }: LearnTabsProps) 
       <div 
         ref={scrollRef}
         onScroll={checkScroll}
-        className="flex items-center bg-white gap-1 px-2 py-2 overflow-x-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth relative z-10"
+        className="flex items-center bg-white gap-1 px-2 py-2 overflow-x-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none scroll-smooth relative z-10"
       >
         {LEARN_TABS.map((tab) => {
           const isActive = active === tab.key
@@ -78,10 +78,10 @@ const LearnTabs = memo(function LearnTabs({ active, onChange }: LearnTabsProps) 
               type="button"
               data-active={isActive}
               onClick={() => onChange(tab.key)}
-              className={`group shrink-0 flex items-center justify-center px-2 py-1 rounded-[8px] text-[11px] md:text-xs font-semibold transition-all duration-300 ease-out active:scale-95 border ${
+              className={`group shrink-0 flex items-center justify-center px-2 py-1 rounded-lg text-[11px] md:text-xs font-semibold transition-all duration-300 ease-out active:scale-95 border ${
                 isActive
-                  ? 'bg-[var(--color-brand-purple)] text-white border-[var(--color-brand-purple)] shadow-[0_4px_12px_rgba(107,33,168,0.35)] hover:shadow-[0_6px_16px_rgba(107,33,168,0.45)] hover:-translate-y-[1px]'
-                  : 'hover:shadow-sm hover:-translate-y-[1px]'
+                  ? 'bg-(--color-brand-purple) text-white border-(--color-brand-purple) shadow-[0_4px_12px_rgba(107,33,168,0.35)] hover:shadow-[0_6px_16px_rgba(107,33,168,0.45)] hover:-translate-y-px'
+                  : 'hover:shadow-sm hover:-translate-y-px'
               }`}
               style={!isActive && tab.color ? {
                 backgroundColor: `${tab.color}15`,
@@ -98,12 +98,12 @@ const LearnTabs = memo(function LearnTabs({ active, onChange }: LearnTabsProps) 
 
         <button
           type="button"
-          className="group shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-[8px] border border-[var(--color-border-default)] bg-white text-[var(--color-text-primary)] hover:bg-gray-50 transition-all duration-300 ease-out active:scale-95 hover:shadow-sm hover:-translate-y-[1px] font-semibold text-[11px] md:text-xs"
+          className="group shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg border border-(--color-border-default) bg-white text-(--color-text-primary) hover:bg-gray-50 transition-all duration-300 ease-out active:scale-95 hover:shadow-sm hover:-translate-y-px font-semibold text-[11px] md:text-xs"
           aria-label="Filter options"
         >
           <TuneIcon 
             sx={{ fontSize: 16 }} 
-            className="text-[var(--color-brand-purple)] transition-transform duration-300 ease-out group-hover:rotate-90" 
+            className="text-(--color-brand-purple) transition-transform duration-300 ease-out group-hover:rotate-90" 
           />
           Filter
         </button>
@@ -114,7 +114,7 @@ const LearnTabs = memo(function LearnTabs({ active, onChange }: LearnTabsProps) 
           <button
             type="button"
             onClick={() => scroll('right')}
-            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-[var(--color-text-secondary)] hover:text-[var(--color-brand-purple)] hover:scale-110 active:scale-95 transition-all pointer-events-auto"
+            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-(--color-text-secondary) hover:text-(--color-brand-purple) hover:scale-110 active:scale-95 transition-all pointer-events-auto"
             aria-label="Scroll right"
           >
             <ChevronRightIcon sx={{ fontSize: 18 }} />

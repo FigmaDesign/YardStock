@@ -149,7 +149,7 @@ export default function Learn() {
         <LearnTabs active={activeFilter} onChange={handleFilterChange} />
       </div>
       
-      <div className="w-full pt-3 pb-8">
+      <div className="w-full pt-1 pb-8">
         {displayedCourses.length === 0 ? (
           <div className="flex flex-col items-center justify-center p-10 text-center text-(--color-text-secondary)">
             <p className="text-[14px]">No courses available in this category.</p>

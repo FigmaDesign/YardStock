@@ -30,11 +30,16 @@ const TabButton = memo(function TabButton({
       aria-pressed={isActive}
       data-active={isActive}
       onClick={() => onClick(tab.key)}
-      className={`group shrink-0 flex items-center justify-center px-3 py-1.5 rounded-lg text-[11px] md:text-xs font-semibold transition-all duration-300 ease-out active:scale-95 border outline-none ${
+      className={`group shrink-0 flex items-center justify-center px-2 py-1 rounded-lg text-[11px] md:text-xs font-semibold transition-all duration-300 ease-out active:scale-95 border outline-none ${
         isActive
-          ? 'bg-[#6B21A8] text-white border-[#6B21A8] shadow-[0_4px_12px_rgba(107,33,168,0.35)] hover:shadow-[0_6px_16px_rgba(107,33,168,0.45)] hover:-translate-y-px'
+          ? 'bg-(--color-brand-purple) text-white border-(--color-brand-purple) shadow-[0_4px_12px_rgba(107,33,168,0.35)] hover:shadow-[0_6px_16px_rgba(107,33,168,0.45)] hover:-translate-y-px'
           : 'bg-white text-(--color-text-secondary) border-(--color-border-default) hover:shadow-sm hover:-translate-y-px'
       }`}
+      style={!isActive && tab.color ? {
+        backgroundColor: `${tab.color}15`,
+        color: tab.color,
+        borderColor: `${tab.color}40`,
+      } : undefined}
     >
       <span>{tab.label}</span>
     </button>
@@ -89,10 +94,10 @@ const PodcastTabs = memo(function PodcastTabs({ active, onChange }: PodcastTabsP
           <button
             type="button"
             onClick={() => scrollByAmount('left')}
-            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-(--color-text-secondary) hover:text-[#6B21A8] hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer outline-none"
+            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-(--color-text-secondary) hover:text-(--color-brand-purple) hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer outline-none"
             aria-label="Scroll left"
           >
-            <ChevronLeftIcon className="text-[18px]" />
+            <ChevronLeftIcon sx={{ fontSize: 18 }} />
           </button>
         </div>
       )}
@@ -100,12 +105,12 @@ const PodcastTabs = memo(function PodcastTabs({ active, onChange }: PodcastTabsP
       <div 
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex items-center gap-1 px-1 py-1 overflow-x-auto w-full scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-width:none relative z-10"
+        className="flex items-center gap-1 px-2 py-2 overflow-x-auto w-full scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-width:none relative z-10"
       >
         <div 
           role="group" 
           aria-label="Podcast category filters" 
-          className="flex items-center gap-1.5 shrink-0"
+          className="flex items-center gap-1 shrink-0"
         >
           {FILTER_TABS.map((tab) => (
             <TabButton 
@@ -125,7 +130,8 @@ const PodcastTabs = memo(function PodcastTabs({ active, onChange }: PodcastTabsP
           aria-label="Filter options"
         >
           <TuneIcon 
-            className="text-[#6B21A8] transition-transform duration-300 ease-out group-hover:rotate-90 text-[16px]" 
+            sx={{ fontSize: 16 }} 
+            className="text-(--color-brand-purple) transition-transform duration-300 ease-out group-hover:rotate-90" 
             aria-hidden="true"
           />
           Filter
@@ -137,10 +143,10 @@ const PodcastTabs = memo(function PodcastTabs({ active, onChange }: PodcastTabsP
           <button
             type="button"
             onClick={() => scrollByAmount('right')}
-            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-(--color-text-secondary) hover:text-[#6B21A8] hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer outline-none"
+            className="flex items-center justify-center w-6 h-6 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] text-(--color-text-secondary) hover:text-(--color-brand-purple) hover:scale-110 active:scale-95 transition-all pointer-events-auto cursor-pointer outline-none"
             aria-label="Scroll right"
           >
-            <ChevronRightIcon className="text-[18px]" />
+            <ChevronRightIcon sx={{ fontSize: 18 }} />
           </button>
         </div>
       )}

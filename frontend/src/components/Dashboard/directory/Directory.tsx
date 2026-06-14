@@ -3,6 +3,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import VerifiedIcon from '@mui/icons-material/Verified'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import { BUILDERS } from './data'
 
 export default function Directory() {
@@ -12,11 +13,10 @@ export default function Directory() {
   const recentlyJoined = BUILDERS.filter(b => b.isRecentlyJoined)
 
   return (
-    <div className="flex-1 w-full h-full overflow-y-auto bg-[#F3F4F6] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-      <div className="w-full pt-1 pb-1">
-        <section className="px-2 md:px-4 max-w-4xl mx-auto">
+    <div className="flex-1 w-full h-full overflow-y-auto bg-white [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div className="w-full pb-1">
+        <section className="px-2 md:px-2 max-w-4xl mx-auto">
           <div className="mb-4 mx-2">
-            <h1 className="text-xl font-bold text-[var(--color-text-primary)] mb-1">Directory</h1>
           </div>
 
           <div className="relative mb-6 mx-2 flex items-center border border-[var(--color-border-default)] rounded-xl overflow-hidden focus-within:border-[var(--color-brand-magenta)]/30 transition-colors shadow-sm bg-white">
@@ -39,8 +39,9 @@ export default function Directory() {
           <div className="mb-8 mx-2">
             <div className="flex justify-between items-center mb-3">
               <h2 className="text-[14px] font-bold text-[var(--color-text-primary)]">Featured Builders</h2>
-              <button className="text-[10px] font-bold text-[var(--color-brand-purple)] hover:text-[var(--color-brand-purple-mid)] transition-colors">
+              <button className="flex items-center text-[10px] font-bold text-[var(--color-brand-purple)] hover:text-[var(--color-brand-purple-mid)] transition-colors">
                 See all
+                <ChevronRightIcon sx={{ fontSize: 14, ml: 0.5 }} />
               </button>
             </div>
             <div className="flex gap-3 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
@@ -80,8 +81,9 @@ export default function Directory() {
           <div className="mx-2">
             <div className="flex justify-between items-center mb-3">
               <h2 className="text-[14px] font-bold text-[var(--color-text-primary)]">Recently Joined</h2>
-              <button className="text-[10px] font-bold text-[var(--color-brand-purple)] hover:text-[var(--color-brand-purple-mid)] transition-colors">
+              <button className="flex items-center text-[10px] font-bold text-[var(--color-brand-purple)] hover:text-[var(--color-brand-purple-mid)] transition-colors">
                 See all
+                <ChevronRightIcon sx={{ fontSize: 14, ml: 0.5 }} />
               </button>
             </div>
             <div className="flex flex-col gap-3">
@@ -115,7 +117,7 @@ export default function Directory() {
                       <span className="truncate">{builder.location}</span>
                     </div>
                   </div>
-                  <button className="shrink-0 px-3 py-1.5 bg-white hover:bg-[var(--color-brand-magenta)]/5 border border-[var(--color-brand-magenta)]/30 text-[var(--color-brand-magenta)] rounded-md text-[10px] font-bold transition-all active:scale-95 shadow-sm">
+                  <button className="shrink-0 px-3 py-1.5 bg-white border border-[var(--color-brand-magenta)]/30 text-[var(--color-brand-magenta)] hover:bg-[var(--color-brand-magenta)] hover:text-white rounded-md text-[10px] font-bold transition-all active:scale-95 shadow-sm">
                     Connect
                   </button>
                 </div>

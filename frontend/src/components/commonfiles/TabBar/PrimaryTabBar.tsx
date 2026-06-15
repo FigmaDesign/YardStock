@@ -1,9 +1,9 @@
-import { useRef, useCallback, memo, type ReactNode } from 'react'
+import { useRef, useCallback, memo } from 'react'
 
 export interface PrimaryTabItem {
   key: string
   label: string
-  Icon: ReactNode
+  Icon: string
   badge?: string
 }
 
@@ -39,9 +39,14 @@ const TabCard = memo(({ tabKey, label, Icon, badge, isActive, onClick }: TabCard
       </span>
     )}
 
-    <span className={`transition-all duration-300 ${isActive ? 'text-[22px]' : 'text-[20px]'}`}>
-      {Icon}
+    <span className={`flex items-center justify-center transition-all duration-300 ${isActive ? 'h-8 w-8 text-[22px]' : 'h-7 w-7 text-[20px]'}`}>
+      {Icon.includes('/') || Icon.includes('.png') ? (
+        <img src={Icon} alt={`${label} icon`} className="w-full h-full object-contain" />
+      ) : (
+        <span>{Icon}</span>
+      )}
     </span>
+    
     <span
       title={label}
       className={`w-full px-0.5 text-[10px] leading-[1.2] text-center line-clamp-2 wrap-break-word transition-all duration-300 ${
@@ -78,7 +83,7 @@ export const PrimaryTabBar = memo(function PrimaryTabBar({ tabs, active, onChang
         ref={scrollRef}
         role="tablist"
         aria-orientation="horizontal"
-        className="relative z-10 flex items-center gap-1.5 overflow-x-auto px-2 py-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="relative z-10 flex items-center gap-1.5 overflow-x-auto px-2 py-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none"
       >
         {tabs.map(({ key, label, Icon, badge }) => (
           <TabCard
@@ -96,4 +101,4 @@ export const PrimaryTabBar = memo(function PrimaryTabBar({ tabs, active, onChang
   )
 })
 
-export default PrimaryTabBar;
+export default PrimaryTabBar

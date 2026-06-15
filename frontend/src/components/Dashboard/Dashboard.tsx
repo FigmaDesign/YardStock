@@ -109,7 +109,7 @@ function DesktopDashboard() {
     <main className="flex flex-col h-full overflow-hidden bg-linear-to-br from-[#f8f9fa] to-[#eef0f3]">
       <DashboardHeader />
 
-      <nav aria-label="Main Navigation" className="shrink-0 bg-white border-b border-[#eef0f3] shadow-sm z-10">
+      <nav aria-label="Main Navigation" className="shrink-0 bg-white  shadow-sm z-10">
         <TabBar
           tabs={TAB_ITEMS}
           active={activeTab}

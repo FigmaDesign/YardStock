@@ -5,9 +5,12 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import BookmarkIcon from '@mui/icons-material/Bookmark'
 import CloseIcon from '@mui/icons-material/Close'
+import CircularProgress from '@mui/material/CircularProgress'
 
 import ActivityTabs from './ActivityTabs'
 import { ACTIVITY_ITEMS, type ActivityItem } from './data'
+
+const ITEMS_PER_PAGE = 8
 
 interface ActivityCardProps {
   item: ActivityItem
@@ -66,21 +69,23 @@ const ActivityCard = memo(function ActivityCard({ item, index }: ActivityCardPro
   }
 
   return (
-    <div className="relative mb-3 mx-2">
-      <div className="relative z-10 rounded-xl">
-        <div className="absolute inset-y-0 right-0 w-20 bg-red-500 rounded-r-xl flex flex-col items-center justify-center text-white md:hidden z-0">
+    <div className="relative mb-2.5">
+      <div className="relative z-10 rounded-lg">
+        {/* Swipe Action Background */}
+        <div className="absolute inset-y-0 right-0 w-20 bg-red-500 rounded-r-lg flex flex-col items-center justify-center text-white md:hidden z-0">
           <button 
             type="button"
-            className="flex flex-col items-center justify-center w-full h-full active:bg-red-600 transition-colors border-none outline-none cursor-pointer bg-transparent"
+            className="flex flex-col items-center justify-center w-full h-full active:bg-red-600 transition-colors border-none outline-none cursor-pointer bg-transparent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white"
             onClick={() => console.log('Not Interested in', item.id)}
           >
-            <CloseIcon sx={{ fontSize: 24 }} />
-            <span className="text-[10px] font-semibold mt-1 px-2 text-center leading-tight">
+            <CloseIcon sx={{ fontSize: 20 }} />
+            <span className="text-[9px] font-bold mt-0.5 px-2 text-center leading-tight">
               Not<br />Interested
             </span>
           </button>
         </div>
 
+        {/* Main Card */}
         <div 
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -90,10 +95,11 @@ const ActivityCard = memo(function ActivityCard({ item, index }: ActivityCardPro
             transitionDuration: isSwiping ? '0ms' : '200ms',
             backgroundColor: item.cardBg || '#FFFFFF'
           }}
-          className="relative flex flex-col p-3 border border-[#E5E7EB] rounded-xl z-10 transition-colors min-h-20 ease-out"
+          className="relative flex flex-col p-2.5 @md:p-3 border border-gray-100 rounded-lg z-10 transition-colors min-h-20 ease-out hover:border-gray-200 hover:shadow-[0_4px_16px_rgba(0,0,0,0.03)]"
         >
-          <div className="absolute top-2.5 right-2 bottom-3 z-20 flex flex-col items-end justify-between pointer-events-none">
+          <div className="absolute top-2 right-2 bottom-2 z-20 flex flex-col items-end justify-between pointer-events-none">
             
+            {/* Save Button */}
             <div className="flex items-center pointer-events-auto">
               <div 
                 ref={saveBtnRef}
@@ -103,30 +109,31 @@ const ActivityCard = memo(function ActivityCard({ item, index }: ActivityCardPro
               >
                 <button 
                   onClick={toggleSave}
-                  className="flex items-center justify-center p-1 focus:outline-none transition-transform duration-300 active:scale-90 text-[#6B21A8] bg-transparent border-none"
+                  className="flex items-center justify-center p-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6a5fc1]/50 transition-transform duration-300 active:scale-90 text-[#6a5fc1] bg-transparent border-none hover:bg-gray-50"
                   aria-label={isSaved ? "Saved" : "Save"}
                 >
                   {isSaved ? <BookmarkIcon sx={{ fontSize: 16 }} /> : <BookmarkBorderIcon sx={{ fontSize: 16 }} />}
                 </button>
                 
                 <span 
-                  className={`absolute right-0 px-2.5 py-1.5 bg-gray-900 text-white text-[10px] font-semibold rounded opacity-0 group-hover/save:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-100 ${
-                    tooltipPos === 'top' ? 'bottom-full mb-2' : 'top-full mt-2'
+                  className={`absolute right-0 px-2 py-1 bg-gray-900 text-white text-[9px] font-bold rounded-sm opacity-0 group-hover/save:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-100 ${
+                    tooltipPos === 'top' ? 'bottom-full mb-1.5' : 'top-full mt-1.5'
                   }`}
                 >
                   {isSaved ? 'Saved to List' : 'Save for Later'}
                   <div 
-                    className={`absolute right-2.5 w-2 h-2 bg-gray-900 rotate-45 ${
-                      tooltipPos === 'top' ? '-bottom-1' : '-top-1'
+                    className={`absolute right-2 w-1.5 h-1.5 bg-gray-900 rotate-45 ${
+                      tooltipPos === 'top' ? '-bottom-0.5' : '-top-0.5'
                     }`}
                   />
                 </span>
               </div>
             </div>
 
+            {/* Expand Toggle */}
             <button 
               onClick={(e) => { e.stopPropagation(); setIsExpanded(!isExpanded); }}
-              className="flex items-center gap-0.5 px-2 py-1 bg-white hover:bg-gray-50 rounded border border-(--color-brand-magenta)/20 text-(--color-brand-magenta) font-bold text-[10px] transition-all active:scale-95 focus:outline-none pointer-events-auto"
+              className="flex items-center gap-0.5 px-2 py-1 bg-white hover:bg-gray-50 rounded-md border border-pink-500/20 text-pink-600 font-bold text-[9px] @md:text-[10px] transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500/50 pointer-events-auto shadow-sm"
             >
               {isExpanded ? 'Hide' : 'View'} 
               <KeyboardArrowDownIcon 
@@ -137,19 +144,20 @@ const ActivityCard = memo(function ActivityCard({ item, index }: ActivityCardPro
           </div>
 
           <div className="flex items-start gap-2.5 w-full overflow-hidden pr-12">
+            {/* Logo */}
             {item.logoImg ? (
               <img 
                 src={item.logoImg} 
                 alt={item.company} 
-                className="w-10 h-10 rounded-sm object-cover shrink-0 mt-0.5" 
+                className="w-10 h-10 @md:w-12 @md:h-12 rounded-md object-cover shrink-0 border border-black/5" 
               />
             ) : (
               <div 
-                className="w-10 h-10 rounded-sm flex items-center justify-center shrink-0 mt-0.5"
+                className="w-10 h-10 @md:w-12 @md:h-12 rounded-md flex items-center justify-center shrink-0 border border-black/5"
                 style={{ backgroundColor: item.logoBg, color: item.logoColor }}
               >
                 <span 
-                  className="text-center font-bold text-[9px] leading-tight whitespace-pre-wrap tracking-wide" 
+                  className="text-center font-bold text-[9px] @md:text-[10px] leading-tight whitespace-pre-wrap tracking-wide" 
                   style={{ color: item.logoColor }}
                 >
                   {item.logoText}
@@ -157,26 +165,27 @@ const ActivityCard = memo(function ActivityCard({ item, index }: ActivityCardPro
               </div>
             )}
             
-            <div className="flex flex-col min-w-0 w-full">
+            {/* Content Info */}
+            <div className="flex flex-col min-w-0 w-full py-0.5">
               <div className="flex items-center gap-1">
-                <span className="text-[12px] text-(--color-text-primary) truncate">
+                <span className="text-[11px] @md:text-[12px] font-semibold text-[#1f1633] truncate">
                   {item.company}
                 </span>
-                {item.verified && <VerifiedIcon sx={{ fontSize: 12 }} className="text-[#3B82F6] shrink-0" />}
+                {item.verified && <VerifiedIcon sx={{ fontSize: 12 }} className="text-blue-500 shrink-0" />}
               </div>
               
-              <h3 className="text-[12px] font-medium text-(--color-text-primary) mt-0.5 leading-snug truncate">
+              <h3 className="text-[12px] @md:text-[13px] font-bold text-[#1f1633] mt-0.5 leading-snug truncate">
                 {item.title}
               </h3>
               
-              <div className="flex items-center w-full mt-3 gap-1.5 min-w-0">
+              <div className="flex items-center w-full mt-2 gap-1.5 min-w-0">
                 <span 
-                  className="px-1.5 py-0.5 rounded text-[9px] font-bold tracking-wide uppercase shrink-0"
+                  className="px-1.5 py-0.5 rounded-sm text-[8px] @md:text-[9px] font-bold tracking-wide uppercase shrink-0"
                   style={{ backgroundColor: item.tagBg, color: item.tagColor }}
                 >
                   {item.tag}
                 </span>
-                <span className="text-[10px] font-medium text-(--color-text-secondary) truncate">
+                <span className="text-[10px] font-medium text-gray-500 truncate">
                   {item.detail}
                 </span>
               </div>
@@ -185,30 +194,38 @@ const ActivityCard = memo(function ActivityCard({ item, index }: ActivityCardPro
         </div>
       </div>
 
+      {/* Expanded Details Section */}
       <div 
         className={`transition-all duration-300 ease-in-out overflow-hidden transform origin-top ${
           isExpanded ? 'max-h-56 opacity-100 scale-y-100' : 'max-h-0 opacity-0 scale-y-95'
         }`}
       >
-        <div className="mx-2 p-2.5 pt-4 -mt-2 bg-white rounded-b-xl border border-t-0 border-[#E5E7EB] flex flex-col relative z-0">
-          <div className="flex items-start gap-2 text-[10px] text-(--color-text-secondary) leading-relaxed">
-            <BusinessCenterIcon sx={{ fontSize: 14 }} className="text-[#6B21A8] shrink-0 mt-0.5" />
+        <div className="mx-2 p-3 pt-4 -mt-2 bg-gray-50/50 rounded-b-lg border border-t-0 border-gray-100 flex flex-col relative z-0">
+          <div className="flex items-start gap-2 text-[10px] @md:text-[11px] text-gray-500 leading-relaxed">
+            <BusinessCenterIcon sx={{ fontSize: 14 }} className="text-[#6a5fc1] shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-(--color-text-primary) block mb-0.5">Role Overview</span>
-              We are actively looking for candidates/agencies specializing in <strong className="text-gray-700">{item.tag}</strong> to fulfill the requirements for <strong className="text-gray-700">{item.title}</strong>. 
+              <span className="font-bold text-[#1f1633] block mb-0.5">Role Overview</span>
+              We are actively looking for candidates/agencies specializing in <strong className="text-[#1f1633]">{item.tag}</strong> to fulfill the requirements for <strong className="text-[#1f1633]">{item.title}</strong>. 
             </div>
           </div>
           
-          <div className="pl-4 text-[10px] text-(--color-text-secondary) border-l-2 border-[#E5E7EB] ml-1.5 mt-2">
-            <ul className="list-disc pl-3 space-y-0.5 marker:text-gray-400">
-              <li><strong>Budget:</strong> {item.detail}</li>
-              <li><strong>Company:</strong> {item.company} {item.verified ? '(Verified)' : ''}</li>
+          <div className="pl-4 text-[10px] @md:text-[11px] text-gray-500 border-l-2 border-gray-200 ml-1.5 mt-2">
+            <ul className="list-disc pl-3 space-y-0.5 marker:text-gray-300">
+              <li><strong className="text-gray-600">Budget:</strong> {item.detail}</li>
+              <li><strong className="text-gray-600">Company:</strong> {item.company} {item.verified ? '(Verified)' : ''}</li>
               <li>Portfolio and relevant experience required.</li>
             </ul>
           </div>
 
           <div className="mt-3 flex justify-end">
-            <button className="px-4 py-1.5 rounded-md bg-(--color-brand-magenta) text-white text-[10px] font-bold hover:bg-(--color-brand-magenta)/90 transition-all active:scale-95 border border-transparent hover:border-black/10">
+            <button className="
+              px-4 py-1.5 rounded-md text-[10px] @md:text-[11px] font-bold text-white
+              bg-linear-to-r from-pink-500 to-rose-500 
+              hover:from-rose-500 hover:to-pink-500 
+              shadow-[0_2px_8px_rgba(236,72,153,0.25)] hover:shadow-[0_4px_12px_rgba(225,29,72,0.35)]
+              transition-all duration-300 active:scale-95
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500/50
+            ">
               Apply / Connect
             </button>
           </div>
@@ -220,20 +237,87 @@ const ActivityCard = memo(function ActivityCard({ item, index }: ActivityCardPro
 
 export default function ActivityBoard() {
   const [activeFilter, setActiveFilter] = useState('all')
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const filteredItems = activeFilter === 'all'
+    ? ACTIVITY_ITEMS
+    : ACTIVITY_ITEMS.filter(item => item.tag.toLowerCase() === activeFilter.toLowerCase())
+
+  const displayedItems = filteredItems.slice(0, visibleCount)
+  const hasMore = visibleCount < filteredItems.length
 
   const handleFilterChange = useCallback((key: string) => {
     setActiveFilter(key)
+    setVisibleCount(ITEMS_PER_PAGE)
   }, [])
 
+  const handleLoadMore = () => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setVisibleCount(prev => prev + ITEMS_PER_PAGE)
+      setIsLoading(false)
+    }, 600)
+  }
+
   return (
-    <div className="flex-1 w-full h-full overflow-y-auto bg-white [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none">
-      <div className="sticky top-0 z-30 bg-white">
+    <div className="flex-1 w-full h-full overflow-y-auto bg-white font-['Outfit',sans-serif] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none @container outline-none">
+      
+      {/* Sticky Tabs */}
+      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
         <ActivityTabs active={activeFilter} onChange={handleFilterChange} />
       </div>
-      <div className="w-full pt-1 pb-8">
-        {ACTIVITY_ITEMS.map((item, index) => (
-          <ActivityCard key={item.id} item={item} index={index} />
-        ))}
+      
+      {/* Main Content Area */}
+      <div className="w-full pt-3 pb-16 @md:pb-10 max-w-5xl mx-auto px-3 @md:px-6">
+        
+        {displayedItems.length === 0 ? (
+          <div className="flex flex-col items-center justify-center p-8 text-center">
+            <div className="w-12 h-12 mb-3 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center">
+              <span className="text-xl">📭</span>
+            </div>
+            <h3 className="text-sm font-bold text-[#1f1633] mb-0.5">No activities found</h3>
+            <p className="text-xs text-gray-500">There are no matching items in this category.</p>
+          </div>
+        ) : (
+          <div className="flex flex-col">
+            {displayedItems.map((item, index) => (
+              <ActivityCard key={item.id} item={item} index={index} />
+            ))}
+          </div>
+        )}
+
+        {/* Animated Purple Load More Button */}
+        {hasMore && (
+          <div className="flex justify-center mt-4 @md:mt-5 mb-4">
+            <button 
+              onClick={handleLoadMore}
+              disabled={isLoading}
+              className="
+                group flex items-center justify-center gap-2 px-6 py-2.5 min-w-35 
+                text-xs font-bold text-white rounded-md
+                bg-linear-to-r from-[#6a5fc1] via-[#8b5cf6] to-[#6a5fc1] bg-size-[200%_auto]
+                shadow-[0_4px_12px_rgba(106,95,193,0.25)]
+                hover:bg-position-[100%_center] hover:shadow-[0_6px_16px_rgba(106,95,193,0.4)] 
+                hover:-translate-y-px hover:scale-[1.02]
+                transition-all duration-500 ease-out active:scale-95 
+                disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:transform-none 
+                disabled:hover:shadow-[0_4px_12px_rgba(106,95,193,0.25)] disabled:hover:bg-position-[0%_center]
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6a5fc1]/70
+              "
+            >
+              {isLoading ? (
+                <>
+                  <CircularProgress size={14} sx={{ color: 'white' }} />
+                  <span>Loading...</span>
+                </>
+              ) : (
+                'Load More'
+              )}
+            </button>
+          </div>
+        )}
+
       </div>
     </div>
   )

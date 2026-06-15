@@ -262,14 +262,11 @@ export default function ActivityBoard() {
 
   return (
     <div className="flex-1 w-full h-full overflow-y-auto bg-white font-['Outfit',sans-serif] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none @container outline-none">
-      
-      {/* Sticky Tabs */}
-      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl">
         <ActivityTabs active={activeFilter} onChange={handleFilterChange} />
       </div>
       
-      {/* Main Content Area */}
-      <div className="w-full pt-3 pb-16 @md:pb-10 max-w-5xl mx-auto px-3 @md:px-6">
+      <div className="w-full pt-1 pb-16 @md:pb-10 max-w-5xl mx-auto px-3 @md:px-6">
         
         {displayedItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center p-8 text-center">

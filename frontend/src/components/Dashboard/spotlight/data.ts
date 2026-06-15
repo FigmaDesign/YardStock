@@ -5,16 +5,19 @@ export interface FilterTab {
   count?: number;
 }
 
+const TAB_COLOR = '#6B7280'; 
+
 export const FILTER_TABS: FilterTab[] = [
-  { key: 'all', label: 'All', color: '#6B21A8' },
-  { key: 'real-estate', label: 'Real Estate', color: '#E91E8C' },
-  { key: 'construction', label: 'Construction', color: '#F59E0B' },
-  { key: 'business', label: 'Business', color: '#3B82F6' },
-  { key: 'marketing', label: 'Marketing', color: '#10B981' },
-  { key: 'finance', label: 'Finance', color: '#8B5CF6' },
-  { key: 'technology', label: 'Technology', color: '#06B6D4' },
-  { key: 'design', label: 'Design', color: '#EC4899' },
-]
+  { key: 'all', label: 'All', color: TAB_COLOR },
+  { key: 'real-estate', label: 'Real Estate', color: TAB_COLOR },
+  { key: 'construction', label: 'Construction', color: TAB_COLOR },
+  { key: 'business', label: 'Business', color: TAB_COLOR },
+  { key: 'marketing', label: 'Marketing', color: TAB_COLOR },
+  { key: 'finance', label: 'Finance', color: TAB_COLOR },
+  { key: 'technology', label: 'Technology', color: TAB_COLOR },
+  { key: 'design', label: 'Design', color: TAB_COLOR },
+];
+
 export interface SpotlightVideo {
   id: string
   title: string

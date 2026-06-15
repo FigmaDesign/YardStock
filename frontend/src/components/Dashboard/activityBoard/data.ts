@@ -12,14 +12,15 @@ export interface FilterTab {
   Icon: React.ElementType
   color: string
 }
+const TAB_COLOR = '#6B7280'; 
 
 export const FILTER_TABS: FilterTab[] = [
-  { key: 'all', label: 'All', count: 120, Icon: GridViewIcon, color: '#6B21A8' },
-  { key: 'hiring', label: 'Hiring', count: 20, Icon: PersonSearchIcon, color: '#E91E8C' },
-  { key: 'lookingFor', label: 'Looking For', count: 50, Icon: SearchIcon, color: '#3B82F6' },
-  { key: 'offerings', label: 'Offerings', count: 35, Icon: BusinessCenterIcon, color: '#10B981' },
-  { key: 'resources', label: 'Resources', count: 15, Icon: MenuBookIcon, color: '#F59E0B' },
-]
+  { key: 'all', label: 'All', count: 120, Icon: GridViewIcon, color: TAB_COLOR },
+  { key: 'hiring', label: 'Hiring', count: 20, Icon: PersonSearchIcon, color: TAB_COLOR },
+  { key: 'lookingFor', label: 'Looking For', count: 50, Icon: SearchIcon, color: TAB_COLOR },
+  { key: 'offerings', label: 'Offerings', count: 35, Icon: BusinessCenterIcon, color: TAB_COLOR },
+  { key: 'resources', label: 'Resources', count: 15, Icon: MenuBookIcon, color: TAB_COLOR },
+];
 
 export interface ActivityItem {
   id: string

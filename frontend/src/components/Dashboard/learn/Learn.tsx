@@ -152,11 +152,11 @@ export default function Learn() {
 
   return (
     <div className="flex-1 w-full h-full overflow-x-hidden overflow-y-auto bg-white font-['Outfit',sans-serif] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none @container outline-none">
-      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+      <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl">
         <LearnTabs active={activeFilter} onChange={handleFilterChange} />
       </div>
       
-      <div className="w-full pt-3 pb-16 @md:pb-10 max-w-5xl mx-auto px-3 @md:px-6">
+      <div className="w-full pt-1 pb-16 @md:pb-10 max-w-5xl mx-auto px-3 @md:px-6">
         {displayedCourses.length === 0 ? (
           <div className="flex flex-col items-center justify-center p-8 text-center">
             <div className="w-12 h-12 mb-3 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center">

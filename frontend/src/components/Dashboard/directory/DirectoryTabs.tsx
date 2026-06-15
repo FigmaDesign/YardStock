@@ -7,7 +7,7 @@ interface DirectoryTabsProps {
 
 export default function DirectoryTabs({ active, onChange }: DirectoryTabsProps) {
   return (
-    <div className="p-3 bg-white border-b">
+    <div className="p-3 bg-white">
       <div className="flex gap-2">
         {DIRECTORY_TABS.map((t) => (
           <button

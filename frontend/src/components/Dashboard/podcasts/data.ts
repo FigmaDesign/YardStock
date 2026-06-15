@@ -12,17 +12,19 @@ export interface TabType {
   count?: number; 
 }
 
+const TAB_COLOR = '#6B7280'; 
+
 export const FILTER_TABS: TabType[] = [
-  { key: 'all', label: 'All', color: '#6B21A8' },
-  { key: 'interviews', label: 'Interviews', color: '#E91E8C' },
-  { key: 'tech', label: 'Technology', color: '#06B6D4' },
-  { key: 'business', label: 'Business', color: '#3B82F6' },
-  { key: 'news', label: 'News & Politics', color: '#EF4444' },
-  { key: 'education', label: 'Education', color: '#10B981' },
-  { key: 'comedy', label: 'Comedy', color: '#F59E0B' }, // Intentionally left empty for the empty state
-  { key: 'true-crime', label: 'True Crime', color: '#4B5563' },
-  { key: 'health', label: 'Health & Fitness', color: '#8B5CF6' },
-]
+  { key: 'all', label: 'All', color: TAB_COLOR },
+  { key: 'interviews', label: 'Interviews', color: TAB_COLOR },
+  { key: 'tech', label: 'Technology', color: TAB_COLOR },
+  { key: 'business', label: 'Business', color: TAB_COLOR },
+  { key: 'news', label: 'News & Politics', color: TAB_COLOR },
+  { key: 'education', label: 'Education', color: TAB_COLOR },
+  { key: 'comedy', label: 'Comedy', color: TAB_COLOR }, 
+  { key: 'true-crime', label: 'True Crime', color: TAB_COLOR },
+  { key: 'health', label: 'Health & Fitness', color: TAB_COLOR },
+];
 
 export interface PodcastEpisode {
   id: string

@@ -106,10 +106,10 @@ function DesktopDashboard() {
   }, [])
 
   return (
-    <main className="flex flex-col h-full overflow-hidden bg-linear-to-br from-[#f8f9fa] to-[#eef0f3]">
+    <main className="flex flex-col h-full overflow-hidden bg-white">
       <DashboardHeader />
 
-      <nav aria-label="Main Navigation" className="shrink-0 bg-white  shadow-sm z-10">
+      <nav aria-label="Main Navigation" className="shrink-0 bg-white z-10">
         <TabBar
           tabs={TAB_ITEMS}
           active={activeTab}
@@ -124,7 +124,7 @@ function DesktopDashboard() {
         </nav>
       )}
 
-      <div className="flex-1 overflow-hidden flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#7C3AED]" tabIndex={-1}>
+      <div className="flex-1 overflow-hidden flex flex-col focus-visible:outline-none" tabIndex={-1}>
         {activeTab === 'activityBoard' ? (
           <ActivityBoard />
         ) : activeTab === 'podcasts' ? (
@@ -180,10 +180,10 @@ function MobileDashboard() {
   }, [])
 
   return (
-    <main className="h-full flex flex-col overflow-hidden bg-linear-to-br from-[#f8f9fa] to-[#eef0f3]">
+    <main className="h-full flex flex-col overflow-hidden bg-white">
       <DashboardHeader />
 
-      <nav aria-label="Main Navigation" className="shrink-0 bg-white shadow-sm z-10">
+      <nav aria-label="Main Navigation" className="shrink-0 bg-white z-10">
         <TabBar
           tabs={TAB_ITEMS}
           active={activeTab}
@@ -198,7 +198,7 @@ function MobileDashboard() {
         </nav>
       )}
 
-      <div className="flex-1 overflow-hidden flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#7C3AED]" tabIndex={-1}>
+      <div className="flex-1 overflow-hidden flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:outline-none" tabIndex={-1}>
         {activeTab === 'activityBoard' ? (
           <ActivityBoard />
         ) : activeTab === 'podcasts' ? (

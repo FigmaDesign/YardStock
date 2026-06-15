@@ -131,7 +131,8 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#166534',
     logoColor: '#FFFFFF',
-    logoText: 'GODREJ'
+    logoText: 'GP',
+    isRecentlyJoined: true
   },
   {
     id: 'b-11',
@@ -183,7 +184,8 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#312E81',
     logoColor: '#E0E7FF',
-    logoText: 'BRIGADE'
+    logoText: 'BG',
+    isRecentlyJoined: true
   },
   {
     id: 'b-16',
@@ -226,7 +228,8 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#9D174D',
     logoColor: '#FCE7F3',
-    logoText: 'OMAXE'
+    logoText: 'OLtd',
+    isRecentlyJoined: true
   },
   {
     id: 'b-20',
@@ -269,7 +272,8 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#9F1239',
     logoColor: '#FFE4E6',
-    logoText: 'KALPA'
+    logoText: 'KL',
+    isRecentlyJoined: true
   },
   {
     id: 'b-24',
@@ -334,7 +338,8 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#0369A1',
     logoColor: '#E0F2FE',
-    logoText: 'NCC'
+    logoText: 'NCC',
+    isRecentlyJoined: true
   },
   {
     id: 'b-30',
@@ -354,7 +359,8 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#BE185D',
     logoColor: '#FCE7F3',
-    logoText: 'VB'
+    logoText: 'VB',
+    isRecentlyJoined: true
   },
   {
     id: 'b-32',
@@ -374,7 +380,8 @@ export const BUILDERS: Builder[] = [
     location: 'Bangalore',
     logoBg: '#6D28D9',
     logoColor: '#EDE9FE',
-    logoText: 'MANTRI'
+    logoText: 'MANTRI',
+    isRecentlyJoined: true
   },
   {
     id: 'b-34',
@@ -406,7 +413,8 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#15803D',
     logoColor: '#DCFCE7',
-    logoText: 'AMANORA'
+    logoText: 'AMANORA',
+    isRecentlyJoined: true
   },
   {
     id: 'b-37',
@@ -427,7 +435,8 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#C2410C',
     logoColor: '#FFEDD5',
-    logoText: 'GAURS'
+    logoText: 'GAURS',
+    isRecentlyJoined: true
   },
   {
     id: 'b-39',
@@ -437,7 +446,7 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#86198F',
     logoColor: '#FAE8FF',
-    logoText: 'NAVINS',
+    logoText: 'NAV',
     isRecentlyJoined: true
   },
   {
@@ -490,7 +499,8 @@ export const BUILDERS: Builder[] = [
     verified: true,
     logoBg: '#0369A1',
     logoColor: '#E0F2FE',
-    logoText: 'SCP'
+    logoText: 'SCP',
+    isRecentlyJoined: true
   },
   {
     id: 'b-45',
@@ -503,5 +513,3 @@ export const BUILDERS: Builder[] = [
     isRecentlyJoined: true
   }
 ]
-
-export default {} as const

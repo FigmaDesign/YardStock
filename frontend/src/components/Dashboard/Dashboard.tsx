@@ -37,7 +37,7 @@ const STAGGER_DELAYS = [
 const TAB_ITEMS = NAV_ITEMS.map(({ key, label, Icon, activeIcon, badge, subTabs }) => ({
   key,
   label,
-  Icon,
+  Icon: Icon || '',
   activeIcon,
   badge,
   subTabs: subTabs ?? [],

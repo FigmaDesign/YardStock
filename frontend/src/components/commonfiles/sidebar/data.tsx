@@ -1,11 +1,11 @@
 import type { SubTabItem } from '../TabBar/SubTabBar' 
 
 import micPurple from './Images/mic.png' 
-import activityIcon from './Images/activity.png'
-import learnIcon from './Images/learn.png'
-import spotlightIcon from './Images/spotlight.png'
-import directoryIcon from './Images/directory.png'
-import cityIcon from './Images/city.png'
+import activityactiveIcon from './Images/activity.png'
+import learnactiveIcon from './Images/learn.png'
+import spotlightactiveIcon from './Images/spotlight.png'
+import directoryactiveIcon from './Images/directory.png'
+import cityactiveIcon from './Images/city.png'
 
 import micWhite from './Images1/mic1.png'
 import activityWhite from './Images1/activity1.png'
@@ -29,18 +29,18 @@ export type NavKey =
 export interface NavItem {
   key: NavKey
   label: string
-  Icon: string
-  activeIcon?: string 
+  activeIcon: string
+  Icon?: string 
   badge?: string
   hasArrow?: boolean
   subTabs?: SubTabItem[]
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { key: 'podcasts',      label: 'RED Expert',     Icon: micPurple,     activeIcon: micWhite },
-  { key: 'activityBoard', label: 'Activity Board', Icon: activityIcon,  activeIcon: activityWhite },
-  { key: 'learn',         label: 'Learn',          Icon: learnIcon,     activeIcon: learnWhite },
-  { key: 'spotlight',     label: 'Spotlight',      Icon: spotlightIcon, activeIcon: spotlightWhite },
-  { key: 'directory',     label: 'Directory',      Icon: directoryIcon, activeIcon: directoryWhite },
-  { key: 'cityInventory', label: 'City Inventory', Icon: cityIcon,      activeIcon: cityWhite }
+  { key: 'podcasts',      label: 'RED Expert',     activeIcon: micPurple,     Icon: micWhite },
+  { key: 'activityBoard', label: 'Activity Board', activeIcon: activityactiveIcon,  Icon: activityWhite },
+  { key: 'learn',         label: 'Learn',          activeIcon: learnactiveIcon,     Icon: learnWhite },
+  { key: 'spotlight',     label: 'Spotlight',      activeIcon: spotlightactiveIcon, Icon: spotlightWhite },
+  { key: 'directory',     label: 'Directory',      activeIcon: directoryactiveIcon, Icon: directoryWhite },
+  { key: 'cityInventory', label: 'City Inventory', activeIcon: cityactiveIcon,      Icon: cityWhite }
 ]

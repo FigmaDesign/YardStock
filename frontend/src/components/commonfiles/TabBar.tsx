@@ -8,6 +8,8 @@ export interface TabItem {
   key: string
   label: string
   Icon: string
+  activeIcon?: string
+  badge?: string
   subTabs?: SubTabItem[]
 }
 

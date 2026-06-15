@@ -34,10 +34,12 @@ const STAGGER_DELAYS = [
   '[animation-delay:195ms]',
 ] as const
 
-const TAB_ITEMS = NAV_ITEMS.map(({ key, label, Icon, subTabs }) => ({
+const TAB_ITEMS = NAV_ITEMS.map(({ key, label, Icon, activeIcon, badge, subTabs }) => ({
   key,
   label,
   Icon,
+  activeIcon,
+  badge,
   subTabs: subTabs ?? [],
 }))
 

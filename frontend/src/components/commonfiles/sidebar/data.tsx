@@ -31,6 +31,7 @@ export interface NavItem {
   label: string
   Icon: string
   activeIcon?: string 
+  badge?: string
   hasArrow?: boolean
   subTabs?: SubTabItem[]
 }

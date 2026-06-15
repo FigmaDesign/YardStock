@@ -93,7 +93,7 @@ const CourseCard = memo(function CourseCard({ course, index }: CourseCardProps) 
 
         <div className="flex flex-col flex-1 min-w-0 py-0.5">
           <div className="pr-6">
-            <h3 className="text-[13px] @md:text-[14px] font-bold text-[#1f1633] leading-snug line-clamp-2">
+            <h3 className="text-[13px] @md:text-[14px] font-medium text-[#1f1633] leading-snug line-clamp-2">
               {course.title}
             </h3>
           </div>
